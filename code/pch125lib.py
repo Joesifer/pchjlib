@@ -31,7 +31,7 @@
 # __version__ = "Last version"
 # __date__ = "28/1/2024"
 # __copyright__ = "Copyright (c) 2024 PCH_125"
-# __def__= "57"
+# __sumdef__= "57"
 
 import cmath
 import collections
