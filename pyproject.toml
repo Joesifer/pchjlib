@@ -1,0 +1,17 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pch125lib"
+description = "Thư viện này là một bộ sưu tập hàm con của mình"
+version = "0.0.3.3"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+            "numpy",
+            "roman"
+            ]
