@@ -1,5 +1,6 @@
 # Code của mình cung cấp những hàm mà mình đã sưu tầm 🐧 (*Lưu ý: có những sai sót trong quá trình mình làm, mong mọi người giúp đỡ).
 
+# Vietnamese:
 # Các hàm kiểm tra tính chất số nguyên tố và số nguyên tố liên quan:
 // Hàm kiểm tra xem một số có phải là số nguyên tố hay không.
 - kiem_tra_so_nguyen_to(n).
@@ -179,7 +180,7 @@
 
 # Mật mã Caesar:
 # Phương pháp mã hoá của Caesar được ví dụ cụ thể như sau: 
-- Dùng mật mã của Caesar chuyển bức thư “MEET YOU IN THE PARK” thành bức thư bí mật. 
+>> Dùng mật mã của Caesar chuyển bức thư “MEET YOU IN THE PARK” thành bức thư bí mật. 
 >> Các chữ cái được biểu diễn thành số theo quy tắc sau.
 
 - A B C D E F G H I J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
@@ -253,12 +254,12 @@
 - tao_danh_sach_quy_luat_1(number).
 >> Một danh sách theo quy luật 1;
 
-// Hàm tạo một dãy số theo quy luật: mỗi phần tử của dãy số vô hạn này tăng theo n đơn vị. VD: number = 10, n = 2 => array = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11].
-- tao_danh_sach_quy_luat_2(number, n).
+// Hàm tạo một dãy số theo quy luật: mỗi phần tử của dãy số vô hạn này tích với n đơn vị. VD: number = 10, n = 2 => array = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18].
+- tao_danh_sach_quy_luat_2(n, number).
 >> Một danh sách theo quy luật 2;
 
 // Hàm tạo dãy số theo quy luật: số mũ nâng tới n của số number. VD: number = 3, n = 10 => array = [3^0, 3^1, 3^2, ..., 3^10].
-- tao_danh_sach_quy_luat_3(number, n).
+- tao_danh_sach_quy_luat_3(n, number).
 >> Một danh sách theo quy luật 3;
 
 # Khác:
