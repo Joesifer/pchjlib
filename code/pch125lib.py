@@ -1227,7 +1227,7 @@ def ma_hoa_caesar(array, sang_trai_k_so):
 
 
 # # Quy luật.
-# Hàm tạo danh sách các số theo quy luật: 1 số :: 1, 2 số :: 2, 3 số :: 3, ... cho tới tổng số lượng là number (dấu :: là dấu chia hết)
+# Hàm tạo danh sách các số theo quy luật: 1 số ⋮ 1, 2 số ⋮ 2, 3 số ⋮ 3, ... cho tới tổng số lượng là number.
 def tao_danh_sach_quy_luat_1(number):
     def ho_tro(number):
         if number == 1:
@@ -1249,10 +1249,10 @@ def tao_danh_sach_quy_luat_1(number):
 
 
 # Hàm tạo một dãy số theo quy luật: mỗi phần tử của dãy số vô hạn này tích với n đơn vị.
-def tao_danh_sach_quy_luat_2(n, number):
-    return [i * n for i in range(number)]
+def tao_danh_sach_quy_luat_2(m, n):
+    return [i * m for i in range(n)]
 
 
 # Hàm tạo dãy số theo quy luật: số mũ nâng tới n của số number.
-def tao_danh_sach_quy_luat_3(n, number):
-    return [number**i for i in range(n)]
+def tao_danh_sach_quy_luat_3(n, m):
+    return [m**i for i in range(n)]
