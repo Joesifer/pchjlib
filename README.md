@@ -179,7 +179,7 @@
 
 # Mật mã Caesar:
 # Phương pháp mã hoá của Caesar được ví dụ cụ thể như sau: 
-- Dùng mật mã của Caesar chuyển bức thư “MEET YOU IN THE PARK” thành bức thư bí mật. 
+>> Dùng mật mã của Caesar chuyển bức thư “MEET YOU IN THE PARK” thành bức thư bí mật. 
 >> Các chữ cái được biểu diễn thành số theo quy tắc sau.
 
 - A B C D E F G H I J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
