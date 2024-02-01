@@ -182,14 +182,14 @@
 - Dùng mật mã của Caesar chuyển bức thư “MEET YOU IN THE PARK” thành bức thư bí mật. 
 + Các chữ cái được biểu diễn thành số theo quy tắc sau.
 
- >> A B C D E F G H I J K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z 
+ >> A B C D E F G H I J K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z\n
     0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 
 + Khi đó bức thư gốc “MEET YOU IN THE PARK” trở thành (không tính khoảng trắng): “12 4 4 19 24 14 20 8 13 19 7 4 15 0 17 10” 
 + Bây giờ ta sẽ quay chuỗi số 0 -> 25 sang trái k số (ví dụ trong trường hợp này k = 3) 
 khi đó ta có bảng sau. 
 
->> 0 1 2 3 4 5 6 7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
+>> 0 1 2 3 4 5 6 7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25\n
    3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  0  1  2
 
 + Khi đó chuỗi số “12 4 4 19 24 14 20 8 13 19 7 4 15 0 17 10” sẽ  được mã hóa thành: “15 7 7 22 1 17 23 11 16 22 10 7 18 3 20 13”
