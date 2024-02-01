@@ -1,6 +1,6 @@
-# Code của mình cung cấp những hàm mà mình đã sưu tầm 🐧 (*Lưu ý: có những sai sót trong quá trình mình làm, mong mọi người giúp đỡ).
+# README <==> ONLY for VIETNAMESE.
+>> Mình cung cấp những defs mình sưu tầm (có những sai sót trong quá trình mình làm, mong mọi người giúp đỡ).
 
-# Vietnamese:
 # Các hàm kiểm tra tính chất số nguyên tố và số nguyên tố liên quan:
 // Hàm kiểm tra xem một số có phải là số nguyên tố hay không.
 - kiem_tra_so_nguyen_to(n).
@@ -206,13 +206,13 @@
 // Hàm mô phỏng quá trình "Tải xuống" (phạm vi số n là lớn hơn 0 và nhỏ hơn 88).
 - mp_tai_xuong(n).
 >> 
-   Đang tải xuống [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
-   Tải xuống hoàn tất!
+  Đang tải xuống [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
+  Tải xuống hoàn tất!
 
 // Hàm mô phỏng quá trình "tính toán" của "Admin" (giống như mô phổng tải xuống).
 - mp_tinh_toan(n).
 >> 
-   AD: Đang tính toán [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
+  AD: Đang tính toán [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
 
 // Hàm mô phỏng quá trình "LOADING...".
 - mp_loading(n).
@@ -254,12 +254,12 @@
 - tao_danh_sach_quy_luat_1(number).
 >> Một danh sách theo quy luật 1;
 
-// Hàm tạo một dãy số theo quy luật: mỗi phần tử của dãy số vô hạn này tích với n đơn vị. VD: number = 10, n = 2 => array = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18].
-- tao_danh_sach_quy_luat_2(n, number).
+// Hàm tạo một dãy số theo quy luật: cấp số nhân với n phần tử và m. VD: n = 10, m = 2 => array = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18].
+- tao_danh_sach_quy_luat_2(m, n).
 >> Một danh sách theo quy luật 2;
 
-// Hàm tạo dãy số theo quy luật: số mũ nâng tới n của số number. VD: number = 3, n = 10 => array = [3^0, 3^1, 3^2, ..., 3^10].
-- tao_danh_sach_quy_luat_3(n, number).
+// Hàm tạo dãy số theo quy luật: số mũ nâng tới lần thứ n của số m. VD: m = 3, n = 10 => array = [3^0, 3^1, 3^2, ..., 3^10].
+- tao_danh_sach_quy_luat_3(n, m).
 >> Một danh sách theo quy luật 3;
 
 # Khác:
