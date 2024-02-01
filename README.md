@@ -250,7 +250,7 @@
 >> Giá trị của cạnh cần tìm trong tam giác;
 
 # Quy luật:
-// Hàm tạo danh sách các số theo quy luật: 1 số :: 1, 2 số :: 2, 3 số :: 3, ... cho tới tổng số lượng là number (dấu :: là dấu chia hết)
+// Hàm tạo danh sách các số theo quy luật: 1 số ⋮ 1, 2 số ⋮ 2, 3 số ⋮ 3, ... cho tới tổng số lượng là number.
 - tao_danh_sach_quy_luat_1(number).
 >> Một danh sách theo quy luật 1;
 
