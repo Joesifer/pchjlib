@@ -2,6 +2,6 @@
 # All rights reserved
 
 __author__ = "PCH_125"
-__version__ = "0.0.3.3.2"
+__version__ = "0.0.3.3.3"
 
 from .pch125lib import *

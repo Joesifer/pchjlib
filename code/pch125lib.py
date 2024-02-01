@@ -1248,11 +1248,11 @@ def tao_danh_sach_quy_luat_1(number):
     return [ho_tro(i) for i in range(1, number + 1)]
 
 
-# Hàm tạo một dãy số theo quy luật: mỗi phần tử của dãy số vô hạn này tăng theo n đơn vị.
-def tao_danh_sach_quy_luat_2(number, n):
-    return [i + n for i in range(number)]
+# Hàm tạo một dãy số theo quy luật: mỗi phần tử của dãy số vô hạn này tích với n đơn vị.
+def tao_danh_sach_quy_luat_2(n, number):
+    return [i * n for i in range(number)]
 
 
 # Hàm tạo dãy số theo quy luật: số mũ nâng tới n của số number.
-def tao_danh_sach_quy_luat_3(number, n):
+def tao_danh_sach_quy_luat_3(n, number):
     return [number**i for i in range(n)]
