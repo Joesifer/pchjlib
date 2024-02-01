@@ -1,4 +1,4 @@
-# Code của mình cung cấp những hàm mà mình đã sưu tầm :D (lưu ý: có những sai sót trong quá trình mình làm, mong mọi người giúp đỡ).
+# Code của mình cung cấp những hàm mà mình đã sưu tầm 🐧 (*Lưu ý: có những sai sót trong quá trình mình làm, mong mọi người giúp đỡ).
 
 # Các hàm kiểm tra tính chất số nguyên tố và số nguyên tố liên quan:
 // Hàm kiểm tra xem một số có phải là số nguyên tố hay không.
@@ -17,7 +17,7 @@
 - tao_danh_sach_so_emirp(n).
 >> Một danh sách các số emirp nằm trong khoảng từ 0 tới số n đã nhập;
 
-# Các hàm liên quan đến số Fibonacci.
+# Các hàm liên quan đến số Fibonacci:
 // Hàm tính số Fibonacci thứ n.
 - vi_tri_so_Fibonacci(n).
 >> Vị trí của một số Fibonacci thứ n;
@@ -180,19 +180,18 @@
 # Mật mã Caesar:
 # Phương pháp mã hoá của Caesar được ví dụ cụ thể như sau: 
 - Dùng mật mã của Caesar chuyển bức thư “MEET YOU IN THE PARK” thành bức thư bí mật. 
-+ Các chữ cái được biểu diễn thành số theo quy tắc sau.
+>> Các chữ cái được biểu diễn thành số theo quy tắc sau.
 
 - A B C D E F G H I J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
 - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 
-+ Khi đó bức thư gốc “MEET YOU IN THE PARK” trở thành (không tính khoảng trắng): “12 4 4 19 24 14 20 8 13 19 7 4 15 0 17 10” 
-+ Bây giờ ta sẽ quay chuỗi số 0 -> 25 sang trái k số (ví dụ trong trường hợp này k = 3) 
-khi đó ta có bảng sau. 
+>> Khi đó bức thư gốc “MEET YOU IN THE PARK” trở thành (không tính khoảng trắng): “12 4 4 19 24 14 20 8 13 19 7 4 15 0 17 10”
+>> Bây giờ ta sẽ quay chuỗi số 0 -> 25 sang trái k số (ví dụ trong trường hợp này k = 3) khi đó ta có bảng sau.
 
-- 0 1 2 3 4 5 6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+- 0 1 2 3 4 5 6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
 - 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  0  1  2
 
-+ Khi đó chuỗi số “12 4 4 19 24 14 20 8 13 19 7 4 15 0 17 10” sẽ  được mã hóa thành: “15 7 7 22 1 17 23 11 16 22 10 7 18 3 20 13”
+>> Khi đó chuỗi số “12 4 4 19 24 14 20 8 13 19 7 4 15 0 17 10” sẽ  được mã hóa thành: “15 7 7 22 1 17 23 11 16 22 10 7 18 3 20 13”
 
 // Hàm chuyển hóa chuỗi thành mật mã Caesar.
 - chuyen_hoa_caesar(string, sang_trai_k_so).
@@ -205,12 +204,14 @@ khi đó ta có bảng sau.
 # Các hàm mô phổng chỉ với string:
 // Hàm mô phỏng quá trình "Tải xuống" (phạm vi số n là lớn hơn 0 và nhỏ hơn 88).
 - mp_tai_xuong(n).
->> Đang tải xuống [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
->> Tải xuống hoàn tất!
+>> 
+   Đang tải xuống [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
+   Tải xuống hoàn tất!
 
-// Hàm mô phỏng quá trình "tính toán" của "admin" (giống như mô phổng tải xuống).
+// Hàm mô phỏng quá trình "tính toán" của "Admin" (giống như mô phổng tải xuống).
 - mp_tinh_toan(n).
->> AD: Đang tính toán [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
+>> 
+   AD: Đang tính toán [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
 
 // Hàm mô phỏng quá trình "LOADING...".
 - mp_loading(n).
@@ -230,7 +231,7 @@ khi đó ta có bảng sau.
                       * 
                       * 
 
-# Hàm hỗ trợ tính toán đặc biệt
+# Hàm hỗ trợ tính toán đặc biệt:
 // Hàm tính toán các công thức vật lý.
 - tinh_toan_vat_ly_8().
 >> Một bảng lựa chọn các công thức vật lý 8 chương trình GDPT 2018 sách CTST HK1;
@@ -248,9 +249,17 @@ khi đó ta có bảng sau.
 >> Giá trị của cạnh cần tìm trong tam giác;
 
 # Quy luật:
-// Hàm tạo danh sách các số theo quy luật: 1 số :: 1, 2 số :: 2, 3 số :: 3, ... (dấu :: là dấu chia hết)
+// Hàm tạo danh sách các số theo quy luật: 1 số :: 1, 2 số :: 2, 3 số :: 3, ... cho tới tổng số lượng là number (dấu :: là dấu chia hết)
 - tao_danh_sach_quy_luat_1(number).
->> Một danh sách theo quy luật 1.
+>> Một danh sách theo quy luật 1;
+
+// Hàm tạo một dãy số theo quy luật: mỗi phần tử của dãy số vô hạn này tăng theo n đơn vị. VD: number = 10, n = 2 => array = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11].
+- tao_danh_sach_quy_luat_2(number, n).
+>> Một danh sách theo quy luật 2;
+
+// Hàm tạo dãy số theo quy luật: số mũ nâng tới n của số number. VD: number = 3, n = 10 => array = [3^0, 3^1, 3^2, ..., 3^10].
+- tao_danh_sach_quy_luat_3(number, n).
+>> Một danh sách theo quy luật 3;
 
 # Khác:
 // Hàm chuyển đổi số bình thường thành số La Mã.
