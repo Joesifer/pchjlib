@@ -27,10 +27,10 @@
 ################################################################################################
 
 
-# __author__ = "PCH_125"
-# __version__ = "Last version"
-# __date__ = "28/1/2024"
-# __copyright__ = "Copyright (c) 2024 PCH_125"
+__author__ = "PCH_125"
+__version__ = "Last version"
+__date__ = "28/1/2024"
+__copyright__ = "Copyright (c) 2024 PCH_125"
 # __sumdef__= "57"
 
 import cmath
