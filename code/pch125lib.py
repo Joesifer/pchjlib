@@ -30,6 +30,7 @@
 import cmath
 import collections
 import math
+import random
 import re
 import sys
 import time
@@ -1250,3 +1251,67 @@ def tao_danh_sach_quy_luat_2(m, n):
 # Hàm tạo dãy số theo quy luật: số mũ nâng tới n của số number.
 def tao_danh_sach_quy_luat_3(n, m):
     return [m**i for i in range(n)]
+
+
+# Hàm chơi kéo búa bao với "A.I"
+def one_two_three():
+    set = {1: "Kéo", 2: "Búa", 3: "Bao"}
+    dem_human, dem_ai = 0, 0
+    n = int(input("- Số màn chơi: "))
+
+    for _ in range(n):
+        AI_choose = set[random.randint(1, 3)]
+        User_choose = str(input("- Lựa chọn của bạn: "))
+        User = User_choose.title()
+
+        print(f"- Lựa chọn của bạn = {User}, lựa chọn của A.I = {AI_choose};")
+
+        if User == "Keo" or User == "Kéo":
+            if AI_choose == "Kéo":
+                print(">>> HÒA;")
+                dem_ai += 1
+                dem_human += 1
+            if AI_choose == "Búa":
+                print(">>> A.I THẮNG;")
+                dem_ai += 1
+            if AI_choose == "Bao":
+                print(">>> BẠN THẮNG;")
+                dem_human += 1
+
+        elif User == "Bua" or User == "Búa":
+            if AI_choose == "Búa":
+                print(">>> HÒA;")
+                dem_human += 1
+                dem_ai += 1
+            if AI_choose == "Bao":
+                print(">>> A.I THẮNG;")
+                dem_ai += 1
+            if AI_choose == "Kéo":
+                print(">>> BẠN THẮNG;")
+                dem_human += 1
+
+        elif User == "Bao":
+            if AI_choose == "Bao":
+                print(">>> HÒA;")
+                dem_ai += 1
+                dem_human += 1
+            if AI_choose == "Kéo":
+                print(">>> A.I THẮNG;")
+                dem_ai += 1
+            if AI_choose == "Búa":
+                print(">>> USER THẮNG;")
+                dem_human += 1
+
+        else:
+            print(">>> ! LỖI NHÉ (BẠN BỊ TRỪ 1 ĐIỂM) !")
+            dem_human -= 1
+            dem_ai += 1
+        print()
+
+    print("- KẾT QUẢ:")
+    if dem_ai < dem_human:
+        print(f">>> Bạn thắng với {dem_human} điểm, A.I thua với {dem_ai} điểm.")
+    elif dem_ai > dem_human:
+        print(f">>> A.i thắng với {dem_ai} điểm, bạn thua với {dem_human} điểm.")
+    elif dem_ai == dem_human:
+        print(f">>> Bạn hòa với A.I và số điểm là {dem_ai}.")
