@@ -270,3 +270,7 @@
 // Hàm đếm số nghịch thế trong một danh sách (cho dãy số nguyên dương gồm n phần tử a1, a2 ,…, a{n} . Một cặp (a[i], a[j] ) được gọi là một nghịch thế nếu i < j và a[i] > a[j]).
 - dem_so_nghich_the(danh_sach).
 >> Số nghịch thế trong danh sách;
+
+// Hàm chơi kéo búa bao với "A.I".
+- one_two_three().
+>> Những sự lựa chọn để bạn chơi kéo búa bao với A.I;
