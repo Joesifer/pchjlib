@@ -18,13 +18,13 @@ from setuptools import setup
 
 
 desc = "{}\n\n{}".format(
-    open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.rst").read(),
-    open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\CHANGES.rst").read(),
+    open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.md").read(),
+    open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\CHANGES.md").read(),
 )
 
 setup(
     name="pchjlib",
-    version="0.0.2",
+    version="0.0.2.1",
     author="Joesifer",
     maintainer="Zope Foundation and Contributors",
     maintainer_email="zope-dev@zope.dev",
@@ -51,7 +51,7 @@ setup(
         "Natural Language :: Vietnamese",
         "Operating System :: OS Independent",
     ],
-    url="https://github.com/Joesifer/pch125lib_",
+    url="https://github.com/Joesifer/pchjlib",
     package_dir={"": "src"},
     python_requires=">=3.7",
     install_requires=["numpy", "roman"],
