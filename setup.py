@@ -57,7 +57,7 @@ setup(
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
-        "License :: OSI Approved :: MIT Licensee",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Natural Language :: Vietnamese",
         "Operating System :: OS Independent",
