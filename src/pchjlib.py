@@ -16,7 +16,7 @@
 
 """ INFO """
 __author__ = "Joesifer"
-__version__ = "0.0.2.4"
+__version__ = "0.0.2.5"
 __date__ = "14 February 2024"
 __copyright__ = "Copyright (c) 2024 Joesifer"
 
