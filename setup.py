@@ -24,7 +24,7 @@ desc = "{}\n\n{}".format(
 
 setup(
     name="pchjlib",
-    version="0.0.2.4",
+    version="0.0.2.5",
     author="Joesifer",
     maintainer="Zope Foundation and Contributors",
     maintainer_email="zope-dev@zope.dev",
