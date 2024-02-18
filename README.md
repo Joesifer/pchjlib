@@ -4,7 +4,7 @@
 
 
 [![PyPI Downloads](https://img.shields.io/badge/pchjlib-PyPI_downloads?style=plastic&logo=pchjlib&label=PyPI%20downloads)
-](https://pypi.org/project/pchjlib/) 
+](https://pypi.org/project/pchjlib/)
 [![GitHub](https://img.shields.io/badge/pchjlib-Joesifer_GitHub?style=plastic&logo=GitHub&label=GitHub)](https://github.com/Joesifer/pchjlib)
 
 
