@@ -1,4 +1,0 @@
-setuptools
-wheel
-roman
-numpy
