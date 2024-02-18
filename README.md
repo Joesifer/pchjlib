@@ -2,8 +2,8 @@
 
 # Cac ham kiem tra tinh chat so nguyen to va so nguyen to lien quan:
 ### Ham kiem tra xem mot so co phai la so nguyen to hay khong.
-- kiem_tra_so_nguyen_to(n).
 ```
+- kiem_tra_so_nguyen_to(n).
 >> True/ False neu (khong) la so nguyen to;
 ```
 
