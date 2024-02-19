@@ -5,7 +5,8 @@
 
 [![PyPI Downloads](https://img.shields.io/badge/pchjlib-PyPI_downloads?style=plastic&logo=pchjlib&label=PyPI%20downloads)](https://pypi.org/project/pchjlib/)
 [![GitHub](https://img.shields.io/badge/pchjlib-Joesifer_GitHub?style=plastic&logo=GitHub&label=GitHub)](https://github.com/Joesifer/pchjlib)
-
+[![Python](https://img.shields.io/badge/Version_%3E_3.7-1?style=plastic&label=Python)](https://www.python.org/)
+[![Owner](https://img.shields.io/badge/Joesifer-1?style=plastic&label=PCHJLIB&labelColor=%2300fff7&color=%23ffe600)](https://github.com/Joesifer)
 
 # Cac ham kiem tra tinh chat so nguyen to va so nguyen to lien quan:
 ### Ham kiem tra xem mot so co phai la so nguyen to hay khong.
@@ -244,7 +245,7 @@
 >> Trich xuat ki tu co trong s;
 ```
 
-### Ham an ki tu dang "12/05/2010" == "**/**/***".
+### Ham an ki tu dang "322/212/202332" == "ooo/ooo/oooooo".
 ```
 - an_ki_tu(s).
 >> Mot day ki tu an ma khong the truy lai s ban dau;
@@ -398,6 +399,9 @@
 ```
 
 # NHUNG BAN CAP NHAT
+
+### 0.0.2.10 - (19/02/2024).
+- ***Nang cap README.***
 
 ### 0.0.2.9 - (19/02/2024).
 - ***Thu nghiem.***
