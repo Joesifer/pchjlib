@@ -37,7 +37,7 @@ desc = "{}\n\n{}".format(
 
 setup(
     name="pchjlib",
-    version="0.0.2.7",
+    version="0.0.2.8",
     author="Joesifer",
     description="Bộ sưu tầm hàm con của mình",
     long_description=desc,
