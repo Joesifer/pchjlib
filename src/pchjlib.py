@@ -28,12 +28,14 @@
 ################################################################################################
 
 """ INFO """
+
 __author__ = "Joesifer"
-__version__ = "0.0.2.8"
+__version__ = "0.0.2.9"
 __date__ = "14 February 2024"
 __copyright__ = "Copyright (c) 2024 Joesifer"
 
 """" LIBRARY """
+
 import cmath
 import collections
 import math
@@ -44,7 +46,6 @@ import time
 
 import numpy
 import roman
-
 
 """ CODE """
 
@@ -1325,3 +1326,6 @@ def one_two_three():
         print(f">>> A.i thắng với {dem_ai} điểm, bạn thua với {dem_human} điểm.")
     elif dem_ai == dem_human:
         print(f">>> Bạn hòa với A.I và số điểm là {dem_ai}.")
+
+
+""" END """
