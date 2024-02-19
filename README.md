@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="https://i.imgur.com/AUXxUzd.png" width="500">
+<img src="https://i.imgur.com/AUXxUzd.png" width="450">
 </h1><br>
 
 
@@ -396,3 +396,47 @@
 - one_two_three().
 >> Nhung su lua chon de ban choi keo bua bao voi A.I;
 ```
+
+# NHUNG BAN CAP NHAT
+
+### 0.0.2.9 - (19/02/2024).
+- ***Thu nghiem.***
+
+### 0.0.2.8 - (19/02/2024).
+- ***Thu nghiem.***
+
+### 0.0.2.7 - (18/02/2024).
+- ***Nang cap README.***
+
+### 0.0.2.6 - (18/02/2024).
+- ***Thay doi sang MIT License.***
+
+### 0.0.2.5 - (18/02/2024).
+- ***Nang cap README.***
+
+### 0.0.2.4 - (18/02/2024).
+- ***Nang cap README.***
+
+### 0.0.2.3 - (18/02/2024).
+- ***Thu nghiem.***
+
+### 0.0.2.2 - (14/02/2024).
+- ***Thu nghiem.***
+
+### 0.0.2.1 - (14/02/2024).
+- ***Thu nghiem.***
+
+### 0.0.2 - (14/02/2024).
+- ***Sua loi khong them cac phu thuoc.***
+
+### 0.0.1.2 - (14/02/2024).
+- ***Thu nghiem.***
+
+### 0.0.1.1 - (14/2/2024).
+- ***Thu nghiem.***
+
+### 0.0.1 - (14/02/2024).
+- ***Phien ban dau tien.***
+
+### 0.0.0.1 - (14/02/2024).
+- ***Thu nghiem.***

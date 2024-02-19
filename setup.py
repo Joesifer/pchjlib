@@ -30,16 +30,13 @@
 from setuptools import setup
 
 
-desc = "{}\n\n{}".format(
-    open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.md").read(),
-    open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\CHANGES.md").read(),
-)
+desc = open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.md").read()
 
 setup(
     name="pchjlib",
-    version="0.0.2.8",
+    version="0.0.2.9",
     author="Joesifer",
-    description="Bộ sưu tầm hàm con của mình",
+    description="Bộ sưu tầm hàm con của tôi.",
     long_description=desc,
     long_description_content_type="text/markdown",
     license="MIT License",
