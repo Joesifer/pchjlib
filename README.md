@@ -169,7 +169,7 @@
 >> Mot danh sach cac so boi so cua tu 0 toi 10 lan;
 ```
 
-# Cac ham lien quan den tinh chat so song to:
+# Cac ham lien quan den tinh chat so song to va so phong phu:
 ### Ham kiem tra cac so song to.
 ```
 - kiem_tra_so_song_to(n).
@@ -182,6 +182,17 @@
 >> Mot danh sach cac so song to tu 0 toi n;
 ```
 
+### Ham kiem tra cac so phong phu. (So tu nhien N duoc goi la so phong phu neu tong cac uoc cua N (khong ke N) lon hon N).
+```
+- kiem_tra_so_phong_phu(number).
+>>  True/ False neu (khong) la mot so phong phu;
+```
+
+### Ham tao danh sach cac so phong phu.
+```
+- tao_danh_sach_so_phong_phu(n).
+>> Mot danh sach cac so phong phu tu 0 toi n;
+```
 # Cac ham lien quan den phan tich thua so nguyen to:
 ### Ham tinh cac thua so nguyen to cua mot so (vip).
 ```
@@ -410,6 +421,9 @@
 ```
 
 # NHUNG BAN CAP NHAT
+
+### 0.0.3.2 - (20/02/2024).
+- ***Bo sung so phong phu.***
 
 ### 0.0.3.1 - (20/02/2024).
 - ***Nang cap info library.***
