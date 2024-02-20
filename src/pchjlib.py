@@ -27,15 +27,32 @@
 #
 ################################################################################################
 
-""" INFO """
+"""
+PCHJLIB
+=======
+
+Author = "Joesifer".
+Version = "0.0.3.1".
+Date = "14 February 2024".
+Copyright = "Copyright (c) 2024 Joesifer".
+Supported python versions = >3.7.
+Imported library = {"cmath", "collections", "math", "re", "sys", "time", "numpy", "roman"}.
+License = MIT License.
+
+How to use the library?::
+
+  >>> You can access: `<https://github.com/Joesifer/pchjlib/blob/main/README.md>`.
+
+Can you support me by sending email to::
+
+  >>> `phanchanhung2k0@gmail.com`.
+
+"""
 
 __author__ = "Joesifer"
 __version__ = "0.0.3"
 __date__ = "14 February 2024"
 __copyright__ = "Copyright (c) 2024 Joesifer"
-
-
-"""" LIBRARY """
 
 import cmath
 import collections
@@ -44,13 +61,8 @@ import random
 import re
 import sys
 import time
-
 import numpy
 import roman
-
-
-""" CODE """
-
 
 # # Các hàm kiểm tra tính chất số nguyên tố và số nguyên tố liên quan:
 # Hàm kiểm tra xem một số có phải là số nguyên tố hay không
@@ -1354,6 +1366,3 @@ def one_two_three():
         print(f">>> A.i thắng với {dem_ai} điểm, bạn thua với {dem_human} điểm.")
     elif dem_ai == dem_human:
         print(f">>> Bạn hòa với A.I và số điểm là {dem_ai}.")
-
-
-""" END """
