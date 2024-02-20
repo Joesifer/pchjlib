@@ -29,28 +29,35 @@
 
 """
 PCHJLIB
-=======
+===========
 
 Author = "Joesifer".
-Version = "0.0.3.1".
+---------------------------------------------------------------------------------------------
+Version = "0.0.3.2".
+---------------------------------------------------------------------------------------------
 Date = "14 February 2024".
+---------------------------------------------------------------------------------------------
 Copyright = "Copyright (c) 2024 Joesifer".
+---------------------------------------------------------------------------------------------
 Supported python versions = >3.7.
+---------------------------------------------------------------------------------------------
 Imported library = {"cmath", "collections", "math", "re", "sys", "time", "numpy", "roman"}.
+---------------------------------------------------------------------------------------------
 License = MIT License.
+---------------------------------------------------------------------------------------------
 
 How to use the library?::
 
-  >>> You can access: `<https://github.com/Joesifer/pchjlib/blob/main/README.md>`.
+  >>> You can access: <https://github.com/Joesifer/pchjlib/blob/main/README.md>.
 
-Can you support me by sending email to::
+Can you support me by::
 
-  >>> `phanchanhung2k0@gmail.com`.
+  >>> Sending email to: <phanchanhung12055@gmail.com>.
 
 """
 
 __author__ = "Joesifer"
-__version__ = "0.0.3"
+__version__ = "0.0.3.2"
 __date__ = "14 February 2024"
 __copyright__ = "Copyright (c) 2024 Joesifer"
 
@@ -61,6 +68,7 @@ import random
 import re
 import sys
 import time
+
 import numpy
 import roman
 
@@ -299,7 +307,7 @@ def tao_danh_sach_boi_so(n):
         return boi
 
 
-# # Các hàm liên quan đến tính chất số song tố:
+# # Các hàm liên quan đến tính chất số song tố và số phong phú:
 # Hàm kiểm tra các số song tố
 def kiem_tra_so_song_to(n):
     if kiem_tra_so_nguyen_to(n) and kiem_tra_so_nguyen_to(tong_chu_so(n)):
@@ -312,6 +320,25 @@ def kiem_tra_so_song_to(n):
 def tao_danh_sach_so_song_to(n):
     so = [i for i in range(n) if kiem_tra_so_nguyen_to(i) is True]
     return so
+
+
+# Ham kiem tra cac so phong phu.
+def kiem_tra_so_phong_phu(number):
+    def uoc(so):
+        return [i for i in range(1, so - 1) if so % i == 0]
+
+    def sup(so):
+        if sum(uoc(so)) > so:
+            return True
+        else:
+            return False
+
+    return sup(number)
+
+
+# Ham tao danh sach cac so phong phu.
+def tao_danh_sach_so_phong_phu(n):
+    return [i for i in range(n) if kiem_tra_so_phong_phu(i) is True]
 
 
 # # Các hàm liên quan đến phân tích thừa số nguyên tố:
