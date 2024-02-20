@@ -411,6 +411,9 @@
 
 # NHUNG BAN CAP NHAT
 
+### 0.0.3.1 - (20/02/2024).
+- ***Nang cap info library.***
+
 ### 0.0.3 - (20/02/2024).
 - ***Bo sung "xau_ki_tu_khong_trung_lap" (khong theo thu tu bang chu cai) va loai bo "ki_tu_trung_lap" (theo thu tu bang chu cai).***
 
