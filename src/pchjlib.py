@@ -30,9 +30,10 @@
 """ INFO """
 
 __author__ = "Joesifer"
-__version__ = "0.0.2.10"
+__version__ = "0.0.3"
 __date__ = "14 February 2024"
 __copyright__ = "Copyright (c) 2024 Joesifer"
+
 
 """" LIBRARY """
 
@@ -46,6 +47,7 @@ import time
 
 import numpy
 import roman
+
 
 """ CODE """
 
@@ -643,11 +645,6 @@ def danh_sach_khong_trung_lap(lst):
     return sorted(list(set(lst)), reverse=True)
 
 
-# Hàm loại bỏ các ký tự trùng lặp từ một chuỗi
-def ki_tu_khong_trung_lap(string):
-    return "".join(sorted(set(string), reverse=False))
-
-
 # Hàm trích xuất các chữ số từ một chuỗi
 def trich_xuat_chu_so_tu_chuoi(s):
     return [int(digit) for digit in re.findall(r"\d", s)]
@@ -765,7 +762,8 @@ def trich_xuat_cac_so_tu_so(s):
 
 
 # Hàm nén xâu
-def xau_duoc_nen(s):
+def xau_duoc_nen_1(s):
+    s = sorted([i for i in s], reverse=True)
     ket_qua = ""
     dem = 1
     for i in range(1, len(s)):
@@ -784,8 +782,38 @@ def xau_duoc_nen(s):
     return ket_qua
 
 
+# Hàm nén xâu
+def xau_duoc_nen_2(s):
+    ket_qua = ""
+    dem = 1
+    for i in range(1, len(s)):
+        if s[i] == s[i - 1]:
+            dem += 1
+        else:
+            if dem > 1:
+                ket_qua += str(dem) + s[i - 1]
+            else:
+                ket_qua += s[i - 1]
+            dem = 1
+    if dem > 1:
+        ket_qua += str(dem) + s[-1]
+    else:
+        ket_qua += s[-1]
+    return ket_qua
+
+
+# Ham tao ra xau ki tu khong trung lap. VD: "Google" se la "gole"
+def xau_ki_tu_khong_trung_lap(s):
+    s = s.lower()
+    chuoi = ""
+    for i in s:
+        if i not in chuoi:
+            chuoi += i
+    return chuoi
+
+
 # Hàm nén xâu nhưng không ghi số. VD: "hhhooccsiinh" == "hocsinh"
-def xau_duoc_nen_ko_so(chuoi_nhap):
+def xau_duoc_nen_khong_so(chuoi_nhap):
     ket_qua = chuoi_nhap[0]
     for ky_tu in chuoi_nhap[1:]:
         if ky_tu != ket_qua[-1]:
