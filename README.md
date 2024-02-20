@@ -221,12 +221,6 @@
 >> Danh sach voi nhung phan tu khong trung lap;
 ```
 
-### Ham loai bo cac ky tu trung lap tu mot chuoi.
-```
-- ki_tu_khong_trung_lap(string).
->> Mot chuoi khong trung lap;
-```
-
 ### Ham trich xuat cac chu so tu mot chuoi.
 ```
 - trich_xuat_chu_so_tu_chuoi(s).
@@ -257,16 +251,33 @@
 >> Trich xuat cac so tu mot day so nhung lan voi ki tu;
 ```
 
-### Ham nen xau nhung khong ghi so. VD: "hhhooccsiinh" se la "hocsinh".
+### Ham nen xau loai 1. VD: "google" se la "2ol2ge".
 ```
-- xau_duoc_nen_ko_so(chuoi_nhap).
+- xau_duoc_nen_1(s).
+>> Xau duoc nen;
+```
+### Ham nen xau loai 2. VD: "google" se la "g2ogle".
+```
+- xau_duoc_nen_2(s).
 >> Xau duoc nen;
 ```
 
-### Ham giai nen xau.
+### Ham nen xau nhung khong ghi so. VD: "hhhooccsiinh" se la "hocsinh".
+```
+- xau_duoc_nen_khong_so(chuoi_nhap).
+>> Xau duoc nen;
+```
+
+### Ham giai nen xau. VD: "3ab3c" se la "aaabccc"
 ```
 - xau_duoc_giai_nen(s).
 >> Xau duoc giai nen;
+```
+
+### Ham tao ra xau ki tu khong trung lap. VD: "Google" se la "gole".
+```
+- xau_ki_tu_khong_trung_lap(s).
+>> Xau ki tu khong trung lap;
 ```
 
 # Mat ma Caesar:
@@ -399,6 +410,9 @@
 ```
 
 # NHUNG BAN CAP NHAT
+
+### 0.0.3 - (20/02/2024).
+- ***Bo sung "xau_ki_tu_khong_trung_lap" (khong theo thu tu bang chu cai) va loai bo "ki_tu_trung_lap" (theo thu tu bang chu cai).***
 
 ### 0.0.2.10 - (19/02/2024).
 - ***Nang cap README.***
