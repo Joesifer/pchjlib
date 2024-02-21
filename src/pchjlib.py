@@ -1,79 +1,86 @@
 ################################################################################################
-#
-# Copyright (c) 2024 Joesifer
-# Any act of hitting a subordinate will result in a beating
-# Supported python versions = {"all"}
-# Imported library = {"cmath", "collections", "math", "re", "sys", "time", "numpy", "roman"}
-#
-# MIT License
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-#
+#                                                                                              #
+# Copyright (c) 2024 Joesifer                                                                  #
+# Any act of hitting a subordinate will result in a beating.                                   #
+# Supported python versions = {"all"}                                                          #
+# Imported library = {"cmath", "collections", "math", "re", "sys", "time", "numpy", "roman"}   #
+#                                                                                              #
+# MIT License                                                                                  #
+#                                                                                              #
+# Permission is hereby granted, free of charge, to any person obtaining a copy                 #
+# of this software and associated documentation files (the "Software"), to deal                #
+# in the Software without restriction, including without limitation the rights                 #
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell                    #
+# copies of the Software, and to permit persons to whom the Software is                        #
+# furnished to do so, subject to the following conditions:                                     #
+#                                                                                              #
+# The above copyright notice and this permission notice shall be included in all               #
+# copies or substantial portions of the Software.                                              #
+#                                                                                              #
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR                   #
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,                     #
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE                  #
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER                       #
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,                #
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE                #
+# SOFTWARE.                                                                                    #
+#                                                                                              #
 ################################################################################################
 
 """
 PCHJLIB
 ===========
 
-Author = "Joesifer".
----------------------------------------------------------------------------------------------
-Version = "0.0.3.2".
----------------------------------------------------------------------------------------------
-Date = "14 February 2024".
----------------------------------------------------------------------------------------------
-Copyright = "Copyright (c) 2024 Joesifer".
----------------------------------------------------------------------------------------------
-Supported python versions = >3.7.
----------------------------------------------------------------------------------------------
-Imported library = {"cmath", "collections", "math", "re", "sys", "time", "numpy", "roman"}.
----------------------------------------------------------------------------------------------
-License = MIT License.
----------------------------------------------------------------------------------------------
+Author.
+---------------------------------------------------------
+- Joesifer.
 
-How to use the library?::
+Version.
+---------------------------------------------------------
+- 0.0.3.3.
 
-  >>> You can access: <https://github.com/Joesifer/pchjlib/blob/main/README.md>.
+Date.
+---------------------------------------------------------
+- 14 February 2024.
 
-Can you support me by::
+Copyright.
+---------------------------------------------------------
+- Copyright (c) 2024 Joesifer.
 
-  >>> Sending email to: <phanchanhung12055@gmail.com>.
+Supported python versions.
+---------------------------------------------------------
+- >=3.7.
+
+Imported library.
+---------------------------------------------------------
+- cmath, collections, math, re, sys, time, numpy, roman.
+
+License.
+---------------------------------------------------------
+- MIT License.
+
+INFO.
+---------------------------------------------------------
+
+If you don't know how to use::
+
+  >>> You can access: `https://github.com/Joesifer/pchjlib/blob/main/README.md` .
+
+And you can support me or ask me how to use by::
+
+  >>> Sending email to: `phanchanhung12055@gmail.com` .
+
+
+THANK YOU FOR DOWNLOADING!
+================================
 
 """
 
-__author__ = "Joesifer"
-__version__ = "0.0.3.2"
-__date__ = "14 February 2024"
-__copyright__ = "Copyright (c) 2024 Joesifer"
+import cmath, collections, math, random, re, sys, time, numpy, roman
 
-import cmath
-import collections
-import math
-import random
-import re
-import sys
-import time
 
-import numpy
-import roman
-
-# # Các hàm kiểm tra tính chất số nguyên tố và số nguyên tố liên quan:
-# Hàm kiểm tra xem một số có phải là số nguyên tố hay không
+# # Cac ham kiem tra tinh chat so nguyen to va so nguyen to lien quan:
+# Ham kiem tra xem mot so co phai la so nguyen to hay khong
 def kiem_tra_so_nguyen_to(n):
     if n <= 1:
         return False
@@ -84,7 +91,7 @@ def kiem_tra_so_nguyen_to(n):
         return True
 
 
-# Hàm tạo danh sách các số nguyên tố đến n
+# Ham tao danh sach cac so nguyen to den n
 def tao_danh_sach_so_nguyen_to(n):
     if n < 5:
         n = 10
@@ -94,7 +101,7 @@ def tao_danh_sach_so_nguyen_to(n):
     return prime_list
 
 
-# Hàm kiểm tra số emirp (trái với prime hay số nguyên tố)
+# Ham kiem tra so emirp (trai voi prime hay so nguyen to)
 def kiem_tra_so_emirp(n):
     if kiem_tra_so_nguyen_to(n) is True:
         reverse_n = int(str(n)[::-1])
@@ -103,26 +110,26 @@ def kiem_tra_so_emirp(n):
     return False
 
 
-# Hàm tạo số emirp đến n (trái với prime hay số nguyên tố)
+# Ham tao so emirp den n (trai voi prime hay so nguyen to)
 def tao_danh_sach_so_emirp(n):
     return [i for i in range(n) if kiem_tra_so_emirp(i) is True]
 
 
-# # Các hàm liên quan đến số Fibonacci:
-# Hàm tính số Fibonacci thứ n bằng cách sử dụng memoization
+# # Cac ham lien quan den so Fibonacci:
+# Ham tinh so Fibonacci thu n bang cach su dung memoization
 def vi_tri_so_Fibonacci(n, memo={0: 0, 1: 1}):
     if n not in memo:
         memo[n] = vi_tri_so_Fibonacci(n - 1, memo) + vi_tri_so_Fibonacci(n - 2, memo)
     return memo[n]
 
 
-# Hàm tạo danh sách các số Fibonacci đến n
+# Ham tao danh sach cac so Fibonacci den n
 def tao_danh_sach_so_Fibonacci(n):
     return [vi_tri_so_Fibonacci(i) for i in range(n)]
 
 
-# # Các hàm số hoàn thiện, số tự mãn, hứa hôn, hoàn hảo, thân thiết:
-# Hàm tính tổng các ước số của n không tính n và không âm
+# # Cac ham so hoan thien, so tu man, hua hon, hoan hao, than thiet:
+# Ham tinh tong cac uoc so cua n khong tinh n va khong am
 def tong_uoc_so(n):
     tong = 0
     for i in range(1, n):
@@ -131,26 +138,26 @@ def tong_uoc_so(n):
     return tong
 
 
-# Hàm tính tổng các chữ số của một số
+# Ham tinh tong cac chu so cua mot so
 def tong_chu_so(n):
     return sum(int(digit) for digit in str(n))
 
 
-# Hàm kiểm tra xem một số có phải là số hoàn thiện
+# Ham kiem tra xem mot so co phai la so hoan thien
 def kiem_tra_so_hoan_thien(n):
     if n < 1:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
     else:
         divisors_sum = sum(i for i in range(1, n) if n % i == 0)
         return True if divisors_sum == n else False
 
 
-# Hàm tạo danh sách các số hoàn thiện
+# Ham tao danh sach cac so hoan thien
 def tao_danh_sach_so_hoan_thien(n):
     return [i for i in range(n) if kiem_tra_so_hoan_thien(i) is True]
 
 
-# Hàm kiểm tra số tự mãn (số bằng tổng các mũ bậc ba của mỗi chữ số của nó)
+# Ham kiem tra so tu man (so bang tong cac mu bac ba cua moi chu so cua no)
 def kiem_tra_so_tu_man(n):
     n = str(n)
     tong = sum(int(i) ** 3 for i in n)
@@ -160,22 +167,22 @@ def kiem_tra_so_tu_man(n):
         return False
 
 
-# Hàm tạo danh sách các số tự mãn
+# Ham tao danh sach cac so tu man
 def tao_danh_sach_so_tu_man(n):
     return [i for i in range(2, n) if kiem_tra_so_tu_man(i) is True]
 
 
-# Hàm kiểm tra cặp số hứa hôn
+# Ham kiem tra cap so hua hon
 def cap_so_hua_hon(a, b):
     if a < 0 or b < 0:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
     else:
         sum_a = tong_uoc_so(a)
         sum_b = tong_uoc_so(b)
         return True if sum_a == b + 1 and sum_b == a + 1 else False
 
 
-# Hàm kiểm tra số hoàn hảo
+# Ham kiem tra so hoan hao
 def kiem_tra_so_hoan_hao(number):
     sum_of_divisors = 0
     for i in range(1, number):
@@ -184,13 +191,13 @@ def kiem_tra_so_hoan_hao(number):
     return sum_of_divisors == number
 
 
-# Hàm tạo danh sách số hoàn hảo
+# Ham tao danh sach so hoan hao
 def tao_danh_sach_so_hoan_hao(n):
     return [i for i in range(1, n) if kiem_tra_so_hoan_hao(i) is True]
 
 
-# # Các hàm kiểm tra và tạo danh sách số chính phương:
-# Hàm kiểm tra số chính phương
+# # Cac ham kiem tra va tao danh sach so chinh phuong:
+# Ham kiem tra so chinh phuong
 def kiem_tra_so_chinh_phuong(n):
     if n < 0:
         return False
@@ -198,22 +205,22 @@ def kiem_tra_so_chinh_phuong(n):
     return sqrt_n * sqrt_n == n
 
 
-# Hàm tạo danh sách các số chính phương đến n
+# Ham tao danh sach cac so chinh phuong den n
 def tao_danh_sach_so_chinh_phuong(n):
     return [i for i in range(n) if kiem_tra_so_chinh_phuong(i) is True]
 
 
-# Hàm kiểm tra xem hai số có phải là các số thân thiết
+# Ham kiem tra xem hai so co phai la cac so than thiet
 def cap_so_than_thiet(a, b):
     if a <= 1 or b <= 1:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
     else:
         sum_a = tong_uoc_so(a)
         sum_b = tong_uoc_so(b)
         return True if sum_a == b and sum_b == a else False
 
 
-# Hàm kiểm tra số mạnh mẽ (nếu tổng chữ số nó là một số nguyên tố)
+# Ham kiem tra so manh me (neu tong chu so no la mot so nguyen to)
 def kiem_tra_so_manh_me_1(n):
     n = str(n)
     if len(n) == 0:
@@ -229,7 +236,7 @@ def kiem_tra_so_manh_me_1(n):
                 return False
 
 
-# Hàm kiểm tra số mạnh mẽ (nếu một số vừa chia hết cho những số nguyên tố và bình phương của chúng trước nó)
+# Ham kiem tra so manh me (neu mot so vua chia het cho nhung so nguyen to va binh phuong cua chung truoc no)
 def kiem_tra_so_manh_me_2(n):
     if n < 0:
         return False
@@ -246,8 +253,8 @@ def kiem_tra_so_manh_me_2(n):
                 return False
 
 
-# # Các hàm liên quan đến ước số và bội số:
-# Hàm tạo danh sách các ước số của một số
+# # Cac ham lien quan den uoc so va boi so:
+# Ham tao danh sach cac uoc so cua mot so
 def tao_danh_sach_uoc_so(n):
     if n == 0:
         return -1
@@ -260,16 +267,16 @@ def tao_danh_sach_uoc_so(n):
         return uoc
 
 
-# Hàm tìm ước chung lớn nhất 2 số
+# Ham tim uoc chung lon nhat 2 so
 def uoc_chung_lon_nhat(a, b):
     return math.gcd(a, b)
 
 
-# Hàm tính ước số chung lớn của một danh sách các số
+# Ham tinh uoc so chung lon cua mot danh sach cac so
 def uoc_chung_lon_nhat_cua_danh_sach(array):
     numbers = array
     if len(numbers) < 2 or 0 in numbers:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
     else:
         kq = numbers[0]
         for i in range(1, len(numbers)):
@@ -279,16 +286,16 @@ def uoc_chung_lon_nhat_cua_danh_sach(array):
         return kq
 
 
-# Hàm tính bội số chung nhỏ nhất của hai số
+# Ham tinh boi so chung nho nhat cua hai so
 def boi_chung_nho_nhat(a, b):
     return math.lcm(a, b)
 
 
-# Hàm tính bội số chung nhỏ nhất của một danh sách các số
+# Ham tinh boi so chung nho nhat cua mot danh sach cac so
 def boi_chung_nho_nhat_cua_danh_sach(array):
     numbers = array
     if len(numbers) < 2 or 0 in numbers:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
     else:
         kq = numbers[0]
         for i in range(1, len(numbers)):
@@ -298,17 +305,17 @@ def boi_chung_nho_nhat_cua_danh_sach(array):
         return kq
 
 
-# Hàm tạo danh sách các bội số của một số lên đến 10 lần
+# Ham tao danh sach cac boi so cua mot so len den 10 lan
 def tao_danh_sach_boi_so(n):
     if n == 0:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
     else:
         boi = [n * i for i in range(11)]
         return boi
 
 
-# # Các hàm liên quan đến tính chất số song tố và số phong phú:
-# Hàm kiểm tra các số song tố
+# # Cac ham lien quan den tinh chat so song to va so phong phu:
+# Ham kiem tra cac so song to
 def kiem_tra_so_song_to(n):
     if kiem_tra_so_nguyen_to(n) and kiem_tra_so_nguyen_to(tong_chu_so(n)):
         return True
@@ -316,7 +323,7 @@ def kiem_tra_so_song_to(n):
         return False
 
 
-# Hàm tạo danh sách các số song tố
+# Ham tao danh sach cac so song to
 def tao_danh_sach_so_song_to(n):
     so = [i for i in range(n) if kiem_tra_so_nguyen_to(i) is True]
     return so
@@ -341,25 +348,25 @@ def tao_danh_sach_so_phong_phu(n):
     return [i for i in range(n) if kiem_tra_so_phong_phu(i) is True]
 
 
-# # Các hàm liên quan đến phân tích thừa số nguyên tố:
-# Hàm tính các thừa số nguyên tố của một số (vip)
+# # Cac ham lien quan den phan tich thua so nguyen to:
+# Ham tinh cac thua so nguyen to cua mot so (vip)
 def thua_so_nguyen_to_day_du(n):
-    # Hàm hỗ trợ cho phân tích số mũ (đơn giản hóa biểu thức mũ. VD: 2^1=2)
+    # Ham ho tro cho phan tich so mu (don gian hoa bieu thuc mu. VD: 2^1=2)
     def ho_tro_phan_tich_so_mu(s):
-        yếu_tố = s.split()
-        đếm_yếu_tố = collections.defaultdict(int)
-        for y in yếu_tố:
-            cơ_số, số_mũ = y.split("^")
-            số_mũ = int(số_mũ)
-            đếm_yếu_tố[cơ_số] = max(đếm_yếu_tố[cơ_số], số_mũ)
-        yếu_tố_đơn_giản_hóa = [
-            cơ_số if số_mũ == 1 else f"{cơ_số}^{số_mũ}"
-            for cơ_số, số_mũ in đếm_yếu_tố.items()
+        yeu_to = s.split()
+        dem_yeu_to = collections.defaultdict(int)
+        for y in yeu_to:
+            co_so, so_mu = y.split("^")
+            so_mu = int(so_mu)
+            dem_yeu_to[co_so] = max(dem_yeu_to[co_so], so_mu)
+        yeu_to_don_gian_hoa = [
+            co_so if so_mu == 1 else f"{co_so}^{so_mu}"
+            for co_so, so_mu in dem_yeu_to.items()
         ]
-        biểu_thức_đơn_giản_hóa = " ".join(yếu_tố_đơn_giản_hóa)
-        return biểu_thức_đơn_giản_hóa
+        bieu_thuc_don_gian_hoa = " ".join(yeu_to_don_gian_hoa)
+        return bieu_thuc_don_gian_hoa
 
-    # Hàm phân tích số mũ
+    # Ham phan tich so mu
     def phan_tich_so_mu(ds):
         dem = collections.Counter(ds)
         kq = " ".join([f"{num}^{exp}" for num, exp in dem.items()])
@@ -376,12 +383,12 @@ def thua_so_nguyen_to_day_du(n):
         ket_qua = phan_tich_so_mu(cac_uoc_so).split()
         phan_tich = " x ".join(ket_qua)
         uoc_so = " x ".join(str(i) for i in cac_uoc_so)
-        return "- Phân tích: {}\n- Bỏ số mũ: {}".format(phan_tich, uoc_so)
+        return "- Phan tich: {}\n- Bo so mu: {}".format(phan_tich, uoc_so)
     else:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
 
 
-# Hàm tính các thừa số nguyên tố của một số (ds)
+# Ham tinh cac thua so nguyen to cua mot so (ds)
 def thua_so_nguyen_to(n):
     if n > 1:
         thua_so = []
@@ -393,22 +400,22 @@ def thua_so_nguyen_to(n):
             i += 1
         return thua_so
     else:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
 
 
-# Hàm tính ước số chung lớn nhất nguyên tố của hai số
+# Ham tinh uoc so chung lon nhat nguyen to cua hai so
 def uoc_chung_nguyen_to_2_so(a, b):
     thua_so_cua_a = set(thua_so_nguyen_to(a))
     thu_so_cua_b = set(thua_so_nguyen_to(b))
     uoc_chung_nguyen_to = thua_so_cua_a.intersection(thu_so_cua_b)
     if len(uoc_chung_nguyen_to) == 0:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
     else:
         return max(uoc_chung_nguyen_to)
 
 
-# # Các hàm liên quan đến phương trình và biểu thức toán học:
-# Hàm giải phương trình bậc 1, 2 một ẩn và vài lưu ý, VD nhập: "12x^2 + 34 - 24 = 23x - 13"
+# # Cac ham lien quan den phuong trinh va bieu thuc toan hoc:
+# Ham giai phuong trinh bac 1, 2 mot an va vai luu y, VD nhap: "12x^2 + 34 - 24 = 23x - 13"
 def giai_pt_bac_1va2_dang_string(phuong_trinh):
     cac_tu_tach = [i for i in phuong_trinh]
     vt_hs_x = [i - 1 for i in range(len(phuong_trinh)) if phuong_trinh[i] == "x"]
@@ -454,7 +461,7 @@ def giai_pt_bac_1va2_dang_string(phuong_trinh):
         else:
             c = sum(chuoi_cuoi)
         if a == 0:
-            return "LỖI TOÁN HỌC"
+            return "LOI TOAN HOC"
         else:
             delta = b**2 - 4 * a * c
             if delta == 0:
@@ -462,7 +469,7 @@ def giai_pt_bac_1va2_dang_string(phuong_trinh):
             else:
                 x1 = (-b + cmath.sqrt(delta)) / (2 * a)
                 x2 = (-b - cmath.sqrt(delta)) / (2 * a)
-                return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}".format(x1, x2)
+                return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}".format(x1, x2)
     elif "x^2" not in cac_tu:
         he_so_x_bac_1 = [i - 1 for i in range(len(cac_tu)) if cac_tu[i] == "x"]
         a = sum([int(cac_tu[i]) for i in he_so_x_bac_1])
@@ -475,66 +482,58 @@ def giai_pt_bac_1va2_dang_string(phuong_trinh):
             b = sum(i for i in chuoi_cuoi)
         if a == 0:
             if b == 0:
-                return "Phương trình vô số nghiệm"
+                return "Phuong trinh vo so nghiem"
             else:
-                return "Phương trình vô nghiệm"
+                return "Phuong trinh vo nghiem"
         else:
             return "x₁ = {}".format(-b / a)
 
 
-# Hàm giải phương trình bậc 1 - 10 bằng cách nhập hệ số
+# Ham giai phuong trinh bac 1 - 10 bang cach nhap he so
 def giai_phuong_trinh(bac, he_so_phuong_trinh):
-    # Hàm giải phương trình bậc 1 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_1(a, b):
         nghiem = numpy.roots([a, b])
-        return "Nghiệm của phương trình là:\nx₁ = {}".format(nghiem[0])
+        return "Nghiem cua phuong trinh la:\nx₁ = {}".format(nghiem[0])
 
-    # Hàm giải phương trình bậc 2 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_2(a, b, c):
         nghiem = numpy.roots([a, b, c])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}".format(
             nghiem[0], nghiem[1]
         )
 
-    # Hàm giải phương trình bậc 3 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_3(a, b, c, d):
         nghiem = numpy.roots([a, b, c, d])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}\nx₃ = {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}\nx₃ = {}".format(
             nghiem[0], nghiem[1], nghiem[2]
         )
 
-    # Hàm giải phương trình bậc 4 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_4(a, b, c, d, e):
         nghiem = numpy.roots([a, b, c, d, e])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}".format(
             nghiem[0], nghiem[1], nghiem[2], nghiem[3]
         )
 
-    # Hàm giải phương trình bậc 5 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_5(a, b, c, d, e, f):
         nghiem = numpy.roots([a, b, c, d, e, f])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}".format(
             nghiem[0], nghiem[1], nghiem[2], nghiem[3], nghiem[4]
         )
 
-    # Hàm giải phương trình bậc 6 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_6(a, b, c, d, e, f, g):
         nghiem = numpy.roots([a, b, c, d, e, f, g])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}".format(
             nghiem[0], nghiem[1], nghiem[2], nghiem[3], nghiem[4], nghiem[5]
         )
 
-    # Hàm giải phương trình bậc 7 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_7(a, b, c, d, e, f, g, h):
         nghiem = numpy.roots([a, b, c, d, e, f, g, h])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}\nx₇ = {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}\nx₇ = {}".format(
             nghiem[0], nghiem[1], nghiem[2], nghiem[3], nghiem[4], nghiem[5], nghiem[6]
         )
 
-    # Hàm giải phương trình bậc 8 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_8(a, b, c, d, e, f, g, h, i):
         nghiem = numpy.roots([a, b, c, d, e, f, g, h, i])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}\nx₇ = {}\nx₈ = {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}\nx₇ = {}\nx₈ = {}".format(
             nghiem[0],
             nghiem[1],
             nghiem[2],
@@ -545,10 +544,9 @@ def giai_phuong_trinh(bac, he_so_phuong_trinh):
             nghiem[7],
         )
 
-    # Hàm giải phương trình bậc 9 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_9(a, b, c, d, e, f, g, h, i, j):
         nghiem = numpy.roots([a, b, c, d, e, f, g, h, i, j])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}\nx₇ = {}\nx₈ = {}\nx₉ = {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}\nx₇ = {}\nx₈ = {}\nx₉ = {}".format(
             nghiem[0],
             nghiem[1],
             nghiem[2],
@@ -560,10 +558,9 @@ def giai_phuong_trinh(bac, he_so_phuong_trinh):
             nghiem[8],
         )
 
-    # Hàm giải phương trình bậc 10 bằng cách nhập hệ số
     def giai_phuong_trinh_bac_10(a, b, c, d, e, f, g, h, i, j, k):
         nghiem = numpy.roots([a, b, c, d, e, f, g, h, i, j, k])
-        return "Nghiệm của phương trình là:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}\nx₇ = {}\nx₈ = {}\nx₉ = {}\nx₁₀= {}".format(
+        return "Nghiem cua phuong trinh la:\nx₁ = {}\nx₂ = {}\nx₃ = {}\nx₄ = {}\nx₅ = {}\nx₆ = {}\nx₇ = {}\nx₈ = {}\nx₉ = {}\nx₁₀= {}".format(
             nghiem[0],
             nghiem[1],
             nghiem[2],
@@ -667,39 +664,39 @@ def giai_phuong_trinh(bac, he_so_phuong_trinh):
             he_so_phuong_trinh[10],
         )
     else:
-        return "CHƯA CÓ!"
+        return "CHUA CO!"
 
 
-# Hàm tính căn bậc n của một số
+# Ham tinh can bac n cua mot so
 def can_bac(n, so_can):
     if so_can != 0:
         return n ** (1 / so_can)
     else:
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
 
 
-# # Các hàm liên quan đến trích xuất và xử lý chuỗi:
-# Hàm loại bỏ các phần tử trùng lặp từ một danh sách
+# # Cac ham lien quan den trich xuat va xu ly chuoi:
+# Ham loai bo cac phan tu trung lap tu mot danh sach
 def danh_sach_khong_trung_lap(lst):
     return sorted(list(set(lst)), reverse=True)
 
 
-# Hàm trích xuất các chữ số từ một chuỗi
+# Ham trich xuat cac chu so tu mot chuoi
 def trich_xuat_chu_so_tu_chuoi(s):
     return [int(digit) for digit in re.findall(r"\d", s)]
 
 
-# Hàm trích xuất các số từ một chuỗi
+# Ham trich xuat cac so tu mot chuoi
 def trich_xuat_so_tu_chuoi(s):
     return [int(number) for number in re.findall(r"\d+", s)]
 
 
-# Hàm trích xuất các ký tự không phải là chữ số từ một chuỗi
+# Ham trich xuat cac ky tu khong phai la chu so tu mot chuoi
 def trich_xuat_ki_tu(s):
     return re.findall(r"\D", s)
 
 
-# Hàm ẩn kí tự dạng "234343" == "••••••"
+# Ham an ki tu dang "234343" == "••••••"
 def an_ki_tu(s):
     danh_sach = [i for i in s]
     if len(danh_sach) == 0:
@@ -715,7 +712,7 @@ def an_ki_tu(s):
             return "".join(an)
 
 
-# Hàm trích xuất các số từ chuỗi số. VD: "32/232343244" sẽ là 32.232343244
+# Ham trich xuat cac so tu chuoi so. VD: "32/232343244" se la 32.232343244
 def trich_xuat_cac_so_tu_so(s):
     s = str(s)
     if len(s) == 0:
@@ -724,7 +721,7 @@ def trich_xuat_cac_so_tu_so(s):
         return 0
     if "-" in re.findall(
         r"\D", s
-    ):  # Hỗ trợ cho tính toán vật lý 8, tiền điện. Không cần thì ẩn
+    ):  # Ho tro cho tinh toan vat ly 8, tien dien. Khong can thi an
         return -1
     if len(re.findall(r"\D", s)) > 0:
         D = re.findall(r"\D", s)
@@ -800,7 +797,7 @@ def trich_xuat_cac_so_tu_so(s):
         return chuoi_so
 
 
-# Hàm nén xâu
+# Ham nen xau
 def xau_duoc_nen_1(s):
     s = sorted([i for i in s], reverse=True)
     ket_qua = ""
@@ -821,7 +818,7 @@ def xau_duoc_nen_1(s):
     return ket_qua
 
 
-# Hàm nén xâu
+# Ham nen xau
 def xau_duoc_nen_2(s):
     ket_qua = ""
     dem = 1
@@ -851,7 +848,7 @@ def xau_ki_tu_khong_trung_lap(s):
     return chuoi
 
 
-# Hàm nén xâu nhưng không ghi số. VD: "hhhooccsiinh" == "hocsinh"
+# Ham nen xau nhung khong ghi so. VD: "hhhooccsiinh" == "hocsinh"
 def xau_duoc_nen_khong_so(chuoi_nhap):
     ket_qua = chuoi_nhap[0]
     for ky_tu in chuoi_nhap[1:]:
@@ -860,7 +857,7 @@ def xau_duoc_nen_khong_so(chuoi_nhap):
     return ket_qua
 
 
-# Hàm giải nén xâu
+# Ham giai nen xau
 def xau_duoc_giai_nen(s):
     ket_qua = ""
     so_luong = ""
@@ -876,13 +873,13 @@ def xau_duoc_giai_nen(s):
     return ket_qua
 
 
-# # Khác
-# Hàm chuyển đổi số bình thường thành số La Mã
+# # Khac
+# Ham chuyen doi so binh thuong thanh so La Ma
 def chuyen_doi_so_la_ma(num):
     return roman.toRoman(num)
 
 
-# Hàm đếm số nghịch thế trong một danh sách
+# Ham dem so nghich the trong mot danh sach
 def dem_so_nghich_the(danh_sach):
     dem = 0
     i = 0
@@ -894,29 +891,29 @@ def dem_so_nghich_the(danh_sach):
     return dem
 
 
-# Hàm định lý Pythagore
+# Ham dinh ly Pythagore
 def pythagore(a, b, c):
     sides = [a, b, c]
     if sides.count(False) > 1 or any(side < 0 for side in sides):
-        return "LỖI TOÁN HỌC"
+        return "LOI TOAN HOC"
     if a is False:
         if c < b:
-            return "LỖI TOÁN HỌC"
+            return "LOI TOAN HOC"
         else:
             side = math.sqrt(c**2 - b**2)
-            return "Cạnh góc vuông 1 = {}".format(side)
+            return "Canh goc vuong 1 = {}".format(side)
     elif b is False:
         if c < a:
-            return "LỖI TOÁN HỌC"
+            return "LOI TOAN HOC"
         else:
             side = math.sqrt(c**2 - a**2)
-            return "Cạnh góc vuông 2 = {}".format(side)
+            return "Canh goc vuong 2 = {}".format(side)
     elif c is False:
         side = math.sqrt(a**2 + b**2)
-        return "Cạnh huyền = {}".format(side)
+        return "Canh huyen = {}".format(side)
 
 
-# Hàm mô phỏng quá trình "Tải xuống"
+# Ham mo phong qua trinh "Tai xuong"
 def mp_tai_xuong(n):
     if n < 0 or n > 88 or n <= 1:
         print("AGAIN")
@@ -924,16 +921,16 @@ def mp_tai_xuong(n):
         n = int(n)
         for i in range(n):
             sys.stdout.write(
-                "Đang tải xuống [{}{}] {}%\r".format(
+                "Dang tai xuong [{}{}] {}%\r".format(
                     "■" * i, " " * (n - 1 - i), (i + 1) * 100 // n
                 )
             )
             sys.stdout.flush()
             time.sleep(0.1)
-        print("\n{}".format("Tải xuống hoàn tất!"))
+        print("\n{}".format("Tai xuong hoan tat!"))
 
 
-# Hàm mô phỏng quá trình "tính toán"
+# Ham mo phong qua trinh "tinh toan"
 def mp_tinh_toan(n):
     if n < 0 or n >= 88:
         print("NO")
@@ -941,7 +938,7 @@ def mp_tinh_toan(n):
         n = int(n)
         for i in range(n):
             sys.stdout.write(
-                "    AD: Đang tính toán [{}{}] {}%\r".format(
+                "    AD: Dang tinh toan [{}{}] {}%\r".format(
                     "■" * i, " " * (n - 1 - i), (i + 1) * 100 // n
                 )
             )
@@ -949,7 +946,7 @@ def mp_tinh_toan(n):
             time.sleep(0.2)
 
 
-# Hàm mô phỏng quá trình "LOADING..."
+# Ham mo phong qua trinh "LOADING..."
 def mp_loading(n):
     sys.stdout.write("LOADING")
     sys.stdout.flush()
@@ -963,9 +960,9 @@ def mp_loading(n):
         sys.stdout.flush()
 
 
-# Hàm mô phỏng cây thông
+# Ham mo phong cay thong
 def mp_christmas_tree():
-    n = 9  # Để tạo cây thông đẹp thì cho n = 9
+    n = 9  # De tao cay thong dep thi cho n = 9
     for i in range(1, n + 1):
         for __ in range(n - i + 5):
             print(" ", end=" ")
@@ -977,127 +974,127 @@ def mp_christmas_tree():
         print(" * ")
 
 
-# # Hàm hỗ trợ tính toán đặc biệt
-# Hàm tính toán các công thức vật lý
+# # Ham ho tro tinh toan dac biet
+# Ham tinh toan cac cong thuc vat ly
 def tinh_toan_vat_ly_8():
     print(
         "\n",
         " —————————————————————————————————————————————————————————————————————————————————————",
         "\n",
-        "|                 >>>>> NHẬP TÊN CÔNG THỨC BẠN MUỐN ĐỂ ADMIN TÍNH <<<<<               |",
+        "|                 >>>>> NHAP TEN CONG THUC BAN MUON DE ADMIN TINH <<<<<               |",
         "\n",
-        "|                         ~~~ ! Lưu ý: Nhập theo yêu cầu ! ~~~                        |",
+        "|                         ~~~ ! Luu y: Nhap theo yeu cau ! ~~~                        |",
         "\n",
         "|                                                                                     |",
         "\n",
-        "|        --> 1. Công thức tính: Khối lượng riêng      (kí hiệu D, Kg/m^3)             |",
+        "|        --> 1. Cong thuc tinh: Khoi luong rieng      (ki hieu D, Kg/m^3)             |",
         "\n",
-        "|        --> 2. Công thức tính: Trọng lượng riêng     (kí hiệu d, đơn vị N/m^3)       |",
+        "|        --> 2. Cong thuc tinh: Trong luong rieng     (ki hieu d, don vi N/m^3)       |",
         "\n",
-        "|        --> 3. Công thức tính: Lực đẩy Archimedes    (kí hiệu Fa, đơn vị N)          |",
+        "|        --> 3. Cong thuc tinh: Luc day Archimedes    (ki hieu Fa, don vi N)          |",
         "\n",
-        "|        --> 4. Công thức tính: Trọng lượng           (kí hiệu P, đơn vị N)           |",
+        "|        --> 4. Cong thuc tinh: Trong luong           (ki hieu P, don vi N)           |",
         "\n",
-        "|        --> 5. Công thức tính: Áp suất chất rắn      (kí hiệu p, N/m^2)              |",
+        "|        --> 5. Cong thuc tinh: Ap suat chat ran      (ki hieu p, N/m^2)              |",
         "\n",
-        "|        --> 6. Công thức tính: Áp suất chất lỏng     (kí hiệu p, N/m^2)              |",
+        "|        --> 6. Cong thuc tinh: Ap suat chat long     (ki hieu p, N/m^2)              |",
         "\n",
         " ———————————————————————————————————————————————————————————————————————————————————--",
     )
-    n = str(input("    AD: Nhập công thức bạn chọn để AD tính: "))
+    n = str(input("    AD: Nhap cong thuc ban chon de AD tinh: "))
     chuoi_so = [i for i in n]
     if chuoi_so[0].isdigit() is True:
         n = int(chuoi_so[0])
     if n == 1:
         h = int(
             input(
-                "    AD: Có trọng lượng nhưng không có khối lượng thì nhập (1 là Có, 2 là Không): ",
+                "    AD: Co trong luong nhung khong co khoi luong thi nhap (1 la Co, 2 la Khong): ",
             )
         )
         if h != 1 and h != 2:
-            print("    AD: Nhập số 1 và 2 cơ mà🤨", "\n")
+            print("    AD: Nhap so 1 va 2 co ma🤨", "\n")
         if h == 1:
-            P = str(input("- Nhập trọng lượng của chất (N): "))
-            V = str(input("- Nhập thể tích của chất (m^3): "))
+            P = str(input("- Nhap trong luong cua chat (N): "))
+            V = str(input("- Nhap the tich cua chat (m^3): "))
             P = trich_xuat_cac_so_tu_so(P)
             V = trich_xuat_cac_so_tu_so(V)
             m = P / 9.8  # type: ignore
             D = m / V
             if D > 0:
                 mp_tinh_toan(30)
-                print("\n", "   AD: Khối lượng riêng của chất là: ", D, "kg/m^3", "\n")
+                print("\n", "   AD: Khoi luong rieng cua chat la: ", D, "kg/m^3", "\n")
             else:
-                print("    AD: Bà cho số âm chi dzẫy", "\n")
+                print("    AD: Ba cho so am chi dzay", "\n")
         if h == 2:
-            m = str(input("- Nhập khối lượng của chất (kg): "))
-            V = str(input("- Nhập thể tích của chất (m^3): "))
+            m = str(input("- Nhap khoi luong cua chat (kg): "))
+            V = str(input("- Nhap the tich cua chat (m^3): "))
             m = trich_xuat_cac_so_tu_so(m)
             V = trich_xuat_cac_so_tu_so(V)
             D = m / V  # type: ignore
             if D >= 0:
                 mp_tinh_toan(30)
-                print("\n", "   AD: Khối lượng riêng của chất là: ", D, "kg/m^3", "\n")
+                print("\n", "   AD: Khoi luong rieng cua chat la: ", D, "kg/m^3", "\n")
             else:
-                print("    AD: Bà cho số âm chi dzẫy", "\n")
+                print("    AD: Ba cho so am chi dzay", "\n")
     elif n == 2:
         h = int(
             input(
-                "    AD: Có khối lượng nhưng không có trọng lượng thì nhập (1 là Có, 2 là Không): "
+                "    AD: Co khoi luong nhung khong co trong luong thi nhap (1 la Co, 2 la Khong): "
             )
         )
         if h != 1 and h != 2:
-            print("    AD: Nhập số 1 và 2 cơ mà🤨", "\n")
+            print("    AD: Nhap so 1 va 2 co ma🤨", "\n")
         elif h == 2:
-            P = str(input("- Nhập trọng lượng của chất (N): "))
-            V = str(input("- Nhập thể tích của chất (m^3): "))
+            P = str(input("- Nhap trong luong cua chat (N): "))
+            V = str(input("- Nhap the tich cua chat (m^3): "))
             P = trich_xuat_cac_so_tu_so(P)
             V = trich_xuat_cac_so_tu_so(V)
             d = P / V  # type: ignore
             if d >= 0:
                 mp_tinh_toan(30)
                 print(
-                    "\n", "   AD: Trọng lượng riêng của chất đó là: ", d, "N/m^3", "\n"
+                    "\n", "   AD: Trong luong rieng cua chat do la: ", d, "N/m^3", "\n"
                 )
             else:
-                print("    AD: Bà cho số âm chi dzẫy", "\n")
+                print("    AD: Ba cho so am chi dzay", "\n")
         elif h == 1:
-            m = str(input("- Nhập khối lượng của chất (kg): "))
-            V = str(input("- Nhập thể tích của chất (m^3): "))
+            m = str(input("- Nhap khoi luong cua chat (kg): "))
+            V = str(input("- Nhap the tich cua chat (m^3): "))
             m = trich_xuat_cac_so_tu_so(m)
             V = trich_xuat_cac_so_tu_so(V)
             d = 9.8 * m / V  # type: ignore
             if d >= 0:
                 mp_tinh_toan(30)
                 print(
-                    "\n", "   AD: Trọng lượng riêng của chất đó là: ", d, "N/m^3", "\n"
+                    "\n", "   AD: Trong luong rieng cua chat do la: ", d, "N/m^3", "\n"
                 )
             else:
-                print("    AD: Bà cho số âm chi dzẫy", "\n")
+                print("    AD: Ba cho so am chi dzay", "\n")
     elif n == 3:
-        d = str(input("- Nhập trọng lượng riêng của chất lỏng (N/m^3): "))
-        V = str(input("- Nhập thể tích mà chất lỏng bị chiếm bởi vật (m^3): "))
+        d = str(input("- Nhap trong luong rieng cua chat long (N/m^3): "))
+        V = str(input("- Nhap the tich ma chat long bi chiem boi vat (m^3): "))
         d = trich_xuat_cac_so_tu_so(d)
         V = trich_xuat_cac_so_tu_so(V)
         Fa = d * V  # type: ignore
         if Fa >= 0:
             mp_tinh_toan(30)
             print(
-                "\n", "   AD: Lực đẩy Archimedes tác dụng lên vật là: ", Fa, "N", "\n"
+                "\n", "   AD: Luc day Archimedes tac dung len vat la: ", Fa, "N", "\n"
             )
         else:
-            print("    AD: Bà cho số âm chi dzẫy", "\n")
+            print("    AD: Ba cho so am chi dzay", "\n")
     elif n == 4:
-        m = str(input("- Nhập khối lượng của vật (kg): "))
+        m = str(input("- Nhap khoi luong cua vat (kg): "))
         m = trich_xuat_cac_so_tu_so(m)
         P = m * 9.8  # type: ignore
         if P >= 0:
             mp_tinh_toan(30)
-            print("\n", "   AD: Trọng lượng của chất đó là: ", P, "N", "\n")
+            print("\n", "   AD: Trong luong cua chat do la: ", P, "N", "\n")
         else:
-            print("    AD: Bà cho số âm chi dzẫy", "\n")
+            print("    AD: Ba cho so am chi dzay", "\n")
     elif n == 5:
-        F = str(input("- Nhập áp lực lên bề mặt đó (kí hiệu F hoặc P, đơn vị N): "))
-        S = str(input("- Nhập diện tích bề mặt tiếp xúc (m^2): "))
+        F = str(input("- Nhap ap luc len be mat do (ki hieu F hoac P, don vi N): "))
+        S = str(input("- Nhap dien tich be mat tiep xuc (m^2): "))
         F = trich_xuat_cac_so_tu_so(F)
         S = trich_xuat_cac_so_tu_so(S)
         p = F / S  # type: ignore
@@ -1105,31 +1102,31 @@ def tinh_toan_vat_ly_8():
             mp_tinh_toan(30)
             print(
                 "\n",
-                "   AD: Áp suất của vật lên bề mặt là (Áp suất chất rắn): ",
+                "   AD: Ap suat cua vat len be mat la (Ap suat chat ran): ",
                 p,
                 "N/m^2",
                 "\n",
             )
         else:
-            print("    AD: Bà cho số âm chi dzẫy", "\n")
+            print("    AD: Ba cho so am chi dzay", "\n")
     elif n == 6:
-        d = str(input("- Nhập trọng lượng riêng chất lỏng đó (N/m^3): "))
+        d = str(input("- Nhap trong luong rieng chat long do (N/m^3): "))
         h = str(
-            input("- Nhập chiều sâu từ trên xuống của vật trong chất lỏng đó (m): ")
+            input("- Nhap chieu sau tu tren xuong cua vat trong chat long do (m): ")
         )
         d = trich_xuat_cac_so_tu_so(d)
         h = trich_xuat_cac_so_tu_so(h)
         p = d * h  # type: ignore
         if p >= 0:
             mp_tinh_toan(30)
-            print("\n", "   AD: Áp suất chất lỏng là: ", p, "N/m^2", "\n")
+            print("\n", "   AD: Ap suat chat long la: ", p, "N/m^2", "\n")
         else:
-            print("    AD: Bà cho số âm chi dzẫy", "\n")
+            print("    AD: Ba cho so am chi dzay", "\n")
     else:
-        print("    AD: Chọn lại giùm tuiii😒", "\n")
+        print("    AD: Chon lai gium tuiii😒", "\n")
 
 
-# Hàm tính toán tiền điện a là chỉ số cũ, b là chỉ số mới (b > a)
+# Ham tinh toan tien dien a la chi so cu, b la chi so moi (b > a)
 def tinh_toan_tien_dien(chi_so_cu, chi_so_moi):
     a = trich_xuat_cac_so_tu_so(chi_so_cu)
     b = trich_xuat_cac_so_tu_so(chi_so_moi)
@@ -1154,14 +1151,14 @@ def tinh_toan_tien_dien(chi_so_cu, chi_so_moi):
                 + 50 * 1734
                 + 50 * 1678
             )
-        return "- Số Kwh điện tiêu thụ trong tháng: {} Kwh\n- Số tiền điện cần trả trong tháng: {} VNĐ".format(
+        return "- So Kwh dien tieu thu trong thang: {} Kwh\n- So tien dien can tra trong thang: {} VND".format(
             skw, TT  # type: ignore
         )
     else:
-        return "KHÔNG ĐƯỢC"
+        return "KHONG DUOC"
 
 
-# Hàm tìm một số lớn nhất có tổng các chữ "a" số bằng số "b". VD: 3,21 sẽ bằng 993
+# Ham tim mot so lon nhat co tong cac chu "a" so bang so "b". VD: 3,21 se bang 993
 def tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number):
     sct = []
     a = int(abs(number_of_digits))
@@ -1234,7 +1231,7 @@ def tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number):
         return False
 
 
-# Hàm chuyển hóa chuỗi thành mật mã Caesar
+# Ham chuyen hoa chuoi thanh mat ma Caesar
 def chuyen_hoa_caesar(string, sang_trai_k_so):
     string = "".join([i for i in string.upper() if i != " "]).strip()
     s_ = {}
@@ -1267,7 +1264,7 @@ def chuyen_hoa_caesar(string, sang_trai_k_so):
     return kq_
 
 
-# Hàm mã hóa dãy số Caesar
+# Ham ma hoa day so Caesar
 def ma_hoa_caesar(array, sang_trai_k_so):
     s_ = {}
     ss_ = {}
@@ -1299,8 +1296,8 @@ def ma_hoa_caesar(array, sang_trai_k_so):
     return "".join(kq_)
 
 
-# # Quy luật.
-# Hàm tạo danh sách các số theo quy luật: 1 số ⋮ 1, 2 số ⋮ 2, 3 số ⋮ 3, ... cho tới tổng số lượng là number.
+# # Quy luat.
+# Ham tao danh sach cac so theo quy luat: 1 so ⋮ 1, 2 so ⋮ 2, 3 so ⋮ 3, ... cho toi tong so luong la number.
 def tao_danh_sach_quy_luat_1(number):
     def ho_tro(number):
         if number == 1:
@@ -1321,75 +1318,75 @@ def tao_danh_sach_quy_luat_1(number):
     return [ho_tro(i) for i in range(1, number + 1)]
 
 
-# Hàm tạo một dãy số theo quy luật: mỗi phần tử của dãy số vô hạn này tích với n đơn vị.
+# Ham tao mot day so theo quy luat: moi phan tu cua day so vo han nay tich voi n don vi.
 def tao_danh_sach_quy_luat_2(m, n):
     return [i * m for i in range(n)]
 
 
-# Hàm tạo dãy số theo quy luật: số mũ nâng tới n của số number.
+# Ham tao day so theo quy luat: so mu nang toi n cua so number.
 def tao_danh_sach_quy_luat_3(n, m):
     return [m**i for i in range(n)]
 
 
-# Hàm chơi kéo búa bao với "A.I"
+# Ham choi keo bua bao voi "A.I"
 def one_two_three():
-    set = {1: "Kéo", 2: "Búa", 3: "Bao"}
+    set = {1: "Keo", 2: "Bua", 3: "Bao"}
     dem_human, dem_ai = 0, 0
-    n = int(input("- Số màn chơi: "))
+    n = int(input("- So man choi: "))
 
     for _ in range(n):
         AI_choose = set[random.randint(1, 3)]
-        User_choose = str(input("- Lựa chọn của bạn: "))
+        User_choose = str(input("- Lua chon cua ban: "))
         User = User_choose.title()
 
-        print(f"- Lựa chọn của bạn = {User}, lựa chọn của A.I = {AI_choose};")
+        print(f"- Lua chon cua ban = {User}, lua chon cua A.I = {AI_choose};")
 
-        if User == "Keo" or User == "Kéo":
-            if AI_choose == "Kéo":
-                print(">>> HÒA;")
+        if User == "Keo" or User == "Keo":
+            if AI_choose == "Keo":
+                print(">>> HOA;")
                 dem_ai += 1
                 dem_human += 1
-            if AI_choose == "Búa":
-                print(">>> A.I THẮNG;")
+            if AI_choose == "Bua":
+                print(">>> A.I THANG;")
                 dem_ai += 1
             if AI_choose == "Bao":
-                print(">>> BẠN THẮNG;")
+                print(">>> BAN THANG;")
                 dem_human += 1
 
-        elif User == "Bua" or User == "Búa":
-            if AI_choose == "Búa":
-                print(">>> HÒA;")
+        elif User == "Bua" or User == "Bua":
+            if AI_choose == "Bua":
+                print(">>> HOA;")
                 dem_human += 1
                 dem_ai += 1
             if AI_choose == "Bao":
-                print(">>> A.I THẮNG;")
+                print(">>> A.I THANG;")
                 dem_ai += 1
-            if AI_choose == "Kéo":
-                print(">>> BẠN THẮNG;")
+            if AI_choose == "Keo":
+                print(">>> BAN THANG;")
                 dem_human += 1
 
         elif User == "Bao":
             if AI_choose == "Bao":
-                print(">>> HÒA;")
+                print(">>> HOA;")
                 dem_ai += 1
                 dem_human += 1
-            if AI_choose == "Kéo":
-                print(">>> A.I THẮNG;")
+            if AI_choose == "Keo":
+                print(">>> A.I THANG;")
                 dem_ai += 1
-            if AI_choose == "Búa":
-                print(">>> USER THẮNG;")
+            if AI_choose == "Bua":
+                print(">>> USER THANG;")
                 dem_human += 1
 
         else:
-            print(">>> ! LỖI NHÉ (BẠN BỊ TRỪ 1 ĐIỂM) !")
+            print(">>> ! LOI NHE (BAN BI TRU 1 DIEM) !")
             dem_human -= 1
             dem_ai += 1
         print()
 
-    print("- KẾT QUẢ:")
+    print("- KET QUA:")
     if dem_ai < dem_human:
-        print(f">>> Bạn thắng với {dem_human} điểm, A.I thua với {dem_ai} điểm.")
+        print(f">>> Ban thang voi {dem_human} diem, A.I thua voi {dem_ai} diem.")
     elif dem_ai > dem_human:
-        print(f">>> A.i thắng với {dem_ai} điểm, bạn thua với {dem_human} điểm.")
+        print(f">>> A.i thang voi {dem_ai} diem, ban thua voi {dem_human} diem.")
     elif dem_ai == dem_human:
-        print(f">>> Bạn hòa với A.I và số điểm là {dem_ai}.")
+        print(f">>> Ban hoa voi A.I va so diem la {dem_ai}.")
