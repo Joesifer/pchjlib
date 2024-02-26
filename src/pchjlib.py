@@ -2,7 +2,7 @@
 #                                                                                              #
 # Copyright (c) 2024 Joesifer                                                                  #
 # Any act of hitting a subordinate will result in a beating.                                   #
-# Supported python versions = {"all"}                                                          #
+# Supported python versions = {">=3.7"}                                                        #
 # Imported library = {"cmath", "collections", "math", "re", "sys", "time", "numpy", "roman"}   #
 #                                                                                              #
 # MIT License                                                                                  #
@@ -37,7 +37,7 @@ Author.
 
 Version.
 ---------------------------------------------------------
-- 0.0.3.3.
+- 0.0.3.4.
 
 Date.
 ---------------------------------------------------------
@@ -313,6 +313,22 @@ def tao_danh_sach_boi_so(n):
         boi = [n * i for i in range(11)]
         return boi
 
+
+# Ham tao gia tri cac uoc chung cua mot danh sach
+def uoc_chung_cua_danh_sach(arr):
+    def ho_tro(n):
+        if n == 0:
+            return {1}
+        else:
+            n = abs(n)
+            uoc = [i for i in range(1, n + 1) if n % i == 0] + [
+                -i for i in range(1, n + 1) if n % i == 0
+            ]
+            return set(uoc)
+
+    for i in range(len(arr) - 1):
+        kq = ho_tro(arr[i]).intersection(ho_tro(arr[i + 1]))
+    return sorted(list(kq), reverse=False)
 
 # # Cac ham lien quan den tinh chat so song to va so phong phu:
 # Ham kiem tra cac so song to
