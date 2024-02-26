@@ -170,6 +170,12 @@
 >> Mot danh sach cac so boi so cua tu 0 toi 10 lan;
 ```
 
+# Ham tao gia tri cac uoc chung cua mot danh sach.
+``` python
+- uoc_chung_cua_danh_sach(arr).
+>> Mot danh sach cac uoc chung cua danh sach.
+```
+
 # Cac ham lien quan den tinh chat so song to va so phong phu:
 ### Ham kiem tra cac so song to.
 ``` python
@@ -438,6 +444,9 @@
 ```
 
 # NHUNG BAN CAP NHAT
+
+### 0.0.3.4 - (26/02/2024).
+- ***Bo sung "ham uoc_chung_cua_danh_sach" (de tim cac uoc chung trong mot array).***
 
 ### 0.0.3.3 - (21/02/2024).
 - ***Nang cap info library, README.***
