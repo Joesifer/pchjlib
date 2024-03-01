@@ -37,7 +37,7 @@ Author.
 
 Version.
 ---------------------------------------------------------
-- 0.0.3.4.
+- 0.0.3.5.
 
 Date.
 ---------------------------------------------------------
@@ -329,6 +329,7 @@ def uoc_chung_cua_danh_sach(arr):
     for i in range(len(arr) - 1):
         kq = ho_tro(arr[i]).intersection(ho_tro(arr[i + 1]))
     return sorted(list(kq), reverse=False)
+
 
 # # Cac ham lien quan den tinh chat so song to va so phong phu:
 # Ham kiem tra cac so song to
