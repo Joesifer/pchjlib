@@ -35,7 +35,7 @@ desc = open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.md").read()
 
 setup(
     name="pchjlib",
-    version="0.0.3.4",
+    version="0.0.3.5",
     author="Joesifer",
     description="Bộ sưu tầm hàm con của tôi.",
     long_description=desc,

@@ -1,5 +1,5 @@
 <h1 align="center">
-<img src="https://i.imgur.com/AUXxUzd.png" width="475">
+<img src="https://i.imgur.com/AUXxUzd.png" width="500" alt="PCHJLIB - Joesifer">
 </h1><br>
 
 
@@ -444,6 +444,9 @@
 ```
 
 # NHUNG BAN CAP NHAT
+
+### 0.0.3.5 - (01/03/2024).
+- ***Thu nghiem.***
 
 ### 0.0.3.4 - (26/02/2024).
 - ***Bo sung "ham uoc_chung_cua_danh_sach" (de tim cac uoc chung trong mot array).***
