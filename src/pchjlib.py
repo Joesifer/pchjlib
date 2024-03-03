@@ -1,9 +1,6 @@
 ################################################################################################
 #                                                                                              #
 # Copyright (c) 2024 Joesifer                                                                  #
-# Any act of hitting a subordinate will result in a beating.                                   #
-# Supported python versions = {">=3.7"}                                                        #
-# Imported library = {"cmath", "collections", "math", "re", "sys", "time", "numpy", "roman"}   #
 #                                                                                              #
 # MIT License                                                                                  #
 #                                                                                              #
@@ -31,27 +28,27 @@
 PCHJLIB
 ===========
 
-Author.
+Tác giả
 ---------------------------------------------------------
 - Joesifer.
 
-Version.
+Phiên bản
 ---------------------------------------------------------
-- 0.0.3.5.
+- 0.0.3.6.
 
-Date.
+Ngày đăng
 ---------------------------------------------------------
-- 14 February 2024.
+- ngày 14 tháng Hai, năm 2024.
 
-Copyright.
+Bản quyền
 ---------------------------------------------------------
 - Copyright (c) 2024 Joesifer.
 
-Supported python versions.
+Phiên bản python được hỗ trợ
 ---------------------------------------------------------
-- >=3.7.
+- lớn hơn hoặc bằng 3.7.
 
-Imported library.
+Thư viện được thêm vào
 ---------------------------------------------------------
 - cmath, collections, math, re, sys, time, numpy, roman.
 
@@ -59,19 +56,19 @@ License.
 ---------------------------------------------------------
 - MIT License.
 
-INFO.
+Thông tin
 ---------------------------------------------------------
 
-If you don't know how to use::
+Nếu bạn không biết cách dùng thì hãy::
 
-  >>> You can access: `https://github.com/Joesifer/pchjlib/blob/main/README.md` .
+  >>> Truy cập: `https://github.com/Joesifer/pchjlib/blob/main/README.md` .
 
-And you can support me or ask me how to use by::
+Và bạn có thể góp ý hoặc ủng hộ bằng::
 
-  >>> Sending email to: `phanchanhung12055@gmail.com` .
+  >>> Gửi email : `phanchanhung12055@gmail.com` .
 
 
-THANK YOU FOR DOWNLOADING!
+CẢM ƠN!
 ================================
 
 """
