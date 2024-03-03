@@ -1,9 +1,6 @@
 ################################################################################################
 #                                                                                              #
 # Copyright (c) 2024 Joesifer                                                                  #
-# Any act of hitting a subordinate will result in a beating.                                   #
-# Supported python versions = {">=3.7"}                                                        #
-# Imported library = {"cmath", "collections", "math", "re", "sys", "time", "numpy", "roman"}   #
 #                                                                                              #
 # MIT License                                                                                  #
 #                                                                                              #
@@ -35,9 +32,9 @@ desc = open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.md").read()
 
 setup(
     name="pchjlib",
-    version="0.0.3.5",
+    version="0.0.3.6",
     author="Joesifer",
-    description="Bộ sưu tầm hàm con của tôi.",
+    description="Thư viện này có thể thực hiện các phép tính, thuật toán, xử lí chuỗi, mảng, . . .",
     long_description=desc,
     long_description_content_type="text/markdown",
     license="MIT License",
