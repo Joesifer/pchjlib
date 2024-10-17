@@ -334,13 +334,13 @@
 ### Ham mo phong qua trinh "Tai xuong" (pham vi so n la lon hon 0 va nho hon 88).
 ``` python
 - mp_tai_xuong(n):
-  Dang tai xuong [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
+  Dang tai xuong [=====================================] 100%
   Tai xuong hoan tat!
 ```
 ### Ham mo phong qua trinh "tinh toan" cua "Admin" (giong nhu mo phong tai xuong).
 ``` python
 - mp_tinh_toan(n):
-  AD: Dang tinh toan [■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
+  AD: Dang tinh toan [=====================================] 100%
 ```
 
 ### Ham mo phong qua trinh "LOADING...".
@@ -349,19 +349,36 @@
 >> LOADING...
 ```
 
-### Ham mo phong cay thong.
+### Ham mo phong cay thong cho VSCode.
 ``` python
-- mp_christmas_tree():
-                      * 
-                    * * * 
-                  * * * * * 
-                * * * * * * * 
-              * * * * * * * * * 
-            * * * * * * * * * * * 
-          * * * * * * * * * * * * * 
-                      * 
-                      * 
-                      * 
+- mp_christmas_tree_cho_VSCode():
+- Nhap chieu cao cay thong: 8
+        *
+       * *
+      * * *
+     * * * *
+    * * * * *
+   * * * * * *
+  * * * * * * *
+ * * * * * * * *
+        H
+        H
+```
+
+### Ham mo phong cay thong cho TEXT.
+``` python
+- mp_christmas_tree_cho_TEXT():
+- Nhap chieu cao cay thong: 8
+                 *  
+               *  *   
+             *  *  *    
+           *  *  *  *     
+         *  *  *  *  *      
+       *  *  *  *  *  *       
+     *  *  *  *  *  *  *        
+   *  *  *  *  *  *  *  *
+                H
+                H
 ```
 
 # Ham ho tro tinh toan dac biet:
@@ -370,20 +387,22 @@
 - tinh_toan_vat_ly_8().
 >> Mot bang lua chon cac cong thuc vat ly 8 chuong trinh GDPT 2018 sach CTST HK1;
 >>
-    ————————————————————————————————————————————————————————————————————————————————————
-  |                 >>>>> NHAP TEN CONG THUC BAN MUON DE ADMIN TINH <<<<<               |
-  |                         ~~~ ! Luu y: Nhap theo yeu cau ! ~~~                        |
-  |                                                                                     |
-  |        --> 1. Cong thuc tinh: Khoi luong rieng      (ki hieu D, Kg/m^3)             |
-  |        --> 2. Cong thuc tinh: Trong luong rieng     (ki hieu d, don vi N/m^3)       |
-  |        --> 3. Cong thuc tinh: Luc day Archimedes    (ki hieu Fa, don vi N)          |
-  |        --> 4. Cong thuc tinh: Trong luong           (ki hieu P, don vi N)           |
-  |        --> 5. Cong thuc tinh: Ap suat chat ran      (ki hieu p, N/m^2)              |
-  |        --> 6. Cong thuc tinh: Ap suat chat long     (ki hieu p, N/m^2)              |
-    ———————————————————————————————————————————————————————————————————————————————————-
+
+
+
+                   >>>>> NHAP TEN CONG THUC BAN MUON DE ADMIN TINH <<<<<               
+                           ~~~ ! Luu y: Nhap theo yeu cau ! ~~~                        
+                                                                                       
+          --> 1. Cong thuc tinh: Khoi luong rieng      (ki hieu D, Kg/m^3)             
+          --> 2. Cong thuc tinh: Trong luong rieng     (ki hieu d, don vi N/m^3)       
+          --> 3. Cong thuc tinh: Luc day Archimedes    (ki hieu Fa, don vi N)         
+          --> 4. Cong thuc tinh: Trong luong           (ki hieu P, don vi N)           
+          --> 5. Cong thuc tinh: Ap suat chat ran      (ki hieu p, N/m^2)             
+          --> 6. Cong thuc tinh: Ap suat chat long     (ki hieu p, N/m^2)              
+
       AD: Nhap cong thuc ban chon de AD tinh: 4
   - Nhap khoi luong cua vat (kg): 3.4
-      AD: Dang tinh toan [■■■■■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
+      AD: Dang tinh toan [=====================================] 100%
       AD: Trong luong cua chat do la:  33.32 N 
 ```
 
@@ -443,7 +462,59 @@
 >> Nhung su lua chon de ban choi keo bua bao voi A.I;
 ```
 
+### Ham tao dong ho dem nguoc. (n la so dong moi cot va duong cheo, r la so tong cot va 2 duong cheo, x la so lan lap lai).
+``` python
+- tao_day_chu(n, r, x):
+>> Nhap day dau tien: I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+I love you❤️
+  I love you❤️
+    I love you❤️
+      I love you❤️
+        I love you❤️
+          I love you❤️
+            I love you❤️
+              I love you❤️
+                I love you❤️
+                  I love you❤️
+                    I love you❤️
+                  I love you❤️
+                I love you❤️
+              I love you❤️
+            I love you❤️
+          I love you❤️
+        I love you❤️
+      I love you❤️
+    I love you❤️
+  I love you❤️
+```
+
 # NHUNG BAN CAP NHAT
+### 0.0.4.1 - (17/10/2024).
+- ***Cap nhat "one_two_three" va bo sung "tao day chu".***
+
+### 0.0.4.0 - (5/5/2024).
+- ***Sua README.***
+
+### 0.0.3.9 - (5/5/2024).
+- ***Sua loi.***
+
+### 0.0.3.8 - (5/5/2024).
+- ***Cap nhat "mp_christmas_tree_cho_VSCode" va "mp_christmas_tree_cho_TEXT".***
+### 0.0.3.8 - (5/5/2024).
+- ***Cap nhat "mp_christmas_tree_cho_VSCode" va "mp_christmas_tree_cho_TEXT".***
+
+### 0.0.3.7 - (4/5/2024).
+- ***Cap nhat "mp_christmas_tree".***
 
 ### 0.0.3.6 - (03/03/2024).
 - ***Thu nghiem.***

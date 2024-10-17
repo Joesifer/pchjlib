@@ -28,11 +28,14 @@
 from setuptools import setup
 
 
-desc = open(r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.md").read()
+with open(
+    r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.md", encoding="utf-8"
+) as f:
+    desc = f.read()
 
 setup(
     name="pchjlib",
-    version="0.0.3.6",
+    version="0.0.4.1",
     author="Joesifer",
     description="Thư viện này có thể thực hiện các phép tính, thuật toán, xử lí chuỗi, mảng, . . .",
     long_description=desc,

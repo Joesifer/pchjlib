@@ -27,14 +27,14 @@
 """
 PCHJLIB
 ===========
-
+---------------------------------------------------------
 Tác giả
 ---------------------------------------------------------
 - Joesifer.
 
 Phiên bản
 ---------------------------------------------------------
-- 0.0.3.6.
+- 0.0.4.1.
 
 Ngày đăng
 ---------------------------------------------------------
@@ -46,7 +46,7 @@ Bản quyền
 
 Phiên bản python được hỗ trợ
 ---------------------------------------------------------
-- lớn hơn hoặc bằng 3.7.
+- Lớn hơn hoặc bằng 3.7.
 
 Thư viện được thêm vào
 ---------------------------------------------------------
@@ -975,17 +975,39 @@ def mp_loading(n):
 
 
 # Ham mo phong cay thong
-def mp_christmas_tree():
-    n = 9  # De tao cay thong dep thi cho n = 9
-    for i in range(1, n + 1):
-        for __ in range(n - i + 5):
-            print(" ", end=" ")
-        for _ in range(2 * i - 5):
-            print("*", end=" ")
-        print()
-    for i in range(3):
-        print("                     ", end="")
-        print(" * ")
+def mp_christmas_tree_cho_VSCode():
+    n = int(input("- Nhập chiều cao cây thông: "))
+    tree, dem = [], n
+    for i in range(n):
+        tree.append("* " * (i + 1) + " " * (i + 1))
+
+    for i in range(n):
+        tree[i] = " " * dem + tree[i]
+        dem -= 1
+
+    for i in range(n // 3):
+        tree.append(" " * n + "▮")
+
+    for i in range(len(tree)):
+        print(tree[i])
+
+
+# Ham mo phong cay thong
+def mp_christmas_tree_cho_TEXT():
+    n = int(input("- Nhập chiều cao cây thông: "))
+    tree, dem = [], n
+    for i in range(n):
+        tree.append(" * " * (i + 1) + " " * (i + 1))
+
+    for i in range(n):
+        tree[i] = "  " * dem + tree[i]
+        dem -= 1
+
+    for i in range(n // 3):
+        tree.append("  " * n + "▮")
+
+    for i in range(len(tree)):
+        print(tree[i])
 
 
 # # Ham ho tro tinh toan dac biet
@@ -1033,7 +1055,7 @@ def tinh_toan_vat_ly_8():
             P = trich_xuat_cac_so_tu_so(P)
             V = trich_xuat_cac_so_tu_so(V)
             m = P / 9.8  # type: ignore
-            D = m / V
+            D = m / V  # type: ignore
             if D > 0:
                 mp_tinh_toan(30)
                 print("\n", "   AD: Khoi luong rieng cua chat la: ", D, "kg/m^3", "\n")
@@ -1346,61 +1368,83 @@ def tao_danh_sach_quy_luat_3(n, m):
 def one_two_three():
     set = {1: "Keo", 2: "Bua", 3: "Bao"}
     dem_human, dem_ai = 0, 0
-    n = int(input("- So man choi: "))
+    n = int(input("- Number of matches: "))
 
-    for _ in range(n):
+    while n - 1 >= 0:
         AI_choose = set[random.randint(1, 3)]
-        User_choose = str(input("- Lua chon cua ban: "))
+        User_choose = str(input("- User's choice: "))
         User = User_choose.title()
 
-        print(f"- Lua chon cua ban = {User}, lua chon cua A.I = {AI_choose};")
+        print(f"- User's chosen = {User}, A.I's chosen = {AI_choose}")
 
-        if User == "Keo" or User == "Keo":
+        if User == "Keo":
             if AI_choose == "Keo":
-                print(">>> HOA;")
-                dem_ai += 1
-                dem_human += 1
+                print(">>> DRAW")
             if AI_choose == "Bua":
-                print(">>> A.I THANG;")
+                print(">>> A.I WON")
                 dem_ai += 1
             if AI_choose == "Bao":
-                print(">>> BAN THANG;")
+                print(">>> USER WON")
                 dem_human += 1
 
-        elif User == "Bua" or User == "Bua":
+        elif User == "Bua":
             if AI_choose == "Bua":
-                print(">>> HOA;")
-                dem_human += 1
-                dem_ai += 1
+                print(">>> DRAW")
             if AI_choose == "Bao":
-                print(">>> A.I THANG;")
+                print(">>> A.I WON")
                 dem_ai += 1
             if AI_choose == "Keo":
-                print(">>> BAN THANG;")
+                print(">>> USER WON")
                 dem_human += 1
 
         elif User == "Bao":
             if AI_choose == "Bao":
-                print(">>> HOA;")
-                dem_ai += 1
-                dem_human += 1
+                print(">>> DRAW")
             if AI_choose == "Keo":
-                print(">>> A.I THANG;")
+                print(">>> A.I WON")
                 dem_ai += 1
             if AI_choose == "Bua":
-                print(">>> USER THANG;")
+                print(">>> USER WON")
                 dem_human += 1
 
         else:
-            print(">>> ! LOI NHE (BAN BI TRU 1 DIEM) !")
-            dem_human -= 1
-            dem_ai += 1
+            print(">>> ! ERROR !")
+            n += 1
         print()
+        n -= 1
 
-    print("- KET QUA:")
+    print("- RESULT:")
     if dem_ai < dem_human:
-        print(f">>> Ban thang voi {dem_human} diem, A.I thua voi {dem_ai} diem.")
+        print(
+            f">>> User's won with {dem_human} point(s), A.I's lost with {dem_ai} point(s)"
+        )
     elif dem_ai > dem_human:
-        print(f">>> A.i thang voi {dem_ai} diem, ban thua voi {dem_human} diem.")
+        print(
+            f">>> A.I's won with {dem_ai} point(s), User's lost with {dem_human} point(s)"
+        )
     elif dem_ai == dem_human:
-        print(f">>> Ban hoa voi A.I va so diem la {dem_ai}.")
+        print(">>> DRAW")
+
+
+def tao_day_chu(n, r, x):
+    s = input("Nhap day dau tien: ")
+    for i in range(x):
+
+        def cot(s, n):
+            for _ in range(n):
+                print(f"{s}")
+
+        def cheo_1(s, n):
+            for i in range(n):
+                k = "  " * i
+                print(f"{k}{s}")
+
+        def cheo_2(s, n):
+            for i in range(n, 0, -1):
+                k = "  " * i
+                print(f"{k}{s}")
+
+        for _ in range(r):
+            cot(s, n)
+            cheo_1(s, n)
+            cheo_2(s, n)
