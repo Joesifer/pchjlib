@@ -710,22 +710,6 @@ def trich_xuat_ki_tu(s):
     return re.findall(r"\D", s)
 
 
-# Ham an ki tu dang "234343" == "••••••"
-def an_ki_tu(s):
-    danh_sach = [i for i in s]
-    if len(danh_sach) == 0:
-        return "•"
-    if len(danh_sach) > 0:
-        if "/" not in danh_sach:
-            return "".join("•" for i in range(len(s)))
-        else:
-            an = ["•" for _ in ("".join([i for i in danh_sach if i != "/"]))]
-            vt = [i for i in range(len(s)) if danh_sach[i] == "/"]
-            for i in range(len(vt)):
-                an.insert(vt[i], "/")
-            return "".join(an)
-
-
 # Ham trich xuat cac so tu chuoi so. VD: "32/232343244" se la 32.232343244
 def trich_xuat_cac_so_tu_so(s):
     s = str(s)

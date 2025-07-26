@@ -29,15 +29,15 @@ from setuptools import setup
 
 
 with open(
-    r"C:\Users\LAPTOP DELL\Desktop\pchjlib_admin\README.md", encoding="utf-8"
+    r"C:\Users\LAPTOP DELL\Desktop\EVERYTHING\pchjlib_admin\README.md", encoding="utf-8"
 ) as f:
     desc = f.read()
 
 setup(
     name="pchjlib",
-    version="0.0.4.1",
+    version="0.0.5.0",
     author="Joesifer",
-    description="Thư viện này có thể thực hiện các phép tính, thuật toán, xử lí chuỗi, mảng, . . .",
+    description="Thư viện này có thể thực hiện các phép tính, thuật toán, xử lí chuỗi / mảng, . . .",
     long_description=desc,
     long_description_content_type="text/markdown",
     license="MIT License",

@@ -257,12 +257,6 @@
 >> Trich xuat ki tu co trong s;
 ```
 
-### Ham an ki tu dang "322/212/202332" == "ooo/ooo/oooooo".
-``` python
-- an_ki_tu(s).
->> Mot day ki tu an ma khong the truy lai s ban dau;
-```
-
 ### Ham trich xuat cac so tu chuoi so. VD: "32/232343244" se la "32.232343244".
 ``` python
 - trich_xuat_cac_so_tu_so(s).
@@ -499,6 +493,9 @@ I love you❤️
 ```
 
 # NHUNG BAN CAP NHAT
+### 0.0.5.0 - (26/7/2025).
+- ***Xoa an_ki_tu***
+
 ### 0.0.4.1 - (17/10/2024).
 - ***Cap nhat "one_two_three" va bo sung "tao day chu".***
 
