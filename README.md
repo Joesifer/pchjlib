@@ -323,6 +323,12 @@
 - ma_hoa_caesar(array, sang_trai_k_so).
 >> Xau duoc ma hoa boi day so mat ma;
 ```
+# Teen code Yahoo. "Đây là ví dụ" -> "+)4¥ 14` √!' |)⊔."
+``` python
+- teen_code_yahoo(dau_vao).
+>> Xau duoc chuyen hoa;
+
+```
 
 # Cac ham mo phong chi voi string:
 ### Ham mo phong qua trinh "Tai xuong" (pham vi so n la lon hon 0 va nho hon 88).
@@ -493,8 +499,12 @@ I love you❤️
 ```
 
 # NHUNG BAN CAP NHAT
+
+### 0.0.5.1 - (27/7/2025).
+- ***Cap nhat teen_code_yahoo.***
+
 ### 0.0.5.0 - (26/7/2025).
-- ***Xoa an_ki_tu***
+- ***Xoa an_ki_tu.***
 
 ### 0.0.4.1 - (17/10/2024).
 - ***Cap nhat "one_two_three" va bo sung "tao day chu".***

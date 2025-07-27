@@ -34,7 +34,7 @@ Tác giả
 
 Phiên bản
 ---------------------------------------------------------
-- 0.0.4.1.
+- 0.0.5.1
 
 Ngày đăng
 ---------------------------------------------------------
@@ -994,6 +994,185 @@ def mp_christmas_tree_cho_TEXT():
         print(tree[i])
 
 
+# Ham chuyen hoa chuoi thanh mat ma Caesar
+def chuyen_hoa_caesar(string, sang_trai_k_so):
+    string = "".join([i for i in string.upper() if i != " "]).strip()
+    s_ = {}
+    ss_ = {}
+    kq = []
+    kq_ = []
+    ds = [i + sang_trai_k_so for i in range(0, 26) if i + sang_trai_k_so < 26] + [
+        i
+        for i in range(
+            25
+            - len([i + sang_trai_k_so for i in range(0, 26) if i + sang_trai_k_so < 26])
+            + 1
+        )
+    ]
+
+    for i in range(26):
+        s__ = {[chr(j) for j in range(65, 65 + 26)][i]: i}
+        s_.update(s__)
+
+    for i in range(26):
+        ss__ = {i: ds[i]}
+        ss_.update(ss__)
+
+    for i in string:
+        kq.append(s_[i])
+
+    for i in kq:
+        kq_.append(ss_[i])
+
+    return kq_
+
+
+# Ham ma hoa day so Caesar
+def ma_hoa_caesar(array, sang_trai_k_so):
+    s_ = {}
+    ss_ = {}
+    kq = []
+    kq_ = []
+    ds = [i + sang_trai_k_so for i in range(0, 26) if i + sang_trai_k_so < 26] + [
+        i
+        for i in range(
+            25
+            - len([i + sang_trai_k_so for i in range(0, 26) if i + sang_trai_k_so < 26])
+            + 1
+        )
+    ]
+
+    for i in range(26):
+        s__ = {i: [chr(j) for j in range(65, 65 + 26)][i]}
+        s_.update(s__)
+
+    for i in range(26):
+        ss__ = {ds[i]: i}
+        ss_.update(ss__)
+
+    for i in array:
+        kq.append(ss_[i])
+
+    for i in kq:
+        kq_.append(str(s_[i]))
+
+    return "".join(kq_)
+
+
+# Ham chuyen hoa teen code yahoo
+def teen_code_yahoo(dau_vao):
+    teen_code = {
+        " ": " ",
+        "a": "4",
+        "á": "4'",
+        "à": "4`",
+        "ả": "4?",
+        "ã": "4~",
+        "ạ": "4.",
+        "ă": "4",
+        "ắ": "4'",
+        "ằ": "4`",
+        "ẳ": "4?",
+        "ẵ": "4~",
+        "ặ": "4.",
+        "â": "4",
+        "ấ": "4'",
+        "ầ": "4`",
+        "ẩ": "4?",
+        "ẫ": "4~",
+        "ậ": "4.",
+        "e": "3",
+        "é": "3'",
+        "è": "3`",
+        "ẻ": "3?",
+        "ẽ": "3~",
+        "ẹ": "3.",
+        "ê": "3^",
+        "ế": "3^'",
+        "ề": "3^`",
+        "ể": "3^?",
+        "ễ": "3^~",
+        "ệ": "3^.",
+        "i": "!",
+        "í": "!'",
+        "ì": "!`",
+        "ỉ": "!?",
+        "ĩ": "!~",
+        "ị": "!.",
+        "o": "0",
+        "ó": "0'",
+        "ò": "0`",
+        "ỏ": "0?",
+        "õ": "0~",
+        "ọ": "0.",
+        "ô": "0^",
+        "ố": "0^'",
+        "ồ": "0^`",
+        "ổ": "0^?",
+        "ỗ": "0^~",
+        "ộ": "0^.",
+        "ơ": "0",
+        "ớ": "0'",
+        "ờ": "0`",
+        "ở": "0?",
+        "ỡ": "0~",
+        "ợ": "0.'",
+        "u": "⊔",
+        "ú": "⊔'",
+        "ù": "⊔`",
+        "ủ": "⊔?",
+        "ũ": "⊔~",
+        "ụ": "⊔.",
+        "ư": "⊔",
+        "ứ": "⊔'",
+        "ừ": "⊔`",
+        "ử": "⊔?",
+        "ữ": "⊔~",
+        "ự": "⊔.",
+        "y": "¥",
+        "ý": "¥'",
+        "ỳ": "¥`",
+        "ỷ": "¥?",
+        "ỹ": "¥~",
+        "ỵ": "¥.",
+        "b": "|3",
+        "c": "©",
+        "d": "|)",
+        "đ": "+)",
+        "g": "9",
+        "h": "|-|",
+        "k": "|<",
+        "l": "1",
+        "m": "|V|",
+        "n": "π",
+        "p": "|⁾",
+        "q": "⁽|",
+        "r": "Γ",
+        "s": "∫",
+        "t": "τ",
+        "v": "√",
+        "x": "⨉",
+    }
+
+    dau_vao = (str(dau_vao)).lower()
+    bien_doi = []
+    dau_ra = ""
+
+    for i in range(len(list(dau_vao))):
+        if dau_vao[i] in teen_code:
+            bien_doi.append(str(teen_code[dau_vao[i]]))
+        else:
+            bien_doi.append(dau_vao[i])
+
+    for i in bien_doi:
+        dau_ra += i
+
+    return dau_ra
+
+
+print(teen_code_yahoo("Đây là ví dụ"))
+
+
 # # Ham ho tro tinh toan dac biet
 # Ham tinh toan cac cong thuc vat ly
 def tinh_toan_vat_ly_8():
@@ -1249,71 +1428,6 @@ def tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number):
                 return False
     else:
         return False
-
-
-# Ham chuyen hoa chuoi thanh mat ma Caesar
-def chuyen_hoa_caesar(string, sang_trai_k_so):
-    string = "".join([i for i in string.upper() if i != " "]).strip()
-    s_ = {}
-    ss_ = {}
-    kq = []
-    kq_ = []
-    ds = [i + sang_trai_k_so for i in range(0, 26) if i + sang_trai_k_so < 26] + [
-        i
-        for i in range(
-            25
-            - len([i + sang_trai_k_so for i in range(0, 26) if i + sang_trai_k_so < 26])
-            + 1
-        )
-    ]
-
-    for i in range(26):
-        s__ = {[chr(j) for j in range(65, 65 + 26)][i]: i}
-        s_.update(s__)
-
-    for i in range(26):
-        ss__ = {i: ds[i]}
-        ss_.update(ss__)
-
-    for i in string:
-        kq.append(s_[i])
-
-    for i in kq:
-        kq_.append(ss_[i])
-
-    return kq_
-
-
-# Ham ma hoa day so Caesar
-def ma_hoa_caesar(array, sang_trai_k_so):
-    s_ = {}
-    ss_ = {}
-    kq = []
-    kq_ = []
-    ds = [i + sang_trai_k_so for i in range(0, 26) if i + sang_trai_k_so < 26] + [
-        i
-        for i in range(
-            25
-            - len([i + sang_trai_k_so for i in range(0, 26) if i + sang_trai_k_so < 26])
-            + 1
-        )
-    ]
-
-    for i in range(26):
-        s__ = {i: [chr(j) for j in range(65, 65 + 26)][i]}
-        s_.update(s__)
-
-    for i in range(26):
-        ss__ = {ds[i]: i}
-        ss_.update(ss__)
-
-    for i in array:
-        kq.append(ss_[i])
-
-    for i in kq:
-        kq_.append(str(s_[i]))
-
-    return "".join(kq_)
 
 
 # # Quy luat.
