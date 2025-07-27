@@ -9,350 +9,246 @@
 [![Owner](https://img.shields.io/badge/Joesifer-1?style=plastic&label=PCHJLIB&labelColor=%2300fff7&color=%23ffe600)](https://github.com/Joesifer)
 
 
-# Cac ham kiem tra tinh chat so nguyen to va so nguyen to lien quan:
-### Ham kiem tra xem mot so co phai la so nguyen to hay khong.
-``` python
-- kiem_tra_so_nguyen_to(n).
->> True/ False neu (khong) la so nguyen to;
-```
+# Mục Lục
 
-### Ham tao danh sach cac so nguyen to den n.
-``` python
-- tao_danh_sach_so_nguyen_to(n).
->> Mot danh sach cac so nguyen to nam trong khoang tu 0 toi so n da nhap;
-```
+- [Các hàm kiểm tra số nguyên tố và số liên quan](#các-hàm-kiểm-tra-số-nguyên-tố-và-số-liên-quan)  
+- [Các hàm Fibonacci](#các-hàm-fibonacci)  
+- [Các hàm tính số hoàn thiện, tự mãn, hữu hảo, hoàn hào, thân thiết](#các-hàm-tính-số-hoàn-thiện-tự-mãn-hữu-hảo-hoàn-hào-thân-thiết)  
+- [Các hàm số chính phương, mạnh mẽ, thân thiết](#các-hàm-số-chính-phương-mạnh-mẽ-thân-thiết)  
+- [Các hàm về ước số và bội số](#các-hàm-về-ước-số-và-bội-số)  
+- [Các hàm số song tố và số phong phú](#các-hàm-số-song-tố-và-số-phong-phú)  
+- [Các hàm phân tích thừa số nguyên tố](#các-hàm-phân-tích-thừa-số-nguyên-tố)  
+- [Các hàm giải phương trình](#các-hàm-giải-phương-trình)  
+- [Các hàm xử lý danh sách và chuỗi](#các-hàm-xử-lý-danh-sách-và-chuỗi)  
+- [Mật mã Caesar](#mật-mã-caesar)  
+- [Teen Code Yahoo](#teen-code-yahoo)  
+- [Các hàm mô phỏng chỉ với string](#các-hàm-mô-phỏng-chỉ-với-string)  
+- [Hàm hỗ trợ tính toán đặc biệt](#hàm-hỗ-trợ-tính-toán-đặc-biệt)  
+- [Quy luật sinh dãy](#quy-luật-sinh-dãy)  
+- [Chuyển đổi và đếm](#chuyển-đổi-và-đếm)  
+- [Khác](#khác)  
+- [Những bản cập nhật](#những-bản-cập-nhật) 
 
-### Ham kiem tra so emirp (mot so emirp la mot so nguyen to ma khi dao nguoc vi tri cac chu so cua no, ta cung duoc mot so nguyen to, khong ke nhung so nguyen to doi xung).
-``` python
-- kiem_tra_so_emirp(n).
->> True/ False neu (khong) la so emirp;
-```
+---
 
-### Ham tao so emirp den n.
-``` python
-- tao_danh_sach_so_emirp(n).
->> Mot danh sach cac so emirp nam trong khoang tu 0 toi so n da nhap;
-```
+## Các hàm kiểm tra số nguyên tố và số liên quan
 
-# Cac ham lien quan den so Fibonacci:
-### Ham tinh so Fibonacci thu n.
-``` python
-- vi_tri_so_Fibonacci(n).
->> Vi tri cua mot so Fibonacci thu n;
-```
+- **kiem_tra_so_nguyen_to(n)**  
+  True/False nếu n (không) là số nguyên tố.
 
-### Ham tao danh sach cac so Fibonacci den n.
-``` python
-- tao_danh_sach_so_Fibonacci(n).
->> Mot danh sach cac so Fibonacci trong khoang tu 0 toi so n da nhap;
-```
+- **tao_danh_sach_so_nguyen_to(n)**  
+  Danh sách các số nguyên tố từ 0 đến n.
 
-# Cac ham so hoan thien, so tu man, hua hon, hoan hao, than thiet va tinh tong cac uoc, chu so:
-### Ham tinh tong cac uoc so cua n khong tinh n va khong am.
-``` python
-- tong_uoc_so(n).
->> Tong cac uoc so duong cua so n;
-```
+- **kiem_tra_so_emirp(n)**  
+  True/False nếu n (không) là số emirp.
 
-### Ham tinh tong cac chu so cua mot so.
-``` python
-- tong_chu_so(n).
->> Tong cac chu so cua so n;
-```
+- **tao_danh_sach_so_emirp(n)**  
+  Danh sách các số emirp từ 0 đến n.
 
-### Ham kiem tra xem mot so co phai la so hoan thien (mot so hoan thien la mot so nguyen duong ma tong cac uoc nguyen duong cua no bang chinh no).
-``` python
-- kiem_tra_so_hoan_thien(n).
->> True/ False neu (khong) la so hoan thien;
-```
+---
 
-### Ham tao danh sach cac so hoan thien.
-``` python
-- tao_danh_sach_so_hoan_thien(n).
->> Mot danh sach cac so hoan thien trong khoang tu 0 toi so n da nhap;
-```
+## Các hàm Fibonacci
 
-### Ham kiem tra so tu man (mot so tu man la so bang tong cac mu bac ba cua moi chu so cua no).
-``` python
-- kiem_tra_so_tu_man(n).
->> True/ False neu (khong) la mot so tu man;
-```
+- **vi_tri_so_Fibonacci(n)**  
+  Tính số Fibonacci thứ n.
 
-### Ham tao danh sach cac so tu man.
-``` python
-- tao_danh_sach_so_tu_man(n).
->> Mot danh sach cac so tu man trong khoang tu 0 toi so n da nhap;
-```
+- **tao_danh_sach_so_Fibonacci(n)**  
+  Danh sách các số Fibonacci trong khoảng 0 đến n.
 
-### Ham kiem tra cap so hua hon (mot cap so hua hon la hai so nguyen duong ma tong cac uoc cua so nay (khong tinh so do) nhieu hon so kia dung 1 don vi).
-``` python
-- cap_so_hua_hon(a, b).
->> True/ False neu a, b (khong) la mot cap so hua hon.
-```
+---
 
-### Ham kiem tra so hoan hao (mot so hoan hao la khi tong cac uoc so thuc su cua n cung bang n).
-``` python
-- kiem_tra_so_hoan_hao(n).
->> True/ False neu (khong) la mot so hoan hao;
-```
+## Các hàm tính số hoàn thiện, tự mãn, hữu hảo, hoàn hào, thân thiết
 
-### Ham tao danh sach so hoan hao.
-``` python
-- tao_danh_sach_so_hoan_hao(n).
->> Mot danh sach cac so hoan hao trong khoang tu 0 toi so n da nhap;
-```
+- **tong_uoc_so(n)**  
+  Tổng các ước số dương (không tính n) của n.
 
-# Cac ham kiem tra va tao danh sach so chinh phuong, than thiet, manh me loai 1, 2:
-### Ham kiem tra so chinh phuong (so chinh phuong la so ma neu no la binh phuong cua mot so nguyen).
-``` python
-- kiem_tra_so_chinh_phuong(n).
->> True/ False neu (khong) la mot so chinh phuong;
-```
+- **tong_chu_so(n)**  
+  Tổng các chữ số của n.
 
-### Ham tao danh sach cac so chinh phuong den n.
-``` python
-- tao_danh_sach_so_chinh_phuong(n).
->> Mot danh sach cac so chinh phuong trong khoang tu 0 toi so n da nhap;
-```
+- **kiem_tra_so_hoan_thien(n)**  
+  True/False nếu n (không) là số hoàn thiện.
 
-### Ham kiem tra xem hai so co phai la cac so than thiet (mot cap so than thiet la khi chung tuan theo quy luat: So nay bang tong tat ca cac uoc cua so kia (tru chinh so do) va nguoc lai).
-``` python
-- cap_so_than_thiet(a, b).
->> True/ False neu a, b (khong) la cac so than thiet;
-```
+- **tao_danh_sach_so_hoan_thien(n)**  
+  Danh sách số hoàn thiện từ 0 đến n.
 
-### Ham kiem tra so manh me (neu tong chu so no la mot so nguyen to).
-``` python
-- kiem_tra_so_manh_me_1(n).
->> True/ False neu (khong) la mot so manh me;
-```
+- **kiem_tra_so_tu_man(n)**  
+  True/False nếu n (không) là số tự mãn.
 
-### Ham kiem tra so manh me (neu mot so vua chia het cho nhung so nguyen to va binh phuong cua chung truoc no).
-``` python
-- kiem_tra_so_manh_me_2(n).
->> True/ False neu (khong) la mot so manh me;
-```
+- **tao_danh_sach_so_tu_man(n)**  
+  Danh sách số tự mãn từ 0 đến n.
 
-# Cac ham lien quan den uoc so va boi so:
-### Ham tao danh sach cac uoc so cua mot so.
-``` python
-- tao_danh_sach_uoc_so(n).
->> Mot danh sach cac uoc so cua mot so;
-```
+- **cap_so_hua_hon(a, b)**  
+  True/False nếu a, b (không) là cặp số hữu hảo.
 
-### Ham tim uoc chung lon nhat cua 2 so.
-``` python
-- uoc_chung_lon_nhat(a, b).
->> Gia tri uoc chung lon nhat cua a, b;
-```
+- **kiem_tra_so_hoan_hao(n)**  
+  True/False nếu n (không) là số hoàn hào.
 
-### Ham tinh uoc so chung lon cua mot danh sach cac so (uoc chung lon nhat cua nhieu so).
-``` python
-- uoc_chung_lon_nhat_cua_danh_sach(array).
->> Gia tri uoc chung lon nhat cua array;
-```
+- **tao_danh_sach_so_hoan_hao(n)**  
+  Danh sách số hoàn hào từ 0 đến n.
 
-### Ham tinh boi so chung nho nhat cua hai so.
-``` python
-- boi_chung_nho_nhat(a, b).
->> Gia tri boi chung nho nhat cua a, b;
-```
+---
 
-### Ham tinh boi so chung nho nhat cua mot danh sach cac so (boi chung nho nhat cua nhieu so).
-``` python
-- boi_chung_nho_nhat_cua_danh_sach(array).
->> Gia tri boi chung nho nhat cua array;
-```
+## Các hàm số chính phương, mạnh mẽ, thân thiết
 
-### Ham tao danh sach cac boi so cua mot so len den 10 lan.
-``` python
-- tao_danh_sach_boi_so(n).
->> Mot danh sach cac so boi so cua tu 0 toi 10 lan;
-```
+- **kiem_tra_so_chinh_phuong(n)**  
+  True/False nếu n (không) là số chính phương.
 
-# Ham tao gia tri cac uoc chung cua mot danh sach.
-``` python
-- uoc_chung_cua_danh_sach(arr).
->> Mot danh sach cac uoc chung cua danh sach.
-```
+- **tao_danh_sach_so_chinh_phuong(n)**  
+  Danh sách số chính phương từ 0 đến n.
 
-# Cac ham lien quan den tinh chat so song to va so phong phu:
-### Ham kiem tra cac so song to.
-``` python
-- kiem_tra_so_song_to(n).
->> True/ False neu (khong) la mot so song to;
-```
+- **cap_so_than_thiet(a, b)**  
+  True/False nếu a, b (không) là cặp số thân thiết.
 
-### Ham tao danh sach cac so song to.
-``` python
-- tao_danh_sach_so_song_to(n).
->> Mot danh sach cac so song to tu 0 toi n;
-```
+- **kiem_tra_so_manh_me_1(n)**  
+  True/False nếu n (không) là số mạnh mẽ (tổng chữ số là nguyên tố).
 
-### Ham kiem tra cac so phong phu. (So tu nhien N duoc goi la so phong phu neu tong cac uoc cua N (khong ke N) lon hon N).
-``` python
-- kiem_tra_so_phong_phu(number).
->>  True/ False neu (khong) la mot so phong phu;
-```
+- **kiem_tra_so_manh_me_2(n)**  
+  True/False nếu n (không) là số mạnh mẽ loại 2.
 
-### Ham tao danh sach cac so phong phu.
-``` python
-- tao_danh_sach_so_phong_phu(n).
->> Mot danh sach cac so phong phu tu 0 toi n;
-```
-# Cac ham lien quan den phan tich thua so nguyen to:
-### Ham tinh cac thua so nguyen to cua mot so (vip).
-``` python
-- thua_so_nguyen_to_day_du(n).
->> Tra ve tich cua nhung so nguyen to (co so mu) bang so n;
-```
+---
 
-### Ham tinh cac thua so nguyen to cua mot so dang list.
-``` python
-- thua_so_nguyen_to(n).
->> Tra ve mot danh sach cac so nguyen to co tich bang n;
-```
+## Các hàm về ước số và bội số
 
-### Ham tinh uoc so chung lon nhat nguyen to cua hai so.
-``` python
-- uoc_chung_nguyen_to_2_so(a, b).
->> Gia tri uoc chung nguyen to lon nhat cua a, b;
-```
+- **tao_danh_sach_uoc_so(n)**  
+  Danh sách các ước số của n.
 
-# Cac ham lien quan den phuong trinh va bieu thuc toan hoc:
-### Ham giai phuong trinh bac 1, 2 mot an va vai luu y, khi nhap: phuong_trinh = "12x^2 + 34 - 24 = 23x - 13".
-``` python
-- giai_pt_bac_1va2_dang_string(phuong_trinh).
->> Nghiem cua phuong trinh;
-```
+- **uoc_chung_lon_nhat(a, b)**  
+  Giá trị ước chung lớn nhất của a, b.
 
-### Ham giai phuong trinh bac 1 - 10 bang cach nhap he so.(bac = bac cua phuong trinh).
-``` python
-- giai_phuong_trinh(bac, he_so_phuong_trinh):
->> Nghiem cua phuong trinh;
-```
+- **uoc_chung_lon_nhat_cua_danh_sach(array)**  
+  Giá trị ước chung lớn nhất của dãy.
 
-# Cac ham lien quan den trich xuat, xu ly chuoi, danh sach:
-### Ham loai bo cac phan tu trung lap tu mot danh sach.
-``` python
-- danh_sach_khong_trung_lap(lst).
->> Danh sach voi nhung phan tu khong trung lap;
-```
+- **boi_chung_nho_nhat(a, b)**  
+  Giá trị bội số chung nhỏ nhất của a, b.
 
-### Ham trich xuat cac chu so tu mot chuoi.
-``` python
-- trich_xuat_chu_so_tu_chuoi(s).
->> Mot chuoi chu so co trong s;
-```
+- **boi_chung_nho_nhat_cua_danh_sach(array)**  
+  Giá trị bội số chung nhỏ nhất của dãy.
 
-### Ham trich xuat cac so tu mot chuoi.
-``` python
-- trich_xuat_so_tu_chuoi(s).
->> Mot chuoi cac so co trong s;
-```
+- **tao_danh_sach_boi_so(n)**  
+  Danh sách bội số của n từ 0 đến 10 lần.
 
-### Ham trich xuat cac ky tu tu mot chuoi.
-``` python
-- trich_xuat_ki_tu(s).
->> Trich xuat ki tu co trong s;
-```
+- **uoc_chung_cua_danh_sach(arr)**  
+  Danh sách các ước chung của dãy.
 
-### Ham trich xuat cac so tu chuoi so. VD: "32/232343244" se la "32.232343244".
-``` python
-- trich_xuat_cac_so_tu_so(s).
->> Trich xuat cac so tu mot day so nhung lan voi ki tu;
-```
+---
 
-### Ham nen xau loai 1. VD: "google" se la "2ol2ge".
-``` python
-- xau_duoc_nen_1(s).
->> Xau duoc nen;
-```
-### Ham nen xau loai 2. VD: "google" se la "g2ogle".
-``` python
-- xau_duoc_nen_2(s).
->> Xau duoc nen;
-```
+## Các hàm số song tố và số phong phú
 
-### Ham nen xau nhung khong ghi so. VD: "hhhooccsiinh" se la "hocsinh".
-``` python
-- xau_duoc_nen_khong_so(chuoi_nhap).
->> Xau duoc nen;
-```
+- **kiem_tra_so_song_to(n)**  
+  True/False nếu n (không) là số song tố.
 
-### Ham giai nen xau. VD: "3ab3c" se la "aaabccc"
-``` python
-- xau_duoc_giai_nen(s).
->> Xau duoc giai nen;
-```
+- **tao_danh_sach_so_song_to(n)**  
+  Danh sách số song tố từ 0 đến n.
 
-### Ham tao ra xau ki tu khong trung lap. VD: "Google" se la "gole".
-``` python
-- xau_ki_tu_khong_trung_lap(s).
->> Xau ki tu khong trung lap;
-```
+- **kiem_tra_so_phong_phu(number)**  
+  True/False nếu n (không) là số phong phú.
 
-# Mat ma Caesar:
-# Phuong phap ma hoa cua Caesar duoc vi du cu the nhu sau:
-``` python
+- **tao_danh_sach_so_phong_phu(n)**  
+  Danh sách số phong phú từ 0 đến n.
 
-- Dung mat ma cua Caesar chuyen buc thu "MEET YOU IN THE PARK" thanh buc thu bi mat. 
-- Cac chu cai duoc bieu dien thanh so theo quy tac sau.
+---
 
->> A B C D E F G H I J  K  L  M  N  O  P  Q  R  S  T  U  V  W  X  Y  Z
->> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+## Các hàm phân tích thừa số nguyên tố
 
-- Khi do buc thu goc "MEET YOU IN THE PARK" tro thanh (khong tinh khoang trang): "12 4 4 19 24 14 20 8 13 19 7 4 15 0 17 10"
-- Bay gio ta se quay chuoi so 0 -> 25 sang trai k so (vi du trong truong hop nay k = 3) khi do ta co bang sau.
+- **thua_so_nguyen_to_day_du(n)**  
+  Trả về tích các thừa số nguyên tố (có số mũ) bằng n.
 
->> 0 1 2 3 4 5 6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
->> 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25  0  1  2
+- **thua_so_nguyen_to(n)**  
+  Trả về danh sách các thừa số nguyên tố của n.
 
-- Khi do chuoi so "12 4 4 19 24 14 20 8 13 19 7 4 15 0 17 10" se duoc ma hoa thanh: "15 7 7 22 1 17 23 11 16 22 10 7 18 3 20 13"
+- **uoc_chung_nguyen_to_2_so(a, b)**  
+  Giá trị ước chung nguyên tố lớn nhất của a, b.
 
-```
+---
 
-### Ham chuyen hoa chuoi thanh mat ma Caesar.
-``` python
-- chuyen_hoa_caesar(string, sang_trai_k_so).
->> Day so mat ma caesar;
-```
+## Các hàm giải phương trình
 
-### Ham ma hoa day so Caesar.
-``` python
-- ma_hoa_caesar(array, sang_trai_k_so).
->> Xau duoc ma hoa boi day so mat ma;
-```
-# Teen code Yahoo. "Đây là ví dụ" -> "+)4¥ 14` √!' |)⊔."
-``` python
-- teen_code_yahoo(dau_vao).
->> Xau duoc chuyen hoa;
+- **giai_pt_bac_1va2_dang_string(phuong_trinh)**  
+  Giải phương trình bậc 1, 2 nhập dạng chuỗi.
 
-```
+- **giai_phuong_trinh(bac, he_so_phuong_trinh)**  
+  Giải phương trình bậc 1–10 theo hệ số.
 
-# Cac ham mo phong chi voi string:
-### Ham mo phong qua trinh "Tai xuong" (pham vi so n la lon hon 0 va nho hon 88).
-``` python
+---
+
+## Các hàm xử lý danh sách và chuỗi
+
+- **danh_sach_khong_trung_lap(lst)**  
+  Loại bỏ phần tử trùng lặp trong danh sách.
+
+- **trich_xuat_chu_so_tu_chuoi(s)**  
+  Trích xuất chuỗi chữ số từ s.
+
+- **trich_xuat_so_tu_chuoi(s)**  
+  Trích xuất chuỗi số từ s.
+
+- **trich_xuat_ki_tu(s)**  
+  Trích xuất các ký tự từ s.
+
+- **trich_xuat_cac_so_tu_so(s)**  
+  Trích xuất các số từ chuỗi số (ví dụ “32/232343244” → “32.232343244”).
+
+- **xau_duoc_nen_1(s)**  
+  Nén xâu loại 1 (ví dụ “google” → “2ol2ge”).
+
+- **xau_duoc_nen_2(s)**  
+  Nén xâu loại 2 (ví dụ “google” → “g2ogle”).
+
+- **xau_duoc_nen_khong_so(chuoi_nhap)**  
+  Nén xâu bỏ số (ví dụ “hhhooccsiinh” → “hocsinh”).
+
+- **xau_duoc_giai_nen(s)**  
+  Giải nén xâu (ví dụ “3ab3c” → “aaabccc”).
+
+- **xau_ki_tu_khong_trung_lap(s)**  
+  Tạo xâu ký tự không trùng lặp (ví dụ “Google” → “gole”).
+
+---
+
+## Mật mã Caesar
+
+- **chuyen_hoa_caesar(string, sang_trai_k_so)**  
+  Chuyển chuỗi thành dãy số mật mã Caesar.
+
+- **ma_hoa_caesar(array, sang_trai_k_so)**  
+  Mã hóa dãy số Caesar thành xâu.
+
+---
+
+## Teen Code Yahoo
+
+- **teen_code_yahoo(dau_vao)**  
+  Chuyển xâu thành Teen Code Yahoo.
+
+---
+
+## Các hàm mô phỏng chỉ với string
+
+### mp_tai_xuong(n)
+Phạm vi 0 < n < 88  
+```python
 - mp_tai_xuong(n):
   Dang tai xuong [=====================================] 100%
   Tai xuong hoan tat!
 ```
-### Ham mo phong qua trinh "tinh toan" cua "Admin" (giong nhu mo phong tai xuong).
-``` python
+
+### mp_tinh_toan(n)
+```python
 - mp_tinh_toan(n):
   AD: Dang tinh toan [=====================================] 100%
 ```
 
-### Ham mo phong qua trinh "LOADING...".
-``` python
+### mp_loading(n)
+```python
 - mp_loading(n):
 >> LOADING...
 ```
 
-### Ham mo phong cay thong cho VSCode.
-``` python
+### mp_christmas_tree_cho_VSCode()
+```python
 - mp_christmas_tree_cho_VSCode():
 - Nhap chieu cao cay thong: 8
+
         *
        * *
       * * *
@@ -365,10 +261,11 @@
         H
 ```
 
-### Ham mo phong cay thong cho TEXT.
-``` python
+### mp_christmas_tree_cho_TEXT()
+```python
 - mp_christmas_tree_cho_TEXT():
 - Nhap chieu cao cay thong: 8
+
                  *  
                *  *   
              *  *  *    
@@ -381,210 +278,195 @@
                 H
 ```
 
-# Ham ho tro tinh toan dac biet:
-### Ham tinh toan cac cong thuc vat ly.
-``` python
-- tinh_toan_vat_ly_8().
->> Mot bang lua chon cac cong thuc vat ly 8 chuong trinh GDPT 2018 sach CTST HK1;
->>
+---
 
+## Hàm hỗ trợ tính toán đặc biệt
 
+### tinh_toan_vat_ly_8()
+```python
+- tinh_toan_vat_ly_8():
+>> >>>>> NHAP TEN CONG THUC BAN MUON DE ADMIN TINH <<<<<
+       1. Khoi luong rieng (D, Kg/m^3)
+       2. Trong luong rieng (d, N/m^3)
+       3. Luc day Archimedes (Fa, N)
+       4. Trong luong (P, N)
+       5. Ap Sửat chat ran (p, N/m^2)
+       6. Ap Sửat chat long (p, N/m^2)
 
-                   >>>>> NHAP TEN CONG THUC BAN MUON DE ADMIN TINH <<<<<               
-                           ~~~ ! Luu y: Nhap theo yeu cau ! ~~~                        
-                                                                                       
-          --> 1. Cong thuc tinh: Khoi luong rieng      (ki hieu D, Kg/m^3)             
-          --> 2. Cong thuc tinh: Trong luong rieng     (ki hieu d, don vi N/m^3)       
-          --> 3. Cong thuc tinh: Luc day Archimedes    (ki hieu Fa, don vi N)         
-          --> 4. Cong thuc tinh: Trong luong           (ki hieu P, don vi N)           
-          --> 5. Cong thuc tinh: Ap suat chat ran      (ki hieu p, N/m^2)             
-          --> 6. Cong thuc tinh: Ap suat chat long     (ki hieu p, N/m^2)              
-
-      AD: Nhap cong thuc ban chon de AD tinh: 4
-  - Nhap khoi luong cua vat (kg): 3.4
-      AD: Dang tinh toan [=====================================] 100%
-      AD: Trong luong cua chat do la:  33.32 N 
+  AD: Nhap cong thuc ban chon: 4
+  - Nhap khoi luong (kg): 3.4
+  AD: Dang tinh toan [=====================================] 100%
+  AD: Trong luong la: 33.32 N
 ```
 
-### Ham tinh toan tien dien a la chi so cu, b la chi so moi (b > a).
-``` python
-- tinh_toan_tien_dien(chi_so_cu, chi_so_moi).
+### tinh_toan_tien_dien(chi_so_cu, chi_so_moi)
+```python
+- tinh_toan_tien_dien(chi_so_cu, chi_so_moi):
 >> So Kwh da tieu thu va so tien phai tra;
 ```
 
-### Ham tim mot so lon nhat co tong cac chu "a" so bang so "b". VD: 3, 21 se bang 993.
-``` python
-- tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number).
->> So ket qua;
+### tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number)
+```python
+- tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number):
+>> So lon nhat co number_of_digits chu so va tong bang int_number
+# Vi du: 3, 21 → 993
 ```
 
-### Ham dinh ly Pythagore (muon tim canh nao thi cho canh do bang False. VD a = 1, b = 2, c = False de tim c va trong do, a la canh goc vuong 1, b la canh goc vuong 2, c la canh huyen).
-``` python
-- pythagore(a, b, c).
->> Gia tri cua canh can tim trong tam giac;
+### pythagore(a, b, c)
+```python
+- pythagore(a, b, c):
+>> Tinh canh con thieu trong tam giac vuong
+# Cho canh can tim = False
 ```
 
-# Quy luat:
-### Ham tao danh sach cac so theo quy luat: 1 so chia het 1, 2 so chia het 2, 3 so chia het 3, ... cho toi tong so luong la number.
-``` python
-- tao_danh_sach_quy_luat_1(number).
->> Mot danh sach theo quy luat 1;
+---
+
+## Quy luật sinh dãy
+
+### tao_danh_sach_quy_luat_1(number)
+```python
+- tao_danh_sach_quy_luat_1(number):
+>> Mot danh sach: 1 so chia het 1, 2 so chia het 2, … den khi co number phan tu
 ```
 
-### Ham tao mot day so theo quy luat: cap so nhan voi n phan tu va m. VD: n = 10, m = 2 -> array = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18].
-``` python
-- tao_danh_sach_quy_luat_2(m, n).
->> Mot danh sach theo quy luat 2;
+### tao_danh_sach_quy_luat_2(m, n)
+```python
+- tao_danh_sach_quy_luat_2(m, n):
+>> Mot danh sach cap so cong buoc m, so phan tu n
+# Vi du: m=2, n=10 → [0,2,4,6,8,10,12,14,16,18]
 ```
 
-### Ham tao day so theo quy luat: so mu nang toi lan thu n cua so m. VD: m = 3, n = 10 -> array = [3^0, 3^1, 3^2, ... , 3^10].
-``` python
-- tao_danh_sach_quy_luat_3(n, m).
->> Mot danh sach theo quy luat 3;
+### tao_danh_sach_quy_luat_3(n, m)
+```python
+- tao_danh_sach_quy_luat_3(n, m):
+>> Mot danh sach luy thua m^0 den m^n
+# Vi du: m=3, n=10 → [1,3,9,…,3^10]
 ```
 
-# Khac:
-### Ham chuyen doi so binh thuong thanh so La Ma.
-``` python
-- chuyen_doi_so_la_ma(num).
->> So la ma cua num;
+---
+
+## Chuyển đổi và đếm
+
+### chuyen_doi_so_la_ma(num)
+```python
+- chuyen_doi_so_la_ma(num):
+>> So La Ma cua num
 ```
 
-### Ham dem so nghich the trong mot danh sach (cho day so nguyen duong gom n phan tu a1, a2 ,…, a{n} . Mot cap (a[i], a[j] ) duoc goi la mot nghich the neu i < j va a[i] > a[j]).
-``` python
-- dem_so_nghich_the(danh_sach).
->> So nghich the trong danh sach;
+### dem_so_nghich_the(danh_sach)
+```python
+- dem_so_nghich_the(danh_sach):
+>> So cap nghich the trong danh sach
+# (i<j va a[i]>a[j])
 ```
 
-### Ham choi keo bua bao voi "A.I".
-``` python
-- one_two_three().
->> Nhung su lua chon de ban choi keo bua bao voi A.I;
+### one_two_three()
+```python
+- one_two_three():
+>> Lua chon keo bua bao voi A.I: ['rock','paper','scissors']
 ```
 
-### Ham tao dong ho dem nguoc. (n la so dong moi cot va duong cheo, r la so tong cot va 2 duong cheo, x la so lan lap lai).
-``` python
+### tao_day_chu(n, r, x)
+```python
 - tao_day_chu(n, r, x):
->> Nhap day dau tien: I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-I love you❤️
-  I love you❤️
-    I love you❤️
-      I love you❤️
-        I love you❤️
-          I love you❤️
-            I love you❤️
-              I love you❤️
-                I love you❤️
-                  I love you❤️
-                    I love you❤️
-                  I love you❤️
-                I love you❤️
-              I love you❤️
-            I love you❤️
-          I love you❤️
-        I love you❤️
-      I love you❤️
-    I love you❤️
-  I love you❤️
+>> Tao dong ho dem nguoc mau voi n dong, r cot, 2 duong cheo, lap lai x lan.
+
 ```
 
-# NHUNG BAN CAP NHAT
+---
 
-### 0.0.5.1 - (27/7/2025).
-- ***Cap nhat teen_code_yahoo.***
+## Khác
 
-### 0.0.5.0 - (26/7/2025).
-- ***Xoa an_ki_tu.***
+*(Chưa có hàm bổ sung)*
 
-### 0.0.4.1 - (17/10/2024).
-- ***Cap nhat "one_two_three" va bo sung "tao day chu".***
+# NHỮNG BẢN CẬP NHẬT
 
-### 0.0.4.0 - (5/5/2024).
-- ***Sua README.***
+### 0.0.5.2 - (27/07/2025)
+- ***Sửa README.***
 
-### 0.0.3.9 - (5/5/2024).
-- ***Sua loi.***
+### 0.0.5.1 - (27/07/2025)
+- ***Cập nhật teen_code_yahoo.***
 
-### 0.0.3.8 - (5/5/2024).
-- ***Cap nhat "mp_christmas_tree_cho_VSCode" va "mp_christmas_tree_cho_TEXT".***
-### 0.0.3.8 - (5/5/2024).
-- ***Cap nhat "mp_christmas_tree_cho_VSCode" va "mp_christmas_tree_cho_TEXT".***
+### 0.0.5.0 - (26/07/2025)
+- ***Xóa an_ký_tự.***
 
-### 0.0.3.7 - (4/5/2024).
-- ***Cap nhat "mp_christmas_tree".***
+### 0.0.4.1 - (17/10/2024)
+- ***Cập nhật "one_two_three" và bổ sung "tạo_dãy_chữ".***
 
-### 0.0.3.6 - (03/03/2024).
-- ***Thu nghiem.***
+### 0.0.4.0 - (05/05/2024)
+- ***Sửa README.***
 
-### 0.0.3.5 - (01/03/2024).
-- ***Thu nghiem.***
+### 0.0.3.9 - (05/05/2024)
+- ***Sửa README.***
 
-### 0.0.3.4 - (26/02/2024).
-- ***Bo sung "ham uoc_chung_cua_danh_sach" (de tim cac uoc chung trong mot array).***
+### 0.0.3.8 - (05/05/2024)
+- ***Cập nhật "mp_christmas_tree_cho_VSCode" và "mp_christmas_tree_cho_TEXT".***
 
-### 0.0.3.3 - (21/02/2024).
-- ***Nang cap info library, README.***
+### 0.0.3.7 - (04/05/2024)
+- ***Cập nhật "mp_christmas_tree".***
 
-### 0.0.3.2 - (20/02/2024).
-- ***Bo sung so phong phu.***
+### 0.0.3.6 - (03/03/2024)
+- ***Thử nghiệm.***
 
-### 0.0.3.1 - (20/02/2024).
-- ***Nang cap info library.***
+### 0.0.3.5 - (01/03/2024)
+- ***Thử nghiệm.***
 
-### 0.0.3 - (20/02/2024).
-- ***Bo sung "xau_ki_tu_khong_trung_lap" (khong theo thu tu bang chu cai) va loai bo "ki_tu_trung_lap" (theo thu tu bang chu cai).***
+### 0.0.3.4 - (26/02/2024)
+- ***Bổ sung hàm "uoc_chung_cua_danh_sach" (để tìm các ước chung trong một mảng).***
 
-### 0.0.2.10 - (19/02/2024).
-- ***Nang cap README.***
+### 0.0.3.3 - (21/02/2024)
+- ***Nâng cấp thông tin thư viện và README.***
 
-### 0.0.2.9 - (19/02/2024).
-- ***Thu nghiem.***
+### 0.0.3.2 - (20/02/2024)
+- ***Bổ sung số phong phú.***
 
-### 0.0.2.8 - (19/02/2024).
-- ***Thu nghiem.***
+### 0.0.3.1 - (20/02/2024)
+- ***Nâng cấp thông tin thư viện.***
 
-### 0.0.2.7 - (18/02/2024).
-- ***Nang cap README.***
+### 0.0.3 - (20/02/2024)
+- ***Bổ sung "xau_ki_tu_khong_trung_lap" (không theo thứ tự bảng chữ cái) và loại bỏ "ki_tu_trung_lap" (theo thứ tự bảng chữ cái).***
 
-### 0.0.2.6 - (18/02/2024).
-- ***Thay doi sang MIT License.***
+### 0.0.2.10 - (19/02/2024)
+- ***Nâng cấp README.***
 
-### 0.0.2.5 - (18/02/2024).
-- ***Nang cap README.***
+### 0.0.2.9 - (19/02/2024)
+- ***Thử nghiệm.***
 
-### 0.0.2.4 - (18/02/2024).
-- ***Nang cap README.***
+### 0.0.2.8 - (19/02/2024)
+- ***Thử nghiệm.***
 
-### 0.0.2.3 - (18/02/2024).
-- ***Thu nghiem.***
+### 0.0.2.7 - (18/02/2024)
+- ***Nâng cấp README.***
 
-### 0.0.2.2 - (14/02/2024).
-- ***Thu nghiem.***
+### 0.0.2.6 - (18/02/2024)
+- ***Thay đổi sang giấy phép MIT License.***
 
-### 0.0.2.1 - (14/02/2024).
-- ***Thu nghiem.***
+### 0.0.2.5 - (18/02/2024)
+- ***Nâng cấp README.***
 
-### 0.0.2 - (14/02/2024).
-- ***Sua loi khong them cac phu thuoc.***
+### 0.0.2.4 - (18/02/2024)
+- ***Nâng cấp README.***
 
-### 0.0.1.2 - (14/02/2024).
-- ***Thu nghiem.***
+### 0.0.2.3 - (18/02/2024)
+- ***Thử nghiệm.***
 
-### 0.0.1.1 - (14/2/2024).
-- ***Thu nghiem.***
+### 0.0.2.2 - (14/02/2024)
+- ***Thử nghiệm.***
 
-### 0.0.1 - (14/02/2024).
-- ***Phien ban dau tien.***
+### 0.0.2.1 - (14/02/2024)
+- ***Thử nghiệm.***
 
-### 0.0.0.1 - (14/02/2024).
-- ***Thu nghiem.***
+### 0.0.2 - (14/02/2024)
+- ***Sửa lỗi không thêm các phụ thuộc.***
+
+### 0.0.1.2 - (14/02/2024)
+- ***Thử nghiệm.***
+
+### 0.0.1.1 - (14/02/2024)
+- ***Thử nghiệm.***
+
+### 0.0.1 - (14/02/2024)
+- ***Phiên bản đầu tiên.***
+
+### 0.0.0.1 - (14/02/2024)
+- ***Thử nghiệm.***
