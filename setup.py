@@ -35,7 +35,7 @@ with open(
 
 setup(
     name="pchjlib",
-    version="0.0.5.2",
+    version="0.0.5.2.1",
     author="Joesifer",
     description="Thư viện này có thể thực hiện các phép tính, thuật toán, xử lí chuỗi / mảng, . . .",
     long_description=desc,

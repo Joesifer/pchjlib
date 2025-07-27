@@ -34,7 +34,7 @@ Tác giả
 
 Phiên bản
 ---------------------------------------------------------
-- 0.0.5.2
+- 0.0.5.2.1
 
 Ngày đăng
 ---------------------------------------------------------
@@ -1168,9 +1168,6 @@ def teen_code_yahoo(dau_vao):
         dau_ra += i
 
     return dau_ra
-
-
-print(teen_code_yahoo("Đây là ví dụ"))
 
 
 # # Ham ho tro tinh toan dac biet

@@ -285,38 +285,43 @@ Phạm vi 0 < n < 88
 ### tinh_toan_vat_ly_8()
 ```python
 - tinh_toan_vat_ly_8():
->> >>>>> NHAP TEN CONG THUC BAN MUON DE ADMIN TINH <<<<<
-       1. Khoi luong rieng (D, Kg/m^3)
-       2. Trong luong rieng (d, N/m^3)
-       3. Luc day Archimedes (Fa, N)
-       4. Trong luong (P, N)
-       5. Ap Sửat chat ran (p, N/m^2)
-       6. Ap Sửat chat long (p, N/m^2)
+>> 
+  ————————————————————————————————————————————————————————————————————————————————————— 
+ |                 >>>>> NHAP TEN CONG THUC BAN MUON DE ADMIN TINH <<<<<               | 
+ |                         ~~~ ! Luu y: Nhap theo yeu cau ! ~~~                        | 
+ |                                                                                     | 
+ |        --> 1. Cong thuc tinh: Khoi luong rieng      (ki hieu D, Kg/m^3)             | 
+ |        --> 2. Cong thuc tinh: Trong luong rieng     (ki hieu d, don vi N/m^3)       | 
+ |        --> 3. Cong thuc tinh: Luc day Archimedes    (ki hieu Fa, don vi N)          | 
+ |        --> 4. Cong thuc tinh: Trong luong           (ki hieu P, don vi N)           | 
+ |        --> 5. Cong thuc tinh: Ap suat chat ran      (ki hieu p, N/m^2)              | 
+ |        --> 6. Cong thuc tinh: Ap suat chat long     (ki hieu p, N/m^2)              | 
+  ———————————————————————————————————————————————————————————————————————————————————--
+    AD: Nhap cong thuc ban chon de AD tinh: 4
+- Nhap khoi luong cua vat (kg): 3,4
+    AD: Dang tinh toan [■■■■■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
+    AD: Trong luong cua chat do la:  33.32 N 
 
-  AD: Nhap cong thuc ban chon: 4
-  - Nhap khoi luong (kg): 3.4
-  AD: Dang tinh toan [=====================================] 100%
-  AD: Trong luong la: 33.32 N
 ```
 
 ### tinh_toan_tien_dien(chi_so_cu, chi_so_moi)
 ```python
 - tinh_toan_tien_dien(chi_so_cu, chi_so_moi):
->> So Kwh da tieu thu va so tien phai tra;
+>> Số Kwh đã tiêu thụ và số tiền phải trả;
 ```
 
 ### tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number)
 ```python
 - tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number):
->> So lon nhat co number_of_digits chu so va tong bang int_number
+>> Số lớn nhất number_of_digits chữ số và tổng bằng int_number
 # Vi du: 3, 21 → 993
 ```
 
 ### pythagore(a, b, c)
 ```python
 - pythagore(a, b, c):
->> Tinh canh con thieu trong tam giac vuong
-# Cho canh can tim = False
+>> Tính cạnh còn lại trong tam giác vuông
+# Cạnh cần tìm thì cho = False
 ```
 
 ---
@@ -326,20 +331,20 @@ Phạm vi 0 < n < 88
 ### tao_danh_sach_quy_luat_1(number)
 ```python
 - tao_danh_sach_quy_luat_1(number):
->> Mot danh sach: 1 so chia het 1, 2 so chia het 2, … den khi co number phan tu
+>> Một danh sách: 1 số chia hết cho 1, 2 số chia hết cho 2, … cho tổng số lượng number
 ```
 
 ### tao_danh_sach_quy_luat_2(m, n)
 ```python
 - tao_danh_sach_quy_luat_2(m, n):
->> Mot danh sach cap so cong buoc m, so phan tu n
+>> Một danh sách các số bội m, số phần tử n
 # Vi du: m=2, n=10 → [0,2,4,6,8,10,12,14,16,18]
 ```
 
 ### tao_danh_sach_quy_luat_3(n, m)
 ```python
 - tao_danh_sach_quy_luat_3(n, m):
->> Mot danh sach luy thua m^0 den m^n
+>> Danh sách lũy thừa của m^0 đến m^n
 # Vi du: m=3, n=10 → [1,3,9,…,3^10]
 ```
 
@@ -350,27 +355,779 @@ Phạm vi 0 < n < 88
 ### chuyen_doi_so_la_ma(num)
 ```python
 - chuyen_doi_so_la_ma(num):
->> So La Ma cua num
+>> Số La Mã của num
 ```
 
 ### dem_so_nghich_the(danh_sach)
 ```python
 - dem_so_nghich_the(danh_sach):
->> So cap nghich the trong danh sach
+>> Số cặp nghịch thế trong danh sách.
 # (i<j va a[i]>a[j])
 ```
 
 ### one_two_three()
 ```python
 - one_two_three():
->> Lua chon keo bua bao voi A.I: ['rock','paper','scissors']
+>> Lua chon keo bua bao voi A.I: ['Keo','Bua','Bao']
 ```
 
 ### tao_day_chu(n, r, x)
 ```python
 - tao_day_chu(n, r, x):
->> Tao dong ho dem nguoc mau voi n dong, r cot, 2 duong cheo, lap lai x lan.
-
+>> Tạo dòng chữ với n dòng, r cột, 2 đường chéo, lăp lại x lần.
+- Ví dụ:
+- tao_day_chu(5, 5, 10)
+Nhap day dau tien: I Love U💞💞 
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+I Love U💞💞
+  I Love U💞💞
+    I Love U💞💞
+      I Love U💞💞
+        I Love U💞💞
+          I Love U💞💞
+        I Love U💞💞
+      I Love U💞💞
+    I Love U💞💞
+  I Love U💞💞
 ```
 
 ---
@@ -380,6 +1137,9 @@ Phạm vi 0 < n < 88
 *(Chưa có hàm bổ sung)*
 
 # NHỮNG BẢN CẬP NHẬT
+
+### 0.0.5.2.1 - (27/07/2025)
+- ***Sửa README.***
 
 ### 0.0.5.2 - (27/07/2025)
 - ***Sửa README.***
