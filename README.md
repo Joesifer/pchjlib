@@ -33,1102 +33,403 @@
 
 ## Các hàm kiểm tra số nguyên tố và số liên quan
 
-- **kiem_tra_so_nguyen_to(n)**  
-  True/False nếu n (không) là số nguyên tố.
+- **kiem_tra_so_nguyen_to(number)**  
+  Kiểm tra xem một số có phải là số nguyên tố hay không. Trả về `True` nếu là số nguyên tố, `False` nếu không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Ném lỗi: `InvalidInputError` nếu đầu vào không phải số nguyên.
 
-- **tao_danh_sach_so_nguyen_to(n)**  
-  Danh sách các số nguyên tố từ 0 đến n.
+- **tao_danh_sach_so_nguyen_to(limit)**  
+  Tạo danh sách các số nguyên tố từ 0 đến `limit`. Nếu `limit < 5`, mặc định trả về danh sách đến 10.  
+  - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
+  - Trả về: Danh sách các số nguyên tố.
 
-- **kiem_tra_so_emirp(n)**  
-  True/False nếu n (không) là số emirp.
+- **kiem_tra_so_emirp(number)**  
+  Kiểm tra xem một số có phải là số emirp (số nguyên tố đảo ngược cũng là nguyên tố) hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số emirp, `False` nếu không.
 
-- **tao_danh_sach_so_emirp(n)**  
-  Danh sách các số emirp từ 0 đến n.
+- **tao_danh_sach_so_emirp(limit)**  
+  Tạo danh sách các số emirp từ 0 đến `limit`.  
+  - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
+  - Trả về: Danh sách các số emirp.
 
 ---
 
 ## Các hàm Fibonacci
 
-- **vi_tri_so_Fibonacci(n)**  
-  Tính số Fibonacci thứ n.
+- **vi_tri_so_Fibonacci(index, memo={0: 0, 1: 1})**  
+  Tính số Fibonacci thứ `index` bằng cách sử dụng memoization.  
+  - Tham số: `index` (int) - Vị trí của số Fibonacci.  
+  - Trả về: Số Fibonacci tại vị trí `index`.
 
-- **tao_danh_sach_so_Fibonacci(n)**  
-  Danh sách các số Fibonacci trong khoảng 0 đến n.
+- **tao_danh_sach_so_Fibonacci(count)**  
+  Tạo danh sách `count` số Fibonacci đầu tiên.  
+  - Tham số: `count` (int) - Số lượng phần tử trong danh sách.  
+  - Trả về: Danh sách các số Fibonacci.
 
 ---
 
 ## Các hàm tính số hoàn thiện, tự mãn, hữu hảo, hoàn hào, thân thiết
 
-- **tong_uoc_so(n)**  
-  Tổng các ước số dương (không tính n) của n.
+- **tong_uoc_so(number)**  
+  Tính tổng các ước số dương của `number` (không tính chính nó).  
+  - Tham số: `number` (int) - Số cần tính.  
+  - Trả về: Tổng các ước số.  
+  - Ném lỗi: `MathError` nếu `number <= 0`.
 
-- **tong_chu_so(n)**  
-  Tổng các chữ số của n.
+- **tong_chu_so(number)**  
+  Tính tổng các chữ số của `number`.  
+  - Tham số: `number` (int) - Số cần tính.  
+  - Trả về: Tổng các chữ số.
 
-- **kiem_tra_so_hoan_thien(n)**  
-  True/False nếu n (không) là số hoàn thiện.
+- **kiem_tra_so_hoan_thien(number)**  
+  Kiểm tra xem `number` có phải là số hoàn thiện (tổng ước số bằng chính nó) hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số hoàn thiện, `False` nếu không.  
+  - Ném lỗi: `MathError` nếu `number < 1`.
 
-- **tao_danh_sach_so_hoan_thien(n)**  
-  Danh sách số hoàn thiện từ 0 đến n.
+- **tao_danh_sach_so_hoan_thien(limit)**  
+  Tạo danh sách các số hoàn thiện từ 1 đến `limit`.  
+  - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
+  - Trả về: Danh sách các số hoàn thiện.
 
-- **kiem_tra_so_tu_man(n)**  
-  True/False nếu n (không) là số tự mãn.
+- **kiem_tra_so_tu_man(number)**  
+  Kiểm tra xem `number` có phải là số tự mãn (tổng lũy thừa bậc 3 các chữ số bằng chính nó) hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số tự mãn, `False` nếu không.
 
-- **tao_danh_sach_so_tu_man(n)**  
-  Danh sách số tự mãn từ 0 đến n.
+- **tao_danh_sach_so_tu_man(limit)**  
+  Tạo danh sách các số tự mãn từ 2 đến `limit`.  
+  - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
+  - Trả về: Danh sách các số tự mãn.
 
-- **cap_so_hua_hon(a, b)**  
-  True/False nếu a, b (không) là cặp số hữu hảo.
+- **cap_so_hua_hon(number1, number2)**  
+  Kiểm tra xem `number1` và `number2` có phải là cặp số hữu hảo hay không.  
+  - Tham số: `number1`, `number2` (int) - Hai số cần kiểm tra.  
+  - Trả về: `True` nếu là cặp hữu hảo, `False` nếu không.  
+  - Ném lỗi: `MathError` nếu các số âm.
 
-- **kiem_tra_so_hoan_hao(n)**  
-  True/False nếu n (không) là số hoàn hào.
+- **kiem_tra_so_hoan_hao(number)**  
+  Kiểm tra xem `number` có phải là số hoàn hảo (tổng ước số bằng chính nó) hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số hoàn hảo, `False` nếu không.  
+  - Ném lỗi: `MathError` nếu `number < 1`.
 
-- **tao_danh_sach_so_hoan_hao(n)**  
-  Danh sách số hoàn hào từ 0 đến n.
+- **tao_danh_sach_so_hoan_hao(limit)**  
+  Tạo danh sách các số hoàn hảo từ 1 đến `limit`.  
+  - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
+  - Trả về: Danh sách các số hoàn hảo.
 
 ---
 
 ## Các hàm số chính phương, mạnh mẽ, thân thiết
 
-- **kiem_tra_so_chinh_phuong(n)**  
-  True/False nếu n (không) là số chính phương.
+- **kiem_tra_so_chinh_phuong(number)**  
+  Kiểm tra xem `number` có phải là số chính phương hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số chính phương, `False` nếu không.
 
-- **tao_danh_sach_so_chinh_phuong(n)**  
-  Danh sách số chính phương từ 0 đến n.
+- **tao_danh_sach_so_chinh_phuong(limit)**  
+  Tạo danh sách các số chính phương từ 0 đến `limit`.  
+  - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
+  - Trả về: Danh sách các số chính phương.
 
-- **cap_so_than_thiet(a, b)**  
-  True/False nếu a, b (không) là cặp số thân thiết.
+- **cap_so_than_thiet(number1, number2)**  
+  Kiểm tra xem `number1` và `number2` có phải là cặp số thân thiết (tổng ước số của số này bằng số kia) hay không.  
+  - Tham số: `number1`, `number2` (int) - Hai số cần kiểm tra.  
+  - Trả về: `True` nếu là cặp thân thiết, `False` nếu không.  
+  - Ném lỗi: `MathError` nếu các số không lớn hơn 1.
 
-- **kiem_tra_so_manh_me_1(n)**  
-  True/False nếu n (không) là số mạnh mẽ (tổng chữ số là nguyên tố).
+- **kiem_tra_so_manh_me_1(number)**  
+  Kiểm tra xem `number` có phải là số mạnh mẽ (tổng chữ số là số nguyên tố) hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số mạnh mẽ, `False` nếu không.
 
-- **kiem_tra_so_manh_me_2(n)**  
-  True/False nếu n (không) là số mạnh mẽ loại 2.
+- **kiem_tra_so_manh_me_2(number)**  
+  Kiểm tra xem `number` có phải là số mạnh mẽ loại 2 (có thừa số nguyên tố bình phương) hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số mạnh mẽ loại 2, `False` nếu không.
 
 ---
 
 ## Các hàm về ước số và bội số
 
-- **tao_danh_sach_uoc_so(n)**  
-  Danh sách các ước số của n.
+- **tao_danh_sach_uoc_so(number)**  
+  Tạo danh sách các ước số (bao gồm cả số âm) của `number`.  
+  - Tham số: `number` (int) - Số cần tạo danh sách ước số.  
+  - Trả về: Danh sách các ước số.  
+  - Ném lỗi: `MathError` nếu `number = 0`.
 
-- **uoc_chung_lon_nhat(a, b)**  
-  Giá trị ước chung lớn nhất của a, b.
+- **uoc_chung_lon_nhat(number1, number2)**  
+  Tìm ước chung lớn nhất của hai số.  
+  - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
+  - Trả về: Giá trị ước chung lớn nhất.
 
-- **uoc_chung_lon_nhat_cua_danh_sach(array)**  
-  Giá trị ước chung lớn nhất của dãy.
+- **uoc_chung_lon_nhat_cua_danh_sach(numbers)**  
+  Tính ước chung lớn nhất của một danh sách các số.  
+  - Tham số: `numbers` (list) - Danh sách các số.  
+  - Trả về: Giá trị ước chung lớn nhất.  
+  - Ném lỗi: `MathError` nếu danh sách không hợp lệ.
 
-- **boi_chung_nho_nhat(a, b)**  
-  Giá trị bội số chung nhỏ nhất của a, b.
+- **boi_chung_nho_nhat(number1, number2)**  
+  Tính bội chung nhỏ nhất của hai số.  
+  - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
+  - Trả về: Giá trị bội chung nhỏ nhất.
 
-- **boi_chung_nho_nhat_cua_danh_sach(array)**  
-  Giá trị bội số chung nhỏ nhất của dãy.
+- **boi_chung_nho_nhat_cua_danh_sach(numbers)**  
+  Tính bội chung nhỏ nhất của một danh sách các số.  
+  - Tham số: `numbers` (list) - Danh sách các số.  
+  - Trả về: Giá trị bội chung nhỏ nhất.  
+  - Ném lỗi: `MathError` nếu danh sách không hợp lệ.
 
-- **tao_danh_sach_boi_so(n)**  
-  Danh sách bội số của n từ 0 đến 10 lần.
+- **tao_danh_sach_boi_so(number)**  
+  Tạo danh sách bội số của `number` từ 0 đến 10 lần.  
+  - Tham số: `number` (int) - Số cần tạo danh sách bội số.  
+  - Trả về: Danh sách bội số.  
+  - Ném lỗi: `MathError` nếu `number = 0`.
 
-- **uoc_chung_cua_danh_sach(arr)**  
-  Danh sách các ước chung của dãy.
+- **uoc_chung_cua_danh_sach(numbers)**  
+  Tạo danh sách các ước chung của một danh sách các số.  
+  - Tham số: `numbers` (list) - Danh sách các số.  
+  - Trả về: Danh sách các ước chung.  
+  - Ném lỗi: `MathError` nếu danh sách không đủ phần tử.
 
 ---
 
 ## Các hàm số song tố và số phong phú
 
-- **kiem_tra_so_song_to(n)**  
-  True/False nếu n (không) là số song tố.
+- **kiem_tra Barlowso_song_to(number)**  
+  Kiểm tra xem `number` có phải là số song tố (vừa là nguyên tố, vừa có tổng chữ số là nguyên tố) hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số song tố, `False` nếu không.
 
-- **tao_danh_sach_so_song_to(n)**  
-  Danh sách số song tố từ 0 đến n.
+- **tao_danh_sach_so_song_to(limit)**  
+  Tạo danh sách các số song tố từ 0 đến `limit`.  
+  - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
+  - Trả về: Danh sách các số song tố.
 
 - **kiem_tra_so_phong_phu(number)**  
-  True/False nếu n (không) là số phong phú.
+  Kiểm tra xem `number` có phải là số phong phú (tổng ước số lớn hơn chính nó) hay không.  
+  - Tham số: `number` (int) - Số cần kiểm tra.  
+  - Trả về: `True` nếu là số phong phú, `False` nếu không.
 
-- **tao_danh_sach_so_phong_phu(n)**  
-  Danh sách số phong phú từ 0 đến n.
+- **tao_danh_sach_so_phong_phu(limit)**  
+  Tạo danh sách các số phong phú từ 0 đến `limit`.  
+  - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
+  - Trả về: Danh sách các số phong phú.
 
 ---
 
 ## Các hàm phân tích thừa số nguyên tố
 
-- **thua_so_nguyen_to_day_du(n)**  
-  Trả về tích các thừa số nguyên tố (có số mũ) bằng n.
+- **thua_so_nguyen_to_day_du(number)**  
+  Phân tích `number` thành tích các thừa số nguyên tố (có số mũ).  
+  - Tham số: `number` (int) - Số cần phân tích.  
+  - Trả về: Chuỗi biểu diễn phân tích thừa số nguyên tố.  
+  - Ném lỗi: `MathError` nếu `number <= 1`.
 
-- **thua_so_nguyen_to(n)**  
-  Trả về danh sách các thừa số nguyên tố của n.
+- **thua_so_nguyen_to(number)**  
+  Phân tích `number` thành danh sách các thừa số nguyên tố.  
+  - Tham số: `number` (int) - Số cần phân tích.  
+  - Trả về: Danh sách các thừa số nguyên tố.  
+  - Ném lỗi: `MathError` nếu `number <= 1`.
 
-- **uoc_chung_nguyen_to_2_so(a, b)**  
-  Giá trị ước chung nguyên tố lớn nhất của a, b.
+- **uoc_chung_nguyen_to_2_so(number1, number2)**  
+  Tìm ước chung nguyên tố lớn nhất của hai số.  
+  - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
+  - Trả về: Giá trị ước chung nguyên tố lớn nhất.  
+  - Ném lỗi: `MathError` nếu không có ước chung nguyên tố hoặc số không lớn hơn 1.
 
 ---
 
 ## Các hàm giải phương trình
 
-- **giai_pt_bac_1va2_dang_string(phuong_trinh)**  
-  Giải phương trình bậc 1, 2 nhập dạng chuỗi.
-
-- **giai_phuong_trinh(bac, he_so_phuong_trinh)**  
-  Giải phương trình bậc 1–10 theo hệ số.
+- **giai_phuong_trinh(degree, coefficients)**  
+  Giải phương trình từ bậc 1 đến 10 theo hệ số.  
+  - Tham số: `degree` (int) - Bậc của phương trình; `coefficients` (list) - Danh sách các hệ số.  
+  - Trả về: Chuỗi kết quả nghiệm của phương trình.  
+  - Ném lỗi: `InvalidInputError` nếu bậc hoặc hệ số không hợp lệ.
 
 ---
 
 ## Các hàm xử lý danh sách và chuỗi
 
-- **danh_sach_khong_trung_lap(lst)**  
-  Loại bỏ phần tử trùng lặp trong danh sách.
+- **danh_sach_khong_trung_lap(items)**  
+  Loại bỏ phần tử trùng lặp trong danh sách và sắp xếp giảm dần.  
+  - Tham số: `items` (list) - Danh sách cần xử lý.  
+  - Trả về: Danh sách không có phần tử trùng lặp.
 
-- **trich_xuat_chu_so_tu_chuoi(s)**  
-  Trích xuất chuỗi chữ số từ s.
+- **trich_xuat_chu_so_tu_chuoi(text)**  
+  Trích xuất các chữ số từ chuỗi.  
+  - Tham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Danh sách các chữ số.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **trich_xuat_so_tu_chuoi(s)**  
-  Trích xuất chuỗi số từ s.
+- **trich_xuat_so_tu_chuoi(text)**  
+  Trích xuất các số từ chuỗi.  
+  - Tham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Danh sách các số.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **trich_xuat_ki_tu(s)**  
-  Trích xuất các ký tự từ s.
+- **trich_xuat_ki_tu(text)**  
+  Trích xuất các ký tự không phải số từ chuỗi.  
+  - Tham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Danh sách các ký tự.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **trich_xuat_cac_so_tu_so(s)**  
-  Trích xuất các số từ chuỗi số (ví dụ “32/232343244” → “32.232343244”).
+- **trich_xuat_cac_so_tu_so(text)**  
+  Trích xuất số từ chuỗi dạng phân số hoặc thập phân (ví dụ “32/232343244” → 32.232343244).  
+  - Tham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Số thực (float).  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **xau_duoc_nen_1(s)**  
-  Nén xâu loại 1 (ví dụ “google” → “2ol2ge”).
+- **xau_duoc_nen_1(text)**  
+  Nén chuỗi loại 1 (ví dụ “google” → “2ol2ge”).  
+  - Tham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Chuỗi đã nén.  
+  - JuTham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Chuỗi đã nén.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **xau_duoc_nen_2(s)**  
-  Nén xâu loại 2 (ví dụ “google” → “g2ogle”).
+- **xau_duoc_nen_2(text)**  
+  Nén chuỗi loại 2 (ví dụ “google” → “g2ogle”).  
+  - Tham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Chuỗi đã nén.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **xau_duoc_nen_khong_so(chuoi_nhap)**  
-  Nén xâu bỏ số (ví dụ “hhhooccsiinh” → “hocsinh”).
+- **xau_duoc_nen_khong_so(input_text)**  
+  Nén chuỗi bỏ số (ví dụ “hhhooccsiinh” → “hocsinh”).  
+  - Tham số: `input_text` (str) - Chuỗi đầu vào.  
+  - Trả về: Chuỗi đã nén.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **xau_duoc_giai_nen(s)**  
-  Giải nén xâu (ví dụ “3ab3c” → “aaabccc”).
+- **xau_duoc_giai_nen(text)**  
+  Giải nén chuỗi (ví dụ “3ab3c” → “aaabccc”).  
+  - Tham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Chuỗi đã giải nén.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **xau_ki_tu_khong_trung_lap(s)**  
-  Tạo xâu ký tự không trùng lặp (ví dụ “Google” → “gole”).
+- **xau_ki_tu_khong_trung_lap(text)**  
+  Tạo chuỗi ký tự không trùng lặp (ví dụ “Google” → “gole”).  
+  - Tham số: `text` (str) - Chuỗi đầu vào.  
+  - Trả về: Chuỗi không có ký tự trùng lặp.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 ---
 
 ## Mật mã Caesar
 
-- **chuyen_hoa_caesar(string, sang_trai_k_so)**  
-  Chuyển chuỗi thành dãy số mật mã Caesar.
+- **chuyen_hoa_caesar(text, shift)**  
+  Chuyển chuỗi thành dãy số mật mã Caesar.  
+  - Tham số: `text` (str) - Chuỗi đầu vào; `shift` (int) - Số bước dịch chuyển.  
+  - Trả về: Dãy số mật mã Caesar.  
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
-- **ma_hoa_caesar(array, sang_trai_k_so)**  
-  Mã hóa dãy số Caesar thành xâu.
+- **ma_hoa_caesar(numbers, shift)**  
+  Mã hóa dãy số Caesar thành chuỗi.  
+  - Tham số: `numbers` (list) - Dãy số đầu vào; `shift` (int) - Số bước dịch chuyển.  
+  - Trả về: Chuỗi đã mã hóa.  
+  - Ném lỗi: `InvalidInputError` nếu danh sách rỗng.
 
 ---
 
 ## Teen Code Yahoo
 
-- **teen_code_yahoo(dau_vao)**  
-  Chuyển xâu thành Teen Code Yahoo.
+- **teen_code_yahoo(input_text)**  
+  Chuyển chuỗi thành Teen Code Yahoo.  
+  - Tham số: `input_text` (str) - Chuỗi đầu vào.  
+  - Trả về: Chuỗi Teen Code Yahoo.
 
 ---
 
 ## Các hàm mô phỏng chỉ với string
 
-### mp_tai_xuong(n)
-Phạm vi 0 < n < 88  
-```python
-- mp_tai_xuong(n):
-  Dang tai xuong [=====================================] 100%
-  Tai xuong hoan tat!
-```
+- **mp_tai_xuong(steps)**  
+  Mô phỏng quá trình tải xuống.  
+  - Tham số: `steps` (int) - Số bước tải xuống (2 ≤ steps ≤ 88).  
+  - Ném lỗi: `OutOfRangeError` nếu `steps` không nằm trong phạm vi hợp lệ.
 
-### mp_tinh_toan(n)
-```python
-- mp_tinh_toan(n):
-  AD: Dang tinh toan [=====================================] 100%
-```
+- **mp_tinh_toan(steps)**  
+  Mô phỏng quá trình tính toán.  
+  - Tham số: `steps` (int) - Số bước tính toán (0 ≤ steps < 88).  
+  - Ném lỗi: `OutOfRangeError` nếu `steps` không nằm trong phạm vi hợp lệ.
 
-### mp_loading(n)
-```python
-- mp_loading(n):
->> LOADING...
-```
+- **mp_loading(count)**  
+  Mô phỏng quá trình loading với `count` lần lặp.  
+  - Tham số: `count` (int) - Số lần lặp.
 
-### mp_christmas_tree_cho_VSCode()
-```python
-- mp_christmas_tree_cho_VSCode():
-- Nhap chieu cao cay thong: 8
+- **mp_christmas_tree_cho_VSCode()**  
+  Mô phỏng cây thông Giáng sinh cho VSCode.  
+  - Yêu cầu nhập chiều cao cây thông.
 
-        *
-       * *
-      * * *
-     * * * *
-    * * * * *
-   * * * * * *
-  * * * * * * *
- * * * * * * * *
-        H
-        H
-```
-
-### mp_christmas_tree_cho_TEXT()
-```python
-- mp_christmas_tree_cho_TEXT():
-- Nhap chieu cao cay thong: 8
-
-                 *  
-               *  *   
-             *  *  *    
-           *  *  *  *     
-         *  *  *  *  *      
-       *  *  *  *  *  *       
-     *  *  *  *  *  *  *        
-   *  *  *  *  *  *  *  *
-                H
-                H
-```
+- **mp_christmas_tree_cho_TEXT()**  
+  Mô phỏng cây thông Giáng sinh cho TEXT.  
+  - Yêu cầu nhập chiều cao cây thông.
 
 ---
 
 ## Hàm hỗ trợ tính toán đặc biệt
 
-### tinh_toan_vat_ly_8()
-```python
-- tinh_toan_vat_ly_8():
->> 
-  ————————————————————————————————————————————————————————————————————————————————————— 
- |                 >>>>> NHAP TEN CONG THUC BAN MUON DE ADMIN TINH <<<<<               | 
- |                         ~~~ ! Luu y: Nhap theo yeu cau ! ~~~                        | 
- |                                                                                     | 
- |        --> 1. Cong thuc tinh: Khoi luong rieng      (ki hieu D, Kg/m^3)             | 
- |        --> 2. Cong thuc tinh: Trong luong rieng     (ki hieu d, don vi N/m^3)       | 
- |        --> 3. Cong thuc tinh: Luc day Archimedes    (ki hieu Fa, don vi N)          | 
- |        --> 4. Cong thuc tinh: Trong luong           (ki hieu P, don vi N)           | 
- |        --> 5. Cong thuc tinh: Ap suat chat ran      (ki hieu p, N/m^2)              | 
- |        --> 6. Cong thuc tinh: Ap suat chat long     (ki hieu p, N/m^2)              | 
-  ———————————————————————————————————————————————————————————————————————————————————--
-    AD: Nhap cong thuc ban chon de AD tinh: 4
-- Nhap khoi luong cua vat (kg): 3,4
-    AD: Dang tinh toan [■■■■■■■■■■■■■■■■■■■■■■■■■■■■■] 100%
-    AD: Trong luong cua chat do la:  33.32 N 
+- **tinh_toan_tien_dien(old_reading, new_reading)**  
+  Tính toán tiền điện dựa trên chỉ số cũ và mới.  
+  - Tham số: `old_reading`, `new_reading` (str) - Chỉ số cũ và mới.  
+  - Trả về: Chuỗi kết quả tính toán.  
+  - Ném lỗi: `MathError` nếu chỉ số không hợp lệ.
 
-```
+- **tong_chu_so_lon_nhat_bang_n(digit_count, target_sum)**  
+  Tìm số lớn nhất có `digit_count` chữ số và tổng các chữ số bằng `target_sum`.  
+  - Tham số: `digit_count` (int) - Số chữ số; `target_sum` (int) - Tổng các chữ số.  
+  - Trả về: Chuỗi số lớn nhất.  
+  - Ném lỗi: `MathError` nếu không thể tạo số thỏa mãn.
 
-### tinh_toan_tien_dien(chi_so_cu, chi_so_moi)
-```python
-- tinh_toan_tien_dien(chi_so_cu, chi_so_moi):
->> Số Kwh đã tiêu thụ và số tiền phải trả;
-```
-
-### tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number)
-```python
-- tong_chu_so_lon_nhat_bang_n(number_of_digits, int_number):
->> Số lớn nhất number_of_digits chữ số và tổng bằng int_number
-# Vi du: 3, 21 → 993
-```
-
-### pythagore(a, b, c)
-```python
-- pythagore(a, b, c):
->> Tính cạnh còn lại trong tam giác vuông
-# Cạnh cần tìm thì cho = False
-```
+- **pythagore(side_a, side_b, side_c)**  
+  Tính cạnh còn lại trong tam giác vuông (cạnh cần tìm = `False`).  
+  - Tham số: `side_a`, `side_b`, `side_c` (float hoặc bool) - Các cạnh.  
+  - Trả về: Chuỗi kết quả tính toán.  
+  - Ném lỗi: `MathError` nếu đầu vào không hợp lệ.
 
 ---
 
 ## Quy luật sinh dãy
 
-### tao_danh_sach_quy_luat_1(number)
-```python
-- tao_danh_sach_quy_luat_1(number):
->> Một danh sách: 1 số chia hết cho 1, 2 số chia hết cho 2, … cho tổng số lượng number
-```
+- **tao_danh_sach_quy_luat_1(total)**  
+  Tạo danh sách theo quy luật: 1 số ⋮ 1, 2 số ⋮ 2, … với tổng số lượng `total`.  
+  - Tham số: `total` (int) - Tổng số lượng phần tử.  
+  - Trả về: Danh sách theo quy luật.
 
-### tao_danh_sach_quy_luat_2(m, n)
-```python
-- tao_danh_sach_quy_luat_2(m, n):
->> Một danh sách các số bội m, số phần tử n
-# Vi du: m=2, n=10 → [0,2,4,6,8,10,12,14,16,18]
-```
+- **tao_danh_sach_quy_luat_2(base, count)**  
+  Tạo danh sách các bội của `base` với `count` phần tử.  
+  - Tham số: `base` (int) - Số để tạo bội; `count` (int) - Số phần tử.  
+  - Trả về: Danh sách các bội.
 
-### tao_danh_sach_quy_luat_3(n, m)
-```python
-- tao_danh_sach_quy_luat_3(n, m):
->> Danh sách lũy thừa của m^0 đến m^n
-# Vi du: m=3, n=10 → [1,3,9,…,3^10]
-```
+- **tao_danh_sach_quy_luat_3(count, base)**  
+  Tạo danh sách lũy thừa của `base` từ 0 đến `count`.  
+  - Tham số: `count` (int) - Số lượng phần tử; `base` (int) - Cơ số.  
+  - Trả về: Danh sách lũy thừa.
 
 ---
 
 ## Chuyển đổi và đếm
 
-### chuyen_doi_so_la_ma(num)
-```python
-- chuyen_doi_so_la_ma(num):
->> Số La Mã của num
-```
+- **chuyen_doi_so_la_ma(number)**  
+  Chuyển đổi `number` thành số La Mã.  
+  - Tham số: `number` (int) - Số cần chuyển đổi.  
+  - Trả về: Chuỗi số La Mã.  
+  - Ném lỗi: `OutOfRangeError` nếu `number` không từ 1 đến 3999.
 
-### dem_so_nghich_the(danh_sach)
-```python
-- dem_so_nghich_the(danh_sach):
->> Số cặp nghịch thế trong danh sách.
-# (i<j va a[i]>a[j])
-```
+- **dem_so_nghich_the(numbers)**  
+  Đếm số cặp nghịch thế trong danh sách.  
+  - Tham số: `numbers` (list) - Danh sách cần đếm.  
+  - Trả về: Số cặp nghịch thế.
 
-### one_two_three()
-```python
-- one_two_three():
->> Lua chon keo bua bao voi A.I: ['Keo','Bua','Bao']
-```
+- **one_two_three()**  
+  Chơi kéo búa bao với A.I.  
+  - Yêu cầu nhập số trận đấu và lựa chọn (Keo, Bua, Bao).
 
-### tao_day_chu(n, r, x)
-```python
-- tao_day_chu(n, r, x):
->> Tạo dòng chữ với n dòng, r cột, 2 đường chéo, lăp lại x lần.
-- Ví dụ:
-- tao_day_chu(5, 5, 10)
-Nhap day dau tien: I Love U💞💞 
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-I Love U💞💞
-  I Love U💞💞
-    I Love U💞💞
-      I Love U💞💞
-        I Love U💞💞
-          I Love U💞💞
-        I Love U💞💞
-      I Love U💞💞
-    I Love U💞💞
-  I Love U💞💞
-```
+- **tao_day_chu(rows, columns, repeats)**  
+  Tạo dãy chữ với `rows` dòng, `columns` cột, 2 đường chéo, lặp lại `repeats` lần.  
+  - Tham số: `rows`, `columns`, `repeats` (int) - Số dòng, cột, lần lặp.  
+  - Yêu cầu nhập chuỗi đầu tiên.
 
 ---
 
@@ -1136,10 +437,14 @@ I Love U💞💞
 
 *(Chưa có hàm bổ sung)*
 
-# NHỮNG BẢN CẬP NHẬT
+---
+
+# Những bản cập nhật
+### 0.1.0 - (27/07/2025)
+- ***Chỉnh sửa toàn bộ, xóa hàm `giai_pt_bac_1va2_dang_string`, `tinh_toan_vat_ly_8`.***
 
 ### 0.0.5.2.1 - (27/07/2025)
-- ***Sửa README.***
+- ***Sửa README***
 
 ### 0.0.5.2 - (27/07/2025)
 - ***Sửa README.***
