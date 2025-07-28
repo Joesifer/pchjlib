@@ -440,7 +440,10 @@
 ---
 
 # Những bản cập nhật
-### 0.1.0 - (27/07/2025)
+### 0.1.0.1 - (28/07/2025)
+- ***Sửa đổi những lỗi nhỏ nhặt trong nội dung.***
+
+### 0.1.0 - (28/07/2025)
 - ***Chỉnh sửa toàn bộ, xóa hàm `giai_pt_bac_1va2_dang_string`, `tinh_toan_vat_ly_8`.***
 
 ### 0.0.5.2.1 - (27/07/2025)

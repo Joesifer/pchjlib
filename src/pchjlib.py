@@ -34,11 +34,11 @@ Tác giả
 
 Phiên bản
 ---------------------------------------------------------
-- 0.1.0.
+- 0.1.0.1.
 
 Ngày đăng
 ---------------------------------------------------------
-- ngày 14 tháng Hai, năm 2024.
+- Ngày 14 tháng Hai, năm 2024.
 
 Bản quyền
 ---------------------------------------------------------
@@ -50,7 +50,7 @@ Phiên bản python được hỗ trợ
 
 Thư viện được thêm vào
 ---------------------------------------------------------
-- cmath, collections, math, re, sys, time, numpy, roman.
+- collections, math, re, sys, time, numpy, roman.
 
 License.
 ---------------------------------------------------------
@@ -73,7 +73,7 @@ CẢM ƠN!
 
 """
 
-import math, collections, math, random, re, sys, time, numpy, roman
+import collections, math, random, re, sys, time, numpy, roman
 
 
 # Các class lỗi tùy chỉnh
