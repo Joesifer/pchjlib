@@ -25,19 +25,17 @@
 ################################################################################################
 
 
-from setuptools import setup
+from setuptools import setup, find_packages
+from pathlib import Path
 
-
-with open(
-    r"C:\Users\LAPTOP DELL\Desktop\EVERYTHING\pchjlib_admin\README.md", encoding="utf-8"
-) as f:
-    desc = f.read()
+this_directory = Path(__file__).parent
+desc = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="pchjlib",
-    version="0.1.0.2",
+    version="0.1.0.3",
     author="Joesifer",
-    description="Thư viện này có thể thực hiện các phép tính, thuật toán, xử lí chuỗi / mảng, . . .",
+    description="Thư viện pchjlib là một bộ công cụ đa năng được viết bằng Python, được thiết kế để hỗ trợ các lập trình viên trong việc giải quyết các bài toán toán học, xử lý chuỗi, mã hóa, mô phỏng, và một số tính năng đặc biệt khác. Thư viện cung cấp nhiều hàm và lớp tiện ích, giúp đơn giản hóa các tác vụ phức tạp và tăng hiệu quả phát triển phần mềm.",
     long_description=desc,
     long_description_content_type="text/markdown",
     license="MIT License",
@@ -45,7 +43,6 @@ setup(
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "Programming Language :: Python",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
@@ -55,17 +52,15 @@ setup(
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python",
         "Natural Language :: Vietnamese",
         "Operating System :: OS Independent",
     ],
     url="https://github.com/Joesifer/pchjlib",
     package_dir={"": "src"},
+    packages=find_packages("src"),
     python_requires=">=3.7",
     install_requires=["numpy", "roman"],
-    py_modules=["pchjlib"],
     include_package_data=True,
-    test_suite="",
     zip_safe=True,
     entry_points={
         "console_scripts": [

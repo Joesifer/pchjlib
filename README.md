@@ -8,30 +8,63 @@
 [![Python](https://img.shields.io/badge/Version_%3E_3.7-1?style=plastic&label=Python)](https://www.python.org/)
 [![Owner](https://img.shields.io/badge/Joesifer-1?style=plastic&label=PCHJLIB&labelColor=%2300fff7&color=%23ffe600)](https://github.com/Joesifer)
 
+# 🌟 Tính năng chính
 
-# Mục Lục
+- 🔍 **Kiểm tra và tạo danh sách các loại số đặc biệt:**  
+  Hỗ trợ số nguyên tố, số emirp, số Fibonacci, số hoàn thiện, số tự mãn, số hữu hảo, số chính phương, số mạnh mẽ, số song tố, số phong phú, v.v.
 
-- [Các hàm kiểm tra số nguyên tố và số liên quan](#các-hàm-kiểm-tra-số-nguyên-tố-và-số-liên-quan)  
-- [Các hàm Fibonacci](#các-hàm-fibonacci)  
-- [Các hàm tính số hoàn thiện, tự mãn, hữu hảo, hoàn hào, thân thiết](#các-hàm-tính-số-hoàn-thiện-tự-mãn-hữu-hảo-hoàn-hào-thân-thiết)  
-- [Các hàm số chính phương, mạnh mẽ, thân thiết](#các-hàm-số-chính-phương-mạnh-mẽ-thân-thiết)  
-- [Các hàm về ước số và bội số](#các-hàm-về-ước-số-và-bội-số)  
-- [Các hàm số song tố và số phong phú](#các-hàm-số-song-tố-và-số-phong-phú)  
-- [Các hàm phân tích thừa số nguyên tố](#các-hàm-phân-tích-thừa-số-nguyên-tố)  
-- [Các hàm giải phương trình](#các-hàm-giải-phương-trình)  
-- [Các hàm xử lý danh sách và chuỗi](#các-hàm-xử-lý-danh-sách-và-chuỗi)  
-- [Mật mã Caesar](#mật-mã-caesar)  
-- [Teen Code Yahoo](#teen-code-yahoo)  
-- [Các hàm mô phỏng chỉ với string](#các-hàm-mô-phỏng-chỉ-với-string)  
-- [Hàm hỗ trợ tính toán đặc biệt](#hàm-hỗ-trợ-tính-toán-đặc-biệt)  
-- [Quy luật sinh dãy](#quy-luật-sinh-dãy)  
-- [Chuyển đổi và đếm](#chuyển-đổi-và-đếm)  
-- [Khác](#khác)  
-- [Những bản cập nhật](#những-bản-cập-nhật) 
+- 🔗 **Xử lý ước số và bội số:**  
+  Tạo danh sách ước số, tính ước chung lớn nhất (UCLN), bội chung nhỏ nhất (BCNN), phân tích thừa số nguyên tố.
+
+- 🧮 **Giải phương trình:**  
+  Giải các phương trình đa thức từ bậc 1 đến bậc 10.
+
+- 🧹 **Xử lý danh sách và chuỗi:**  
+  Loại bỏ phần tử trùng lặp, trích xuất chữ số/số/ký tự từ chuỗi, nén và giải nén chuỗi.
+
+- 🔐 **Mã hóa và giải mã:**  
+  Mã hóa Caesar, chuyển đổi chuỗi thành Teen Code Yahoo.
+
+- 🧪 **Mô phỏng:**  
+  Mô phỏng quá trình tải xuống, tính toán, loading, và tạo cây thông Giáng sinh.
+
+- ✨ **Tính toán đặc biệt:**  
+  Tính tiền điện, tìm số lớn nhất với tổng chữ số cho trước, tính cạnh tam giác vuông.
+
+- 🔢 **Tạo dãy theo quy luật:**  
+  Tạo các dãy số theo các quy luật cụ thể.
+
+- 🔄 **Chuyển đổi và đếm:**  
+  Chuyển số thành số La Mã, đếm số cặp nghịch thế trong danh sách.
+
+- 🎮 **Trò chơi:**  
+  Chơi kéo búa bao với AI.
+
+
+# 📚 MỤC LỤC
+
+- 🔢 [Các hàm kiểm tra số nguyên tố và số liên quan](#các-hàm-kiểm-tra-số-nguyên-tố-và-số-liên-quan)  
+- 🌀 [Các hàm Fibonacci](#các-hàm-fibonacci)  
+- 🧠 [Các hàm tính số hoàn thiện, tự mãn, hữu hảo, hoàn hào, thân thiết](#các-hàm-tính-số-hoàn-thiện-tự-mãn-hữu-hảo-hoàn-hào-thân-thiết)  
+- 📐 [Các hàm số chính phương, mạnh mẽ, thân thiết](#các-hàm-số-chính-phương-mạnh-mẽ-thân-thiết)  
+- 📊 [Các hàm về ước số và bội số](#các-hàm-về-ước-số-và-bội-số)  
+- 👯 [Các hàm số song tố và số phong phú](#các-hàm-số-song-tố-và-số-phong-phú)  
+- 🔍 [Các hàm phân tích thừa số nguyên tố](#các-hàm-phân-tích-thừa-số-nguyên-tố)  
+- 🧮 [Các hàm giải phương trình](#các-hàm-giải-phương-trình)  
+- 🧵 [Các hàm xử lý danh sách và chuỗi](#các-hàm-xử-lý-danh-sách-và-chuỗi)  
+- 🏛️ [Mật mã Caesar](#mật-mã-caesar)  
+- 👶 [Teen Code Yahoo](#teen-code-yahoo)  
+- 🧬 [Các hàm mô phỏng chỉ với string](#các-hàm-mô-phỏng-chỉ-với-string)  
+- 💥 [Hàm hỗ trợ tính toán đặc biệt](#hàm-hỗ-trợ-tính-toán-đặc-biệt)  
+- 🔁 [Quy luật sinh dãy](#quy-luật-sinh-dãy)  
+- 🔄 [Chuyển đổi và đếm](#chuyển-đổi-và-đếm)  
+- 🧩 [Khác](#khác)  
+- 🛠️ [Những bản cập nhật](#những-bản-cập-nhật)
+
 
 ---
 
-## Các hàm kiểm tra số nguyên tố và số liên quan
+## 🔢 Các hàm kiểm tra số nguyên tố và số liên quan
 
 - **kiem_tra_so_nguyen_to(number)**  
   Kiểm tra xem một số có phải là số nguyên tố hay không. Trả về `True` nếu là số nguyên tố, `False` nếu không.  
@@ -55,7 +88,7 @@
 
 ---
 
-## Các hàm Fibonacci
+## 🌀 Các hàm Fibonacci
 
 - **vi_tri_so_Fibonacci(index, memo={0: 0, 1: 1})**  
   Tính số Fibonacci thứ `index` bằng cách sử dụng memoization.  
@@ -69,7 +102,7 @@
 
 ---
 
-## Các hàm tính số hoàn thiện, tự mãn, hữu hảo, hoàn hào, thân thiết
+## 🧠 Các hàm tính số hoàn thiện, tự mãn, hữu hảo, hoàn hào, thân thiết
 
 - **tong_uoc_so(number)**  
   Tính tổng các ước số dương của `number` (không tính chính nó).  
@@ -122,7 +155,7 @@
 
 ---
 
-## Các hàm số chính phương, mạnh mẽ, thân thiết
+## 📐 Các hàm số chính phương, mạnh mẽ, thân thiết
 
 - **kiem_tra_so_chinh_phuong(number)**  
   Kiểm tra xem `number` có phải là số chính phương hay không.  
@@ -152,7 +185,7 @@
 
 ---
 
-## Các hàm về ước số và bội số
+## 📊 Các hàm về ước số và bội số
 
 - **tao_danh_sach_uoc_so(number)**  
   Tạo danh sách các ước số (bao gồm cả số âm) của `number`.  
@@ -160,10 +193,12 @@
   - Trả về: Danh sách các ước số.  
   - Ném lỗi: `MathError` nếu `number = 0`.
 
+
 - **uoc_chung_lon_nhat(number1, number2)**  
   Tìm ước chung lớn nhất của hai số.  
   - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
   - Trả về: Giá trị ước chung lớn nhất.
+
 
 - **uoc_chung_lon_nhat_cua_danh_sach(numbers)**  
   Tính ước chung lớn nhất của một danh sách các số.  
@@ -171,10 +206,12 @@
   - Trả về: Giá trị ước chung lớn nhất.  
   - Ném lỗi: `MathError` nếu danh sách không hợp lệ.
 
+
 - **boi_chung_nho_nhat(number1, number2)**  
   Tính bội chung nhỏ nhất của hai số.  
   - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
   - Trả về: Giá trị bội chung nhỏ nhất.
+
 
 - **boi_chung_nho_nhat_cua_danh_sach(numbers)**  
   Tính bội chung nhỏ nhất của một danh sách các số.  
@@ -182,11 +219,13 @@
   - Trả về: Giá trị bội chung nhỏ nhất.  
   - Ném lỗi: `MathError` nếu danh sách không hợp lệ.
 
+
 - **tao_danh_sach_boi_so(number)**  
   Tạo danh sách bội số của `number` từ 0 đến 10 lần.  
   - Tham số: `number` (int) - Số cần tạo danh sách bội số.  
   - Trả về: Danh sách bội số.  
   - Ném lỗi: `MathError` nếu `number = 0`.
+
 
 - **uoc_chung_cua_danh_sach(numbers)**  
   Tạo danh sách các ước chung của một danh sách các số.  
@@ -196,22 +235,25 @@
 
 ---
 
-## Các hàm số song tố và số phong phú
+## 👯 Các hàm số song tố và số phong phú
 
-- **kiem_tra Barlowso_song_to(number)**  
+- **kiem_tra_so_song_to(number)**  
   Kiểm tra xem `number` có phải là số song tố (vừa là nguyên tố, vừa có tổng chữ số là nguyên tố) hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
   - Trả về: `True` nếu là số song tố, `False` nếu không.
+
 
 - **tao_danh_sach_so_song_to(limit)**  
   Tạo danh sách các số song tố từ 0 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
   - Trả về: Danh sách các số song tố.
 
+
 - **kiem_tra_so_phong_phu(number)**  
   Kiểm tra xem `number` có phải là số phong phú (tổng ước số lớn hơn chính nó) hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
   - Trả về: `True` nếu là số phong phú, `False` nếu không.
+
 
 - **tao_danh_sach_so_phong_phu(limit)**  
   Tạo danh sách các số phong phú từ 0 đến `limit`.  
@@ -220,7 +262,7 @@
 
 ---
 
-## Các hàm phân tích thừa số nguyên tố
+## 🔍 Các hàm phân tích thừa số nguyên tố
 
 - **thua_so_nguyen_to(number)**  
   Phân tích `number` thành danh sách các thừa số nguyên tố.  
@@ -236,7 +278,7 @@
 
 ---
 
-## Các hàm giải phương trình
+## 🧮 Các hàm giải phương trình
 
 - **giai_phuong_trinh(degree, coefficients)**  
   Giải phương trình từ bậc 1 đến 10 theo hệ số.  
@@ -246,7 +288,7 @@
 
 ---
 
-## Các hàm xử lý danh sách và chuỗi
+## 🧵 Các hàm xử lý danh sách và chuỗi
 
 - **danh_sach_khong_trung_lap(items)**  
   Loại bỏ phần tử trùng lặp trong danh sách và sắp xếp giảm dần.  
@@ -311,7 +353,7 @@
 
 ---
 
-## Mật mã Caesar
+## 🏛️ Mật mã Caesar
 
 - **chuyen_hoa_caesar(text, shift)**  
   Chuyển chuỗi thành dãy số mật mã Caesar.  
@@ -327,7 +369,7 @@
 
 ---
 
-## Teen Code Yahoo
+## 👶 Teen Code Yahoo
 
 - **teen_code_yahoo(input_text)**  
   Chuyển chuỗi thành Teen Code Yahoo.  
@@ -336,7 +378,7 @@
 
 ---
 
-## Các hàm mô phỏng chỉ với string
+## 🧬 Các hàm mô phỏng chỉ với string
 
 - **mp_tai_xuong(steps)**  
   Mô phỏng quá trình tải xuống.  
@@ -362,7 +404,7 @@
 
 ---
 
-## Hàm hỗ trợ tính toán đặc biệt
+## 💥 Hàm hỗ trợ tính toán đặc biệt
 
 - **tinh_toan_tien_dien(old_reading, new_reading)**  
   Tính toán tiền điện dựa trên chỉ số cũ và mới.  
@@ -384,7 +426,7 @@
 
 ---
 
-## Quy luật sinh dãy
+## 🔁 Quy luật sinh dãy
 
 - **tao_danh_sach_quy_luat_1(total)**  
   Tạo danh sách theo quy luật: 1 số ⋮ 1, 2 số ⋮ 2, … với tổng số lượng `total`.  
@@ -403,7 +445,7 @@
 
 ---
 
-## Chuyển đổi và đếm
+## 🔄 Chuyển đổi và đếm
 
 - **chuyen_doi_so_la_ma(number)**  
   Chuyển đổi `number` thành số La Mã.  
@@ -427,111 +469,130 @@
 
 ---
 
-## Khác
+## 🧩 Khác
 
 *(Chưa có hàm bổ sung)*
 
 ---
 
-# Những bản cập nhật
-### 0.1.0.2 - (28/07/2025)
-- ***Xóa thua_so_nguyen_to_day_du.***
+## 🛠️ Những bản cập nhật
 
-### 0.1.0.1 - (28/07/2025)
-- ***Sửa đổi những lỗi nhỏ nhặt trong nội dung.***
+> **📅 Ngày cập nhật gần nhất:** 28/07/2025  
+> **📦 Tổng số bản phát hành:** 36
 
-### 0.1.0 - (28/07/2025)
-- ***Chỉnh sửa toàn bộ, xóa hàm `giai_pt_bac_1va2_dang_string`, `tinh_toan_vat_ly_8`.***
+---
 
-### 0.0.5.2.1 - (27/07/2025)
-- ***Sửa README***
+### 📌 2025
 
-### 0.0.5.2 - (27/07/2025)
-- ***Sửa README.***
+#### 🟢 0.1.x — Cập nhật lớn
 
-### 0.0.5.1 - (27/07/2025)
-- ***Cập nhật teen_code_yahoo.***
+- **0.1.0.3** – *(28/07/2025)*  
+  ✏️ Sửa lại README.
 
-### 0.0.5.0 - (26/07/2025)
-- ***Xóa an_ký_tự.***
+- **0.1.0.2** – *(28/07/2025)*  
+  ❌ Xóa hàm `thua_so_nguyen_to_day_du`.
 
-### 0.0.4.1 - (17/10/2024)
-- ***Cập nhật "one_two_three" và bổ sung "tạo_dãy_chữ".***
+- **0.1.0.1** – *(28/07/2025)*  
+  🔧 Sửa lỗi nhỏ trong nội dung.
 
-### 0.0.4.0 - (05/05/2024)
-- ***Sửa README.***
+- **0.1.0** – *(28/07/2025)*  
+  🧹 Chỉnh sửa toàn bộ.  
+  ❌ Xóa hàm `giai_pt_bac_1va2_dang_string`, `tinh_toan_vat_ly_8`.
 
-### 0.0.3.9 - (05/05/2024)
-- ***Sửa README.***
+#### 🔵 0.0.5.x — Tinh chỉnh và cập nhật nhỏ
 
-### 0.0.3.8 - (05/05/2024)
-- ***Cập nhật "mp_christmas_tree_cho_VSCode" và "mp_christmas_tree_cho_TEXT".***
+- **0.0.5.2.1** – *(27/07/2025)*  
+  ✏️ Sửa README.
 
-### 0.0.3.7 - (04/05/2024)
-- ***Cập nhật "mp_christmas_tree".***
+- **0.0.5.2** – *(27/07/2025)*  
+  ✏️ Sửa README.
 
-### 0.0.3.6 - (03/03/2024)
-- ***Thử nghiệm.***
+- **0.0.5.1** – *(27/07/2025)*  
+  🆕 Cập nhật `teen_code_yahoo`.
 
-### 0.0.3.5 - (01/03/2024)
-- ***Thử nghiệm.***
+- **0.0.5.0** – *(26/07/2025)*  
+  ❌ Xóa hàm `an_ky_tu`.
 
-### 0.0.3.4 - (26/02/2024)
-- ***Bổ sung hàm "uoc_chung_cua_danh_sach" (để tìm các ước chung trong một mảng).***
+---
 
-### 0.0.3.3 - (21/02/2024)
-- ***Nâng cấp thông tin thư viện và README.***
+### 📌 2024
 
-### 0.0.3.2 - (20/02/2024)
-- ***Bổ sung số phong phú.***
+#### 🔵 0.0.4.x — Bổ sung và mở rộng
 
-### 0.0.3.1 - (20/02/2024)
-- ***Nâng cấp thông tin thư viện.***
+- **0.0.4.1** – *(17/10/2024)*  
+  🆕 Bổ sung hàm `tạo_dãy_chữ`.  
+  🔄 Cập nhật `one_two_three`.
 
-### 0.0.3 - (20/02/2024)
-- ***Bổ sung "xau_ki_tu_khong_trung_lap" (không theo thứ tự bảng chữ cái) và loại bỏ "ki_tu_trung_lap" (theo thứ tự bảng chữ cái).***
+- **0.0.4.0** – *(05/05/2024)*  
+  ✏️ Sửa README.
 
-### 0.0.2.10 - (19/02/2024)
-- ***Nâng cấp README.***
+- **0.0.3.9** – *(05/05/2024)*  
+  ✏️ Sửa README.
 
-### 0.0.2.9 - (19/02/2024)
-- ***Thử nghiệm.***
+- **0.0.3.8** – *(05/05/2024)*  
+  🎄 Cập nhật `mp_christmas_tree_cho_VSCode` và `mp_christmas_tree_cho_TEXT`.
 
-### 0.0.2.8 - (19/02/2024)
-- ***Thử nghiệm.***
+- **0.0.3.7** – *(04/05/2024)*  
+  🎄 Cập nhật `mp_christmas_tree`.
 
-### 0.0.2.7 - (18/02/2024)
-- ***Nâng cấp README.***
+- **0.0.3.6** – *(03/03/2024)*  
+  🧪 Thử nghiệm.
 
-### 0.0.2.6 - (18/02/2024)
-- ***Thay đổi sang giấy phép MIT License.***
+- **0.0.3.5** – *(01/03/2024)*  
+  🧪 Thử nghiệm.
 
-### 0.0.2.5 - (18/02/2024)
-- ***Nâng cấp README.***
+- **0.0.3.4** – *(26/02/2024)*  
+  ➕ Bổ sung hàm `uoc_chung_cua_danh_sach`.
 
-### 0.0.2.4 - (18/02/2024)
-- ***Nâng cấp README.***
+- **0.0.3.3** – *(21/02/2024)*  
+  🔧 Nâng cấp README và metadata thư viện.
 
-### 0.0.2.3 - (18/02/2024)
-- ***Thử nghiệm.***
+- **0.0.3.2** – *(20/02/2024)*  
+  ➕ Bổ sung hàm kiểm tra số phong phú.
 
-### 0.0.2.2 - (14/02/2024)
-- ***Thử nghiệm.***
+- **0.0.3.1** – *(20/02/2024)*  
+  🔧 Nâng cấp thông tin thư viện.
 
-### 0.0.2.1 - (14/02/2024)
-- ***Thử nghiệm.***
+- **0.0.3** – *(20/02/2024)*  
+  ➕ Bổ sung `xau_ki_tu_khong_trung_lap`.  
+  ❌ Xóa `ki_tu_trung_lap`.
 
-### 0.0.2 - (14/02/2024)
-- ***Sửa lỗi không thêm các phụ thuộc.***
+#### 🟡 0.0.2.x — Giai đoạn thử nghiệm mở rộng
 
-### 0.0.1.2 - (14/02/2024)
-- ***Thử nghiệm.***
+- **0.0.2.10** – *(19/02/2024)*  
+  🔧 Nâng cấp README.
 
-### 0.0.1.1 - (14/02/2024)
-- ***Thử nghiệm.***
+- **0.0.2.9** – *(19/02/2024)*  
+  🧪 Thử nghiệm.
 
-### 0.0.1 - (14/02/2024)
-- ***Phiên bản đầu tiên.***
+- **0.0.2.8** – *(19/02/2024)*  
+  🧪 Thử nghiệm.
 
-### 0.0.0.1 - (14/02/2024)
-- ***Thử nghiệm.***
+- **0.0.2.7** – *(18/02/2024)*  
+  🔧 Nâng cấp README.
+
+- **0.0.2.6** – *(18/02/2024)*  
+  ⚖️ Chuyển sang giấy phép **MIT License**.
+
+- **0.0.2.5** → **0.0.2.4** – *(18/02/2024)*  
+  🔧 Nâng cấp README.
+
+- **0.0.2.3** – *(18/02/2024)*  
+  🧪 Thử nghiệm.
+
+- **0.0.2.2** → **0.0.2.1** – *(14/02/2024)*  
+  🧪 Thử nghiệm.
+
+- **0.0.2** – *(14/02/2024)*  
+  🐞 Sửa lỗi thiếu phụ thuộc.
+
+#### 🔘 Các bản đầu tiên
+
+- **0.0.1.2** → **0.0.1.1** – *(14/02/2024)*  
+  🧪 Thử nghiệm.
+
+- **0.0.1** – *(14/02/2024)*  
+  🎉 Phiên bản đầu tiên!
+
+- **0.0.0.1** – *(14/02/2024)*  
+  🧪 Thử nghiệm.

@@ -34,7 +34,7 @@ Tác giả
 
 Phiên bản
 ---------------------------------------------------------
-- 0.1.0.2.
+- 0.1.0.3.
 
 Ngày đăng
 ---------------------------------------------------------
@@ -44,19 +44,19 @@ Bản quyền
 ---------------------------------------------------------
 - Copyright (c) 2024 Joesifer.
 
-Phiên bản python được hỗ trợ
+Phiên bản python được hỗ trợ.
 ---------------------------------------------------------
 - Lớn hơn hoặc bằng 3.7.
 
-Thư viện được thêm vào
+Thư viện phụ thuộc.
 ---------------------------------------------------------
-- collections, math, re, sys, time, numpy, roman.
+- math, re, sys, time, numpy, roman.
 
-License.
+Giấy phép.
 ---------------------------------------------------------
 - MIT License.
 
-Thông tin
+Thông tin.
 ---------------------------------------------------------
 
 Nếu bạn không biết cách dùng thì hãy::
@@ -73,7 +73,7 @@ CẢM ƠN!
 
 """
 
-import collections, math, random, re, sys, time, numpy, roman
+import math, random, re, sys, time, numpy, roman
 
 
 # Các class lỗi tùy chỉnh
@@ -106,10 +106,10 @@ def kiem_tra_so_nguyen_to(number):
     """
     Kiểm tra xem một số có phải là số nguyên tố hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số nguyên tố, False nếu không.
 
     Raises:
@@ -129,10 +129,10 @@ def tao_danh_sach_so_nguyen_to(limit):
     """
     Tạo danh sách các số nguyên tố từ 0 đến limit.
 
-    Parameters:
+    Thông số:
         limit (int): Giới hạn trên của danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số nguyên tố.
     """
     if limit < 5:
@@ -144,10 +144,10 @@ def kiem_tra_so_emirp(number):
     """
     Kiểm tra xem một số có phải là số emirp hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số emirp, False nếu không.
     """
     if kiem_tra_so_nguyen_to(number):
@@ -160,10 +160,10 @@ def tao_danh_sach_so_emirp(limit):
     """
     Tạo danh sách các số emirp từ 0 đến limit.
 
-    Parameters:
+    Thông số:
         limit (int): Giới hạn trên của danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số emirp.
     """
     return [i for i in range(limit) if kiem_tra_so_emirp(i)]
@@ -174,11 +174,11 @@ def vi_tri_so_Fibonacci(index, memo={0: 0, 1: 1}):
     """
     Tính số Fibonacci thứ index bằng cách sử dụng memoization.
 
-    Parameters:
+    Thông số:
         index (int): Vị trí của số Fibonacci.
         memo (dict, optional): Từ điển lưu các giá trị đã tính.
 
-    Returns:
+    Trả lại:
         int: Số Fibonacci thứ index.
     """
     if index not in memo:
@@ -192,10 +192,10 @@ def tao_danh_sach_so_Fibonacci(count):
     """
     Tạo danh sách các số Fibonacci với count phần tử.
 
-    Parameters:
+    Thông số:
         count (int): Số lượng phần tử trong danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số Fibonacci.
     """
     return [vi_tri_so_Fibonacci(i) for i in range(count)]
@@ -206,10 +206,10 @@ def tong_uoc_so(number):
     """
     Tính tổng các ước số dương của number (không tính number).
 
-    Parameters:
+    Thông số:
         number (int): Số cần tính tổng ước số.
 
-    Returns:
+    Trả lại:
         int: Tổng các ước số của number.
 
     Raises:
@@ -224,10 +224,10 @@ def tong_chu_so(number):
     """
     Tính tổng các chữ số của một số.
 
-    Parameters:
+    Thông số:
         number (int): Số cần tính tổng chữ số.
 
-    Returns:
+    Trả lại:
         int: Tổng các chữ số của number.
     """
     return sum(int(digit) for digit in str(abs(number)))
@@ -237,10 +237,10 @@ def kiem_tra_so_hoan_thien(number):
     """
     Kiểm tra xem một số có phải là số hoàn thiện hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số hoàn thiện, False nếu không.
 
     Raises:
@@ -255,10 +255,10 @@ def tao_danh_sach_so_hoan_thien(limit):
     """
     Tạo danh sách các số hoàn thiện từ 0 đến limit.
 
-    Parameters:
+    Thông số:
         limit (int): Giới hạn trên của danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số hoàn thiện.
     """
     return [i for i in range(1, limit + 1) if kiem_tra_so_hoan_thien(i)]
@@ -268,10 +268,10 @@ def kiem_tra_so_tu_man(number):
     """
     Kiểm tra xem một số có phải là số tự mãn hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số tự mãn, False nếu không.
     """
     if number < 0:
@@ -283,10 +283,10 @@ def tao_danh_sach_so_tu_man(limit):
     """
     Tạo danh sách các số tự mãn từ 0 đến limit.
 
-    Parameters:
+    Thông số:
         limit (int): Giới hạn trên của danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số tự mãn.
     """
     return [i for i in range(2, limit) if kiem_tra_so_tu_man(i)]
@@ -296,11 +296,11 @@ def cap_so_hua_hon(number1, number2):
     """
     Kiểm tra xem hai số có phải là cặp số hữu hảo hay không.
 
-    Parameters:
+    Thông số:
         number1 (int): Số thứ nhất.
         number2 (int): Số thứ hai.
 
-    Returns:
+    Trả lại:
         bool: True nếu number1 và number2 là cặp số hữu hảo, False nếu không.
 
     Raises:
@@ -315,10 +315,10 @@ def kiem_tra_so_hoan_hao(number):
     """
     Kiểm tra xem một số có phải là số hoàn hảo hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số hoàn hảo, False nếu không.
 
     Raises:
@@ -333,10 +333,10 @@ def tao_danh_sach_so_hoan_hao(limit):
     """
     Tạo danh sách các số hoàn hảo từ 0 đến limit.
 
-    Parameters:
+    Thông số:
         limit (int): Giới hạn trên của danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số hoàn hảo.
     """
     return [i for i in range(1, limit) if kiem_tra_so_hoan_hao(i)]
@@ -347,10 +347,10 @@ def kiem_tra_so_chinh_phuong(number):
     """
     Kiểm tra xem một số có phải là số chính phương hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số chính phương, False nếu không.
     """
     if number < 0:
@@ -363,10 +363,10 @@ def tao_danh_sach_so_chinh_phuong(limit):
     """
     Tạo danh sách các số chính phương từ 0 đến limit.
 
-    Parameters:
+    Thông số:
         limit (int): Giới hạn trên của danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số chính phương.
     """
     return [i for i in range(limit) if kiem_tra_so_chinh_phuong(i)]
@@ -376,11 +376,11 @@ def cap_so_than_thiet(number1, number2):
     """
     Kiểm tra xem hai số có phải là cặp số thân thiết hay không.
 
-    Parameters:
+    Thông số:
         number1 (int): Số thứ nhất.
         number2 (int): Số thứ hai.
 
-    Returns:
+    Trả lại:
         bool: True nếu number1 và number2 là cặp số thân thiết, False nếu không.
 
     Raises:
@@ -395,10 +395,10 @@ def kiem_tra_so_manh_me_1(number):
     """
     Kiểm tra xem một số có phải là số mạnh mẽ (tổng chữ số là nguyên tố) hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số mạnh mẽ, False nếu không.
     """
     if number < 0:
@@ -410,10 +410,10 @@ def kiem_tra_so_manh_me_2(number):
     """
     Kiểm tra xem một số có phải là số mạnh mẽ loại 2 hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số mạnh mẽ loại 2, False nếu không.
     """
     if number < 0:
@@ -430,10 +430,10 @@ def tao_danh_sach_uoc_so(number):
     """
     Tạo danh sách các ước số của number.
 
-    Parameters:
+    Thông số:
         number (int): Số cần tạo danh sách ước số.
 
-    Returns:
+    Trả lại:
         list: Danh sách các ước số của number.
 
     Raises:
@@ -450,11 +450,11 @@ def uoc_chung_lon_nhat(number1, number2):
     """
     Tìm ước chung lớn nhất của hai số.
 
-    Parameters:
+    Thông số:
         number1 (int): Số thứ nhất.
         number2 (int): Số thứ hai.
 
-    Returns:
+    Trả lại:
         int: Ước chung lớn nhất của number1 và number2.
     """
     return math.gcd(number1, number2)
@@ -464,10 +464,10 @@ def uoc_chung_lon_nhat_cua_danh_sach(numbers):
     """
     Tính ước chung lớn nhất của một danh sách các số.
 
-    Parameters:
+    Thông số:
         numbers (list): Danh sách các số.
 
-    Returns:
+    Trả lại:
         int: Ước chung lớn nhất của danh sách.
 
     Raises:
@@ -487,11 +487,11 @@ def boi_chung_nho_nhat(number1, number2):
     """
     Tính bội chung nhỏ nhất của hai số.
 
-    Parameters:
+    Thông số:
         number1 (int): Số thứ nhất.
         number2 (int): Số thứ hai.
 
-    Returns:
+    Trả lại:
         int: Bội chung nhỏ nhất của number1 và number2.
     """
     return math.lcm(number1, number2)
@@ -501,10 +501,10 @@ def boi_chung_nho_nhat_cua_danh_sach(numbers):
     """
     Tính bội chung nhỏ nhất của một danh sách các số.
 
-    Parameters:
+    Thông số:
         numbers (list): Danh sách các số.
 
-    Returns:
+    Trả lại:
         int: Bội chung nhỏ nhất của danh sách.
 
     Raises:
@@ -522,10 +522,10 @@ def tao_danh_sach_boi_so(number):
     """
     Tạo danh sách bội số của number từ 0 đến 10 lần.
 
-    Parameters:
+    Thông số:
         number (int): Số cần tạo danh sách bội số.
 
-    Returns:
+    Trả lại:
         list: Danh sách bội số của number.
 
     Raises:
@@ -540,10 +540,10 @@ def uoc_chung_cua_danh_sach(numbers):
     """
     Tạo danh sách các ước chung của một danh sách các số.
 
-    Parameters:
+    Thông số:
         numbers (list): Danh sách các số.
 
-    Returns:
+    Trả lại:
         list: Danh sách các ước chung.
 
     Raises:
@@ -572,10 +572,10 @@ def kiem_tra_so_song_to(number):
     """
     Kiểm tra xem một số có phải là số song tố hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số song tố, False nếu không.
     """
     return kiem_tra_so_nguyen_to(number) and kiem_tra_so_nguyen_to(tong_chu_so(number))
@@ -585,10 +585,10 @@ def tao_danh_sach_so_song_to(limit):
     """
     Tạo danh sách các số song tố từ 0 đến limit.
 
-    Parameters:
+    Thông số:
         limit (int): Giới hạn trên của danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số song tố.
     """
     return [i for i in range(limit) if kiem_tra_so_song_to(i)]
@@ -598,10 +598,10 @@ def kiem_tra_so_phong_phu(number):
     """
     Kiểm tra xem một số có phải là số phong phú hay không.
 
-    Parameters:
+    Thông số:
         number (int): Số cần kiểm tra.
 
-    Returns:
+    Trả lại:
         bool: True nếu number là số phong phú, False nếu không.
     """
     if number <= 0:
@@ -613,10 +613,10 @@ def tao_danh_sach_so_phong_phu(limit):
     """
     Tạo danh sách các số phong phú từ 0 đến limit.
 
-    Parameters:
+    Thông số:
         limit (int): Giới hạn trên của danh sách.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số phong phú.
     """
     return [i for i in range(limit) if kiem_tra_so_phong_phu(i)]
@@ -626,10 +626,10 @@ def thua_so_nguyen_to(number):
     """
     Phân tích một số thành danh sách các thừa số nguyên tố.
 
-    Parameters:
+    Thông số:
         number (int): Số cần phân tích.
 
-    Returns:
+    Trả lại:
         list: Danh sách các thừa số nguyên tố.
 
     Raises:
@@ -651,11 +651,11 @@ def uoc_chung_nguyen_to_2_so(number1, number2):
     """
     Tìm ước chung nguyên tố lớn nhất của hai số.
 
-    Parameters:
+    Thông số:
         number1 (int): Số thứ nhất.
         number2 (int): Số thứ hai.
 
-    Returns:
+    Trả lại:
         int: Ước chung nguyên tố lớn nhất của number1 và number2.
 
     Raises:
@@ -676,11 +676,11 @@ def giai_phuong_trinh(degree, coefficients):
     """
     Giải phương trình từ bậc 1 đến bậc 10 theo hệ số.
 
-    Parameters:
+    Thông số:
         degree (int): Bậc của phương trình.
         coefficients (list): Danh sách các hệ số của phương trình.
 
-    Returns:
+    Trả lại:
         str: Kết quả nghiệm của phương trình.
 
     Raises:
@@ -703,10 +703,10 @@ def danh_sach_khong_trung_lap(items):
     """
     Loại bỏ phần tử trùng lặp trong danh sách.
 
-    Parameters:
+    Thông số:
         items (list): Danh sách cần xử lý.
 
-    Returns:
+    Trả lại:
         list: Danh sách không có phần tử trùng lặp.
     """
     return sorted(list(set(items)), reverse=True)
@@ -716,10 +716,10 @@ def trich_xuat_chu_so_tu_chuoi(text):
     """
     Trích xuất chuỗi chữ số từ chuỗi.
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         list: Danh sách các chữ số.
     """
     if not text:
@@ -731,10 +731,10 @@ def trich_xuat_so_tu_chuoi(text):
     """
     Trích xuất chuỗi số từ chuỗi.
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         list: Danh sách các số.
     """
     if not text:
@@ -746,10 +746,10 @@ def trich_xuat_ki_tu(text):
     """
     Trích xuất các ký tự không phải số từ chuỗi.
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         list: Danh sách các ký tự không phải số.
     """
     if not text:
@@ -761,10 +761,10 @@ def trich_xuat_cac_so_tu_so(text):
     """
     Trích xuất các số từ chuỗi số (ví dụ “32/232343244” → 32.232343244).
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         float: Số được trích xuất.
 
     Raises:
@@ -784,10 +784,10 @@ def xau_duoc_nen_1(text):
     """
     Nén xâu loại 1 (ví dụ “google” → “2ol2ge”).
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         str: Chuỗi đã nén.
     """
     if not text:
@@ -811,10 +811,10 @@ def xau_duoc_nen_2(text):
     """
     Nén xâu loại 2 (ví dụ “google” → “g2ogle”).
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         str: Chuỗi đã nén.
     """
     if not text:
@@ -835,10 +835,10 @@ def xau_duoc_nen_khong_so(input_text):
     """
     Nén xâu bỏ số (ví dụ “hhhooccsiinh” → “hocsinh”).
 
-    Parameters:
+    Thông số:
         input_text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         str: Chuỗi đã nén.
     """
     if not input_text:
@@ -854,10 +854,10 @@ def xau_duoc_giai_nen(text):
     """
     Giải nén xâu (ví dụ “3ab3c” → “aaabccc”).
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         str: Chuỗi đã giải nén.
     """
     if not text:
@@ -877,10 +877,10 @@ def xau_ki_tu_khong_trung_lap(text):
     """
     Tạo xâu ký tự không trùng lặp (ví dụ “Google” → “gole”).
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         str: Chuỗi không có ký tự trùng lặp.
     """
     if not text:
@@ -898,11 +898,11 @@ def chuyen_hoa_caesar(text, shift):
     """
     Chuyển chuỗi thành dãy số mật mã Caesar.
 
-    Parameters:
+    Thông số:
         text (str): Chuỗi đầu vào.
         shift (int): Số bước dịch chuyển.
 
-    Returns:
+    Trả lại:
         list: Dãy số mật mã Caesar.
     """
     if not text:
@@ -917,11 +917,11 @@ def ma_hoa_caesar(numbers, shift):
     """
     Mã hóa dãy số Caesar thành xâu.
 
-    Parameters:
+    Thông số:
         numbers (list): Dãy số đầu vào.
         shift (int): Số bước dịch chuyển.
 
-    Returns:
+    Trả lại:
         str: Chuỗi đã mã hóa.
     """
     if not numbers:
@@ -938,10 +938,10 @@ def teen_code_yahoo(input_text):
     """
     Chuyển xâu thành Teen Code Yahoo.
 
-    Parameters:
+    Thông số:
         input_text (str): Chuỗi đầu vào.
 
-    Returns:
+    Trả lại:
         str: Chuỗi Teen Code Yahoo.
     """
 
@@ -1059,7 +1059,7 @@ def mp_tai_xuong(steps):
     """
     Mô phỏng quá trình tải xuống.
 
-    Parameters:
+    Thông số:
         steps (int): Số bước tải xuống.
 
     Raises:
@@ -1083,7 +1083,7 @@ def mp_tinh_toan(steps):
     """
     Mô phỏng quá trình tính toán.
 
-    Parameters:
+    Thông số:
         steps (int): Số bước tính toán.
 
     Raises:
@@ -1106,7 +1106,7 @@ def mp_loading(count):
     """
     Mô phỏng quá trình loading.
 
-    Parameters:
+    Thông số:
         count (int): Số lần lặp.
     """
     sys.stdout.write("LOADING")
@@ -1125,10 +1125,10 @@ def mp_christmas_tree_cho_VSCode():
     """
     Mô phỏng cây thông Giáng sinh cho VSCode.
 
-    Parameters:
+    Thông số:
         None
 
-    Returns:
+    Trả lại:
         None: In cây thông ra màn hình.
 
     Hướng dẫn:
@@ -1148,10 +1148,10 @@ def mp_christmas_tree_cho_TEXT():
     """
     Mô phỏng cây thông Giáng sinh cho TEXT.
 
-    Parameters:
+    Thông số:
         None
 
-    Returns:
+    Trả lại:
         None: In cây thông ra màn hình.
 
     Hướng dẫn:
@@ -1174,11 +1174,11 @@ def tinh_toan_tien_dien(old_reading, new_reading):
     """
     Tính toán tiền điện.
 
-    Parameters:
+    Thông số:
         old_reading (str): Chỉ số cũ.
         new_reading (str): Chỉ số mới.
 
-    Returns:
+    Trả lại:
         str: Kết quả tính toán.
 
     Raises:
@@ -1217,11 +1217,11 @@ def tong_chu_so_lon_nhat_bang_n(digit_count, target_sum):
     """
     Tìm số lớn nhất có digit_count chữ số và tổng các chữ số bằng target_sum.
 
-    Parameters:
+    Thông số:
         digit_count (int): Số chữ số.
         target_sum (int): Tổng các chữ số.
 
-    Returns:
+    Trả lại:
         str: Số lớn nhất thỏa mãn điều kiện.
 
     Raises:
@@ -1245,12 +1245,12 @@ def pythagore(side_a, side_b, side_c):
     """
     Tính cạnh còn lại trong tam giác vuông.
 
-    Parameters:
+    Thông số:
         side_a (float or bool): Cạnh a.
         side_b (float or bool): Cạnh b.
         side_c (float or bool): Cạnh c.
 
-    Returns:
+    Trả lại:
         str: Kết quả tính toán.
 
     Raises:
@@ -1279,10 +1279,10 @@ def tao_danh_sach_quy_luat_1(total):
     """
     Tạo danh sách theo quy luật: 1 số ⋮ 1, 2 số ⋮ 2, 3 số ⋮ 3, ...
 
-    Parameters:
+    Thông số:
         total (int): Tổng số lượng phần tử.
 
-    Returns:
+    Trả lại:
         list: Danh sách theo quy luật.
     """
     result = []
@@ -1299,11 +1299,11 @@ def tao_danh_sach_quy_luat_2(base, count):
     """
     Tạo danh sách các bội của base với count phần tử.
 
-    Parameters:
+    Thông số:
         base (int): Số để tạo bội.
         count (int): Số phần tử.
 
-    Returns:
+    Trả lại:
         list: Danh sách các bội của base.
     """
     return [base * i for i in range(count)]
@@ -1313,11 +1313,11 @@ def tao_danh_sach_quy_luat_3(count, base):
     """
     Tạo danh sách lũy thừa của base từ 0 đến count.
 
-    Parameters:
+    Thông số:
         count (int): Số lượng phần tử.
         base (int): Cơ số.
 
-    Returns:
+    Trả lại:
         list: Danh sách lũy thừa của base.
     """
     return [base**i for i in range(count)]
@@ -1328,10 +1328,10 @@ def chuyen_doi_so_la_ma(number):
     """
     Chuyển đổi số thành số La Mã.
 
-    Parameters:
+    Thông số:
         number (int): Số cần chuyển đổi.
 
-    Returns:
+    Trả lại:
         str: Số La Mã.
 
     Raises:
@@ -1346,10 +1346,10 @@ def dem_so_nghich_the(numbers):
     """
     Đếm số cặp nghịch thế trong danh sách.
 
-    Parameters:
+    Thông số:
         numbers (list): Danh sách cần đếm.
 
-    Returns:
+    Trả lại:
         int: Số cặp nghịch thế.
     """
     count = 0
@@ -1364,10 +1364,10 @@ def one_two_three():
     """
     Chơi kéo búa bao với A.I.
 
-    Parameters:
+    Thông số:
         None
 
-    Returns:
+    Trả lại:
         None: In kết quả ra màn hình.
 
     Hướng dẫn:
@@ -1418,12 +1418,12 @@ def tao_day_chu(rows, columns, repeats):
     """
     Tạo dãy chữ với rows dòng, columns cột, 2 đường chéo, lặp lại repeats lần.
 
-    Parameters:
+    Thông số:
         rows (int): Số dòng.
         columns (int): Số cột.
         repeats (int): Số lần lặp lại.
 
-    Returns:
+    Trả lại:
         None: In dãy chữ ra màn hình.
 
     Hướng dẫn:
