@@ -222,12 +222,6 @@
 
 ## Các hàm phân tích thừa số nguyên tố
 
-- **thua_so_nguyen_to_day_du(number)**  
-  Phân tích `number` thành tích các thừa số nguyên tố (có số mũ).  
-  - Tham số: `number` (int) - Số cần phân tích.  
-  - Trả về: Chuỗi biểu diễn phân tích thừa số nguyên tố.  
-  - Ném lỗi: `MathError` nếu `number <= 1`.
-
 - **thua_so_nguyen_to(number)**  
   Phân tích `number` thành danh sách các thừa số nguyên tố.  
   - Tham số: `number` (int) - Số cần phân tích.  
@@ -440,6 +434,9 @@
 ---
 
 # Những bản cập nhật
+### 0.1.0.2 - (28/07/2025)
+- ***Xóa thua_so_nguyen_to_day_du.***
+
 ### 0.1.0.1 - (28/07/2025)
 - ***Sửa đổi những lỗi nhỏ nhặt trong nội dung.***
 

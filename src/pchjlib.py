@@ -34,7 +34,7 @@ Tác giả
 
 Phiên bản
 ---------------------------------------------------------
-- 0.1.0.1.
+- 0.1.0.2.
 
 Ngày đăng
 ---------------------------------------------------------
@@ -620,40 +620,6 @@ def tao_danh_sach_so_phong_phu(limit):
         list: Danh sách các số phong phú.
     """
     return [i for i in range(limit) if kiem_tra_so_phong_phu(i)]
-
-
-# Các hàm phân tích thừa số nguyên tố
-def thua_so_nguyen_to_day_du(number):
-    """
-    Phân tích một số thành tích các thừa số nguyên tố (có số mũ).
-
-    Parameters:
-        number (int): Số cần phân tích.
-
-    Returns:
-        str: Chuỗi biểu diễn phân tích thừa số nguyên tố.
-
-    Raises:
-        MathError: Nếu number không lớn hơn 1.
-    """
-    if number <= 1:
-        raise MathError("Số phải lớn hơn 1")
-    factors = []
-    divisor = 2
-    while number > 1:
-        while number % divisor == 0:
-            factors.append(divisor)
-            number //= divisor
-        divisor += 1
-    factor_count = collections.Counter(factors)
-    detailed = " x ".join(
-        [
-            f"{factor}^{exp}" if exp > 1 else str(factor)
-            for factor, exp in factor_count.items()
-        ]
-    )
-    sequence = " x ".join(str(factor) for factor in factors)
-    return f"- Phân tích: {detailed}\n- Bộ số mũ: {sequence}"
 
 
 def thua_so_nguyen_to(number):
