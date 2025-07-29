@@ -26,19 +26,17 @@
 
 
 from setuptools import setup
+import pathlib
 
-
-with open(
-    r"C:\Users\LAPTOP DELL\Desktop\EVERYTHING\pchjlib_admin\README.md", encoding="utf-8"
-) as f:
-    desc = f.read()
+HERE = pathlib.Path(__file__).parent
+long_description = (HERE / r"README.md").read_text(encoding="utf-8")
 
 setup(
     name="pchjlib",
-    version="0.1.0.4",
+    version="0.1.0.5",
     author="Joesifer",
     description="Thư viện pchjlib là một bộ công cụ đa năng được viết bằng Python, được thiết kế để hỗ trợ các lập trình viên trong việc giải quyết các bài toán toán học, xử lý chuỗi, mã hóa, mô phỏng, và một số tính năng đặc biệt khác. Thư viện cung cấp nhiều hàm và lớp tiện ích, giúp đơn giản hóa các tác vụ phức tạp và tăng hiệu quả phát triển phần mềm.",
-    long_description=desc,
+    long_description=long_description,
     long_description_content_type="text/markdown",
     license="MIT License",
     keywords="pchjlib",
