@@ -1,3 +1,4 @@
+# setup.py
 ################################################################################################
 #                                                                                              #
 # Copyright (c) 2024 Joesifer                                                                  #
@@ -24,8 +25,7 @@
 #                                                                                              #
 ################################################################################################
 
-
-from setuptools import setup, find_packages
+from setuptools import setup
 import pathlib
 
 HERE = pathlib.Path(__file__).parent
@@ -33,7 +33,7 @@ long_description = (HERE / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="pchjlib",
-    version="0.1.0.6",
+    version="0.1.0.7",
     author="Joesifer",
     description="Thư viện pchjlib là một bộ công cụ đa năng…",
     long_description=long_description,
@@ -41,7 +41,7 @@ setup(
     url="https://github.com/Joesifer/pchjlib",
     license="MIT License",
     keywords="pchjlib",
-    packages=find_packages(where="src"),
+    py_modules=["pchjlib"],
     package_dir={"": "src"},
     python_requires=">=3.7",
     install_requires=["numpy", "roman"],
