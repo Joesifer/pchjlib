@@ -1,4 +1,17 @@
-include *.md
-include *.txt
+# Metadata & docs
+include README.md
+include LICENSE.txt
+include COPYRIGHT.txt
 
+# Build configs
+include pyproject.toml
+include setup.cfg
+include setup.py
+
+# Mã nguồn Python
 recursive-include src *.py
+
+# Loại trừ file hệ điều hành / cache
+exclude desktop.ini
+prune __pycache__
+global-exclude *.py[cod]

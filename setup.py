@@ -25,47 +25,42 @@
 ################################################################################################
 
 
-from setuptools import setup
+from setuptools import setup, find_packages
 import pathlib
 
 HERE = pathlib.Path(__file__).parent
-long_description = (HERE / r"README.md").read_text(encoding="utf-8")
+long_description = (HERE / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="pchjlib",
-    version="0.1.0.5",
+    version="0.1.0.6",
     author="Joesifer",
-    description="Thư viện pchjlib là một bộ công cụ đa năng được viết bằng Python, được thiết kế để hỗ trợ các lập trình viên trong việc giải quyết các bài toán toán học, xử lý chuỗi, mã hóa, mô phỏng, và một số tính năng đặc biệt khác. Thư viện cung cấp nhiều hàm và lớp tiện ích, giúp đơn giản hóa các tác vụ phức tạp và tăng hiệu quả phát triển phần mềm.",
+    description="Thư viện pchjlib là một bộ công cụ đa năng…",
     long_description=long_description,
     long_description_content_type="text/markdown",
+    url="https://github.com/Joesifer/pchjlib",
     license="MIT License",
     keywords="pchjlib",
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    python_requires=">=3.7",
+    install_requires=["numpy", "roman"],
+    include_package_data=True,
+    zip_safe=True,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: Vietnamese",
         "Operating System :: OS Independent",
     ],
-    url="https://github.com/Joesifer/pchjlib",
-    package_dir={"": "src"},
-    python_requires=">=3.7",
-    install_requires=["numpy", "roman"],
-    py_modules=["pchjlib"],
-    include_package_data=True,
-    test_suite="",
-    zip_safe=True,
     entry_points={
         "console_scripts": [
-            "pchjlib=pchjlib:main",
+            "pchjlib = pchjlib:main",
         ]
     },
 )
