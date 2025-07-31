@@ -103,9 +103,10 @@ pip install pchjlib[full]
   - Ném lỗi: `InvalidInputError` nếu đầu vào không phải số nguyên.
 
 - **tao_danh_sach_so_nguyen_to(limit)**  
-  Tạo danh sách các số nguyên tố từ 0 đến `limit`. Nếu `limit < 5`, mặc định trả về danh sách đến 10.  
+  Tạo danh sách các số nguyên tố từ 0 đến `limit`.
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
   - Trả về: Danh sách các số nguyên tố.
+  - Ném lỗi: `InvalidInputError` vì giới hạn phải lớn hơn hoặc bằng 2.
 
 - **kiem_tra_so_emirp(number)**  
   Kiểm tra xem một số có phải là số emirp (số nguyên tố đảo ngược cũng là nguyên tố) hay không.  
@@ -516,6 +517,9 @@ pip install pchjlib[full]
 ### 📌 2025
 
 #### 🟢 0.1.x — Cập nhật lớn
+- **0.1.1.2** – *(31/07/2025)*  
+  🔧 Sửa README.
+
 - **0.1.1.1** – *(31/07/2025)*  
   🔧 Sửa lỗi hiển thị.
 
