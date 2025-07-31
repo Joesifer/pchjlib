@@ -509,13 +509,16 @@ pip install pchjlib[full]
 ## 🛠️ Những bản cập nhật
 
 > **📅 Ngày cập nhật gần nhất:** 31/07/2025
-> **📦 Tổng số bản phát hành:** 40
+> **📦 Tổng số bản phát hành:** 41
 
 ---
 
 ### 📌 2025
 
 #### 🟢 0.1.x — Cập nhật lớn
+- **0.1.1.1** – *(31/07/2025)*  
+  🔧 Sửa lỗi hiển thị.
+
 - **0.1.1** – *(31/07/2025)*  
   🔧 Sửa lỗi và cập nhật phụ thuộc tùy chọn cho `numpy` và `roman`.
   

@@ -25,21 +25,22 @@
 #                                                                                              #
 ################################################################################################
 
-from setuptools import setup
+#!/usr/bin/env python
+import setuptools
 import pathlib
 
 HERE = pathlib.Path(__file__).parent
 long_description = (HERE / "README.md").read_text(encoding="utf-8")
 
-setup(
+setuptools.setup(
     name="pchjlib",
-    version="0.1.1",
+    version="0.1.1.1",
     author="Joesifer",
-    seulsdescription="Thư viện pchjlib là một bộ công cụ đa năng…",
+    description="Thư viện pchjlib là một bộ công cụ đa năng…",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Joesifer/pchjlib",
-    license="MIT License",
+    license="MIT",
     keywords="pchjlib",
     py_modules=["pchjlib"],
     package_dir={"": "src"},
@@ -59,7 +60,6 @@ setup(
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
-        "License :: OSI Approved :: MIT License",
         "Natural Language :: Vietnamese",
         "Operating System :: OS Independent",
     ],
