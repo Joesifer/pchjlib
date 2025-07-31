@@ -34,7 +34,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.2.
+- 0.1.2.1
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -177,26 +177,31 @@ def tao_danh_sach_so_nguyen_to(limit):
         Ví dụ: tao_danh_sach_so_nguyen_to(10) → [2, 3, 5, 7].
     """
     try:
-        if isinstance(limit, float) and not limit.is_integer():
-            raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải là số nguyên")
-        limit = int(limit)
-        if limit < 2:
-            raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải >= 2")
-        if numpy is not None:
-            sieve = numpy.ones(limit + 1, dtype=bool)  # Phân bổ trước bộ nhớ với numpy
-            sieve[0:2] = False
-            for i in range(2, int(limit**0.5) + 1):
-                if sieve[i]:
-                    sieve[i * i : limit + 1 : i] = False
-            return numpy.where(sieve)[0].tolist()
+        if numpy is None:
+            raise ImportError(
+                "Hàm này yêu cầu cài đặt numpy. Hãy chạy: pip install numpy"
+            )
         else:
-            sieve = [True] * (limit + 1)  # Phân bổ trước bộ nhớ
-            sieve[0] = sieve[1] = False
-            for i in range(2, int(limit**0.5) + 1):
-                if sieve[i]:
-                    for j in range(i * i, limit + 1, i):
-                        sieve[j] = False
-            return [i for i in range(limit + 1) if sieve[i]]
+            if isinstance(limit, float) and not limit.is_integer():
+                raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải là số nguyên")
+            limit = int(limit)
+            if limit < 2:
+                raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải >= 2")
+            if numpy is not None:
+                sieve = numpy.ones(limit + 1, dtype=bool)  # Phân bổ trước bộ nhớ với numpy
+                sieve[0:2] = False
+                for i in range(2, int(limit**0.5) + 1):
+                    if sieve[i]:
+                        sieve[i * i : limit + 1 : i] = False
+                return numpy.where(sieve)[0].tolist()
+            else:
+                sieve = [True] * (limit + 1)  # Phân bổ trước bộ nhớ
+                sieve[0] = sieve[1] = False
+                for i in range(2, int(limit**0.5) + 1):
+                    if sieve[i]:
+                        for j in range(i * i, limit + 1, i):
+                            sieve[j] = False
+                return [i for i in range(limit + 1) if sieve[i]]
     except (ValueError, TypeError):
         raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn không phải số nguyên")
 

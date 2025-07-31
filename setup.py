@@ -34,7 +34,7 @@ long_description = (HERE / "README.md").read_text(encoding="utf-8")
 
 setuptools.setup(
     name="pchjlib",
-    version="0.1.2",
+    version="0.1.2.1",
     author="Joesifer",
     description="Thư viện pchjlib là một bộ công cụ đa năng…",
     long_description=long_description,

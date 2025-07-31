@@ -11,7 +11,7 @@
 # 📚 Yêu cầu
 
 - **Python**: >= 3.7
-- **numpy**: Tùy chọn, chỉ cần cho hàm `giai_phuong_trinh`. Cài bằng `pip install pchjlib[numpy]` hoặc `pip install numpy`.
+- **numpy**: Tùy chọn, cho hàm `giai_phuong_trinh` và `tao_danh_sach_so_nguyen_to`. Cài bằng `pip install pchjlib[numpy]` hoặc `pip install numpy`.
 - **roman**: Tùy chọn, chỉ cần cho hàm `chuyen_doi_so_la_ma`. Cài bằng `pip install pchjlib[roman]` hoặc `pip install roman`.
 - Để cài đặt đầy đủ: `pip install pchjlib[full]`.
 
@@ -23,7 +23,7 @@ Bạn có thể cài đặt thư viện cơ bản mà không cần các phụ th
 pip install pchjlib
 ```
 
-Nếu bạn cần sử dụng hàm `giai_phuong_trinh`, hãy cài đặt với `numpy`:
+Nếu bạn cần sử dụng hàm `giai_phuong_trinh` và `tao_danh_sach_so_nguyen_to`, hãy cài đặt với `numpy`:
 
 ```bash
 pip install pchjlib[numpy]
@@ -40,6 +40,7 @@ pip install pchjlib[roman]
 ```bash
 pip install pchjlib[full]
 ```
+
 # 🌟 Tính năng chính
 
 - 🔍 **Kiểm tra và tạo danh sách các loại số đặc biệt:**  
@@ -535,18 +536,20 @@ pip install pchjlib[full]
 ## 🛠️ Những bản cập nhật
 
 > **📅 Ngày cập nhật gần nhất:** 01/08/2025
-> **📦 Tổng số bản phát hành:** 42
+> **📦 Tổng số bản phát hành:** 43
 
 ---
 
 ### 📌 2025
 
 #### 🟢 0.1.x — Cập nhật lớn
+- **0.1.2.1** – *(01/08/2025)*
+  🔧 Sửa lỗi nhỏ.
+
 - **0.1.2** – *(01/08/2025)* 
   ✅ Cải thiện tính nhất quán của xác thực đầu vào trên tất cả các hàm.  
   ⚡ Tối ưu hóa hiệu suất cho các hàm Fibonacci và tạo danh sách số nguyên tố.  
   📚 Mở rộng tài liệu với các lỗi dự kiến.
-
 
 - **0.1.1.3** – *(31/07/2025)*  
   🔧 Sửa README.
