@@ -34,7 +34,7 @@ Tác giả
 
 Phiên bản
 ---------------------------------------------------------
-- 0.1.0.7.
+- 0.1.1.
 
 Ngày đăng
 ---------------------------------------------------------
@@ -50,7 +50,7 @@ Phiên bản python được hỗ trợ.
 
 Thư viện phụ thuộc.
 ---------------------------------------------------------
-- math, re, sys, time, numpy, roman.
+- math, re, sys, time, (numpy, roman).
 
 Giấy phép.
 ---------------------------------------------------------
@@ -73,7 +73,7 @@ CẢM ƠN!
 
 """
 
-import math, random, re, sys, time, numpy, roman
+import math, random, re, sys, time
 
 
 # Các class lỗi tùy chỉnh
@@ -99,6 +99,18 @@ class InvalidInputError(MathError):
     """Lỗi khi đầu vào không hợp lệ."""
 
     pass
+
+
+# Kiểm tra và import các thư viện phụ thuộc
+try:
+    import numpy
+except ImportError:
+    numpy = None
+
+try:
+    import roman
+except ImportError:
+    roman = None
 
 
 # Các hàm kiểm tra số nguyên tố và số liên quan
@@ -135,9 +147,15 @@ def tao_danh_sach_so_nguyen_to(limit):
     Trả lại:
         list: Danh sách các số nguyên tố.
     """
-    if limit < 5:
-        limit = 10
-    return [i for i in range(limit) if kiem_tra_so_nguyen_to(i)]
+    if limit < 2:
+        raise InvalidInputError("Giới hạn phải lớn hơn hoặc bằng 2")
+    sieve = [True] * (limit + 1)
+    sieve[0] = sieve[1] = False
+    for i in range(2, int(limit**0.5) + 1):
+        if sieve[i]:
+            for j in range(i * i, limit + 1, i):
+                sieve[j] = False
+    return [i for i in range(limit + 1) if sieve[i]]
 
 
 def kiem_tra_so_emirp(number):
@@ -426,12 +444,13 @@ def kiem_tra_so_manh_me_2(number):
 
 
 # Các hàm về ước số và bội số
-def tao_danh_sach_uoc_so(number):
+def tao_danh_sach_uoc_so(number, positive_only=True):
     """
     Tạo danh sách các ước số của number.
 
     Thông số:
         number (int): Số cần tạo danh sách ước số.
+        positive_only = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
 
     Trả lại:
         list: Danh sách các ước số của number.
@@ -443,7 +462,9 @@ def tao_danh_sach_uoc_so(number):
         raise MathError("Không thể tạo danh sách ước số cho 0")
     number = abs(number)
     divisors = [i for i in range(1, number + 1) if number % i == 0]
-    return sorted(divisors + [-i for i in divisors])
+    if not positive_only:
+        divisors += [-i for i in divisors]
+    return sorted(divisors)
 
 
 def uoc_chung_lon_nhat(number1, number2):
@@ -684,18 +705,35 @@ def giai_phuong_trinh(degree, coefficients):
         str: Kết quả nghiệm của phương trình.
 
     Raises:
+        ImportError: Nếu numpy không được cài đặt.
         InvalidInputError: Nếu bậc hoặc hệ số không hợp lệ.
     """
-    if degree < 1 or degree > 10:
-        raise InvalidInputError("Bậc của phương trình phải từ 1 đến 10")
-    if len(coefficients) != degree + 1:
-        raise InvalidInputError(f"Phương trình bậc {degree} phải có {degree + 1} hệ số")
-
-    roots = numpy.roots(coefficients)
-    result = "Nghiệm của phương trình là:\n"
-    for i, root in enumerate(roots, 1):
-        result += f"x{i} = {root}\n"
-    return result.strip()
+    if numpy is None:
+        raise ImportError("Hàm này yêu cầu cài đặt numpy. Hãy chạy: pip install numpy")
+    else:
+        if degree < 1 or degree > 10:
+            raise InvalidInputError("Bậc của phương trình phải từ 1 đến 10")
+        if len(coefficients) != degree + 1:
+            raise InvalidInputError(
+                f"Phương trình bậc {degree} phải có {degree + 1} hệ số"
+            )
+        roots = numpy.roots(coefficients)
+        real_roots = [r for r in roots if numpy.isreal(r)]
+        complex_roots = [r for r in roots if not numpy.isreal(r)]
+        result = "Nghiệm của phương trình:\n"
+        if real_roots:
+            result += "Nghiệm thực:\n" + "\n".join(
+                f"x{i+1} = {r.real}" for i, r in enumerate(real_roots)
+            )
+        if complex_roots:
+            result += "\nNghiệm phức:\n" + "\n".join(
+                f"x{i+1} = {r}" for i, r in enumerate(complex_roots)
+            )
+        return (
+            result.strip()
+            if real_roots or complex_roots
+            else "Phương trình không có nghiệm thực hoặc phức"
+        )
 
 
 # Các hàm xử lý danh sách và chuỗi
@@ -1335,11 +1373,15 @@ def chuyen_doi_so_la_ma(number):
         str: Số La Mã.
 
     Raises:
+        ImportError: Nếu roman không được cài đặt.
         OutOfRangeError: Nếu number không nằm trong phạm vi 1 đến 3999.
     """
-    if number <= 0 or number > 3999:
-        raise OutOfRangeError("So phai tu 1 den 3999")
-    return roman.toRoman(number)
+    if roman is None:
+        raise ImportError("Hàm này yêu cầu cài đặt roman. Hãy chạy: pip install roman")
+    else:
+        if number <= 0 or number > 3999:
+            raise OutOfRangeError("So phai tu 1 den 3999")
+        return roman.toRoman(number)
 
 
 def dem_so_nghich_the(numbers):

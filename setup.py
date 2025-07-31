@@ -33,9 +33,9 @@ long_description = (HERE / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="pchjlib",
-    version="0.1.0.7",
+    version="0.1.1",
     author="Joesifer",
-    description="Thư viện pchjlib là một bộ công cụ đa năng…",
+    seulsdescription="Thư viện pchjlib là một bộ công cụ đa năng…",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Joesifer/pchjlib",
@@ -44,7 +44,12 @@ setup(
     py_modules=["pchjlib"],
     package_dir={"": "src"},
     python_requires=">=3.7",
-    install_requires=["numpy", "roman"],
+    install_requires=[],
+    extras_require={
+        "numpy": ["numpy"],
+        "roman": ["roman"],
+        "full": ["numpy", "roman"],
+    },
     include_package_data=True,
     zip_safe=True,
     classifiers=[

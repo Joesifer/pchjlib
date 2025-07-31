@@ -8,6 +8,38 @@
 [![Python](https://img.shields.io/badge/Version_%3E_3.7-1?style=plastic&label=Python)](https://www.python.org/)
 [![Owner](https://img.shields.io/badge/Joesifer-1?style=plastic&label=PCHJLIB&labelColor=%2300fff7&color=%23ffe600)](https://github.com/Joesifer)
 
+# 📚 Yêu cầu
+
+- **Python**: >= 3.7
+- **numpy**: Tùy chọn, chỉ cần cho hàm `giai_phuong_trinh`. Cài bằng `pip install pchjlib[numpy]` hoặc `pip install numpy`.
+- **roman**: Tùy chọn, chỉ cần cho hàm `chuyen_doi_so_la_ma`. Cài bằng `pip install pchjlib[roman]` hoặc `pip install roman`.
+- Để cài đặt đầy đủ: `pip install pchjlib[full]`.
+
+# 🛠️ Cài đặt
+
+Bạn có thể cài đặt thư viện cơ bản mà không cần các phụ thuộc tùy chọn:
+
+```bash
+pip install pchjlib
+```
+
+Nếu bạn cần sử dụng hàm `giai_phuong_trinh`, hãy cài đặt với `numpy`:
+
+```bash
+pip install pchjlib[numpy]
+```
+
+Tương tự, cho hàm `chuyen_doi_so_la_ma`, cài đặt với `roman`:
+
+```bash
+pip install pchjlib[roman]
+```
+
+Để cài đặt đầy đủ với tất cả các phụ thuộc:
+
+```bash
+pip install pchjlib[full]
+```
 # 🌟 Tính năng chính
 
 - 🔍 **Kiểm tra và tạo danh sách các loại số đặc biệt:**  
@@ -23,7 +55,7 @@
   Loại bỏ phần tử trùng lặp, trích xuất chữ số/số/ký tự từ chuỗi, nén và giải nén chuỗi.
 
 - 🔐 **Mã hóa và giải mã:**  
-  Mã hóa Caesar, chuyển đổi chuỗi thành Teen Code Yahoo.
+  Mã hóa Caesar (mã hóa Caesar chỉ mang tính giáo dục, không dùng cho bảo mật thực tế), chuyển đổi chuỗi thành Teen Code Yahoo.
 
 - 🧪 **Mô phỏng:**  
   Mô phỏng quá trình tải xuống, tính toán, loading, và tạo cây thông Giáng sinh.
@@ -39,7 +71,6 @@
 
 - 🎮 **Trò chơi:**  
   Chơi kéo búa bao với AI.
-
 
 # 📚 MỤC LỤC
 
@@ -187,9 +218,9 @@
 
 ## 📊 Các hàm về ước số và bội số
 
-- **tao_danh_sach_uoc_so(number)**  
+- **tao_danh_sach_uoc_so(number, positive_only=True)**  
   Tạo danh sách các ước số (bao gồm cả số âm) của `number`.  
-  - Tham số: `number` (int) - Số cần tạo danh sách ước số.  
+  - Tham số: `number` (int) - Số cần tạo danh sách ước số. `positive_only` = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
   - Trả về: Danh sách các ước số.  
   - Ném lỗi: `MathError` nếu `number = 0`.
 
@@ -477,14 +508,17 @@
 
 ## 🛠️ Những bản cập nhật
 
-> **📅 Ngày cập nhật gần nhất:** 28/07/2025
-> **📦 Tổng số bản phát hành:** 39
+> **📅 Ngày cập nhật gần nhất:** 31/07/2025
+> **📦 Tổng số bản phát hành:** 40
 
 ---
 
 ### 📌 2025
 
 #### 🟢 0.1.x — Cập nhật lớn
+- **0.1.1** – *(31/07/2025)*  
+  🔧 Sửa lỗi và cập nhật phụ thuộc tùy chọn cho `numpy` và `roman`.
+  
 - **0.1.0.7** – *(31/07/2025)*  
   🔧 Sửa lỗi.
 
