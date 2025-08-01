@@ -1,31 +1,32 @@
+# pchjlib.py
 ################################################################################################
-#                                                                                              #
-# Copyright (c) 2024 Joesifer                                                                  #
-#                                                                                              #
-# MIT License                                                                                  #
-#                                                                                              #
-# Permission is hereby granted, free of charge, to any person obtaining a copy                 #
-# of this software and associated documentation files (the "Software"), to deal                #
-# in the Software without restriction, including without limitation the rights                 #
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell                    #
-# copies of the Software, and to permit persons to whom the Software is                        #
-# furnished to do so, subject to the following conditions:                                     #
-#                                                                                              #
-# The above copyright notice and this permission notice shall be included in all               #
-# copies or substantial portions of the Software.                                              #
-#                                                                                              #
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR                   #
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,                     #
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE                  #
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER                       #
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,                #
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE                #
-# SOFTWARE.                                                                                    #
-#                                                                                              #
+#
+# Copyright (c) 2024 Joesifer
+#
+# MIT License
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
 ################################################################################################
 
 """
-PCHJLIB
+PCHJLIB🌟
 ===============================================================================
 -------------------------------------------------------------------------------
 Tác giả
@@ -34,11 +35,11 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.3.1.
+- 0.1.3.2.
 
 Ngày đăng
 -------------------------------------------------------------------------------
-- Ngày 14 tháng Hai, năm 2024.
+- Ngày 14 tháng 2, năm 2024.
 
 Bản quyền
 -------------------------------------------------------------------------------
@@ -68,7 +69,7 @@ Và bạn có thể góp ý hoặc ủng hộ bằng::
   >>> Gửi email : `phanchanhung12055@gmail.com` .
 
 
-CẢM ƠN!
+CẢM ƠN!!!
 ===============================================================================
 
 """
@@ -1037,11 +1038,11 @@ def giai_phuong_trinh(degree, coefficients):
         complex_roots = [r for r in roots if not numpy.isreal(r)]
         result = "Nghiệm của phương trình:\n"
         if real_roots:
-            result += "Nghiệm thực:\n" + "\n".join(
+            result += "\nNghiệm thực:\n" + "\n".join(
                 f"x{i+1} = {r.real}" for i, r in enumerate(real_roots)
             )
         if complex_roots:
-            result += "Nghiệm phức:\n" + "\n".join(
+            result += "\nNghiệm phức:\n" + "\n".join(
                 f"x{i+1} = {r}" for i, r in enumerate(complex_roots)
             )
         return (
