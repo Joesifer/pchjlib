@@ -165,7 +165,7 @@ pip install pchjlib[full]
   Tạo danh sách các số hoàn thiện từ 1 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
   - Trả về: Danh sách các số hoàn thiện.  
-  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên > 0.
+  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên > 0, `InvalidInputError` nếu `limit` không lớn hơn 1.
 
 - **kiem_tra_so_tu_man(number)**  
   Kiểm tra xem `number` có phải là số tự mãn hay không.  
@@ -177,7 +177,7 @@ pip install pchjlib[full]
   Tạo danh sách các số tự mãn từ 2 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
   - Trả về: Danh sách các số tự mãn.  
-  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên >= 2.
+  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số >= 2. `NotIntegerError` nếu `limit` không phải là số nguyên.
 
 - **cap_so_hua_hon(number1, number2)**  
   Kiểm tra xem `number1` và `number2` có phải là cặp số hữu hảo hay không.  
@@ -236,39 +236,32 @@ pip install pchjlib[full]
   - Trả về: Danh sách các ước số.  
   - Ném lỗi: `MathError` nếu `number = 0`.
 
-- **uoc_chung_lon_nhat(number1, number2)**  
-  Tìm ước chung lớn nhất của hai số.  
-  - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
-  - Trả về: Giá trị ước chung lớn nhất.
-
-- **uoc_chung_lon_nhat_cua_danh_sach(numbers)**  
-  Tính ước chung lớn nhất của một danh sách các số.  
-  - Tham số: `numbers` (list) - Danh sách các số.  
-  - Trả về: Giá trị ước chung lớn nhất.  
-  - Ném lỗi: `MathError` nếu danh sách không hợp lệ.
-
-- **boi_chung_nho_nhat(number1, number2)**  
-  Tính bội chung nhỏ nhất của hai số.  
-  - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
-  - Trả về: Giá trị bội chung nhỏ nhất.
-
-- **boi_chung_nho_nhat_cua_danh_sach(numbers)**  
-  Tính bội chung nhỏ nhất của một danh sách các số.  
-  - Tham số: `numbers` (list) - Danh sách các số.  
-  - Trả về: Giá trị bội chung nhỏ nhất.  
-  - Ném lỗi: `MathError` nếu danh sách không hợp lệ.
-
 - **tao_danh_sach_boi_so(number)**  
   Tạo danh sách bội số của `number` từ 0 đến 10 lần.  
-  - Tham số: `number` (int) - Số cần tạo danh sách bội số.  
+  - Tham số: `number` (int) - Số cần tạo danh sách bội số.
+  - positive_only = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
   - Trả về: Danh sách bội số.  
-  - Ném lỗi: `MathError` nếu `number = 0`.
+  - Ném lỗi: `MathError` nếu `number = 0`, `NotIntegerError` nếu đầu vào không phải là số nguyên.
 
-- **uoc_chung_cua_danh_sach(numbers)**  
+- **uoc_chung(numbers)**
   Tạo danh sách các ước chung của một danh sách các số.  
   - Tham số: `numbers` (list) - Danh sách các số.  
   - Trả về: Danh sách các ước chung.  
-  - Ném lỗi: `MathError` nếu danh sách không đủ phần tử.
+  - Ném lỗi: `MathError` nếu danh sách không đủ phần tử, `ListError` nếu đầu vào không phải là danh sách hoặc tuple.
+
+
+- **uoc_chung_lon_nhat(numbers)**  
+  Tính ước chung lớn nhất của một danh sách các số.  
+  - Tham số: `numbers` (list) - Danh sách các số.  
+  - Trả về: Giá trị ước chung lớn nhất.  
+  - Ném lỗi: `MathError` nếu danh sách không hợp lệ, `ListError` nếu đầu vào không phải là danh sách hoặc tuple.
+
+
+- **boi_chung_nho_nhat(numbers)**  
+  Tính bội chung nhỏ nhất của một danh sách các số.  
+  - Tham số: `numbers` (list) - Danh sách các số.  
+  - Trả về: Giá trị bội chung nhỏ nhất.  
+  - Ném lỗi: `MathError` nếu danh sách không hợp lệ, `ListError` nếu đầu vào không phải là danh sách hoặc tuple.
 
 ---
 
@@ -278,21 +271,25 @@ pip install pchjlib[full]
   Kiểm tra xem `number` có phải là số song tố hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
   - Trả về: `True` nếu là số song tố, `False` nếu không.
+  - Ném lỗi: `NotIntegerError` nếu đầu vào không phải là số nguyên.
 
 - **tao_danh_sach_so_song_to(limit)**  
   Tạo danh sách các số song tố từ 0 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
   - Trả về: Danh sách các số song tố.
+  - Ném lỗi: `NotIntegerError` đầu vào phải là số nguyên, `InvalidInputError` giới hạn phải không âm.
 
 - **kiem_tra_so_phong_phu(number)**  
   Kiểm tra xem `number` có phải là số phong phú hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
   - Trả về: `True` nếu là số phong phú, `False` nếu không.
+  - Ném lỗi: `NotIntegerError` đầu vào phải là số nguyên.
 
 - **tao_danh_sach_so_phong_phu(limit)**  
   Tạo danh sách các số phong phú từ 0 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
   - Trả về: Danh sách các số phong phú.
+  - Ném lỗi: `NotIntegerError` đầu vào phải là số nguyên, `InvalidInputError` giới hạn phải không âm.
 
 ---
 
@@ -302,13 +299,13 @@ pip install pchjlib[full]
   Phân tích `number` thành danh sách các thừa số nguyên tố.  
   - Tham số: `number` (int) - Số cần phân tích.  
   - Trả về: Danh sách các thừa số nguyên tố.  
-  - Ném lỗi: `MathError` nếu `number <= 1`.
+  - Ném lỗi: `MathError` nếu `number <= 1`, `NotIntegerError` đầu vào phải là số nguyên.
 
-- **uoc_chung_nguyen_to_2_so(number1, number2)**  
+- **uoc_chung_nguyen_to_hai_so(number1, number2)**  
   Tìm ước chung nguyên tố lớn nhất của hai số.  
   - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
   - Trả về: Giá trị ước chung nguyên tố lớn nhất.  
-  - Ném lỗi: `MathError` nếu không có ước chung nguyên tố hoặc số không lớn hơn 1.
+  - Ném lỗi: `MathError` nếu không có ước chung nguyên tố hoặc số không lớn hơn 1, `NotIntegerError` cả hai số phải là số nguyên.
 
 ---
 
@@ -318,7 +315,7 @@ pip install pchjlib[full]
   Giải phương trình từ bậc 1 đến bậc 10 theo hệ số.  
   - Tham số: `degree` (int) - Bậc của phương trình; `coefficients` (list) - Danh sách các hệ số.  
   - Trả về: Chuỗi kết quả nghiệm của phương trình.  
-  - Ném lỗi: `InvalidInputError` nếu bậc hoặc hệ số không hợp lệ.
+  - Ném lỗi: `InvalidInputError` nếu bậc hoặc hệ số không hợp lệ, `ImportError` nếu numpy không được cài đặt.
 
 ---
 
@@ -328,15 +325,16 @@ pip install pchjlib[full]
   Loại bỏ phần tử trùng lặp trong danh sách và sắp xếp giảm dần.  
   - Tham số: `items` (list) - Danh sách cần xử lý.  
   - Trả về: Danh sách không có phần tử trùng lặp.
+  - Ném lỗi: `ListError` đầu vào phải là danh sách hoặc tuple.
 
 - **trich_xuat_chu_so_tu_chuoi(text)**  
-  Trích xuất các chữ số từ chuỗi.  
+  Trích xuất các chữ số từ chuỗi. Ví dụ: "abc123" = [1,2,3].  
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Danh sách các chữ số.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **trich_xuat_so_tu_chuoi(text)**  
-  Trích xuất các số từ chuỗi.  
+  Trích xuất các số từ chuỗi. Ví dụ: "abc123" = [123].
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Danh sách các số.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
@@ -345,40 +343,28 @@ pip install pchjlib[full]
   Trích xuất các ký tự không phải số từ chuỗi.  
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Danh sách các ký tự.  
-  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
+  - Ném lỗi: `TypeErrorCustom` Đầu vào phải là chuỗi, `InvalidInputError` nếu chuỗi rỗng.
 
-- **trich_xuat_cac_so_tu_so(text)**  
-  Trích xuất số từ chuỗi dạng phân số hoặc thập phân.  
-  - Tham số: `text` (str) - Chuỗi đầu vào.  
-  - Trả về: Số thực (float).  
-  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
+- **xau_duoc_nen(text)**
+  Xâu được nén thành 2 loại.
+  - Tham số: `text` (str) - Chuỗi đầu vào, `type` = 1 hoặc 2. Nếu 1 thì "google" → "google", nếu 2 thì "google" → "google".
+  - Trả về: Chuỗi đã nén.
+  - Ném lỗi: `InvalidInputError` loại nén chỉ có 1 hoặc 2.
 
-- **xau_duoc_nen_1(text)**  
-  Nén chuỗi loại 1.  
-  - Tham số: `text` (str) - Chuỗi đầu vào.  
-  - Trả về: Chuỗi đã nén.  
-  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
-
-- **xau_duoc_nen_2(text)**  
-  Nén chuỗi loại 2.  
-  - Tham số: `text` (str) - Chuỗi đầu vào.  
-  - Trả về: Chuỗi đã nén.  
-  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
-
-- **xau_duoc_nen_khong_so(input_text)**  
-  Nén chuỗi bỏ số.  
+- **xau_duoc_nen_khong_ghi_so(input_text)**  
+  Nén chuỗi bỏ số. Ví dụ "hhhoocssssiiinnnhhhhh" → "hocsinh".
   - Tham số: `input_text` (str) - Chuỗi đầu vào.  
   - Trả về: Chuỗi đã nén.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **xau_duoc_giai_nen(text)**  
-  Giải nén chuỗi.  
+  Giải nén chuỗi. Ví dụ "g2ogle" → "google".
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Chuỗi đã giải nén.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **xau_ki_tu_khong_trung_lap(text)**  
-  Tạo chuỗi ký tự không trùng lặp.  
+  Tạo chuỗi ký tự không trùng lặp. Ví dụ "google" → gole".
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Chuỗi không có ký tự trùng lặp.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
@@ -391,13 +377,13 @@ pip install pchjlib[full]
   Chuyển chuỗi thành dãy số mật mã Caesar.  
   - Tham số: `text` (str) - Chuỗi đầu vào; `shift` (int) - Số bước dịch chuyển.  
   - Trả về: Dãy số mật mã Caesar.  
-  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng, chuỗi phải chỉ chứa chữ cái, `NotIntegerError` số bước dịch chuyển phải là số nguyên.
 
 - **ma_hoa_caesar(numbers, shift)**  
   Mã hóa dãy số Caesar thành chuỗi.  
   - Tham số: `numbers` (list) - Dãy số đầu vào; `shift` (int) - Số bước dịch chuyển.  
-  - Trả về: Chuỗi đã mã hóa.  
-  - Ném lỗi: `InvalidInputError` nếu danh sách rỗng.
+  - Trả về: Chuỗi đã mã hóa.
+  - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng, các số phải là số nguyên từ 0 đến 25, `ListError` đầu vào phải là danh sách hoặc tuple, `NotIntegerError` số bước dịch chuyển phải là số nguyên.
 
 ---
 
@@ -426,13 +412,10 @@ pip install pchjlib[full]
   Mô phỏng quá trình loading với `count` lần lặp.  
   - Tham số: `count` (int) - Số lần lặp.
 
-- **mp_christmas_tree_cho_VSCode()**  
-  Mô phỏng cây thông Giáng sinh cho VSCode.  
-  - Yêu cầu nhập chiều cao cây thông.
-
-- **mp_christmas_tree_cho_TEXT()**  
-  Mô phỏng cây thông Giáng sinh cho TEXT.  
-  - Yêu cầu nhập chiều cao cây thông.
+- **mp_christmas_tree()**  
+  Mô phỏng cây thông giáng sinh.
+  - Tham số: type (int) = 1 hoặc 2. Nếu 1 là cây thông cho terminal VSCode, 2 là cho văn bản text.
+  - Trả về: Yêu cầu nhập chiều cao cây thông.
 
 ---
 
@@ -483,7 +466,7 @@ pip install pchjlib[full]
   Chuyển đổi `number` thành số La Mã.  
   - Tham số: `number` (int) - Số cần chuyển đổi.  
   - Trả về: Chuỗi số La Mã.  
-  - Ném lỗi: `OutOfRangeError` nếu `number` không từ 1 đến 3999.
+  - Ném lỗi: `ImportError` nếu roman không được cài đặt, `OutOfRangeError` nếu `number` không từ 1 đến 3999.
 
 - **dem_so_nghich_the(numbers)**  
   Đếm số cặp nghịch thế trong danh sách.  
@@ -502,12 +485,18 @@ pip install pchjlib[full]
 
 ## 🛠️ Những bản cập nhật
 
-> **📅 Ngày cập nhật gần nhất:** 01/08/2025  
-> **📦 Tổng số bản phát hành:** 43
+> **📅 Ngày cập nhật gần nhất:** 02/08/2025  
+> **📦 Tổng số bản phát hành:** 49
 
 ---
 
 ### 📌 2025
+- **0.1.4** – *(02/08/2025)*
+  ✅ Cập nhật tính năng lựa chọn bội/ ước âm cho `tao_danh_sach_boi_so` và `tao_danh_sach_uoc_so`.
+  🔧 Sửa lỗi `uoc_chung_cua_danh_sach`.
+  ❌ Xóa `uoc_chung_lon_nhat`, `trich_xuat_cac_so_tu_so`.
+  ✅ Gộp hai hàm xâu được nén thành một.
+
 - **0.1.3.2** – *(01/08/2025)*
   🔧 Sửa lỗi nhỏ.
 
@@ -515,7 +504,7 @@ pip install pchjlib[full]
   🔧 Sửa lỗi nhỏ.
 
 - **0.1.3** – *(01/08/2025)*  
-  ✅ Gộp 2 hàm số mạnh mẽ thành một.  
+  ✅ Gộp hai hàm số mạnh mẽ thành một.  
   ⚡ Tối ưu Fibonacci với caching.  
   📚 Thêm type hints và docstring chuẩn NumPy.
 
