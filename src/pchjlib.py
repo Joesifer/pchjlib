@@ -34,7 +34,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.3.
+- 0.1.3.1.
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -50,7 +50,7 @@ Phiên bản python được hỗ trợ.
 
 Thư viện phụ thuộc.
 -------------------------------------------------------------------------------
-- math, re, sys, time, functools (numpy, roman).
+- math, re, sys, time (numpy, roman).
 
 Giấy phép.
 -------------------------------------------------------------------------------
@@ -73,7 +73,7 @@ CẢM ƠN!
 
 """
 
-import math, random, re, sys, time, functools
+import math, random, re, sys, time
 
 
 # Các class lỗi tùy chỉnh
@@ -289,13 +289,12 @@ def tao_danh_sach_so_emirp(limit):
 
 
 # Các hàm Fibonacci
-@functools.lru_cache(maxsize=None)
 def vi_tri_so_Fibonacci(index):
     """
-    Tính số Fibonacci thứ index bằng phương pháp lặp.
+    Tính số Fibonacci thứ index bằng phương pháp lặp và chỉ chấp nhận index kiểu int không âm.
 
     Tham số:
-        index (int hoặc float) - Vị trí của số Fibonacci (bắt đầu từ 0).
+        index (int) - Vị trí của số Fibonacci (bắt đầu từ 0).
 
     Trả về:
         Số Fibonacci tại vị trí index (int).
@@ -303,19 +302,16 @@ def vi_tri_so_Fibonacci(index):
     Ném lỗi:
         InvalidInputError nếu index không phải số nguyên không âm.
     """
-    try:
-        if isinstance(index, float) and not index.is_integer():
-            raise InvalidInputError("Đầu vào không hợp lệ: Vị trí phải là số nguyên")
-        index = int(index)
-        if index < 0:
-            raise InvalidInputError("Đầu vào không hợp lệ: Vị trí phải không âm")
-        if index == 0:
-            return 0
-        if index == 1:
-            return 1
-        return vi_tri_so_Fibonacci(index - 1) + vi_tri_so_Fibonacci(index - 2)
-    except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ: Vị trí không phải số nguyên")
+    if not isinstance(index, int) and not isinstance(index, bool):
+        raise InvalidInputError("Đầu vào không hợp lệ: Phải là số nguyên")
+
+    if index < 0:
+        raise InvalidInputError("Đầu vào không hợp lệ: Phải là số nguyên không âm")
+
+    a, b = 0, 1
+    for _ in range(index):
+        a, b = b, a + b
+    return a
 
 
 def tao_danh_sach_so_Fibonacci(count):

@@ -508,9 +508,11 @@ pip install pchjlib[full]
 ---
 
 ### 📌 2025
+- **0.1.3.1** – *(01/08/2025)*
+  🔧 Sửa lỗi nhỏ.
 
 - **0.1.3** – *(01/08/2025)*  
-  ✅ Gộp các hàm tương tự.  
+  ✅ Gộp 2 hàm số mạnh mẽ thành một.  
   ⚡ Tối ưu Fibonacci với caching.  
   📚 Thêm type hints và docstring chuẩn NumPy.
 
