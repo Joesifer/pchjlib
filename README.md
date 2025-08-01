@@ -41,6 +41,9 @@ pip install pchjlib[roman]
 pip install pchjlib[full]
 ```
 
+---
+
+
 # 🌟 Tính năng chính
 
 - 🔍 **Kiểm tra và tạo danh sách các loại số đặc biệt:**  
@@ -93,7 +96,6 @@ pip install pchjlib[full]
 - 🧩 [Khác](#khác)  
 - 🛠️ [Những bản cập nhật](#những-bản-cập-nhật)
 
-
 ---
 
 ## 🔢 Các hàm kiểm tra số nguyên tố và số liên quan
@@ -104,36 +106,38 @@ pip install pchjlib[full]
   - Ném lỗi: `InvalidInputError` nếu đầu vào không phải số nguyên.
 
 - **tao_danh_sach_so_nguyen_to(limit)**  
-  Tạo danh sách các số nguyên tố từ 0 đến `limit`.
+  Tạo danh sách các số nguyên tố từ 0 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
-  - Trả về: Danh sách các số nguyên tố.
-  - Ném lỗi: `InvalidInputError` vì giới hạn phải lớn hơn hoặc bằng 2.
+  - Trả về: Danh sách các số nguyên tố.  
+  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên >= 2.
 
 - **kiem_tra_so_emirp(number)**  
   Kiểm tra xem một số có phải là số emirp (số nguyên tố đảo ngược cũng là nguyên tố) hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
-  - Trả về: `True` nếu là số emirp, `False` nếu không.
+  - Trả về: `True` nếu là số emirp, `False` nếu không.  
+  - Ném lỗi: `InvalidInputError` nếu `number` không phải số nguyên dương.
 
 - **tao_danh_sach_so_emirp(limit)**  
   Tạo danh sách các số emirp từ 0 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
-  - Trả về: Danh sách các số emirp.
+  - Trả về: Danh sách các số emirp.  
+  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên không âm.
 
 ---
 
 ## 🌀 Các hàm Fibonacci
 
 - **vi_tri_so_Fibonacci(index)**  
-  Tính số Fibonacci thứ `index` bằng cách sử dụng phương pháp lặp
-  - Tham số: `index` (int) - Vị trí của số Fibonacci.  
-  - Trả về: Số Fibonacci tại vị trí `index`.
-  - Ném lỗi: `InvalidInputError` nếu index không phải số nguyên không âm.
+  Tính số Fibonacci thứ `index` bằng phương pháp lặp.  
+  - Tham số: `index` (int) - Vị trí của số Fibonacci (bắt đầu từ 0).  
+  - Trả về: Số Fibonacci tại vị trí `index`.  
+  - Ném lỗi: `InvalidInputError` nếu `index` không phải số nguyên không âm.
 
 - **tao_danh_sach_so_Fibonacci(count)**  
   Tạo danh sách `count` số Fibonacci đầu tiên.  
   - Tham số: `count` (int) - Số lượng phần tử trong danh sách.  
-  - Trả về: Danh sách các số Fibonacci.
-  - Ném lỗi: `InvalidInputError` nếu count không phải số nguyên không âm.  
+  - Trả về: Danh sách các số Fibonacci.  
+  - Ném lỗi: `InvalidInputError` nếu `count` không phải số nguyên không âm.
 
 ---
 
@@ -143,66 +147,55 @@ pip install pchjlib[full]
   Tính tổng các ước số dương của `number` (không tính chính nó).  
   - Tham số: `number` (int) - Số cần tính.  
   - Trả về: Tổng các ước số.  
-  - Ném lỗi: `MathError` nếu `number <= 0`, `InvalidInputError` nếu không phải số nguyên.  
-
+  - Ném lỗi: `MathError` nếu `number <= 0`, `InvalidInputError` nếu không phải số nguyên.
 
 - **tong_chu_so(number)**  
   Tính tổng các chữ số của `number`.  
   - Tham số: `number` (int) - Số cần tính.  
-  - Trả về: Tổng các chữ số.
-  - Ném lỗi: `InvalidInputError` nếu không phải số nguyên.  
-
+  - Trả về: Tổng các chữ số.  
+  - Ném lỗi: `InvalidInputError` nếu không phải số nguyên.
 
 - **kiem_tra_so_hoan_thien(number)**  
-  Kiểm tra xem `number` có phải là số hoàn thiện (tổng ước số bằng chính nó) hay không.  
+  Kiểm tra xem `number` có phải là số hoàn thiện hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
   - Trả về: `True` nếu là số hoàn thiện, `False` nếu không.  
   - Ném lỗi: `MathError` nếu `number < 1`, `InvalidInputError` nếu không phải số nguyên.
 
-
-
 - **tao_danh_sach_so_hoan_thien(limit)**  
   Tạo danh sách các số hoàn thiện từ 1 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
-  - Trả về: Danh sách các số hoàn thiện.
-  - Ném lỗi: `InvalidInputError` nếu limit không phải số nguyên > 0.
-  -Ném lỗi: `InvalidInputError` nếu không phải số nguyên.  
-
+  - Trả về: Danh sách các số hoàn thiện.  
+  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên > 0.
 
 - **kiem_tra_so_tu_man(number)**  
-  Kiểm tra xem `number` có phải là số tự mãn (tổng lũy thừa bậc 3 các chữ số bằng chính nó) hay không.  
+  Kiểm tra xem `number` có phải là số tự mãn hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
-  - Trả về: `True` nếu là số tự mãn, `False` nếu không.
-  -Ném lỗi: `InvalidInputError` nếu limit không phải số nguyên >= 2.  
-
+  - Trả về: `True` nếu là số tự mãn, `False` nếu không.  
+  - Ném lỗi: `InvalidInputError` nếu `number` không phải số nguyên >= 2.
 
 - **tao_danh_sach_so_tu_man(limit)**  
   Tạo danh sách các số tự mãn từ 2 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
-  - Trả về: Danh sách các số tự mãn.
-  -Ném lỗi: `InvalidInputError` nếu limit không phải số nguyên >= 2.  
-
+  - Trả về: Danh sách các số tự mãn.  
+  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên >= 2.
 
 - **cap_so_hua_hon(number1, number2)**  
   Kiểm tra xem `number1` và `number2` có phải là cặp số hữu hảo hay không.  
   - Tham số: `number1`, `number2` (int) - Hai số cần kiểm tra.  
   - Trả về: `True` nếu là cặp hữu hảo, `False` nếu không.  
-  - Ném lỗi: `MathError` nếu các số âm, `InvalidInputError` nếu không phải số nguyên.  
-
-
+  - Ném lỗi: `MathError` nếu các số âm, `InvalidInputError` nếu không phải số nguyên.
 
 - **kiem_tra_so_hoan_hao(number)**  
-  Kiểm tra xem `number` có phải là số hoàn hảo (tổng ước số bằng chính nó) hay không.  
+  Kiểm tra xem `number` có phải là số hoàn hảo hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
   - Trả về: `True` nếu là số hoàn hảo, `False` nếu không.  
-  - Ném lỗi: `MathError` nếu `number < 1`, `InvalidInputError` nếu không phải số nguyên.  
-
+  - Ném lỗi: `MathError` nếu `number < 1`, `InvalidInputError` nếu không phải số nguyên.
 
 - **tao_danh_sach_so_hoan_hao(limit)**  
   Tạo danh sách các số hoàn hảo từ 1 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
-  - Trả về: Danh sách các số hoàn hảo.
-  - Ném lỗi: `InvalidInputError` nếu limit không phải số nguyên > 0.  
+  - Trả về: Danh sách các số hoàn hảo.  
+  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên > 0.
 
 ---
 
@@ -211,52 +204,42 @@ pip install pchjlib[full]
 - **kiem_tra_so_chinh_phuong(number)**  
   Kiểm tra xem `number` có phải là số chính phương hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
-  - Trả về: `True` nếu là số chính phương, `False` nếu không.
-  - Ném lỗi: `InvalidInputError` nếu không phải số nguyên.  
+  - Trả về: `True` nếu là số chính phương, `False` nếu không.  
+  - Ném lỗi: `InvalidInputError` nếu không phải số nguyên.
 
 - **tao_danh_sach_so_chinh_phuong(limit)**  
   Tạo danh sách các số chính phương từ 0 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
-  - Trả về: Danh sách các số chính phương.
-  -Ném lỗi: `InvalidInputError` nếu limit không phải số nguyên không âm.  
-
+  - Trả về: Danh sách các số chính phương.  
+  - Ném lỗi: `InvalidInputError` nếu `limit` không phải số nguyên không âm.
 
 - **cap_so_than_thiet(number1, number2)**  
-  Kiểm tra xem `number1` và `number2` có phải là cặp số thân thiết (tổng ước số của số này bằng số kia) hay không.  
+  Kiểm tra xem `number1` và `number2` có phải là cặp số thân thiết hay không.  
   - Tham số: `number1`, `number2` (int) - Hai số cần kiểm tra.  
   - Trả về: `True` nếu là cặp thân thiết, `False` nếu không.  
-  - Ném lỗi: `MathError` nếu các số không lớn hơn 1, `InvalidInputError` nếu không phải số nguyên.  
+  - Ném lỗi: `MathError` nếu các số không lớn hơn 1, `InvalidInputError` nếu không phải số nguyên.
 
-- **kiem_tra_so_manh_me_1(number)**  
-  Kiểm tra xem `number` có phải là số mạnh mẽ (tổng chữ số là số nguyên tố) hay không.  
-  - Tham số: `number` (int) - Số cần kiểm tra.  
-  - Trả về: `True` nếu là số mạnh mẽ, `False` nếu không.
-  - Ném lỗi: `InvalidInputError` nếu không phải số nguyên.  
-
-- **kiem_tra_so_manh_me_2(number)**  
-  Kiểm tra xem `number` có phải là số mạnh mẽ loại 2 (có thừa số nguyên tố bình phương) hay không.  
-  - Tham số: `number` (int) - Số cần kiểm tra.  
-  - Trả về: `True` nếu là số mạnh mẽ loại 2, `False` nếu không.
-  - Ném lỗi: `InvalidInputError` nếu không phải số nguyên.  
-
-
+- **kiem_tra_so_manh_me(number)**  
+  Kiểm tra xem `number` có phải là số mạnh mẽ (tổng chữ số là nguyên tố) hay không.  
+  - Tham số: `number` (int): Số cần kiểm tra.
+             `variant` (int): 1 - Tổng chữ số là nguyên tố; 2 - Có thừa số nguyên tố bình phương.
+  - Trả về: `True` nếu là số mạnh mẽ, `False` nếu không.  
+  - Ném lỗi: `InvalidInputError` nếu không phải số nguyên.
 
 ---
 
 ## 📊 Các hàm về ước số và bội số
 
 - **tao_danh_sach_uoc_so(number, positive_only=True)**  
-  Tạo danh sách các ước số (bao gồm cả số âm) của `number`.  
-  - Tham số: `number` (int) - Số cần tạo danh sách ước số. `positive_only` = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
+  Tạo danh sách các ước số của `number`.  
+  - Tham số: `number` (int) - Số cần tạo danh sách ước số. `positive_only` (bool) - Nếu True, chỉ trả về ước số dương.  
   - Trả về: Danh sách các ước số.  
   - Ném lỗi: `MathError` nếu `number = 0`.
-
 
 - **uoc_chung_lon_nhat(number1, number2)**  
   Tìm ước chung lớn nhất của hai số.  
   - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
   - Trả về: Giá trị ước chung lớn nhất.
-
 
 - **uoc_chung_lon_nhat_cua_danh_sach(numbers)**  
   Tính ước chung lớn nhất của một danh sách các số.  
@@ -264,12 +247,10 @@ pip install pchjlib[full]
   - Trả về: Giá trị ước chung lớn nhất.  
   - Ném lỗi: `MathError` nếu danh sách không hợp lệ.
 
-
 - **boi_chung_nho_nhat(number1, number2)**  
   Tính bội chung nhỏ nhất của hai số.  
   - Tham số: `number1`, `number2` (int) - Hai số cần tính.  
   - Trả về: Giá trị bội chung nhỏ nhất.
-
 
 - **boi_chung_nho_nhat_cua_danh_sach(numbers)**  
   Tính bội chung nhỏ nhất của một danh sách các số.  
@@ -277,13 +258,11 @@ pip install pchjlib[full]
   - Trả về: Giá trị bội chung nhỏ nhất.  
   - Ném lỗi: `MathError` nếu danh sách không hợp lệ.
 
-
 - **tao_danh_sach_boi_so(number)**  
   Tạo danh sách bội số của `number` từ 0 đến 10 lần.  
   - Tham số: `number` (int) - Số cần tạo danh sách bội số.  
   - Trả về: Danh sách bội số.  
   - Ném lỗi: `MathError` nếu `number = 0`.
-
 
 - **uoc_chung_cua_danh_sach(numbers)**  
   Tạo danh sách các ước chung của một danh sách các số.  
@@ -296,22 +275,19 @@ pip install pchjlib[full]
 ## 👯 Các hàm số song tố và số phong phú
 
 - **kiem_tra_so_song_to(number)**  
-  Kiểm tra xem `number` có phải là số song tố (vừa là nguyên tố, vừa có tổng chữ số là nguyên tố) hay không.  
+  Kiểm tra xem `number` có phải là số song tố hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
   - Trả về: `True` nếu là số song tố, `False` nếu không.
-
 
 - **tao_danh_sach_so_song_to(limit)**  
   Tạo danh sách các số song tố từ 0 đến `limit`.  
   - Tham số: `limit` (int) - Giới hạn trên của danh sách.  
   - Trả về: Danh sách các số song tố.
 
-
 - **kiem_tra_so_phong_phu(number)**  
-  Kiểm tra xem `number` có phải là số phong phú (tổng ước số lớn hơn chính nó) hay không.  
+  Kiểm tra xem `number` có phải là số phong phú hay không.  
   - Tham số: `number` (int) - Số cần kiểm tra.  
   - Trả về: `True` nếu là số phong phú, `False` nếu không.
-
 
 - **tao_danh_sach_so_phong_phu(limit)**  
   Tạo danh sách các số phong phú từ 0 đến `limit`.  
@@ -339,7 +315,7 @@ pip install pchjlib[full]
 ## 🧮 Các hàm giải phương trình
 
 - **giai_phuong_trinh(degree, coefficients)**  
-  Giải phương trình từ bậc 1 đến 10 theo hệ số.  
+  Giải phương trình từ bậc 1 đến bậc 10 theo hệ số.  
   - Tham số: `degree` (int) - Bậc của phương trình; `coefficients` (list) - Danh sách các hệ số.  
   - Trả về: Chuỗi kết quả nghiệm của phương trình.  
   - Ném lỗi: `InvalidInputError` nếu bậc hoặc hệ số không hợp lệ.
@@ -372,39 +348,37 @@ pip install pchjlib[full]
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **trich_xuat_cac_so_tu_so(text)**  
-  Trích xuất số từ chuỗi dạng phân số hoặc thập phân (ví dụ “32/232343244” → 32.232343244).  
+  Trích xuất số từ chuỗi dạng phân số hoặc thập phân.  
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Số thực (float).  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **xau_duoc_nen_1(text)**  
-  Nén chuỗi loại 1 (ví dụ “google” → “2ol2ge”).  
+  Nén chuỗi loại 1.  
   - Tham số: `text` (str) - Chuỗi đầu vào.  
-  - Trả về: Chuỗi đã nén.  
-  - JuTham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Chuỗi đã nén.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **xau_duoc_nen_2(text)**  
-  Nén chuỗi loại 2 (ví dụ “google” → “g2ogle”).  
+  Nén chuỗi loại 2.  
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Chuỗi đã nén.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **xau_duoc_nen_khong_so(input_text)**  
-  Nén chuỗi bỏ số (ví dụ “hhhooccsiinh” → “hocsinh”).  
+  Nén chuỗi bỏ số.  
   - Tham số: `input_text` (str) - Chuỗi đầu vào.  
   - Trả về: Chuỗi đã nén.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **xau_duoc_giai_nen(text)**  
-  Giải nén chuỗi (ví dụ “3ab3c” → “aaabccc”).  
+  Giải nén chuỗi.  
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Chuỗi đã giải nén.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
 
 - **xau_ki_tu_khong_trung_lap(text)**  
-  Tạo chuỗi ký tự không trùng lặp (ví dụ “Google” → “gole”).  
+  Tạo chuỗi ký tự không trùng lặp.  
   - Tham số: `text` (str) - Chuỗi đầu vào.  
   - Trả về: Chuỗi không có ký tự trùng lặp.  
   - Ném lỗi: `InvalidInputError` nếu chuỗi rỗng.
@@ -516,39 +490,36 @@ pip install pchjlib[full]
   - Tham số: `numbers` (list) - Danh sách cần đếm.  
   - Trả về: Số cặp nghịch thế.
 
-- **one_two_three()**  
-  Chơi kéo búa bao với A.I.  
-  - Yêu cầu nhập số trận đấu và lựa chọn (Keo, Bua, Bao).
-
-- **tao_day_chu(rows, columns, repeats)**  
-  Tạo dãy chữ với `rows` dòng, `columns` cột, 2 đường chéo, lặp lại `repeats` lần.  
-  - Tham số: `rows`, `columns`, `repeats` (int) - Số dòng, cột, lần lặp.  
-  - Yêu cầu nhập chuỗi đầu tiên.
-
 ---
 
 ## 🧩 Khác
 
-*(Chưa có hàm bổ sung)*
+- **one_two_three()**  
+  Chơi kéo búa bao với AI.  
+  - Yêu cầu nhập số trận đấu và lựa chọn (Keo, Bua, Bao).
 
 ---
 
 ## 🛠️ Những bản cập nhật
 
-> **📅 Ngày cập nhật gần nhất:** 01/08/2025
+> **📅 Ngày cập nhật gần nhất:** 01/08/2025  
 > **📦 Tổng số bản phát hành:** 43
 
 ---
 
 ### 📌 2025
 
-#### 🟢 0.1.x — Cập nhật lớn
-- **0.1.2.1** – *(01/08/2025)*
+- **0.1.3** – *(01/08/2025)*  
+  ✅ Gộp các hàm tương tự.  
+  ⚡ Tối ưu Fibonacci với caching.  
+  📚 Thêm type hints và docstring chuẩn NumPy.
+
+- **0.1.2.1** – *(01/08/2025)*  
   🔧 Sửa lỗi nhỏ.
 
-- **0.1.2** – *(01/08/2025)* 
-  ✅ Cải thiện tính nhất quán của xác thực đầu vào trên tất cả các hàm.  
-  ⚡ Tối ưu hóa hiệu suất cho các hàm Fibonacci và tạo danh sách số nguyên tố.  
+- **0.1.2** – *(01/08/2025)*  
+  ✅ Cải thiện tính nhất quán của xác thực đầu vào.  
+  ⚡ Tối ưu hóa hiệu suất cho Fibonacci và số nguyên tố.  
   📚 Mở rộng tài liệu với các lỗi dự kiến.
 
 - **0.1.1.3** – *(31/07/2025)*  
@@ -561,8 +532,8 @@ pip install pchjlib[full]
   🔧 Sửa lỗi hiển thị.
 
 - **0.1.1** – *(31/07/2025)*  
-  🔧 Sửa lỗi và cập nhật phụ thuộc tùy chọn cho `numpy` và `roman`.
-  
+  🔧 Sửa lỗi và cập nhật phụ thuộc cho `numpy` và `roman`.
+
 - **0.1.0.7** – *(31/07/2025)*  
   🔧 Sửa lỗi.
 
@@ -606,8 +577,6 @@ pip install pchjlib[full]
 
 ### 📌 2024
 
-#### 🔵 0.0.4.x — Bổ sung và mở rộng
-
 - **0.0.4.1** – *(17/10/2024)*  
   🆕 Bổ sung hàm `tạo_dãy_chữ`.  
   🔄 Cập nhật `one_two_three`.
@@ -646,8 +615,6 @@ pip install pchjlib[full]
   ➕ Bổ sung `xau_ki_tu_khong_trung_lap`.  
   ❌ Xóa `ki_tu_trung_lap`.
 
-#### 🟡 0.0.2.x — Giai đoạn thử nghiệm mở rộng
-
 - **0.0.2.10** – *(19/02/2024)*  
   🔧 Nâng cấp README.
 
@@ -675,8 +642,6 @@ pip install pchjlib[full]
 - **0.0.2** – *(14/02/2024)*  
   🐞 Sửa lỗi thiếu phụ thuộc.
 
-#### 🔘 Các bản đầu tiên
-
 - **0.0.1.1** → **0.0.1.2** – *(14/02/2024)*  
   🧪 Thử nghiệm.
 
@@ -685,3 +650,6 @@ pip install pchjlib[full]
 
 - **0.0.0.1** – *(14/02/2024)*  
   🧪 Thử nghiệm.
+```
+
+---

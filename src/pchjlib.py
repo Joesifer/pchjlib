@@ -34,7 +34,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.2.1
+- 0.1.3.
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -50,7 +50,7 @@ Phiên bản python được hỗ trợ.
 
 Thư viện phụ thuộc.
 -------------------------------------------------------------------------------
-- math, re, sys, time, (numpy, roman).
+- math, re, sys, time, functools (numpy, roman).
 
 Giấy phép.
 -------------------------------------------------------------------------------
@@ -73,7 +73,7 @@ CẢM ƠN!
 
 """
 
-import math, random, re, sys, time
+import math, random, re, sys, time, functools
 
 
 # Các class lỗi tùy chỉnh
@@ -146,20 +146,43 @@ def kiem_tra_so_nguyen_to(number):
         InvalidInputError nếu đầu vào không phải số nguyên.
         Ví dụ: kiem_tra_so_nguyen_to(7) → True, kiem_tra_so_nguyen_to(3.5) → lỗi "Đầu vào không hợp lệ".
     """
-    try:
-        if isinstance(number, float) and not number.is_integer():
-            raise InvalidInputError(
-                "Đầu vào không hợp lệ: Số thực có phần thập phân không được chấp nhận"
-            )
-        number = int(number)
-        if number <= 1:
+
+    def miller_rabin(n, k=5):
+        if n <= 1:
             return False
-        for i in range(2, int(math.sqrt(number)) + 1):
-            if number % i == 0:
+        if n <= 3:
+            return True
+        if n % 2 == 0:
+            return False
+
+        def check(a, s, d, n):
+            x = pow(a, d, n)
+            if x == 1:
+                return True
+            for _ in range(s - 1):
+                if x == n - 1:
+                    return True
+                x = (x * x) % n
+            return x == n - 1
+
+        s = 0
+        d = n - 1
+        while d % 2 == 0:
+            s += 1
+            d //= 2
+
+        for _ in range(k):
+            a = random.randrange(2, n - 1)
+            if not check(a, s, d, n):
                 return False
         return True
+
+    try:
+        if not isinstance(number, int):
+            raise InvalidInputError("Đầu vào phải là số nguyên")
+        return miller_rabin(number)
     except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ: Giá trị không phải số nguyên")
+        raise InvalidInputError("Đầu vào không hợp lệ")
 
 
 def tao_danh_sach_so_nguyen_to(limit):
@@ -183,12 +206,16 @@ def tao_danh_sach_so_nguyen_to(limit):
             )
         else:
             if isinstance(limit, float) and not limit.is_integer():
-                raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải là số nguyên")
+                raise InvalidInputError(
+                    "Đầu vào không hợp lệ: Giới hạn phải là số nguyên"
+                )
             limit = int(limit)
             if limit < 2:
                 raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải >= 2")
             if numpy is not None:
-                sieve = numpy.ones(limit + 1, dtype=bool)  # Phân bổ trước bộ nhớ với numpy
+                sieve = numpy.ones(
+                    limit + 1, dtype=bool
+                )  # Phân bổ trước bộ nhớ với numpy
                 sieve[0:2] = False
                 for i in range(2, int(limit**0.5) + 1):
                     if sieve[i]:
@@ -262,6 +289,7 @@ def tao_danh_sach_so_emirp(limit):
 
 
 # Các hàm Fibonacci
+@functools.lru_cache(maxsize=None)
 def vi_tri_so_Fibonacci(index):
     """
     Tính số Fibonacci thứ index bằng phương pháp lặp.
@@ -285,10 +313,7 @@ def vi_tri_so_Fibonacci(index):
             return 0
         if index == 1:
             return 1
-        a, b = 0, 1
-        for _ in range(2, index + 1):
-            a, b = b, a + b
-        return b
+        return vi_tri_so_Fibonacci(index - 1) + vi_tri_so_Fibonacci(index - 2)
     except (ValueError, TypeError):
         raise InvalidInputError("Đầu vào không hợp lệ: Vị trí không phải số nguyên")
 
@@ -599,48 +624,29 @@ def cap_so_than_thiet(number1, number2):
         raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
 
 
-def kiem_tra_so_manh_me_1(number):
+def kiem_tra_so_manh_me(number, variant=1):
     """
     Kiểm tra xem một số có phải là số mạnh mẽ (tổng chữ số là nguyên tố) hay không.
 
     Tham số:
         number (int): Số cần kiểm tra.
+        variant (int): 1 - Tổng chữ số là nguyên tố; 2 - Có thừa số nguyên tố bình phương.
 
     Trả lại:
         bool: True nếu number là số mạnh mẽ, False nếu không.
     """
     try:
-        if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+        if not isinstance(number, int) or number < 0:
+            raise NotIntegerError("Đầu vào phải là số nguyên không âm")
         number = int(number)
-        if number < 0:
+        if variant == 1:
+            return kiem_tra_so_nguyen_to(tong_chu_so(number))
+        elif variant == 2:
+            prime_list = [i for i in range(2, number) if kiem_tra_so_nguyen_to(i)]
+            for prime in prime_list:
+                if number % prime == 0 and number % (prime**2) == 0:
+                    return True
             return False
-        return kiem_tra_so_nguyen_to(tong_chu_so(number))
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
-
-
-def kiem_tra_so_manh_me_2(number):
-    """
-    Kiểm tra xem một số có phải là số mạnh mẽ loại 2 hay không.
-
-    Tham số:
-        number (int): Số cần kiểm tra.
-
-    Trả lại:
-        bool: True nếu number là số mạnh mẽ loại 2, False nếu không.
-    """
-    try:
-        if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
-        number = int(number)
-        if number < 0:
-            return False
-        prime_list = [i for i in range(2, number) if kiem_tra_so_nguyen_to(i)]
-        for prime in prime_list:
-            if number % prime == 0 and number % (prime**2) == 0:
-                return True
-        return False
     except (ValueError, TypeError):
         raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
 
