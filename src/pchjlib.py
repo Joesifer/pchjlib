@@ -35,7 +35,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.5.2.
+- 0.1.6.
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -1964,32 +1964,43 @@ def pythagore(side_a, side_b, side_c):
 
 
 # Quy luật sinh dãy
-def tao_danh_sach_quy_luat_1(total):
+def tao_danh_sach_quy_luat_1(number):
     """
-    Tạo danh sách theo quy luật: 1 số ⋮ 1, 2 số ⋮ 2, 3 số ⋮ 3, ...
+    Tạo dãy số nguyên dương theo quy luật:
+    - 1 số chia hết cho 1,
+    - 2 số chia hết cho 2,
+    - 3 số chia hết cho 3,
+    - và tiếp tục như vậy, với các số tăng dần và không trùng lặp.
 
     Tham số:
-        - total (int) - Tổng số lượng phần tử.
+        - n (int) - Số lượng phần tử cần tạo trong dãy.
 
     Trả lại:
-        - list: Danh sách theo quy luật.
+        - list: Danh sách n số nguyên đầu tiên của dãy.
     """
-    try:
-        if not isinstance(total, (int, float)) or not float(total).is_integer():
-            raise NotIntegerError("Tổng số lượng phải là số nguyên")
-        total = int(total)
-        if total < 0:
-            raise InvalidInputError("Tổng số lượng phải không âm")
-        result = []
-        step = 1
-        while len(result) < total:
-            for _ in range(step):
-                if len(result) < total:
-                    result.append(step)
-            step += 1
-        return result
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+    if not isinstance(number, int):
+        raise InvalidInputError("Number phải là số nguyên")
+    if number <= 1:
+        raise InvalidInputError("Number phải lớn hơn 1")
+
+    def ho_tro(k):
+        if k == 1:
+            return 1
+        so_can_tim = 1
+        vi_tri = 0
+        for i in range(1, 1000):
+            so_can_tim = (so_can_tim // i + 1) * i
+            vi_tri += 1
+            if vi_tri == k:
+                return so_can_tim
+            for _ in range(i - 1):
+                so_can_tim += i
+                vi_tri += 1
+                if vi_tri == k:
+                    return so_can_tim
+        raise OutOfRangeError(f"Không thể tìm số thứ {k}.")
+
+    return [ho_tro(i) for i in range(1, number + 1)]
 
 
 def tao_danh_sach_quy_luat_2(base, count):

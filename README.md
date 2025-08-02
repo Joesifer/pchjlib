@@ -491,10 +491,14 @@ pip install pchjlib[full]
 
 ## 🔁 Quy luật sinh dãy
 
-- **tao_danh_sach_quy_luat_1(total)**  
-  Tạo danh sách theo quy luật: 1 số ⋮ 1, 2 số ⋮ 2, … với tổng số lượng `total`.  
-  - Tham số: `total` (int) - Tổng số lượng phần tử.  
-  - Trả về: Danh sách theo quy luật.
+- **tao_danh_sach_quy_luat_1(number)**  
+  - Tạo dãy số nguyên dương theo quy luật:
+    - 1 số chia hết cho 1,
+    - 2 số chia hết cho 2,
+    - 3 số chia hết cho 3,
+    - và tiếp tục như vậy, với các số tăng dần và không trùng lặp.
+  - Tham số: `number` (int) - Số lượng phần tử cần tạo trong dãy.
+  - Trả lại: Danh sách `number` số nguyên đầu tiên của dãy.
 
 - **tao_danh_sach_quy_luat_2(base, count)**  
   Tạo danh sách các bội của `base` với `count` phần tử.  
@@ -528,11 +532,14 @@ pip install pchjlib[full]
 ## 🛠️ Những bản cập nhật
 
 > **📅 Ngày cập nhật gần nhất:** 03/08/2025  
-> **📦 Tổng số bản phát hành:** 54
+> **📦 Tổng số bản phát hành:** 55
 
 ---
 
 ### 📌 2025
+- **0.1.6** – *(03/08/2025)*
+  ✅ Cập nhật `tao_danh_sach_quy_luat_1`.
+
 - **0.1.5.2** – *(03/08/2025)*
   ✅ Cập nhật `tao_danh_sach_boi_so` thêm giới hạn số lần nhân và thêm bội âm/ dương.
 
