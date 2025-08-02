@@ -62,7 +62,7 @@ pip install pchjlib[full]
   Mã hóa Caesar (mã hóa Caesar chỉ mang tính giáo dục, không dùng cho bảo mật thực tế), chuyển đổi chuỗi thành Teen Code Yahoo.
 
 - 🧪 **Mô phỏng:**  
-  Mô phỏng quá trình tải xuống, tính toán, loading, và tạo cây thông Giáng sinh.
+  Mô phỏng quá trình tải xuống, tính toán, loading, và tạo cây thông Giáng sinh, chương trình mảng hai chiều.
 
 - ✨ **Tính toán đặc biệt:**  
   Tính tiền điện, tìm số lớn nhất với tổng chữ số cho trước, tính cạnh tam giác vuông.
@@ -416,6 +416,55 @@ pip install pchjlib[full]
   Mô phỏng cây thông giáng sinh.
   - Tham số: type (int) = 1 hoặc 2. Nếu 1 là cây thông cho terminal VSCode, 2 là cho văn bản text.
   - Trả về: Yêu cầu nhập chiều cao cây thông.
+- **chuong_trinh_matrix()**:
+  - Giới thiệu:
+    Chương trình này tạo và thao tác với ma trận ngẫu nhiên dựa trên đầu vào của người dùng.
+    Các chức năng bao gồm:
+    Tạo ma trận với kích thước và giá trị tối đa do người dùng chỉ định.
+    In ma trận.
+    Tính toán và hiển thị giá trị lớn nhất, nhỏ nhất, tổng, và trung bình của các phần tử trong ma trận.
+    Trích xuất và hiển thị hàng hoặc cột cụ thể.
+    Tìm kiếm một số trong ma trận và hiển thị các vị trí của nó.
+    Lọc ma trận để chỉ hiển thị các phần tử bằng với số được tìm kiếm.
+  - Ví dụ:
+  ``` python
+      === Chuong trinh Ma tran ===
+      - Nhap so hang: 4
+      - Nhap so cot: 4
+      - Nhap gia tri toi da cho phan tu (mac dinh 100): 50
+      - Ma tran goc:
+
+      30  5 -2 12
+      25 21 31  2
+      14 35 35 38
+      43 17 38 27
+
+      >>> Gia tri lon nhat: 43
+      >>> Gia tri nho nhat: -2
+      >>> Tong cac phan tu: 371
+      >>> Trung binh: 23.19
+
+      - Nhap hang can lay (1 den 4): 1
+      >>> Hang 1: [30, 5, -2, 12]
+
+      - Nhap cot can lay (1 den 4): 4
+      >>> Cot 4: [12, 2, 38, 27]
+
+      - Nhap so can tim: 35
+      - So 35 xuat hien 2 lan trong ma tran.
+      - Ma tran sau khi loc:
+
+      –– –– –– ––
+      –– –– –– ––
+      –– 35 35 ––
+      –– –– –– ––
+
+      >>> Vi tri cua so:
+      [I - 1] Hang: 3, Cot: 2
+      [II - 2] Hang: 3, Cot: 3
+      === Ket thuc chuong trinh ===
+  ```
+  - Ném lỗi: `ValueError` nNếu người dùng nhập các giá trị không hợp lệ, chẳng hạn như số hàng hoặc số cột không phải là số nguyên, không dương, lớn hơn 20, hoặc nếu giá trị tối đa lớn hơn 100, `IndexError` nếu người dùng yêu cầu trích xuất hàng hoặc cột không tồn tại trong ma trận.
 
 ---
 
@@ -486,11 +535,15 @@ pip install pchjlib[full]
 ## 🛠️ Những bản cập nhật
 
 > **📅 Ngày cập nhật gần nhất:** 02/08/2025  
-> **📦 Tổng số bản phát hành:** 49
+> **📦 Tổng số bản phát hành:** 50
 
 ---
 
 ### 📌 2025
+- **0.1.4.1** – *(02/08/2025)*
+  ✅ Cập nhật `chuong_trinh_matrix`.
+
+
 - **0.1.4** – *(02/08/2025)*
   ✅ Cập nhật tính năng lựa chọn bội/ ước âm cho `tao_danh_sach_boi_so` và `tao_danh_sach_uoc_so`.
   🔧 Sửa lỗi `uoc_chung_cua_danh_sach`.

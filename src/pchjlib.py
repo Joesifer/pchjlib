@@ -35,7 +35,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.4.
+- 0.1.4.1.
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -1665,6 +1665,181 @@ def mp_christmas_tree(type):
         return loai_2()
     else:
         raise InvalidInputError("Loại nén chỉ có 1 hoặc 2")
+
+
+def chuong_trinh_matrix():
+    """
+    Giới thiệu:
+        - Chương trình này tạo và thao tác với ma trận ngẫu nhiên dựa trên đầu vào của người dùng.
+        - Các chức năng bao gồm:
+        - Tạo ma trận với kích thước và giá trị tối đa do người dùng chỉ định.
+        - In ma trận.
+        - Tính toán và hiển thị giá trị lớn nhất, nhỏ nhất, tổng, và trung bình của các phần tử trong ma trận.
+        - Trích xuất và hiển thị hàng hoặc cột cụ thể.
+        - Tìm kiếm một số trong ma trận và hiển thị các vị trí của nó.
+        - Lọc ma trận để chỉ hiển thị các phần tử bằng với số được tìm kiếm.
+
+    Ví dụ:
+        === Chuong trinh Ma tran ===
+        - Nhap so hang: 4
+        - Nhap so cot: 4
+        - Nhap gia tri toi da cho phan tu (mac dinh 100): 50
+        - Ma tran goc:
+
+        30  5 -2 12
+        25 21 31  2
+        14 35 35 38
+        43 17 38 27
+
+        >>> Gia tri lon nhat: 43
+        >>> Gia tri nho nhat: -2
+        >>> Tong cac phan tu: 371
+        >>> Trung binh: 23.19
+
+        - Nhap hang can lay (1 den 4): 1
+        >>> Hang 1: [30, 5, -2, 12]
+
+        - Nhap cot can lay (1 den 4): 4
+        >>> Cot 4: [12, 2, 38, 27]
+
+        - Nhap so can tim: 35
+        - So 35 xuat hien 2 lan trong ma tran.
+        - Ma tran sau khi loc:
+
+        –– –– –– ––
+        –– –– –– ––
+        –– 35 35 ––
+        –– –– –– ––
+
+        >>> Vi tri cua so:
+        [I - 1] Hang: 3, Cot: 2
+        [II - 2] Hang: 3, Cot: 3
+        === Ket thuc chuong trinh ===
+
+    Ném lỗi:
+        - ValueError: Nếu người dùng nhập các giá trị không hợp lệ, chẳng hạn như số hàng hoặc số cột không phải là số nguyên, không dương, lớn hơn 20, hoặc nếu giá trị tối đa lớn hơn 100.
+        - IndexError: Nếu người dùng yêu cầu trích xuất hàng hoặc cột không tồn tại trong ma trận.
+    """
+
+    def tao_matrix(m, n, max_value=100):
+        if not (isinstance(m, int) and isinstance(n, int)):
+            raise ValueError("Số hàng và số cột phải là số nguyên.")
+        if m <= 0 or n <= 0:
+            raise ValueError("Số hàng và số cột phải là số nguyên dương.")
+        if m > 20 or n > 20:
+            raise ValueError("Số hàng và số cột không được lớn hơn 20.")
+        return [
+            [random.randrange(-9, max_value + 1) for _ in range(n)] for _ in range(m)
+        ]
+
+    def in_ra_matrix(matrix, title="Ma tran", align=">4"):
+        print(f"{title}:\n")
+        if not matrix or not matrix[0]:
+            print("Ma tran rong.")
+            return
+        str_matrix = [[str(elem) for elem in row] for row in matrix]
+        max_len = max(len(elem) for row in str_matrix for elem in row)
+        align = f">{max_len}"
+        for row in str_matrix:
+            print(" ".join(f"{elem:{align}}" for elem in row))
+        print()
+
+    def thong_ke_matrix(matrix):
+        flat_matrix = [elem for row in matrix for elem in row]
+        if not flat_matrix:
+            raise ValueError("Ma trận rỗng.")
+        return {
+            "max": max(flat_matrix),
+            "min": min(flat_matrix),
+            "sum": sum(flat_matrix),
+            "avg": sum(flat_matrix) / len(flat_matrix),
+        }
+
+    def lay_hang(matrix, row_index):
+        if not 0 <= row_index < len(matrix):
+            raise IndexError(
+                f"Hàng {row_index + 1} không hợp lệ (phải từ 1 đến {len(matrix)})."
+            )
+        return matrix[row_index]
+
+    def lay_cot(matrix, col_index):
+        if not 0 <= col_index < len(matrix[0]):
+            raise IndexError(
+                f"Cột {col_index + 1} không hợp lệ (phải từ 1 đến {len(matrix[0])})."
+            )
+        return [row[col_index] for row in matrix]
+
+    def tim_so(matrix, num):
+        positions = [
+            (i, j)
+            for i in range(len(matrix))
+            for j in range(len(matrix[0]))
+            if matrix[i][j] == num
+        ]
+        return positions if positions else None
+
+    def loc_matrix(matrix, num, replace_with="––"):
+        return [
+            [elem if elem == num else replace_with for elem in row] for row in matrix
+        ]
+
+    try:
+        if roman is None:
+            raise ImportError(
+                "Hàm này yêu cầu cài đặt roman. Hãy chạy: pip install roman"
+            )
+        print("=== Chuong trinh Ma tran ===")
+        m = int(input("- Nhap so hang: "))
+        n = int(input("- Nhap so cot: "))
+        max_val = int(
+            input("- Nhap gia tri toi da cho phan tu (mac dinh 100): ") or 100
+        )
+
+        if max_val > 100:
+            raise ValueError("Giá trị tối đa không được lớn hơn 100.")
+
+        matrix = tao_matrix(m, n, max_val)
+
+        for row in matrix:
+            for elem in row:
+                if elem > 100:
+                    raise ValueError("Có số lớn hơn 100 trong ma trận.")
+
+        in_ra_matrix(matrix, "- Ma tran goc")
+
+        stats = thong_ke_matrix(matrix)
+        print(f">>> Gia tri lon nhat: {stats['max']}")
+        print(f">>> Gia tri nho nhat: {stats['min']}")
+        print(f">>> Tong cac phan tu: {stats['sum']}")
+        print(f">>> Trung binh: {stats['avg']:.2f}\n")
+
+        hang_bat_ky = int(input(f"- Nhap hang can lay (1 den {m}): ")) - 1
+        row = lay_hang(matrix, hang_bat_ky)
+        print(f">>> Hang {hang_bat_ky + 1}: {row}\n")
+
+        cot_bat_ky = int(input(f"- Nhap cot can lay (1 den {n}): ")) - 1
+        column = lay_cot(matrix, cot_bat_ky)
+        print(f">>> Cot {cot_bat_ky + 1}: {column}\n")
+
+        so_n = int(input("- Nhap so can tim: "))
+        positions = tim_so(matrix, so_n)
+        if positions:
+            print(f"- So {so_n} xuat hien {len(positions)} lan trong ma tran.")
+            in_ra_matrix(loc_matrix(matrix, so_n), "- Ma tran sau khi loc")
+            print(">>> Vi tri cua so:")
+            for idx, (i, j) in enumerate(positions, 1):
+                print(f"[{roman.toRoman(idx)} - {idx}] Hang: {i + 1}, Cot: {j + 1}")
+        else:
+            print(f"- So {so_n} khong co trong ma tran.")
+
+    except ValueError as e:
+        print(f"Loi: {e}")
+    except IndexError as e:
+        print(f"Loi: {e}")
+    except Exception as e:
+        print(f"Loi khong xac dinh: {e}")
+    finally:
+        print("=== Ket thuc chuong trinh ===")
 
 
 # Hàm hỗ trợ tính toán đặc biệt
