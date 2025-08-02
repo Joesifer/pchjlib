@@ -35,7 +35,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.5.
+- 0.1.5.1
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -807,9 +807,13 @@ def uoc_chung_lon_nhat(numbers):
             raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
 
     try:
+        numbers = list(set(numbers))
+        for i in numbers:
+            if i == 0:
+                numbers.remove(i)
         if not isinstance(numbers, (list, tuple)):
             raise ListError("Đầu vào phải là danh sách hoặc tuple")
-        if len(numbers) < 2 or 0 in numbers:
+        if len(numbers) < 2:
             raise MathError("Danh sách không hợp lệ")
         for num in numbers:
             if not isinstance(num, (int, float)) or not float(num).is_integer():

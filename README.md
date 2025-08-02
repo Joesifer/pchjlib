@@ -528,12 +528,15 @@ pip install pchjlib[full]
 
 ## 🛠️ Những bản cập nhật
 
-> **📅 Ngày cập nhật gần nhất:** 02/08/2025  
-> **📦 Tổng số bản phát hành:** 52
+> **📅 Ngày cập nhật gần nhất:** 03/08/2025  
+> **📦 Tổng số bản phát hành:** 53
 
 ---
 
 ### 📌 2025
+- **0.1.5.1** – *(03/08/2025)*
+  ✅ Cập nhật `uoc_chung_lon_nhat` thêm phần mở rộng đối với số 0.
+
 - **0.1.5** – *(02/08/2025)*
   ❌ Xóa hàm `chuyen_doi_so_la_ma`.
 
