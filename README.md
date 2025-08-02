@@ -535,11 +535,14 @@ pip install pchjlib[full]
 ## 🛠️ Những bản cập nhật
 
 > **📅 Ngày cập nhật gần nhất:** 02/08/2025  
-> **📦 Tổng số bản phát hành:** 50
+> **📦 Tổng số bản phát hành:** 51
 
 ---
 
 ### 📌 2025
+- **0.1.4.2** – *(02/08/2025)*
+  🔧 Sửa lỗi `chuong_trinh_matrix`.
+
 - **0.1.4.1** – *(02/08/2025)*
   ✅ Cập nhật `chuong_trinh_matrix`.
 

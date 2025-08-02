@@ -35,7 +35,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.4.1.
+- 0.1.4.2.
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -1678,43 +1678,6 @@ def chuong_trinh_matrix():
         - Trích xuất và hiển thị hàng hoặc cột cụ thể.
         - Tìm kiếm một số trong ma trận và hiển thị các vị trí của nó.
         - Lọc ma trận để chỉ hiển thị các phần tử bằng với số được tìm kiếm.
-
-    Ví dụ:
-        === Chuong trinh Ma tran ===
-        - Nhap so hang: 4
-        - Nhap so cot: 4
-        - Nhap gia tri toi da cho phan tu (mac dinh 100): 50
-        - Ma tran goc:
-
-        30  5 -2 12
-        25 21 31  2
-        14 35 35 38
-        43 17 38 27
-
-        >>> Gia tri lon nhat: 43
-        >>> Gia tri nho nhat: -2
-        >>> Tong cac phan tu: 371
-        >>> Trung binh: 23.19
-
-        - Nhap hang can lay (1 den 4): 1
-        >>> Hang 1: [30, 5, -2, 12]
-
-        - Nhap cot can lay (1 den 4): 4
-        >>> Cot 4: [12, 2, 38, 27]
-
-        - Nhap so can tim: 35
-        - So 35 xuat hien 2 lan trong ma tran.
-        - Ma tran sau khi loc:
-
-        –– –– –– ––
-        –– –– –– ––
-        –– 35 35 ––
-        –– –– –– ––
-
-        >>> Vi tri cua so:
-        [I - 1] Hang: 3, Cot: 2
-        [II - 2] Hang: 3, Cot: 3
-        === Ket thuc chuong trinh ===
 
     Ném lỗi:
         - ValueError: Nếu người dùng nhập các giá trị không hợp lệ, chẳng hạn như số hàng hoặc số cột không phải là số nguyên, không dương, lớn hơn 20, hoặc nếu giá trị tối đa lớn hơn 100.
