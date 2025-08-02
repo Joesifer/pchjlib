@@ -12,7 +12,7 @@
 
 - **Python**: >= 3.7
 - **numpy**: Tùy chọn, cho hàm `giai_phuong_trinh` và `tao_danh_sach_so_nguyen_to`. Cài bằng `pip install pchjlib[numpy]` hoặc `pip install numpy`.
-- **roman**: Tùy chọn, chỉ cần cho hàm `chuyen_doi_so_la_ma`. Cài bằng `pip install pchjlib[roman]` hoặc `pip install roman`.
+- **roman**: Tùy chọn, chỉ cần cho hàm `chuong_trinh_matrix`. Cài bằng `pip install pchjlib[roman]` hoặc `pip install roman`.
 - Để cài đặt đầy đủ: `pip install pchjlib[full]`.
 
 # 🛠️ Cài đặt
@@ -92,7 +92,7 @@ pip install pchjlib[full]
 - 🧬 [Các hàm mô phỏng chỉ với string](#các-hàm-mô-phỏng-chỉ-với-string)  
 - 💥 [Hàm hỗ trợ tính toán đặc biệt](#hàm-hỗ-trợ-tính-toán-đặc-biệt)  
 - 🔁 [Quy luật sinh dãy](#quy-luật-sinh-dãy)  
-- 🔄 [Chuyển đổi và đếm](#chuyển-đổi-và-đếm)  
+- 🔢 [Đếm số nghịch thế](#đếm-số-nghịch-thế)  
 - 🧩 [Khác](#khác)  
 - 🛠️ [Những bản cập nhật](#những-bản-cập-nhật)
 
@@ -509,13 +509,7 @@ pip install pchjlib[full]
 
 ---
 
-## 🔄 Chuyển đổi và đếm
-
-- **chuyen_doi_so_la_ma(number)**  
-  Chuyển đổi `number` thành số La Mã.  
-  - Tham số: `number` (int) - Số cần chuyển đổi.  
-  - Trả về: Chuỗi số La Mã.  
-  - Ném lỗi: `ImportError` nếu roman không được cài đặt, `OutOfRangeError` nếu `number` không từ 1 đến 3999.
+## 🔢 Đếm số nghịch thế
 
 - **dem_so_nghich_the(numbers)**  
   Đếm số cặp nghịch thế trong danh sách.  
@@ -535,11 +529,14 @@ pip install pchjlib[full]
 ## 🛠️ Những bản cập nhật
 
 > **📅 Ngày cập nhật gần nhất:** 02/08/2025  
-> **📦 Tổng số bản phát hành:** 51
+> **📦 Tổng số bản phát hành:** 52
 
 ---
 
 ### 📌 2025
+- **0.1.5** – *(02/08/2025)*
+  ❌ Xóa hàm `chuyen_doi_so_la_ma`.
+
 - **0.1.4.2** – *(02/08/2025)*
   🔧 Sửa lỗi `chuong_trinh_matrix`.
 

@@ -35,7 +35,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.4.2.
+- 0.1.5.
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ Giấy phép.
 Thông tin.
 -------------------------------------------------------------------------------
 
-Nếu bạn không biết cách dùng thì hãy::
+Nếu bạn cần hướng dẫn cách dùng thì hãy::
 
   >>> Truy cập: `https://github.com/Joesifer/pchjlib/blob/main/README.md`.
 
@@ -74,8 +74,10 @@ CẢM ƠN!!!
 
 """
 
-from signal import raise_signal
 import math, random, re, sys, time
+
+__author__ = "Joesifer (phanchanhung12055@gmail.com)"
+__copyright__ = "Copyright (c) 2024 Joesifer"
 
 
 # Các class lỗi tùy chỉnh
@@ -1246,7 +1248,7 @@ def xau_duoc_nen(text, type):
 
 def xau_duoc_nen_khong_ghi_so(input_text):
     """
-    Nén xâu bỏ số (ví dụ "hhhoocgoogle" → "hgoogle").
+    Nén xâu bỏ số (ví dụ "hhhooccssiiinnhh" → "hocsinh").
 
     Tham số:
         - input_text (str): Chuỗi đầu vào.
@@ -2025,36 +2027,7 @@ def tao_danh_sach_quy_luat_3(count, base):
         raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
 
 
-# Chuyển đổi và đếm
-def chuyen_doi_so_la_ma(number):
-    """
-    Chuyển đổi số thành số La Mã.
-
-    Tham số:
-        - number (int) - Số cần chuyển đổi.
-
-    Trả lại:
-        - str: Số La Mã.
-
-    Ném lỗi:
-        - ImportError: Nếu roman không được cài đặt.
-        - OutOfRangeError: Nếu number không nằm trong phạm vi 1 đến 3999.
-    """
-    try:
-        if roman is None:
-            raise ImportError(
-                "Hàm này yêu cầu cài đặt roman. Hãy chạy: pip install roman"
-            )
-        if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
-        number = int(number)
-        if number <= 0 or number > 3999:
-            raise OutOfRangeError("So phai tu 1 den 3999")
-        return roman.toRoman(number)
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
-
-
+# Đếm số nghịch thế
 def dem_so_nghich_the(numbers):
     """
     Đếm số cặp nghịch thế trong danh sách.
