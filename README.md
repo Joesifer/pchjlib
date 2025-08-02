@@ -236,12 +236,11 @@ pip install pchjlib[full]
   - Trả về: Danh sách các ước số.  
   - Ném lỗi: `MathError` nếu `number = 0`.
 
-- **tao_danh_sach_boi_so(number)**  
-  Tạo danh sách bội số của `number` từ 0 đến 10 lần.  
-  - Tham số: `number` (int) - Số cần tạo danh sách bội số.
-  - positive_only = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
-  - Trả về: Danh sách bội số.  
-  - Ném lỗi: `MathError` nếu `number = 0`, `NotIntegerError` nếu đầu vào không phải là số nguyên.
+- **tao_danh_sach_boi_so(number, limit, positive_only=True)**
+  Tạo danh sách bội số của number từ 0 đến limit lần.
+  - Tham số: `number` (int) - Số cần tạo danh sách bội số, `limit` (int) - Giới hạn số lần nhân tạo bội số. `positive_only` = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
+  - Trả lại: Danh sách bội số của number.
+  - Ném lỗi: `MathError`: Nếu number là 0, `NotIntegerError`: Đầu vào phải là số nguyên, `InvalidInputError`: Giới hạn phải lớn hơn 1.
 
 - **uoc_chung(numbers)**
   Tạo danh sách các ước chung của một danh sách các số.  
@@ -529,11 +528,14 @@ pip install pchjlib[full]
 ## 🛠️ Những bản cập nhật
 
 > **📅 Ngày cập nhật gần nhất:** 03/08/2025  
-> **📦 Tổng số bản phát hành:** 53
+> **📦 Tổng số bản phát hành:** 54
 
 ---
 
 ### 📌 2025
+- **0.1.5.2** – *(03/08/2025)*
+  ✅ Cập nhật `tao_danh_sach_boi_so` thêm giới hạn số lần nhân và thêm bội âm/ dương.
+
 - **0.1.5.1** – *(03/08/2025)*
   ✅ Cập nhật `uoc_chung_lon_nhat` thêm phần mở rộng đối với số 0.
 

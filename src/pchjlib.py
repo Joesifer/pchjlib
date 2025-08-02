@@ -35,7 +35,7 @@ Tác giả
 
 Phiên bản
 -------------------------------------------------------------------------------
-- 0.1.5.1
+- 0.1.5.2.
 
 Ngày đăng
 -------------------------------------------------------------------------------
@@ -197,7 +197,7 @@ def tao_danh_sach_so_nguyen_to(limit):
         - limit (int hoặc float) - Giới hạn trên của danh sách.
 
     Trả về:
-        - Danh sách các số nguyên tố (list).
+        - list: Danh sách các số nguyên tố.
 
     Ném lỗi:
         - InvalidInputError nếu limit không phải số nguyên >= 2.
@@ -705,12 +705,13 @@ def tao_danh_sach_uoc_so(number, positive_only=True):
         raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
 
 
-def tao_danh_sach_boi_so(number, positive_only=True):
+def tao_danh_sach_boi_so(number, limit, positive_only=True):
     """
-    Tạo danh sách bội số của number từ 0 đến 10 lần.
+    Tạo danh sách bội số của number từ 0 đến limit lần.
 
     Tham số:
         - number (int) - Số cần tạo danh sách bội số.
+        - limit (int) - Giới hạn số lần nhân tạo bội số.
         - positive_only = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
 
     Trả lại:
@@ -719,18 +720,26 @@ def tao_danh_sach_boi_so(number, positive_only=True):
     Ném lỗi:
         - MathError: Nếu number là 0.
         - NotIntegerError: Đầu vào phải là số nguyên.
+        - InvalidInputError: Giới hạn phải lớn hơn 1.
     """
     try:
-        if not isinstance(number, (int, float)) or not float(number).is_integer():
+        if (
+            not isinstance(number, (int, float))
+            or not float(number).is_integer()
+            and not isinstance(limit, (int))
+            or not int(limit).is_integer()
+        ):
             raise NotIntegerError("Đầu vào phải là số nguyên")
+        if limit <= 1:
+            raise InvalidInputError("Giới hạn phải lớn hơn 1")
         number = int(number)
         if number == 0:
             raise MathError("Không thể tạo danh sách bội số cho 0")
         if not positive_only == True:
-            return sorted([-number * i for i in range(1, 11)]) + [
-                number * i for i in range(11)
+            return sorted([-number * i for i in range(1, limit)]) + [
+                number * i for i in range(limit)
             ]
-        return [number * i for i in range(11)]
+        return [number * i for i in range(limit)]
     except (ValueError, TypeError):
         raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
 
