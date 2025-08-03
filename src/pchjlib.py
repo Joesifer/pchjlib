@@ -24,131 +24,122 @@
 # SOFTWARE.
 #
 ################################################################################################
-
 """
 PCHJLIB😺
 ===============================================================================
 -------------------------------------------------------------------------------
-Tác giả
+Author
 -------------------------------------------------------------------------------
 - Joesifer.
 
-Phiên bản
+Version
 -------------------------------------------------------------------------------
-- 0.1.6.
+- 0.1.7.
 
-Ngày đăng
+Release Date
 -------------------------------------------------------------------------------
-- Ngày 14 tháng 2, năm 2024.
+- February 14, 2024.
 
-Bản quyền
+License
 -------------------------------------------------------------------------------
-- Copyright (c) 2024 Joesifer.
+- Copyright © 2024 Joesifer
 
-Phiên bản python được hỗ trợ.
+Supported Python Version
 -------------------------------------------------------------------------------
-- Lớn hơn hoặc bằng 3.7.
+- Python 3.7 or higher.
 
-Thư viện phụ thuộc.
+Dependencies
 -------------------------------------------------------------------------------
-- math, re, sys, time (numpy, roman).
+- Built-in: `math`, `re`, `random`.
+- External: `numpy`.
 
-Giấy phép.
+License Type
 -------------------------------------------------------------------------------
 - MIT License.
 
-Thông tin.
+Additional Information
 -------------------------------------------------------------------------------
 
-Nếu bạn cần hướng dẫn cách dùng thì hãy::
+For usage instructions, please refer to:
+  >>> [https://github.com/Joesifer/pchjlib/blob/main/README.md](https://github.com/Joesifer/pchjlib/blob/main/README.md)
 
-  >>> Truy cập: `https://github.com/Joesifer/pchjlib/blob/main/README.md`.
+Feedback and support are welcome via:
+  >>> Email: `phanchanhung12055@gmail.com`
 
-Và bạn có thể góp ý hoặc ủng hộ bằng::
-
-  >>> Gửi email : `phanchanhung12055@gmail.com` .
-
-
-CẢM ƠN!!!
+THANK YOU!!!
 ===============================================================================
-
 """
 
-import math, random, re, sys, time
+import math, random, re
 
 __author__ = "Joesifer (phanchanhung12055@gmail.com)"
 __copyright__ = "Copyright (c) 2024 Joesifer"
 
 
-# Các class lỗi tùy chỉnh
+# Custom exception classes
 class MathError(Exception):
-    """Lỗi cơ bản liên quan đến toán học."""
+    """Base exception for math-related errors."""
 
     pass
 
 
 class OutOfRangeError(MathError):
-    """Lỗi khi giá trị nằm ngoài phạm vi cho phép."""
+    """Exception raised when a value is out of the allowed range."""
 
     pass
 
 
 class NotIntegerError(MathError):
-    """Lỗi khi giá trị không phải số nguyên."""
+    """Exception raised when a value is not an integer."""
 
     pass
 
 
 class InvalidInputError(MathError):
-    """Lỗi khi đầu vào không hợp lệ."""
+    """Exception raised when the input is invalid."""
 
     pass
 
 
 class DivisionByZeroError(MathError):
-    """Lỗi khi chia cho 0."""
+    """Exception raised when division by zero occurs."""
 
     pass
 
 
 class TypeErrorCustom(MathError):
-    """Lỗi khi kiểu dữ liệu không phù hợp."""
+    """Exception raised when the data type is incorrect."""
 
     pass
 
 
 class ListError(MathError):
-    """Lỗi liên quan đến danh sách đầu vào."""
+    """Exception raised when the list input is invalid."""
 
     pass
 
 
-# Kiểm tra và import các thư viện phụ thuộc
+# Check and import dependent libraries
 try:
     import numpy
 except ImportError:
     numpy = None
 
-try:
-    import roman
-except ImportError:
-    roman = None
 
-
-# Các hàm kiểm tra số nguyên tố và số liên quan
-def kiem_tra_so_nguyen_to(number):
+# Functions to check prime numbers and related numbers
+def is_prime(number):
     """
-    Kiểm tra xem một số có phải là số nguyên tố hay không.
+    Check if a number is a prime number.
 
-    Tham số:
-        - number (int hoặc float) - Số cần kiểm tra.
+    Parameters:
+        - number (int or float): The number to check.
 
-    Trả về:
-        - True nếu là số nguyên tố, False nếu không (bool).
+    Returns:
+        - bool: True if the number is prime, False otherwise.
 
-    Ném lỗi:
-        - InvalidInputError nếu đầu vào không phải số nguyên.
-        - Ví dụ: kiem_tra_so_nguyen_to(7) → True, kiem_tra_so_nguyen_to(3.5) → lỗi "Đầu vào không hợp lệ".
+    Raises:
+        - InvalidInputError: If the input is not an integer.
+        - Example: is_prime(7) → True, is_prime(3.5) → "Invalid input" error.
     """
 
     def miller_rabin(n, k=5):
@@ -183,580 +174,567 @@ def kiem_tra_so_nguyen_to(number):
 
     try:
         if not isinstance(number, int):
-            raise InvalidInputError("Đầu vào phải là số nguyên")
+            raise InvalidInputError("Input must be an integer")
         return miller_rabin(number)
     except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ")
+        raise InvalidInputError("Invalid input")
 
 
-def tao_danh_sach_so_nguyen_to(limit):
+def generate_prime_list(limit):
     """
-    Tạo danh sách các số nguyên tố từ 0 đến limit bằng thuật toán Sieve.
+    Generate a list of prime numbers from 0 to limit using the Sieve algorithm.
 
-    Tham số:
-        - limit (int hoặc float) - Giới hạn trên của danh sách.
+    Parameters:
+        - limit (int or float): The upper limit of the list.
 
-    Trả về:
-        - list: Danh sách các số nguyên tố.
+    Returns:
+        - list: A list of prime numbers.
 
-    Ném lỗi:
-        - InvalidInputError nếu limit không phải số nguyên >= 2.
-        - Ví dụ: tao_danh_sach_so_nguyen_to(10) → [2, 3, 5, 7].
+    Raises:
+        - InvalidInputError: If limit is not an integer >= 2.
+        - Example: generate_prime_list(10) → [2, 3, 5, 7].
     """
     try:
         if numpy is None:
             raise ImportError(
-                "Hàm này yêu cầu cài đặt numpy. Hãy chạy: pip install numpy"
+                "This function requires numpy. Please run: pip install numpy"
             )
-        else:
-            if isinstance(limit, float) and not limit.is_integer():
-                raise InvalidInputError(
-                    "Đầu vào không hợp lệ: Giới hạn phải là số nguyên"
-                )
-            limit = int(limit)
-            if limit < 2:
-                raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải >= 2")
-            if numpy is not None:
-                sieve = numpy.ones(
-                    limit + 1, dtype=bool
-                )  # Phân bổ trước bộ nhớ với numpy
-                sieve[0:2] = False
-                for i in range(2, int(limit**0.5) + 1):
-                    if sieve[i]:
-                        sieve[i * i : limit + 1 : i] = False
-                return numpy.where(sieve)[0].tolist()
-            else:
-                sieve = [True] * (limit + 1)  # Phân bổ trước bộ nhớ
-                sieve[0] = sieve[1] = False
-                for i in range(2, int(limit**0.5) + 1):
-                    if sieve[i]:
-                        for j in range(i * i, limit + 1, i):
-                            sieve[j] = False
-                return [i for i in range(limit + 1) if sieve[i]]
+        if isinstance(limit, float) and not limit.is_integer():
+            raise InvalidInputError("Invalid input: Limit must be an integer")
+        limit = int(limit)
+        if limit < 2:
+            raise InvalidInputError("Invalid input: Limit must be >= 2")
+        sieve = numpy.ones(limit + 1, dtype=bool)  # Pre-allocate memory with numpy
+        sieve[0:2] = False
+        for i in range(2, int(limit**0.5) + 1):
+            if sieve[i]:
+                sieve[i * i : limit + 1 : i] = False
+        return numpy.where(sieve)[0].tolist()
     except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn không phải số nguyên")
+        raise InvalidInputError("Invalid input: Limit must be an integer")
 
 
-def kiem_tra_so_emirp(number):
+def is_emirp(number):
     """
-    Kiểm tra xem một số có phải là số emirp (số nguyên tố đảo ngược cũng là nguyên tố) hay không.
+    Check if a number is an emirp (a prime number whose reverse is also a prime).
 
-    Tham số:
-        - number (int hoặc float) - Số cần kiểm tra.
+    Parameters:
+        - number (int or float): The number to check.
 
-    Trả về:
-        - True nếu là số emirp, False nếu không (bool).
+    Returns:
+        - bool: True if the number is an emirp, False otherwise.
 
-    Ném lỗi:
-        - InvalidInputError nếu đầu vào không phải số nguyên dương.
-        - Ví dụ: kiem_tra_so_emirp(31) → True vì 31 cũng là số nguyên tố,
-                 kiem_tra_so_emirp(3.5) → lỗi "Đầu vào không hợp lệ".
+    Raises:
+        - InvalidInputError: If the input is not a positive integer.
+        - Example: is_emirp(31) → True since 31 is also a prime,
+                   is_emirp(3.5) → "Invalid input" error.
     """
     try:
         if isinstance(number, float) and not number.is_integer():
-            raise InvalidInputError(
-                "Đầu vào không hợp lệ: Số thực không được chấp nhận"
-            )
+            raise InvalidInputError("Invalid input: Float values are not accepted")
         number = int(number)
         if number < 2:
-            raise InvalidInputError("Đầu vào không hợp lệ: Số phải >= 2")
-        if not kiem_tra_so_nguyen_to(number):
+            raise InvalidInputError("Invalid input: Number must be >= 2")
+        if not is_prime(number):
             return False
         reversed_number = int(str(number)[::-1])
-        return kiem_tra_so_nguyen_to(reversed_number)
+        return is_prime(reversed_number)
     except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ: Giá trị không phải số nguyên")
+        raise InvalidInputError("Invalid input: Value must be an integer")
 
 
-def tao_danh_sach_so_emirp(limit):
+def generate_emirp_list(limit):
     """
-    Tạo danh sách các số emirp từ 0 đến limit.
+    Generate a list of emirp numbers from 0 to limit.
 
-    Tham số:
-        - limit (int hoặc float) - Giới hạn trên của danh sách.
+    Parameters:
+        - limit (int or float): The upper limit of the list.
 
-    Trả về:
-        - Danh sách các số emirp (list).
+    Returns:
+        - list: A list of emirp numbers.
 
-    Ném lỗi:
-        - InvalidInputError nếu limit không phải số nguyên không âm.
+    Raises:
+        - InvalidInputError: If limit is not a non-negative integer.
     """
     try:
         if isinstance(limit, float) and not limit.is_integer():
-            raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải là số nguyên")
+            raise InvalidInputError("Invalid input: Limit must be an integer")
         limit = int(limit)
         if limit < 0:
-            raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn phải không âm")
-        return [i for i in range(2, limit) if kiem_tra_so_emirp(i)]
+            raise InvalidInputError("Invalid input: Limit must be non-negative")
+        return [i for i in range(2, limit) if is_emirp(i)]
     except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ: Giới hạn không phải số nguyên")
+        raise InvalidInputError("Invalid input: Limit must be an integer")
 
 
-# Các hàm Fibonacci
-def vi_tri_so_Fibonacci(index):
+# Fibonacci functions
+def fibonacci_at_index(index):
     """
-    Tính số Fibonacci thứ index bằng phương pháp lặp và chỉ chấp nhận index kiểu int không âm.
+    Calculate the Fibonacci number at the given index using iteration, accepting only non-negative integers.
 
-    Tham số:
-        - index (int) - Vị trí của số Fibonacci (bắt đầu từ 0).
+    Parameters:
+        - index (int): The position of the Fibonacci number (starting from 0).
 
-    Trả về:
-        - Số Fibonacci tại vị trí index (int).
+    Returns:
+        - int: The Fibonacci number at the given index.
 
-    Ném lỗi:
-        - InvalidInputError nếu index không phải số nguyên không âm.
+    Raises:
+        - InvalidInputError: If index is not a non-negative integer.
     """
-    if not isinstance(index, int) and not isinstance(index, bool):
-        raise InvalidInputError("Đầu vào không hợp lệ: Phải là số nguyên")
-
-    if index < 0:
-        raise InvalidInputError("Đầu vào không hợp lệ: Phải là số nguyên không âm")
-
+    if not isinstance(index, int) or index < 0:
+        raise InvalidInputError("Invalid input: Must be a non-negative integer")
     a, b = 0, 1
     for _ in range(index):
         a, b = b, a + b
     return a
 
 
-def tao_danh_sach_so_Fibonacci(count):
+def generate_fibonacci_list(count):
     """
-    Tạo danh sách count số Fibonacci đầu tiên.
+    Generate a list of the first count Fibonacci numbers.
 
-    Tham số:
-        - count (int hoặc float) - Số lượng phần tử trong danh sách.
+    Parameters:
+        - count (int or float): The number of elements in the list.
 
-    Trả về:
-        - Danh sách các số Fibonacci (list).
+    Returns:
+        - list: A list of Fibonacci numbers.
 
-    Ném lỗi:
-        - InvalidInputError nếu count không phải số nguyên không âm.
+    Raises:
+        - InvalidInputError: If count is not a non-negative integer.
     """
     try:
         if isinstance(count, float) and not count.is_integer():
-            raise InvalidInputError("Đầu vào không hợp lệ: Số lượng phải là số nguyên")
+            raise InvalidInputError("Invalid input: Count must be an integer")
         count = int(count)
         if count < 0:
-            raise InvalidInputError("Đầu vào không hợp lệ: Số lượng phải không âm")
-        return [vi_tri_so_Fibonacci(i) for i in range(count)]
+            raise InvalidInputError("Invalid input: Count must be non-negative")
+        return [fibonacci_at_index(i) for i in range(count)]
     except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ: Số lượng không phải số nguyên")
+        raise InvalidInputError("Invalid input: Count must be an integer")
 
 
-# Các hàm tính số hoàn thiện, tự mãn, hữu hảo, hoàn hào, thân thiết
-def tong_uoc_so(number):
+# Functions for perfect, narcissistic, amicable, and other special numbers
+def sum_of_divisors(number):
     """
-    Tính tổng các ước số dương của number (không tính chính nó).
+    Calculate the sum of positive divisors of a number (excluding itself).
 
-    Tham số:
-        - number (int hoặc float) - Số cần tính tổng ước số.
+    Parameters:
+        - number (int or float): The number to calculate the sum of divisors.
 
-    Trả về:
-        - Tổng các ước số (int).
+    Returns:
+        - int: The sum of divisors.
 
-    Ném lỗi:
-        - MathError nếu number <= 0, InvalidInputError nếu không phải số nguyên.
+    Raises:
+        - MathError: If number <= 0, InvalidInputError if not an integer.
     """
     try:
         if isinstance(number, float) and not number.is_integer():
-            raise InvalidInputError(
-                "Đầu vào không hợp lệ: Số thực không được chấp nhận"
-            )
+            raise InvalidInputError("Invalid input: Float values are not accepted")
         number = int(number)
         if number <= 0:
-            raise MathError("Số phải lớn hơn 0 / Number must be greater than 0")
+            raise MathError("Number must be greater than 0")
         return sum(i for i in range(1, number) if number % i == 0)
     except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ: Giá trị không phải số nguyên")
+        raise InvalidInputError("Invalid input: Value must be an integer")
 
 
-def tong_chu_so(number):
+def sum_of_digits(number):
     """
-    Tính tổng các chữ số của một số nguyên.
+    Calculate the sum of digits of an integer.
 
-    Tham số:
-        - number (int hoặc float) - Số cần tính tổng chữ số.
-    Trả về:
-        - Tổng các chữ số (int).
+    Parameters:
+        - number (int or float): The number to calculate the sum of digits.
 
-    Ném lỗi:
-        - InvalidInputError nếu đầu vào không phải số nguyên hợp lệ.
+    Returns:
+        - int: The sum of digits.
+
+    Raises:
+        - InvalidInputError: If the input is not a valid integer.
     """
     try:
         if isinstance(number, float) and not number.is_integer():
             raise InvalidInputError(
-                "Đầu vào không hợp lệ: Số thực có phần thập phân không được chấp nhận"
+                "Invalid input: Float values with decimal parts are not accepted"
             )
         number = int(number)
         return sum(int(digit) for digit in str(abs(number)))
     except (ValueError, TypeError):
-        raise InvalidInputError("Đầu vào không hợp lệ: Giá trị không phải số nguyên")
+        raise InvalidInputError("Invalid input: Value must be an integer")
 
 
-def kiem_tra_so_hoan_thien(number):
+def is_perfect_number(number):
     """
-    Kiểm tra xem một số có phải là số hoàn thiện hay không.
+    Check if a number is a perfect number.
 
-    Tham số:
-        - number (int) - Số cần kiểm tra.
+    Parameters:
+        - number (int): The number to check.
 
-    Trả lại:
-        - bool: True nếu number là số hoàn thiện, False nếu không.
+    Returns:
+        - bool: True if the number is perfect, False otherwise.
 
-    Ném lỗi:
-        - MathError nếu number không lớn hơn 1.
+    Raises:
+        - MathError: If number < 1.
     """
     try:
         if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Input must be an integer")
         number = int(number)
         if number < 1:
-            raise MathError("Số phải lớn hơn 0")
-        return tong_uoc_so(number) == number
+            raise MathError("Number must be greater than 0")
+        return sum_of_divisors(number) == number
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def tao_danh_sach_so_hoan_thien(limit):
+def generate_perfect_number_list(limit):
     """
-    Tạo danh sách các số hoàn thiện từ 0 đến limit.
+    Generate a list of perfect numbers from 0 to limit.
 
-    Tham số:
-        - limit (int) - Giới hạn trên của danh sách.
+    Parameters:
+        - limit (int): The upper limit of the list.
 
-    Trả lại:
-        - Danh sách các số hoàn thiện (list).
+    Returns:
+        - list: A list of perfect numbers.
 
-    Ném lỗi:
-        - NotIntegerError nếu không phải số nguyên, InvalidInputError nếu không lớn hơn 1.
+    Raises:
+        - NotIntegerError: If not an integer, InvalidInputError if not greater than 1.
     """
     try:
         if not isinstance(limit, (int, float)) or not float(limit).is_integer():
-            raise NotIntegerError("Giới hạn phải là số nguyên")
+            raise NotIntegerError("Limit must be an integer")
         limit = int(limit)
         if limit < 1:
-            raise InvalidInputError("Giới hạn phải lớn hơn 0")
-        return [i for i in range(1, limit + 1) if kiem_tra_so_hoan_thien(i)]
+            raise InvalidInputError("Limit must be greater than 0")
+        return [i for i in range(1, limit + 1) if is_perfect_number(i)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def kiem_tra_so_tu_man(number):
+def is_narcissistic_number(number):
     """
-    Kiểm tra xem một số có phải là số tự mãn hay không.
+    Check if a number is a narcissistic number.
 
-    Tham số:
-        - number (int) - Số cần kiểm tra.
+    Parameters:
+        - number (int): The number to check.
 
-    Trả lại:
-        - bool: True nếu number là số tự mãn, False nếu không.
+    Returns:
+        - bool: True if the number is narcissistic, False otherwise.
 
-    Ném lỗi:
-        - InvalidInputError nếu number không phải số nguyên >= 2.
+    Raises:
+        - InvalidInputError: If number is not an integer >= 2.
     """
     try:
         if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Input must be an integer")
         number = int(number)
         if number < 0:
             return False
         return sum(int(digit) ** 3 for digit in str(number)) == number
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def tao_danh_sach_so_tu_man(limit):
+def generate_narcissistic_number_list(limit):
     """
-    Tạo danh sách các số tự mãn từ 0 đến limit.
+    Generate a list of narcissistic numbers from 0 to limit.
 
-    Tham số:
-        - limit (int) - Giới hạn trên của danh sách.
+    Parameters:
+        - limit (int): The upper limit of the list.
 
-    Trả lại:
-        - list - Danh sách các số tự mãn.
+    Returns:
+        - list: A list of narcissistic numbers.
 
-    Ném lỗi:
-        - InvalidInputError nếu limit không phải số nguyên >= 2.
-        - NotIntegerError nếu limit không phải là số nguyên.
+    Raises:
+        - InvalidInputError: If limit is not an integer >= 2.
+        - NotIntegerError: If limit is not an integer.
     """
     try:
         if not isinstance(limit, (int, float)) or not float(limit).is_integer():
-            raise NotIntegerError("Giới hạn phải là số nguyên")
+            raise NotIntegerError("Limit must be an integer")
         limit = int(limit)
         if limit < 2:
-            raise InvalidInputError("Giới hạn phải lớn hơn hoặc bằng 2")
-        return [i for i in range(2, limit) if kiem_tra_so_tu_man(i)]
+            raise InvalidInputError("Limit must be greater than or equal to 2")
+        return [i for i in range(2, limit) if is_narcissistic_number(i)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def cap_so_hua_hon(number1, number2):
+def are_amicable_numbers(number1, number2):
     """
-    Kiểm tra xem hai số có phải là cặp số hữu hảo hay không.
+    Check if two numbers are amicable numbers.
 
-    Tham số:
-        - number1 (int) - Số thứ nhất.
-        - number2 (int) - Số thứ hai.
+    Parameters:
+        - number1 (int): The first number.
+        - number2 (int): The second number.
 
-    Trả lại:
-        - bool: True nếu number1 và number2 là cặp số hữu hảo, False nếu không.
+    Returns:
+        - bool: True if the numbers are amicable, False otherwise.
 
-    Ném lỗi:
-        - MathError nếu các số âm.
-        - InvalidInputError nếu các số không phải số nguyên.
+    Raises:
+        - MathError: If the numbers are negative.
+        - InvalidInputError: If the numbers are not integers.
     """
     try:
         if not (
             isinstance(number1, (int, float)) and isinstance(number2, (int, float))
         ) or not (float(number1).is_integer() and float(number2).is_integer()):
-            raise NotIntegerError("Cả hai số phải là số nguyên")
+            raise NotIntegerError("Both numbers must be integers")
         number1, number2 = int(number1), int(number2)
         if number1 < 0 or number2 < 0:
-            raise MathError("Các số phải không âm")
+            raise MathError("Numbers must be non-negative")
         return (
-            tong_uoc_so(number1) == number2 + 1 and tong_uoc_so(number2) == number1 + 1
+            sum_of_divisors(number1) == number2 + 1
+            and sum_of_divisors(number2) == number1 + 1
         )
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def kiem_tra_so_hoan_hao(number):
+def is_happy_number(number):
     """
-    Kiểm tra xem một số có phải là số hoàn hảo hay không.
+    Check if a number is a happy number.
 
-    Tham số:
-        - number (int) - Số cần kiểm tra.
+    Parameters:
+        - number (int): The number to check.
 
-    Trả lại:
-        - bool: True nếu number là số hoàn hảo, False nếu không.
+    Returns:
+        - bool: True if the number is happy, False otherwise.
 
-    Ném lỗi:
-        - MathError nếu number < 1, InvalidInputError nếu không phải số nguyên.
+    Raises:
+        - MathError: If number < 1, InvalidInputError if not an integer.
     """
     try:
         if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Input must be an integer")
         number = int(number)
         if number < 1:
-            raise MathError("Số phải lớn hơn 0")
-        return sum(i for i in range(1, number) if number % i == 0) == number
+            raise MathError("Number must be greater than 0")
+        seen = set()
+        while number != 1 and number not in seen:
+            seen.add(number)
+            number = sum(int(digit) ** 2 for digit in str(number))
+        return number == 1
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def tao_danh_sach_so_hoan_hao(limit):
+def generate_happy_number_list(limit):
     """
-    Tạo danh sách các số hoàn hảo từ 0 đến limit.
+    Generate a list of happy numbers from 0 to limit.
 
-    Tham số:
-        - limit (int): Giới hạn trên của danh sách.
+    Parameters:
+        - limit (int): The upper limit of the list.
 
-    Trả lại:
-        - list: Danh sách các số hoàn hảo.
+    Returns:
+        - list: A list of happy numbers.
 
-    Ném lỗi:
-        - InvalidInputError nếu limit không phải số nguyên > 0.
+    Raises:
+        - InvalidInputError: If limit is not an integer > 0.
     """
     try:
         if not isinstance(limit, (int, float)) or not float(limit).is_integer():
-            raise NotIntegerError("Giới hạn phải là số nguyên")
+            raise NotIntegerError("Limit must be an integer")
         limit = int(limit)
         if limit < 1:
-            raise InvalidInputError("Giới hạn phải lớn hơn 0")
-        return [i for i in range(1, limit) if kiem_tra_so_hoan_hao(i)]
+            raise InvalidInputError("Limit must be greater than 0")
+        return [i for i in range(1, limit) if is_happy_number(i)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-# Các hàm số chính phương, mạnh mẽ, thân thiết
-def kiem_tra_so_chinh_phuong(number):
+# Functions for square numbers, strong numbers, friendly numbers
+def is_square_number(number):
     """
-    Kiểm tra xem một số có phải là số chính phương hay không.
+    Check if a number is a square number.
 
-    Tham số:
-        - number (int) - Số cần kiểm tra.
+    Parameters:
+        - number (int): The number to check.
 
-    Trả lại:
-        - bool: True nếu number là số chính phương, False nếu không.
+    Returns:
+        - bool: True if the number is a square number, False otherwise.
 
-    Ném lỗi:
-        - InvalidInputError nếu không phải số nguyên.
+    Raises:
+        - InvalidInputError: If not an integer.
     """
     try:
         if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Input must be an integer")
         number = int(number)
         if number < 0:
             return False
         sqrt_number = int(math.sqrt(number))
         return sqrt_number * sqrt_number == number
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def tao_danh_sach_so_chinh_phuong(limit):
+def generate_square_number_list(limit):
     """
-    Tạo danh sách các số chính phương từ 0 đến limit.
+    Generate a list of square numbers from 0 to limit.
 
-    Tham số:
-        - limit (int) - Giới hạn trên của danh sách.
+    Parameters:
+        - limit (int): The upper limit of the list.
 
-    Trả lại:
-        - list: Danh sách các số chính phương.
+    Returns:
+        - list: A list of square numbers.
 
-    Ném lỗi:
-        - InvalidInputError nếu limit không phải số nguyên không âm.
+    Raises:
+        - InvalidInputError: If limit is not a non-negative integer.
     """
     try:
         if not isinstance(limit, (int, float)) or not float(limit).is_integer():
-            raise NotIntegerError("Giới hạn phải là số nguyên")
+            raise NotIntegerError("Limit must be an integer")
         limit = int(limit)
         if limit < 0:
-            raise InvalidInputError("Giới hạn phải không âm")
-        return [i for i in range(limit) if kiem_tra_so_chinh_phuong(i)]
+            raise InvalidInputError("Limit must be non-negative")
+        return [i for i in range(limit) if is_square_number(i)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def cap_so_than_thiet(number1, number2):
+def are_friendly_numbers(number1, number2):
     """
-    Kiểm tra xem hai số có phải là cặp số thân thiết hay không.
+    Check if two numbers are friendly numbers.
 
-    Tham số:
-        - number1 (int) - Số thứ nhất.
-        - number2 (int) - Số thứ hai.
+    Parameters:
+        - number1 (int): The first number.
+        - number2 (int): The second number.
 
-    Trả lại:
-        - bool: True nếu number1 và number2 là cặp số thân thiết, False nếu không.
+    Returns:
+        - bool: True if the numbers are friendly, False otherwise.
 
-    Ném lỗi:
-        - MathError nếu các số không lớn hơn 1.
-        - InvalidInputError nếu không phải số nguyên.
+    Raises:
+        - MathError: If the numbers are not greater than 1.
+        - InvalidInputError: If not integers.
     """
     try:
         if not (
             isinstance(number1, (int, float)) and isinstance(number2, (int, float))
         ) or not (float(number1).is_integer() and float(number2).is_integer()):
-            raise NotIntegerError("Cả hai số phải là số nguyên")
+            raise NotIntegerError("Both numbers must be integers")
         number1, number2 = int(number1), int(number2)
         if number1 <= 1 or number2 <= 1:
-            raise MathError("Các số phải lớn hơn 1")
-        return tong_uoc_so(number1) == number2 and tong_uoc_so(number2) == number1
+            raise MathError("Numbers must be greater than 1")
+        return (
+            sum_of_divisors(number1) == number2 and sum_of_divisors(number2) == number1
+        )
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def kiem_tra_so_manh_me(number, variant=1):
+def is_strong_number(number, variant=1):
     """
-    Kiểm tra xem một số có phải là số mạnh mẽ (tổng chữ số là nguyên tố) hay không.
+    Check if a number is a strong number (sum of digits is prime).
 
-    Tham số:
-        - number (int) - Số cần kiểm tra.
-        - variant (int) - 1 - Tổng chữ số là nguyên tố; 2 - Có thừa số nguyên tố bình phương.
+    Parameters:
+        - number (int): The number to check.
+        - variant (int): 1 - Sum of digits is prime; 2 - Has a square prime factor.
 
-    Trả lại:
-        - bool: True nếu number là số mạnh mẽ, False nếu không.
+    Returns:
+        - bool: True if the number is strong, False otherwise.
 
-    Ném lỗi:
-        - InvalidInputError nếu không phải số nguyên.
+    Raises:
+        - InvalidInputError: If not an integer.
     """
     try:
         if not isinstance(number, int) or number < 0:
-            raise NotIntegerError("Đầu vào phải là số nguyên không âm")
+            raise NotIntegerError("Input must be a non-negative integer")
         number = int(number)
         if variant == 1:
-            return kiem_tra_so_nguyen_to(tong_chu_so(number))
+            return is_prime(sum_of_digits(number))
         elif variant == 2:
-            prime_list = [i for i in range(2, number) if kiem_tra_so_nguyen_to(i)]
+            prime_list = [i for i in range(2, number) if is_prime(i)]
             for prime in prime_list:
                 if number % prime == 0 and number % (prime**2) == 0:
                     return True
             return False
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-# Các hàm về ước số và bội số
-def tao_danh_sach_uoc_so(number, positive_only=True):
+# Functions for divisors and multiples
+def generate_divisor_list(number, positive_only=True):
     """
-    Tạo danh sách các ước số của number.
+    Generate a list of divisors of a number.
 
-    Tham số:
-        - number (int) - Số cần tạo danh sách ước số.
-        - positive_only = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
+    Parameters:
+        - number (int): The number to generate the list of divisors.
+        - positive_only (bool): If True, only positive divisors are returned.
 
-    Trả lại:
-        - list: Danh sách các ước số của number.
+    Returns:
+        - list: A list of divisors of the number.
 
-    Ném lỗi:
-        - MathError: Nếu number là 0.
+    Raises:
+        - MathError: If number is 0.
     """
     try:
         if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Input must be an integer")
         number = int(number)
         if number == 0:
-            raise MathError("Không thể tạo danh sách ước số cho 0")
+            raise MathError("Cannot generate divisor list for 0")
         number = abs(number)
         divisors = [i for i in range(1, number + 1) if number % i == 0]
         if not positive_only:
             divisors += [-i for i in divisors]
         return sorted(divisors)
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def tao_danh_sach_boi_so(number, limit, positive_only=True):
+def generate_multiple_list(number, limit, positive_only=True):
     """
-    Tạo danh sách bội số của number từ 0 đến limit lần.
+    Generate a list of multiples of a number up to limit times.
 
-    Tham số:
-        - number (int) - Số cần tạo danh sách bội số.
-        - limit (int) - Giới hạn số lần nhân tạo bội số.
-        - positive_only = True 'hoặc' False. Mặc định là True và các ước sẽ luôn dương, có thể thay đổi thành False và các ước âm sẽ được xuất hiện.
+    Parameters:
+        - number (int): The number to generate multiples.
+        - limit (int): The limit for the number of multiples.
+        - positive_only (bool): If True, only positive multiples are returned.
 
-    Trả lại:
-        - list: Danh sách bội số của number.
+    Returns:
+        - list: A list of multiples of the number.
 
-    Ném lỗi:
-        - MathError: Nếu number là 0.
-        - NotIntegerError: Đầu vào phải là số nguyên.
-        - InvalidInputError: Giới hạn phải lớn hơn 1.
+    Raises:
+        - MathError: If number is 0.
+        - NotIntegerError: Input must be integers.
+        - InvalidInputError: Limit must be greater than 1.
     """
     try:
         if (
             not isinstance(number, (int, float))
             or not float(number).is_integer()
-            and not isinstance(limit, (int))
+            or not isinstance(limit, (int))
             or not int(limit).is_integer()
         ):
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Inputs must be integers")
         if limit <= 1:
-            raise InvalidInputError("Giới hạn phải lớn hơn 1")
+            raise InvalidInputError("Limit must be greater than 1")
         number = int(number)
         if number == 0:
-            raise MathError("Không thể tạo danh sách bội số cho 0")
-        if not positive_only == True:
-            return sorted([-number * i for i in range(1, limit)]) + [
-                number * i for i in range(limit)
-            ]
+            raise MathError("Cannot generate multiple list for 0")
+        if not positive_only:
+            return sorted(
+                [-number * i for i in range(1, limit)]
+                + [number * i for i in range(limit)]
+            )
         return [number * i for i in range(limit)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def uoc_chung(numbers):
+def common_divisors(numbers):
     """
-    Tạo danh sách các ước chung của một danh sách các số.
+    Generate a list of common divisors of a list of numbers.
 
-    Tham số:
-        - numbers (list) - Danh sách các số.
+    Parameters:
+        - numbers (list): The list of numbers.
 
-    Trả lại:
-        - list: Danh sách các ước chung.
+    Returns:
+        - list: A list of common divisors.
 
-    Ném lỗi:
-        - MathError: Nếu danh sách không đủ phần tử.
-        - ListError: Đầu vào phải là danh sách hoặc tuple.
+    Raises:
+        - MathError: If the list does not have enough elements.
+        - ListError: Input must be a list or tuple.
     """
 
     def get_divisors(n):
@@ -767,7 +745,7 @@ def uoc_chung(numbers):
                 + [-i for i in range(1, n + 1) if n % i == 0]
             )
         except (ValueError, TypeError):
-            raise TypeErrorCustom("Phần tử trong danh sách không hợp lệ")
+            raise TypeErrorCustom("List element is invalid")
 
     try:
         numbers = list(set(numbers))
@@ -775,45 +753,45 @@ def uoc_chung(numbers):
             if i == 0:
                 numbers.remove(i)
         if not isinstance(numbers, (list, tuple)):
-            raise ListError("Đầu vào phải là danh sách hoặc tuple")
+            raise ListError("Input must be a list or tuple")
         if len(numbers) < 2:
-            raise MathError("Danh sách phải có ít nhất 2 phần tử")
+            raise MathError("List must have at least 2 elements")
         for num in numbers:
             if not isinstance(num, (int, float)) or not float(num).is_integer():
-                raise NotIntegerError("Tất cả phần tử phải là số nguyên")
+                raise NotIntegerError("All elements must be integers")
         result = get_divisors(numbers[0])
         for num in numbers[1:]:
             result = result.intersection(get_divisors(num))
         return sorted(list(result))
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-def uoc_chung_lon_nhat(numbers):
+def greatest_common_divisor(numbers):
     """
-    Tính ước chung lớn nhất của một danh sách các số.
+    Calculate the greatest common divisor of a list of numbers.
 
-    Tham số:
-        - numbers (list) - Danh sách các số.
+    Parameters:
+        - numbers (list): The list of numbers.
 
-    Trả lại:
-        - int: Ước chung lớn nhất của danh sách.
+    Returns:
+        - int: The greatest common divisor of the list.
 
-    Ném lỗi:
-        - MathError: Nếu danh sách không hợp lệ.
-        - ListError: Nếu đầu vào không phải là danh sách hoặc tuple.
+    Raises:
+        - MathError: If the list is invalid.
+        - ListError: If the input is not a list or tuple.
     """
 
-    def get_UCLN(number1, number2):
+    def get_gcd(number1, number2):
         try:
             if not (
                 isinstance(number1, (int, float)) and isinstance(number2, (int, float))
             ) or not (float(number1).is_integer() and float(number2).is_integer()):
-                raise NotIntegerError("Cả hai số phải là số nguyên")
+                raise NotIntegerError("Both numbers must be integers")
             number1, number2 = int(number1), int(number2)
             return math.gcd(number1, number2)
         except (ValueError, TypeError):
-            raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+            raise TypeErrorCustom("Invalid input or not a number")
 
     try:
         numbers = list(set(numbers))
@@ -821,185 +799,183 @@ def uoc_chung_lon_nhat(numbers):
             if i == 0:
                 numbers.remove(i)
         if not isinstance(numbers, (list, tuple)):
-            raise ListError("Đầu vào phải là danh sách hoặc tuple")
+            raise ListError("Input must be a list or tuple")
         if len(numbers) < 2:
-            raise MathError("Danh sách không hợp lệ")
+            raise MathError("List is invalid")
         for num in numbers:
             if not isinstance(num, (int, float)) or not float(num).is_integer():
-                raise NotIntegerError("Tất cả phần tử phải là số nguyên")
+                raise NotIntegerError("All elements must be integers")
         result = int(numbers[0])
         for num in numbers[1:]:
-            result = get_UCLN(result, int(num))
+            result = get_gcd(result, int(num))
             if result == 1:
                 break
         return result
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-def boi_chung_nho_nhat(numbers):
+def least_common_multiple(numbers):
     """
-    Tính bội chung nhỏ nhất của một danh sách các số.
+    Calculate the least common multiple of a list of numbers.
 
-    Tham số:
-        - numbers (list) - Danh sách các số.
+    Parameters:
+        - numbers (list): The list of numbers.
 
-    Trả lại:
-        - int: Bội chung nhỏ nhất của danh sách.
+    Returns:
+        - int: The least common multiple of the list.
 
-    Ném lỗi:
-        - MathError: Nếu danh sách không hợp lệ.
-        - ListError: Đầu vào phải là danh sách hoặc tuple.
+    Raises:
+        - MathError: If the list is invalid.
+        - ListError: Input must be a list or tuple.
     """
 
-    def get_BCNN(number1, number2):
+    def get_lcm(number1, number2):
         try:
             if not (
                 isinstance(number1, (int, float)) and isinstance(number2, (int, float))
             ) or not (float(number1).is_integer() and float(number2).is_integer()):
-                raise NotIntegerError("Cả hai số phải là số nguyên")
+                raise NotIntegerError("Both numbers must be integers")
             number1, number2 = int(number1), int(number2)
             if number1 == 0 or number2 == 0:
-                raise DivisionByZeroError("Không thể tính LCM với 0")
+                raise DivisionByZeroError("Cannot calculate LCM with 0")
             return math.lcm(number1, number2)
         except (ValueError, TypeError):
-            raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+            raise TypeErrorCustom("Invalid input or not a number")
 
     try:
         if not isinstance(numbers, (list, tuple)):
-            raise ListError("Đầu vào phải là danh sách hoặc tuple")
+            raise ListError("Input must be a list or tuple")
         if len(numbers) < 2 or 0 in numbers:
-            raise MathError("Danh sách không hợp lệ")
+            raise MathError("List is invalid")
         for num in numbers:
             if not isinstance(num, (int, float)) or not float(num).is_integer():
-                raise NotIntegerError("Tất cả phần tử phải là số nguyên")
+                raise NotIntegerError("All elements must be integers")
         result = int(numbers[0])
         for num in numbers[1:]:
-            result = get_BCNN(result, int(num))
+            result = get_lcm(result, int(num))
         return result
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-# Các hàm số song tố và số phong phú
-def kiem_tra_so_song_to(number):
+# Functions for twin primes and abundant numbers
+def is_twin_prime(number):
     """
-    Kiểm tra xem một số có phải là số song tố hay không.
+    Check if a number is a twin prime.
 
-    Tham số:
-        - number (int) - Số cần kiểm tra.
+    Parameters:
+        - number (int): The number to check.
 
-    Trả lại:
-        - bool: True nếu number là số song tố, False nếu không.
+    Returns:
+        - bool: True if the number is a twin prime, False otherwise.
 
-    Ném lỗi:
-        - NotIntegerError: Đầu vào phải là số nguyên.
+    Raises:
+        - NotIntegerError: Input must be an integer.
     """
     try:
         if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Input must be an integer")
         number = int(number)
-        return kiem_tra_so_nguyen_to(number) and kiem_tra_so_nguyen_to(
-            tong_chu_so(number)
-        )
+        return is_prime(number) and is_prime(sum_of_digits(number))
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def tao_danh_sach_so_song_to(limit):
+def generate_twin_prime_list(limit):
     """
-    Tạo danh sách các số song tố từ 0 đến limit.
+    Generate a list of twin primes from 0 to limit.
 
-    Tham số:
-        - limit (int) - Giới hạn trên của danh sách.
+    Parameters:
+        - limit (int): The upper limit of the list.
 
-    Trả lại:
-        - list: Danh sách các số song tố.
+    Returns:
+        - list: A list of twin primes.
 
-    Ném lỗi:
-        - NotIntegerError: Đầu vào phải là số nguyên.
-        - InvalidInputError: Giới hạn phải không âm.
+    Raises:
+        - NotIntegerError: Input must be an integer.
+        - InvalidInputError: Limit must be non-negative.
     """
     try:
         if not isinstance(limit, (int, float)) or not float(limit).is_integer():
-            raise NotIntegerError("Giới hạn phải là số nguyên")
+            raise NotIntegerError("Limit must be an integer")
         limit = int(limit)
         if limit < 0:
-            raise InvalidInputError("Giới hạn phải không âm")
-        return [i for i in range(limit) if kiem_tra_so_song_to(i)]
+            raise InvalidInputError("Limit must be non-negative")
+        return [i for i in range(limit) if is_twin_prime(i)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def kiem_tra_so_phong_phu(number):
+def is_abundant_number(number):
     """
-    Kiểm tra xem một số có phải là số phong phú hay không.
+    Check if a number is an abundant number.
 
-    Tham số:
-        - number (int) - Số cần kiểm tra.
+    Parameters:
+        - number (int): The number to check.
 
-    Trả lại:
-        - bool: True nếu number là số phong phú, False nếu không.
+    Returns:
+        - bool: True if the number is abundant, False otherwise.
 
-    Ném lỗi:
-        - NotIntegerError: Đầu vào phải là số nguyên.
-        - InvalidInputError: Giới hạn phải không âm.
+    Raises:
+        - NotIntegerError: Input must be an integer.
+        - InvalidInputError: Limit must be non-negative.
     """
     try:
         if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Input must be an integer")
         number = int(number)
         if number <= 0:
             return False
         return sum(i for i in range(1, number) if number % i == 0) > number
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def tao_danh_sach_so_phong_phu(limit):
+def generate_abundant_number_list(limit):
     """
-    Tạo danh sách các số phong phú từ 0 đến limit.
+    Generate a list of abundant numbers from 0 to limit.
 
-    Tham số:
-        - limit (int) - Giới hạn trên của danh sách.
+    Parameters:
+        - limit (int): The upper limit of the list.
 
-    Trả lại:
-        - list: Danh sách các số phong phú.
+    Returns:
+        - list: A list of abundant numbers.
 
-    Ném lỗi:
-        - NotIntegerError: Đầu vào phải là số nguyên.
+    Raises:
+        - NotIntegerError: Input must be an integer.
     """
     try:
         if not isinstance(limit, (int, float)) or not float(limit).is_integer():
-            raise NotIntegerError("Giới hạn phải là số nguyên")
+            raise NotIntegerError("Limit must be an integer")
         limit = int(limit)
         if limit < 0:
-            raise InvalidInputError("Giới hạn phải không âm")
-        return [i for i in range(limit) if kiem_tra_so_phong_phu(i)]
+            raise InvalidInputError("Limit must be non-negative")
+        return [i for i in range(limit) if is_abundant_number(i)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def thua_so_nguyen_to(number):
+def prime_factors(number):
     """
-    Phân tích một số thành danh sách các thừa số nguyên tố.
+    Factorize a number into a list of prime factors.
 
-    Tham số:
-        - number (int) - Số cần phân tích.
+    Parameters:
+        - number (int): The number to factorize.
 
-    Trả lại:
-        - list: Danh sách các thừa số nguyên tố.
+    Returns:
+        - list: A list of prime factors.
 
-    Ném lỗi:
-        - MathError: Nếu number không lớn hơn 1.
-        - NotIntegerError: Đầu vào phải là số nguyên.
+    Raises:
+        - MathError: If number <= 1.
+        - NotIntegerError: Input must be an integer.
     """
     try:
         if not isinstance(number, (int, float)) or not float(number).is_integer():
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Input must be an integer")
         number = int(number)
         if number <= 1:
-            raise MathError("Số phải lớn hơn 1")
+            raise MathError("Number must be greater than 1")
         factors = []
         divisor = 2
         while number > 1:
@@ -1009,211 +985,209 @@ def thua_so_nguyen_to(number):
             divisor += 1
         return factors
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def uoc_chung_nguyen_to_hai_so(number1, number2):
+def greatest_common_prime_divisor(number1, number2):
     """
-    Tìm ước chung nguyên tố lớn nhất của hai số.
+    Find the greatest common prime divisor of two numbers.
 
-    Tham số:
-        - number1 (int) - Số thứ nhất.
-        - number2 (int) - Số thứ hai.
+    Parameters:
+        - number1 (int): The first number.
+        - number2 (int): The second number.
 
-    Trả lại:
-        - int: Ước chung nguyên tố lớn nhất của number1 và number2.
+    Returns:
+        - int: The greatest common prime divisor of number1 and number2.
 
-    Ném lỗi:
-        - MathError: Nếu các số không lớn hơn 1 hoặc không có ước chung nguyên tố.
-        - NotIntegerError: Cả hai số phải là số nguyên.
+    Raises:
+        - MathError: If the numbers are not greater than 1 or have no common prime divisor.
+        - NotIntegerError: Both numbers must be integers.
     """
     try:
         if not (
             isinstance(number1, (int, float)) and isinstance(number2, (int, float))
         ) or not (float(number1).is_integer() and float(number2).is_integer()):
-            raise NotIntegerError("Cả hai số phải là số nguyên")
+            raise NotIntegerError("Both numbers must be integers")
         number1, number2 = int(number1), int(number2)
         if number1 <= 1 or number2 <= 1:
-            raise MathError("Các số phải lớn hơn 1")
-        factors1 = set(thua_so_nguyen_to(number1))
-        factors2 = set(thua_so_nguyen_to(number2))
+            raise MathError("Numbers must be greater than 1")
+        factors1 = set(prime_factors(number1))
+        factors2 = set(prime_factors(number2))
         common_factors = factors1.intersection(factors2)
         if not common_factors:
-            raise MathError("Không có ước chung nguyên tố")
+            raise MathError("No common prime divisor")
         return max(common_factors)
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-# Hàm giải phương trình
-def giai_phuong_trinh(degree, coefficients):
+# Function to solve equations
+def solve_equation(degree, coefficients):
     """
-    Giải phương trình từ bậc 1 đến bậc 10 theo hệ số.
+    Solve equations from degree 1 to degree `n` based on coefficients.
 
-    Tham số:
-        - degree (int) - Bậc của phương trình.
-        - coefficients (list) - Danh sách các hệ số của phương trình.
+    Parameters:
+        - degree (int): The degree of the equation.
+        - coefficients (list): The list of coefficients of the equation.
 
-    Trả lại:
-        - str: Kết quả nghiệm của phương trình.
+    Returns:
+        - str: The result of the equation's roots.
 
-    Ném lỗi:
-        - ImportError: Nếu numpy không được cài đặt.
-        - InvalidInputError: Nếu bậc hoặc hệ số không hợp lệ.
+    Raises:
+        - ImportError: If numpy is not installed.
+        - InvalidInputError: If the degree or coefficients are invalid.
     """
     try:
         if numpy is None:
             raise ImportError(
-                "Hàm này yêu cầu cài đặt numpy. Hãy chạy: pip install numpy"
+                "This function requires numpy. Please run: pip install numpy"
             )
         if not isinstance(degree, (int, float)) or not float(degree).is_integer():
-            raise NotIntegerError("Bậc phải là số nguyên")
+            raise NotIntegerError("Degree must be an integer")
         degree = int(degree)
-        if degree < 1 or degree > 10:
-            raise InvalidInputError("Bậc của phương trình phải từ 1 đến 10")
         if not isinstance(coefficients, (list, tuple)):
-            raise ListError("Hệ số phải là danh sách hoặc tuple")
+            raise ListError("Coefficients must be a list or tuple")
         if len(coefficients) != degree + 1:
             raise InvalidInputError(
-                f"Phương trình bậc {degree} phải có {degree + 1} hệ số"
+                f"An equation of degree {degree} must have {degree + 1} coefficients"
             )
         for coef in coefficients:
             if not isinstance(coef, (int, float)):
-                raise TypeErrorCustom("Hệ số phải là số")
+                raise TypeErrorCustom("Coefficients must be numbers")
         roots = numpy.roots(coefficients)
         real_roots = [r for r in roots if numpy.isreal(r)]
         complex_roots = [r for r in roots if not numpy.isreal(r)]
-        result = "Nghiệm của phương trình:\n"
+        result = "Roots of the equation:\n"
         if real_roots:
-            result += "\nNghiệm thực:\n" + "\n".join(
+            result += "\nReal roots:\n" + "\n".join(
                 f"x{i+1} = {r.real}" for i, r in enumerate(real_roots)
             )
         if complex_roots:
-            result += "\nNghiệm phức:\n" + "\n".join(
+            result += "\nComplex roots:\n" + "\n".join(
                 f"x{i+1} = {r}" for i, r in enumerate(complex_roots)
             )
         return (
             result.strip()
             if real_roots or complex_roots
-            else "Phương trình không có nghiệm thực hoặc phức"
+            else "The equation has no real or complex roots"
         )
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-# Các hàm xử lý danh sách và chuỗi
-def danh_sach_khong_trung_lap(items):
+# Functions for list and string processing
+def remove_duplicates(items):
     """
-    Loại bỏ phần tử trùng lặp trong danh sách.
+    Remove duplicate elements from a list.
 
-    Tham số:
-        - items (list) - Danh sách cần xử lý.
+    Parameters:
+        - items (list): The list to process.
 
-    Trả lại:
-        - list - Danh sách không có phần tử trùng lặp.
+    Returns:
+        - list: A list without duplicate elements.
 
-    Ném lỗi:
-        - ListError: Đầu vào phải là danh sách hoặc tuple.
+    Raises:
+        - ListError: Input must be a list or tuple.
     """
     try:
         if not isinstance(items, (list, tuple)):
-            raise ListError("Đầu vào phải là danh sách hoặc tuple")
+            raise ListError("Input must be a list or tuple")
         return sorted(list(set(items)), reverse=True)
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-def trich_xuat_chu_so_tu_chuoi(text):
+def extract_digits_from_string(text):
     """
-    Trích xuất chuỗi chữ số từ chuỗi. Ví dụ: "abc123" = [1,2,3].
+    Extract digits from a string. Example: "abc123" = [1,2,3].
 
-    Tham số:
-        - text (str) - Chuỗi đầu vào.
+    Parameters:
+        - text (str): The input string.
 
-    Trả lại:
-        - list: Danh sách các chữ số.
+    Returns:
+        - list: A list of digits.
 
-    Ném lỗi:
-        - InvalidInputError: nếu chuỗi rỗng.
+    Raises:
+        - InvalidInputError: If the string is empty.
     """
     try:
         if not isinstance(text, str):
-            raise TypeErrorCustom("Đầu vào phải là chuỗi")
+            raise TypeErrorCustom("Input must be a string")
         if not text:
-            raise InvalidInputError("Chuỗi không thể rỗng")
+            raise InvalidInputError("String cannot be empty")
         return [int(digit) for digit in re.findall(r"\d", text)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-def trich_xuat_so_tu_chuoi(text):
+def extract_numbers_from_string(text):
     """
-    Trích xuất chuỗi số từ chuỗi. Ví dụ: "abc123" = [123].
+    Extract numbers from a string. Example: "abc123" = [123].
 
-    Tham số:
-        - text (str) - Chuỗi đầu vào.
+    Parameters:
+        - text (str): The input string.
 
-    Trả lại:
-        - list: Danh sách các số.
+    Returns:
+        - list: A list of numbers.
 
-    Ném lỗi:
-        - InvalidInputError: nếu chuỗi rỗng.
+    Raises:
+        - InvalidInputError: If the string is empty.
     """
     try:
         if not isinstance(text, str):
-            raise TypeErrorCustom("Đầu vào phải là chuỗi")
+            raise TypeErrorCustom("Input must be a string")
         if not text:
-            raise InvalidInputError("Chuỗi không thể rỗng")
+            raise InvalidInputError("String cannot be empty")
         return [int(number) for number in re.findall(r"\d+", text)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-def trich_xuat_ki_tu(text):
+def extract_characters(text):
     """
-    Trích xuất các ký tự không phải số từ chuỗi.
+    Extract non-digit characters from a string.
 
-    Tham số:
-        - text (str) - Chuỗi đầu vào.
+    Parameters:
+        - text (str): The input string.
 
-    Trả lại:
-        - list: Danh sách các ký tự không phải số.
+    Returns:
+        - list: A list of non-digit characters.
 
-    Ném lỗi:
-        - TypeErrorCustom: Đầu vào phải là chuỗi.
-        - InvalidInputError: Chuỗi không thể rỗng.
+    Raises:
+        - TypeErrorCustom: Input must be a string.
+        - InvalidInputError: String cannot be empty.
     """
     try:
         if not isinstance(text, str):
-            raise TypeErrorCustom("Đầu vào phải là chuỗi")
+            raise TypeErrorCustom("Input must be a string")
         if not text:
-            raise InvalidInputError("Chuỗi không thể rỗng")
+            raise InvalidInputError("String cannot be empty")
         return re.findall(r"\D", text)
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-def xau_duoc_nen(text, type):
+def compress_string(text, compress_type):
     """
-    Xâu được nén thành 2 loại.
+    Compress a string into 2 types.
 
-    Tham số:
-        - text (str) - Chuỗi đầu vào.
-        - type = 1 hoặc 2. Nếu 1 thì "google" → "google", nếu 2 thì "google" → "google".
+    Parameters:
+        - text (str): The input string.
+        - compress_type (int): 1 or 2. If 1, "google" → "2ol2ge", if 2, "google" → "g2ogle".
 
-    Trả lại:
-        - str: Chuỗi đã nén.
+    Returns:
+        - str: The compressed string.
 
-    Ném lỗi:
-        - InvalidInputError: Loại nén chỉ có 1 hoặc 2.
+    Raises:
+        - InvalidInputError: Compression type must be 1 or 2.
     """
 
-    def loai_1(text):
+    def type_1(text):
         try:
             if not isinstance(text, str):
-                raise TypeErrorCustom("Đầu vào phải là chuỗi")
+                raise TypeErrorCustom("Input must be a string")
             if not text:
-                raise InvalidInputError("Chuỗi không thể rỗng")
+                raise InvalidInputError("String cannot be empty")
             sorted_chars = sorted([char for char in text], reverse=True)
             result = ""
             count = 1
@@ -1230,14 +1204,14 @@ def xau_duoc_nen(text, type):
             result += str(count) + sorted_chars[-1] if count > 1 else sorted_chars[-1]
             return result
         except (ValueError, TypeError):
-            raise TypeErrorCustom("Đầu vào không hợp lệ")
+            raise TypeErrorCustom("Invalid input")
 
-    def loai_2(text):
+    def type_2(text):
         try:
             if not isinstance(text, str):
-                raise TypeErrorCustom("Đầu vào phải là chuỗi")
+                raise TypeErrorCustom("Input must be a string")
             if not text:
-                raise InvalidInputError("Chuỗi không thể rỗng")
+                raise InvalidInputError("String cannot be empty")
             result = ""
             count = 1
             for i in range(1, len(text)):
@@ -1249,61 +1223,61 @@ def xau_duoc_nen(text, type):
             result += str(count) + text[-1] if count > 1 else text[-1]
             return result
         except (ValueError, TypeError):
-            raise TypeErrorCustom("Đầu vào không hợp lệ")
+            raise TypeErrorCustom("Invalid input")
 
-    if type == 1:
-        return loai_1(text)
-    elif type == 2:
-        return loai_2(text)
+    if compress_type == 1:
+        return type_1(text)
+    elif compress_type == 2:
+        return type_2(text)
     else:
-        raise InvalidInputError("Loại nén chỉ có 1 hoặc 2")
+        raise InvalidInputError("Compression type must be 1 or 2")
 
 
-def xau_duoc_nen_khong_ghi_so(input_text):
+def compress_string_without_numbers(input_text):
     """
-    Nén xâu bỏ số (ví dụ "hhhooccssiiinnhh" → "hocsinh").
+    Compress a string by removing numbers (e.g., "hhhoocssssiiinnnhhhhh" → "hocsinh").
 
-    Tham số:
-        - input_text (str): Chuỗi đầu vào.
+    Parameters:
+        - input_text (str): The input string.
 
-    Trả lại:
-        - str: Chuỗi đã nén.
+    Returns:
+        - str: The compressed string.
 
-    Ném lỗi:
-        - InvalidInputError: Chuỗi không thể rỗng.
+    Raises:
+        - InvalidInputError: String cannot be empty.
     """
     try:
         if not isinstance(input_text, str):
-            raise TypeErrorCustom("Đầu vào phải là chuỗi")
+            raise TypeErrorCustom("Input must be a string")
         if not input_text:
-            raise InvalidInputError("Chuỗi không thể rỗng")
+            raise InvalidInputError("String cannot be empty")
         result = input_text[0]
         for char in input_text[1:]:
             if char != result[-1]:
                 result += char
         return result
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-def xau_duoc_giai_nen(text):
+def decompress_string(text):
     """
-    Giải nén xâu (ví dụ g2ogle" → "google").
+    Decompress a string (e.g., "g2ogle" → "google").
 
-    Tham số:
-        - text (str) - Chuỗi đầu vào.
+    Parameters:
+        - text (str): The input string.
 
-    Trả lại:
-        - str: Chuỗi đã giải nén.
+    Returns:
+        - str: The decompressed string.
 
-    Ném lỗi:
-        - InvalidInputError: Nếu chuỗi rỗng.
+    Raises:
+        - InvalidInputError: If the string is empty.
     """
     try:
         if not isinstance(text, str):
-            raise TypeErrorCustom("Đầu vào phải là chuỗi")
+            raise TypeErrorCustom("Input must be a string")
         if not text:
-            raise InvalidInputError("Chuỗi không thể rỗng")
+            raise InvalidInputError("String cannot be empty")
         result = ""
         count = ""
         for char in text:
@@ -1314,27 +1288,27 @@ def xau_duoc_giai_nen(text):
                 count = ""
         return result
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc số không hợp lệ trong chuỗi")
+        raise TypeErrorCustom("Invalid input or invalid number in string")
 
 
-def xau_ki_tu_khong_trung_lap(text):
+def unique_characters_string(text):
     """
-    Tạo xâu ký tự không trùng lặp (ví dụ "google" → gole").
+    Create a string with unique characters (e.g., "google" → "gole").
 
-    Tham số:
-        - text (str) - Chuỗi đầu vào.
+    Parameters:
+        - text (str): The input string.
 
-    Trả lại:
-        - str: Chuỗi không có ký tự trùng lặp.
+    Returns:
+        - str: A string with no duplicate characters.
 
-    Ném lỗi:
-        - InvalidInputError: Nếu chuỗi rỗng.
+    Raises:
+        - InvalidInputError: If the string is empty.
     """
     try:
         if not isinstance(text, str):
-            raise TypeErrorCustom("Đầu vào phải là chuỗi")
+            raise TypeErrorCustom("Input must be a string")
         if not text:
-            raise InvalidInputError("Chuỗi không thể rỗng")
+            raise InvalidInputError("String cannot be empty")
         text = text.lower()
         unique_chars = ""
         for char in text:
@@ -1342,67 +1316,67 @@ def xau_ki_tu_khong_trung_lap(text):
                 unique_chars += char
         return unique_chars
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-# Mật mã Caesar
-def chuyen_hoa_caesar(text, shift):
+# Caesar cipher
+def caesar_cipher_to_numbers(text, shift):
     """
-    Chuyển chuỗi thành dãy số mật mã Caesar.
+    Convert a string to a list of Caesar cipher numbers.
 
-    Tham số:
-        - text (str) - Chuỗi đầu vào.
-        - shift (int) - Số bước dịch chuyển.
+    Parameters:
+        - text (str): The input string.
+        - shift (int): The shift value.
 
-    Trả lại:
-        - list: Dãy số mật mã Caesar.
+    Returns:
+        - list: A list of Caesar cipher numbers.
 
-    Ném lỗi:
-        - InvalidInputError: Nếu chuỗi rỗng, chuỗi phải chỉ chứa chữ cái.
-        - NotIntegerError: Số bước dịch chuyển phải là số nguyên.
+    Raises:
+        - InvalidInputError: If the string is empty or contains non-alphabetic characters.
+        - NotIntegerError: Shift must be an integer.
     """
     try:
         if not isinstance(text, str):
-            raise TypeErrorCustom("Đầu vào phải là chuỗi")
+            raise TypeErrorCustom("Input must be a string")
         if not isinstance(shift, (int, float)) or not float(shift).is_integer():
-            raise NotIntegerError("Số bước dịch chuyển phải là số nguyên")
+            raise NotIntegerError("Shift must be an integer")
         shift = int(shift)
         if not text:
-            raise InvalidInputError("Chuỗi không thể rỗng")
+            raise InvalidInputError("String cannot be empty")
         text = "".join([char for char in text.upper() if char != " "]).strip()
         if not text.isalpha():
-            raise InvalidInputError("Chuỗi phải chỉ chứa chữ cái")
+            raise InvalidInputError("String must contain only alphabetic characters")
         char_map = {chr(65 + i): i for i in range(26)}
         shifted_map = [(i + shift) % 26 for i in range(26)]
         return [shifted_map[char_map[char]] for char in text]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-def ma_hoa_caesar(numbers, shift):
+def caesar_cipher_from_numbers(numbers, shift):
     """
-    Mã hóa dãy số Caesar thành xâu.
+    Decode a list of Caesar cipher numbers to a string.
 
-    Tham số:
-        - numbers (list) - Dãy số đầu vào.
-        - shift (int) - Số bước dịch chuyển.
+    Parameters:
+        - numbers (list): The list of numbers.
+        - shift (int): The shift value.
 
-    Trả lại:
-        - str: Chuỗi đã mã hóa.
+    Returns:
+        - str: The decoded string.
 
-    Ném lỗi:
-        - InvalidInputError: Nếu chuỗi rỗng, các số phải là số nguyên từ 0 đến 25.
-        - ListError: Đầu vào phải là danh sách hoặc tuple.
-        - NotIntegerError: Số bước dịch chuyển phải là số nguyên.
+    Raises:
+        - InvalidInputError: If the list is empty or numbers are not integers from 0 to 25.
+        - ListError: Input must be a list or tuple.
+        - NotIntegerError: Shift must be an integer.
     """
     try:
         if not isinstance(numbers, (list, tuple)):
-            raise ListError("Đầu vào phải là danh sách hoặc tuple")
+            raise ListError("Input must be a list or tuple")
         if not isinstance(shift, (int, float)) or not float(shift).is_integer():
-            raise NotIntegerError("Số bước dịch chuyển phải là số nguyên")
+            raise NotIntegerError("Shift must be an integer")
         shift = int(shift)
         if not numbers:
-            raise InvalidInputError("Danh sách không thể rỗng")
+            raise InvalidInputError("List cannot be empty")
         for num in numbers:
             if (
                 not isinstance(num, (int, float))
@@ -1410,430 +1384,30 @@ def ma_hoa_caesar(numbers, shift):
                 or int(num) < 0
                 or int(num) > 25
             ):
-                raise InvalidInputError("Các số phải là số nguyên từ 0 đến 25")
+                raise InvalidInputError("Numbers must be integers from 0 to 25")
         char_map = {i: chr(65 + i) for i in range(26)}
         shifted_map = [(i + shift) % 26 for i in range(26)]
         reverse_map = {shifted_map[i]: i for i in range(26)}
         decoded = [reverse_map[int(num)] for num in numbers]
         return "".join([char_map[i] for i in decoded])
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
+        raise TypeErrorCustom("Invalid input")
 
 
-# Teen Code Yahoo
-def teen_code_yahoo(input_text):
+# Special calculation support functions
+def calculate_electricity_bill_Vietnamese(old_reading, new_reading):
     """
-    Chuyển xâu thành Teen Code Yahoo.
+    Calculate electricity bill.
 
-    Tham số:
-        - input_text (str) - Chuỗi đầu vào.
+    Parameters:
+        - old_reading (str): Old meter reading.
+        - new_reading (str): New meter reading.
 
-    Trả lại:
-        - str: Chuỗi Teen Code Yahoo.
-    """
-    teen_code_ya = {
-        " ": " ",
-        "a": "4",
-        "á": "4'",
-        "à": "4`",
-        "ả": "4?",
-        "ã": "4~",
-        "ạ": "4.",
-        "ă": "4",
-        "ắ": "4'",
-        "ằ": "4`",
-        "ẳ": "4?",
-        "ẵ": "4~",
-        "ặ": "4.",
-        "â": "4",
-        "ấ": "4'",
-        "ầ": "4`",
-        "ẩ": "4?",
-        "ẫ": "4~",
-        "ậ": "4.",
-        "e": "3",
-        "é": "3'",
-        "è": "3`",
-        "ẻ": "3?",
-        "ẽ": "3~",
-        "ẹ": "3.",
-        "ê": "3^",
-        "ế": "3^'",
-        "ề": "3^`",
-        "ể": "3^?",
-        "ễ": "3^~",
-        "ệ": "3^.",
-        "i": "!",
-        "í": "!'",
-        "ì": "!`",
-        "ỉ": "!?",
-        "ĩ": "!~",
-        "ị": "!.",
-        "o": "0",
-        "ó": "0'",
-        "ò": "0`",
-        "ỏ": "0?",
-        "õ": "0~",
-        "ọ": "0.",
-        "ô": "0^",
-        "ố": "0^'",
-        "ồ": "0^`",
-        "ổ": "0^?",
-        "ỗ": "0^~",
-        "ộ": "0^.",
-        "ơ": "0",
-        "ớ": "0'",
-        "ờ": "0`",
-        "ở": "0?",
-        "ỡ": "0~",
-        "ợ": "0.'",
-        "u": "⊔",
-        "ú": "⊔'",
-        "ù": "⊔`",
-        "ủ": "⊔?",
-        "ũ": "⊔~",
-        "ụ": "⊔.",
-        "ư": "⊔",
-        "ứ": "⊔'",
-        "ừ": "⊔`",
-        "ử": "⊔?",
-        "ữ": "⊔~",
-        "ự": "⊔.",
-        "y": "¥",
-        "ý": "¥'",
-        "ỳ": "¥`",
-        "ỷ": "¥?",
-        "ỹ": "¥~",
-        "ỵ": "¥.",
-        "b": "|3",
-        "c": "©",
-        "d": "|)",
-        "đ": "+)",
-        "g": "9",
-        "h": "|-|",
-        "k": "|<",
-        "l": "1",
-        "m": "|V|",
-        "n": "π",
-        "p": "|⁾",
-        "q": "⁽|",
-        "r": "Γ",
-        "s": "∫",
-        "t": "τ",
-        "v": "√",
-        "x": "⨉",
-    }
+    Returns:
+        - str: Calculation result.
 
-    try:
-        if not isinstance(input_text, str):
-            raise TypeErrorCustom("Đầu vào phải là chuỗi")
-        input_text = (str(input_text)).lower()
-        change = []
-        result = ""
-        for i in range(len(list(input_text))):
-            if input_text[i] in teen_code_ya:
-                change.append(str(teen_code_ya[input_text[i]]))
-            else:
-                change.append(input_text[i])
-        for i in change:
-            result += i
-        return result
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
-
-
-# Các hàm mô phỏng chỉ với string
-def mp_tai_xuong(steps):
-    """
-    Mô phỏng quá trình tải xuống.
-
-    Tham số:
-        steps (int): Số bước tải xuống.
-
-    Ném lỗi:
-        OutOfRangeError: Nếu steps không nằm trong phạm vi hợp lệ.
-    """
-    try:
-        if not isinstance(steps, (int, float)) or not float(steps).is_integer():
-            raise NotIntegerError("Số bước phải là số nguyên")
-        steps = int(steps)
-        if steps < 0 or steps > 88 or steps <= 1:
-            raise OutOfRangeError("Số bước phải từ 2 đến 88")
-        for i in range(steps):
-            sys.stdout.write(
-                "Dang tai xuong [{}{}] {}%\r".format(
-                    "■" * i, " " * (steps - 1 - i), (i + 1) * 100 // steps
-                )
-            )
-            sys.stdout.flush()
-            time.sleep(0.1)
-        print("\nTai xuong hoan tat!")
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
-
-
-def mp_tinh_toan(steps):
-    """
-    Mô phỏng quá trình tính toán.
-
-    Tham số:
-        steps (int): Số bước tính toán.
-
-    Ném lỗi:
-        OutOfRangeError: Nếu steps không nằm trong phạm vi hợp lệ.
-    """
-    try:
-        if not isinstance(steps, (int, float)) or not float(steps).is_integer():
-            raise NotIntegerError("Số bước phải là số nguyên")
-        steps = int(steps)
-        if steps < 0 or steps >= 88:
-            raise OutOfRangeError("Số bước phải từ 0 đến 87")
-        for i in range(steps):
-            sys.stdout.write(
-                "    AD: Dang tinh toan [{}{}] {}%\r".format(
-                    "■" * i, " " * (steps - 1 - i), (i + 1) * 100 // steps
-                )
-            )
-            sys.stdout.flush()
-            time.sleep(0.2)
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
-
-
-def mp_loading(count):
-    """
-    Mô phỏng quá trình loading.
-
-    Tham số:
-        count (int): Số lần lặp.
-    """
-    try:
-        if not isinstance(count, (int, float)) or not float(count).is_integer():
-            raise NotIntegerError("Số lần lặp phải là số nguyên")
-        count = int(count)
-        if count < 0:
-            raise InvalidInputError("Số lần lặp phải không âm")
-        sys.stdout.write("LOADING")
-        sys.stdout.flush()
-        time.sleep(0.5)
-        for _ in range(count):
-            for _ in range(3):
-                sys.stdout.write(".")
-                sys.stdout.flush()
-                time.sleep(0.4)
-            sys.stdout.write("\b\b\b   \b\b\b")
-            sys.stdout.flush()
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
-
-
-def mp_christmas_tree(type):
-    """
-    Mô phỏng cây thông giáng sinh.
-
-    Tham số:
-        - type (int) = 1 hoặc 2. Nếu 1 là cây thông cho terminal VSCode, 2 là cho văn bản text.
-
-    Trả lại:
-        None: Yêu cầu nhập chiều cao cây thông.
-    """
-
-    def loai_1():
-        try:
-            height = input("- Nhập chiều cao cây thông: ")
-            if not height.isdigit():
-                raise NotIntegerError("Chiều cao phải là số nguyên")
-            height = int(height)
-            if height <= 0:
-                raise InvalidInputError("Chiều cao phải lớn hơn 0")
-            tree = []
-            for i in range(height):
-                tree.append(" " * (height - i - 1) + "* " * (i + 1))
-            for i in range(height // 3):
-                tree.append(" " * (height - 1) + "H")
-            for line in tree:
-                print(line)
-        except (ValueError, TypeError):
-            raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
-
-    def loai_2():
-        try:
-            height = input("- Nhập chiều cao cây thông: ")
-            if not height.isdigit():
-                raise NotIntegerError("Chiều cao phải là số nguyên")
-            height = int(height)
-            if height <= 0:
-                raise InvalidInputError("Chiều cao phải lớn hơn 0")
-            tree = []
-            for i in range(height):
-                tree.append("  " * (height - i - 1) + " * " * (i + 1))
-            for i in range(height // 3):
-                tree.append("  " * (height - 1) + "H")
-            for line in tree:
-                print(line)
-        except (ValueError, TypeError):
-            raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
-
-    if type == 1:
-        return loai_1()
-    elif type == 2:
-        return loai_2()
-    else:
-        raise InvalidInputError("Loại nén chỉ có 1 hoặc 2")
-
-
-def chuong_trinh_matrix():
-    """
-    Giới thiệu:
-        - Chương trình này tạo và thao tác với ma trận ngẫu nhiên dựa trên đầu vào của người dùng.
-        - Các chức năng bao gồm:
-        - Tạo ma trận với kích thước và giá trị tối đa do người dùng chỉ định.
-        - In ma trận.
-        - Tính toán và hiển thị giá trị lớn nhất, nhỏ nhất, tổng, và trung bình của các phần tử trong ma trận.
-        - Trích xuất và hiển thị hàng hoặc cột cụ thể.
-        - Tìm kiếm một số trong ma trận và hiển thị các vị trí của nó.
-        - Lọc ma trận để chỉ hiển thị các phần tử bằng với số được tìm kiếm.
-
-    Ném lỗi:
-        - ValueError: Nếu người dùng nhập các giá trị không hợp lệ, chẳng hạn như số hàng hoặc số cột không phải là số nguyên, không dương, lớn hơn 20, hoặc nếu giá trị tối đa lớn hơn 100.
-        - IndexError: Nếu người dùng yêu cầu trích xuất hàng hoặc cột không tồn tại trong ma trận.
-    """
-
-    def tao_matrix(m, n, max_value=100):
-        if not (isinstance(m, int) and isinstance(n, int)):
-            raise ValueError("Số hàng và số cột phải là số nguyên.")
-        if m <= 0 or n <= 0:
-            raise ValueError("Số hàng và số cột phải là số nguyên dương.")
-        if m > 20 or n > 20:
-            raise ValueError("Số hàng và số cột không được lớn hơn 20.")
-        return [
-            [random.randrange(-9, max_value + 1) for _ in range(n)] for _ in range(m)
-        ]
-
-    def in_ra_matrix(matrix, title="Ma tran", align=">4"):
-        print(f"{title}:\n")
-        if not matrix or not matrix[0]:
-            print("Ma tran rong.")
-            return
-        str_matrix = [[str(elem) for elem in row] for row in matrix]
-        max_len = max(len(elem) for row in str_matrix for elem in row)
-        align = f">{max_len}"
-        for row in str_matrix:
-            print(" ".join(f"{elem:{align}}" for elem in row))
-        print()
-
-    def thong_ke_matrix(matrix):
-        flat_matrix = [elem for row in matrix for elem in row]
-        if not flat_matrix:
-            raise ValueError("Ma trận rỗng.")
-        return {
-            "max": max(flat_matrix),
-            "min": min(flat_matrix),
-            "sum": sum(flat_matrix),
-            "avg": sum(flat_matrix) / len(flat_matrix),
-        }
-
-    def lay_hang(matrix, row_index):
-        if not 0 <= row_index < len(matrix):
-            raise IndexError(
-                f"Hàng {row_index + 1} không hợp lệ (phải từ 1 đến {len(matrix)})."
-            )
-        return matrix[row_index]
-
-    def lay_cot(matrix, col_index):
-        if not 0 <= col_index < len(matrix[0]):
-            raise IndexError(
-                f"Cột {col_index + 1} không hợp lệ (phải từ 1 đến {len(matrix[0])})."
-            )
-        return [row[col_index] for row in matrix]
-
-    def tim_so(matrix, num):
-        positions = [
-            (i, j)
-            for i in range(len(matrix))
-            for j in range(len(matrix[0]))
-            if matrix[i][j] == num
-        ]
-        return positions if positions else None
-
-    def loc_matrix(matrix, num, replace_with="––"):
-        return [
-            [elem if elem == num else replace_with for elem in row] for row in matrix
-        ]
-
-    try:
-        if roman is None:
-            raise ImportError(
-                "Hàm này yêu cầu cài đặt roman. Hãy chạy: pip install roman"
-            )
-        print("=== Chuong trinh Ma tran ===")
-        m = int(input("- Nhap so hang: "))
-        n = int(input("- Nhap so cot: "))
-        max_val = int(
-            input("- Nhap gia tri toi da cho phan tu (mac dinh 100): ") or 100
-        )
-
-        if max_val > 100:
-            raise ValueError("Giá trị tối đa không được lớn hơn 100.")
-
-        matrix = tao_matrix(m, n, max_val)
-
-        for row in matrix:
-            for elem in row:
-                if elem > 100:
-                    raise ValueError("Có số lớn hơn 100 trong ma trận.")
-
-        in_ra_matrix(matrix, "- Ma tran goc")
-
-        stats = thong_ke_matrix(matrix)
-        print(f">>> Gia tri lon nhat: {stats['max']}")
-        print(f">>> Gia tri nho nhat: {stats['min']}")
-        print(f">>> Tong cac phan tu: {stats['sum']}")
-        print(f">>> Trung binh: {stats['avg']:.2f}\n")
-
-        hang_bat_ky = int(input(f"- Nhap hang can lay (1 den {m}): ")) - 1
-        row = lay_hang(matrix, hang_bat_ky)
-        print(f">>> Hang {hang_bat_ky + 1}: {row}\n")
-
-        cot_bat_ky = int(input(f"- Nhap cot can lay (1 den {n}): ")) - 1
-        column = lay_cot(matrix, cot_bat_ky)
-        print(f">>> Cot {cot_bat_ky + 1}: {column}\n")
-
-        so_n = int(input("- Nhap so can tim: "))
-        positions = tim_so(matrix, so_n)
-        if positions:
-            print(f"- So {so_n} xuat hien {len(positions)} lan trong ma tran.")
-            in_ra_matrix(loc_matrix(matrix, so_n), "- Ma tran sau khi loc")
-            print(">>> Vi tri cua so:")
-            for idx, (i, j) in enumerate(positions, 1):
-                print(f"[{roman.toRoman(idx)} - {idx}] Hang: {i + 1}, Cot: {j + 1}")
-        else:
-            print(f"- So {so_n} khong co trong ma tran.")
-
-    except ValueError as e:
-        print(f"Loi: {e}")
-    except IndexError as e:
-        print(f"Loi: {e}")
-    except Exception as e:
-        print(f"Loi khong xac dinh: {e}")
-    finally:
-        print("=== Ket thuc chuong trinh ===")
-
-
-# Hàm hỗ trợ tính toán đặc biệt
-def tinh_toan_tien_dien(old_reading, new_reading):
-    """
-    Tính toán tiền điện.
-
-    Tham số:
-        - old_reading (str) - Chỉ số cũ.
-        - new_reading (str) - Chỉ số mới.
-
-    Trả lại:
-        - str: Kết quả tính toán.
-
-    Ném lỗi:
-        - MathError: Nếu chỉ số không hợp lệ.
+    Raises:
+        - MathError: If readings are invalid.
     """
     try:
         old_val = float(old_reading)
@@ -1865,38 +1439,40 @@ def tinh_toan_tien_dien(old_reading, new_reading):
                     + 50 * 1734
                     + 50 * 1678
                 )
-            return f"- So Kwh dien tieu thu trong thang: {kwh} Kwh\n- So tien dien can tra trong thang: {total} VND"
-        raise MathError("Chi so khong hop le")
+            return f"- Electricity consumed this month: {kwh} Kwh\n- Electricity bill this month: {total} VND"
+        raise MathError("Invalid readings")
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Chỉ số phải là số hợp lệ")
+        raise TypeErrorCustom("Readings must be valid numbers")
 
 
-def tong_chu_so_lon_nhat_bang_n(digit_count, target_sum):
+def largest_number_with_digit_sum(digit_count, target_sum):
     """
-    Tìm số lớn nhất có digit_count chữ số và tổng các chữ số bằng target_sum.
+    Find the largest number with digit_count digits and sum of digits equal to target_sum.
 
-    Tham số:
-        - digit_count (int) - Số chữ số.
-        - target_sum (int) - Tổng các chữ số.
+    Parameters:
+        - digit_count (int): Number of digits.
+        - target_sum (int): Sum of digits.
 
-    Trả lại:
-        - str: Số lớn nhất thỏa mãn điều kiện.
+    Returns:
+        - str: The largest number satisfying the condition.
 
-    Ném lỗi:
-        - MathError: Nếu không thể tạo số thỏa mãn.
+    Raises:
+        - MathError: If unable to create a number that satisfies the condition.
     """
     try:
         if not (
             isinstance(digit_count, (int, float))
             and isinstance(target_sum, (int, float))
         ) or not (float(digit_count).is_integer() and float(target_sum).is_integer()):
-            raise NotIntegerError("Đầu vào phải là số nguyên")
+            raise NotIntegerError("Inputs must be integers")
         digits = abs(int(digit_count))
         total = abs(int(target_sum))
         if digits == 0 or total == 0:
             return "0"
         if total > 9 * digits:
-            raise MathError("Khong the tao so voi tong chu so lon hon 9 * so chu so")
+            raise MathError(
+                "Cannot create a number with digit sum greater than 9 * number of digits"
+            )
         result = ["9"] * (total // 9)
         if total % 9 != 0:
             result.append(str(total % 9))
@@ -1904,170 +1480,114 @@ def tong_chu_so_lon_nhat_bang_n(digit_count, target_sum):
             result.append("0")
         return "".join(result[:digits])
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def pythagore(side_a, side_b, side_c):
+# Sequence generation rules
+def generate_sequence_rule_1(number):
     """
-    Tính cạnh còn lại trong tam giác vuông.
+    Generate a sequence of positive integers based on the rule:
+    - 1 number divisible by 1,
+    - 2 numbers divisible by 2,
+    - 3 numbers divisible by 3,
+    - and so on, with increasing numbers and no duplicates.
 
-    Tham số:
-        - side_a (float or bool) - Cạnh a.
-        - side_b (float or bool) - Cạnh b.
-        - side_c (float or bool) - Cạnh c.
+    Parameters:
+        - number (int): The number of elements to generate in the sequence.
 
-    Trả lại:
-        - str: Kết quả tính toán.
-
-    Ném lỗi:
-        - MathError: Nếu đầu vào không hợp lệ.
-    """
-    try:
-        sides = [side_a, side_b, side_c]
-        false_count = sides.count(False)
-        if false_count > 1:
-            raise MathError("Chỉ được để một cạnh là False")
-        for side in sides:
-            if side is not False and (not isinstance(side, (int, float)) or side < 0):
-                raise MathError("Cạnh phải là số không âm")
-        if side_a is False:
-            if not (
-                isinstance(side_b, (int, float)) and isinstance(side_c, (int, float))
-            ):
-                raise TypeErrorCustom("Cạnh phải là số")
-            side_b, side_c = float(side_b), float(side_c)
-            if side_c < side_b:
-                raise MathError("Canh huyen phai lon hon canh goc vuong")
-            result = math.sqrt(side_c**2 - side_b**2)
-            return f"Canh goc vuong 1 = {result}"
-        elif side_b is False:
-            if not (
-                isinstance(side_a, (int, float)) and isinstance(side_c, (int, float))
-            ):
-                raise TypeErrorCustom("Cạnh phải là số")
-            side_a, side_c = float(side_a), float(side_c)
-            if side_c < side_a:
-                raise MathError("Canh huyen phai lon hon canh goc vuong")
-            result = math.sqrt(side_c**2 - side_a**2)
-            return f"Canh goc vuong 2 = {result}"
-        elif side_c is False:
-            if not (
-                isinstance(side_a, (int, float)) and isinstance(side_b, (int, float))
-            ):
-                raise TypeErrorCustom("Cạnh phải là số")
-            side_a, side_b = float(side_a), float(side_b)
-            result = math.sqrt(side_a**2 + side_b**2)
-            return f"Canh huyen = {result}"
-        raise MathError("Dau vao khong hop le")
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
-
-
-# Quy luật sinh dãy
-def tao_danh_sach_quy_luat_1(number):
-    """
-    Tạo dãy số nguyên dương theo quy luật:
-    - 1 số chia hết cho 1,
-    - 2 số chia hết cho 2,
-    - 3 số chia hết cho 3,
-    - và tiếp tục như vậy, với các số tăng dần và không trùng lặp.
-
-    Tham số:
-        - n (int) - Số lượng phần tử cần tạo trong dãy.
-
-    Trả lại:
-        - list: Danh sách n số nguyên đầu tiên của dãy.
+    Returns:
+        - list: A list of the first number integers in the sequence.
     """
     if not isinstance(number, int):
-        raise InvalidInputError("Number phải là số nguyên")
+        raise InvalidInputError("Number must be an integer")
     if number <= 1:
-        raise InvalidInputError("Number phải lớn hơn 1")
+        raise InvalidInputError("Number must be greater than 1")
 
-    def ho_tro(k):
+    def helper(k):
         if k == 1:
             return 1
-        so_can_tim = 1
-        vi_tri = 0
+        number_to_find = 1
+        position = 0
         for i in range(1, 1000):
-            so_can_tim = (so_can_tim // i + 1) * i
-            vi_tri += 1
-            if vi_tri == k:
-                return so_can_tim
+            number_to_find = (number_to_find // i + 1) * i
+            position += 1
+            if position == k:
+                return number_to_find
             for _ in range(i - 1):
-                so_can_tim += i
-                vi_tri += 1
-                if vi_tri == k:
-                    return so_can_tim
-        raise OutOfRangeError(f"Không thể tìm số thứ {k}.")
+                number_to_find += i
+                position += 1
+                if position == k:
+                    return number_to_find
+        raise OutOfRangeError(f"Cannot find the {k}-th number.")
 
-    return [ho_tro(i) for i in range(1, number + 1)]
+    return [helper(i) for i in range(1, number + 1)]
 
 
-def tao_danh_sach_quy_luat_2(base, count):
+def generate_sequence_rule_2(base, count):
     """
-    Tạo danh sách các bội của base với count phần tử.
+    Generate a list of multiples of base with count elements.
 
-    Tham số:
-        - base (int) - Số để tạo bội.
-        - count (int) - Số phần tử.
+    Parameters:
+        - base (int): The number to generate multiples.
+        - count (int): The number of elements.
 
-    Trả lại:
-        list: Danh sách các bội của base.
+    Returns:
+        - list: A list of multiples of base.
     """
     try:
         if not (
             isinstance(base, (int, float)) and isinstance(count, (int, float))
         ) or not (float(base).is_integer() and float(count).is_integer()):
-            raise NotIntegerError("Cả hai tham số phải là số nguyên")
+            raise NotIntegerError("Both parameters must be integers")
         base, count = int(base), int(count)
         if count < 0:
-            raise InvalidInputError("Số phần tử phải không âm")
+            raise InvalidInputError("Count must be non-negative")
         return [base * i for i in range(count)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-def tao_danh_sach_quy_luat_3(count, base):
+def generate_sequence_rule_3(count, base):
     """
-    Tạo danh sách lũy thừa của base từ 0 đến count.
+    Generate a list of powers of base from 0 to count.
 
-    Tham số:
-        - count (int) - Số lượng phần tử.
-        - base (int) - Cơ số.
+    Parameters:
+        - count (int): The number of elements.
+        - base (int): The base number.
 
-    Trả lại:
-        - list: Danh sách lũy thừa của base.
+    Returns:
+        - list: A list of powers of base.
     """
     try:
         if not (
             isinstance(count, (int, float)) and isinstance(base, (int, float))
         ) or not (float(count).is_integer() and float(base).is_integer()):
-            raise NotIntegerError("Cả hai tham số phải là số nguyên")
+            raise NotIntegerError("Both parameters must be integers")
         count, base = int(count), int(base)
         if count < 0:
-            raise InvalidInputError("Số lượng phải không âm")
+            raise InvalidInputError("Count must be non-negative")
         return [base**i for i in range(count)]
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input or not a number")
 
 
-# Đếm số nghịch thế
-def dem_so_nghich_the(numbers):
+# Count inversions
+def count_inversions(numbers):
     """
-    Đếm số cặp nghịch thế trong danh sách.
+    Count the number of inversions in a list.
 
-    Tham số:
-        - numbers (list) - Danh sách cần đếm.
+    Parameters:
+        - numbers (list): The list to count inversions.
 
-    Trả lại:
-        - int: Số cặp nghịch thế.
+    Returns:
+        - int: The number of inversions.
     """
     try:
         if not isinstance(numbers, (list, tuple)):
-            raise ListError("Đầu vào phải là danh sách hoặc tuple")
+            raise ListError("Input must be a list or tuple")
         for num in numbers:
             if not isinstance(num, (int, float)):
-                raise TypeErrorCustom("Phần tử phải là số")
+                raise TypeErrorCustom("Elements must be numbers")
         count = 0
         for i in range(len(numbers)):
             for j in range(i + 1, len(numbers)):
@@ -2075,107 +1595,4 @@ def dem_so_nghich_the(numbers):
                     count += 1
         return count
     except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ")
-
-
-def one_two_three():
-    """
-    Chơi kéo búa bao với A.I.
-
-    Tham số:
-        None
-
-    Trả lại:
-        None: In kết quả ra màn hình.
-
-    Hướng dẫn:
-        - Nhập số trận đấu.
-        - Nhập lựa chọn của bạn (Keo, Bua, Bao).
-    """
-    choices = {1: "Keo", 2: "Bua", 3: "Bao"}
-    human_score, ai_score = 0, 0
-    try:
-        matches = input("- Number of matches: ")
-        if not matches.isdigit():
-            raise NotIntegerError("Số trận đấu phải là số nguyên")
-        matches = int(matches)
-        if matches <= 0:
-            raise InvalidInputError("Số trận đấu phải lớn hơn 0")
-        for _ in range(matches):
-            ai_choice = choices[random.randint(1, 3)]
-            user_input = input("- User's choice: ").title()
-            print(f"- User's chosen = {user_input}, A.I's chosen = {ai_choice}")
-            if user_input not in ["Keo", "Bua", "Bao"]:
-                print(">>> ! ERROR !")
-                continue
-            if user_input == ai_choice:
-                print(">>> DRAW")
-            elif (
-                (user_input == "Keo" and ai_choice == "Bao")
-                or (user_input == "Bua" and ai_choice == "Keo")
-                or (user_input == "Bao" and ai_choice == "Bua")
-            ):
-                print(">>> USER WON")
-                human_score += 1
-            else:
-                print(">>> A.I WON")
-                ai_score += 1
-        print("- RESULT:")
-        if human_score > ai_score:
-            print(
-                f">>> User's won with {human_score} point(s), A.I's lost with {ai_score} point(s)"
-            )
-        elif ai_score > human_score:
-            print(
-                f">>> A.I's won with {ai_score} point(s), User's lost with {human_score} point(s)"
-            )
-        else:
-            print(">>> DRAW")
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
-
-
-def tao_day_chu(rows, columns, repeats):
-    """
-    Tạo dãy chữ với rows dòng, columns cột, 2 đường chéo, lặp lại repeats lần.
-
-    Tham số:
-        rows (int): Số dòng.
-        columns (int): Số cột.
-        repeats (int): Số lần lặp lại.
-
-    Trả lại:
-        None: In dãy chữ ra màn hình.
-
-    Hướng dẫn:
-        - Nhập chuỗi đầu tiên khi được yêu cầu.
-    """
-    try:
-        if not (
-            isinstance(rows, (int, float))
-            and isinstance(columns, (int, float))
-            and isinstance(repeats, (int, float))
-        ) or not (
-            float(rows).is_integer()
-            and float(columns).is_integer()
-            and float(repeats).is_integer()
-        ):
-            raise NotIntegerError("Tất cả tham số phải là số nguyên")
-        rows, columns, repeats = int(rows), int(columns), int(repeats)
-        if rows <= 0 or columns <= 0 or repeats < 0:
-            raise InvalidInputError(
-                "Số dòng, cột phải lớn hơn 0, số lần lặp phải không âm"
-            )
-        text = input("Nhap day dau tien: ")
-        if not isinstance(text, str) or not text:
-            raise InvalidInputError("Chuỗi đầu vào không thể rỗng")
-        for _ in range(repeats):
-            for _ in range(columns):
-                for _ in range(rows):
-                    print(text)
-            for i in range(rows):
-                print("  " * i + text)
-            for i in range(rows - 1, -1, -1):
-                print("  " * i + text)
-    except (ValueError, TypeError):
-        raise TypeErrorCustom("Đầu vào không hợp lệ hoặc không phải số")
+        raise TypeErrorCustom("Invalid input")

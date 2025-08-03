@@ -26,52 +26,49 @@
 ################################################################################################
 
 """
-PCHJLIB🌟
+PCHJLIB😺
 ===============================================================================
 -------------------------------------------------------------------------------
-Tác giả
+Author
 -------------------------------------------------------------------------------
-- Joesifer.
+- Joesifer
 
-Phiên bản
+Version
 -------------------------------------------------------------------------------
-- 0.1.3.2.
+- 0.1.7.
 
-Ngày đăng
+Release Date
 -------------------------------------------------------------------------------
-- Ngày 14 tháng 2, năm 2024.
+- February 14, 2024.
 
-Bản quyền
+License
 -------------------------------------------------------------------------------
-- Copyright (c) 2024 Joesifer.
+- Copyright © 2024 Joesifer
 
-Phiên bản python được hỗ trợ.
+Supported Python Version
 -------------------------------------------------------------------------------
-- Lớn hơn hoặc bằng 3.7.
+- Python 3.7 or higher.
 
-Thư viện phụ thuộc.
+Dependencies
 -------------------------------------------------------------------------------
-- math, re, sys, time (numpy, roman).
+- Built-in: `math`, `re`, `random`.
+- External: `numpy`, `roman`
 
-Giấy phép.
+License Type
 -------------------------------------------------------------------------------
-- MIT License.
+- MIT License
 
-Thông tin.
+Additional Information
 -------------------------------------------------------------------------------
 
-Nếu bạn không biết cách dùng thì hãy::
+For usage instructions, please refer to:
+  >>> [https://github.com/Joesifer/pchjlib/blob/main/README.md](https://github.com/Joesifer/pchjlib/blob/main/README.md)
 
-  >>> Truy cập: `https://github.com/Joesifer/pchjlib/blob/main/README.md`.
+Feedback and support are welcome via:
+  >>> Email: `phanchanhung12055@gmail.com`
 
-Và bạn có thể góp ý hoặc ủng hộ bằng::
-
-  >>> Gửi email : `phanchanhung12055@gmail.com` .
-
-
-CẢM ƠN!!!
+THANK YOU!!!
 ===============================================================================
-
 """
 
 import setuptools
@@ -82,9 +79,9 @@ long_description = (HERE / "README.md").read_text(encoding="utf-8")
 
 setuptools.setup(
     name="pchjlib",
-    version="0.1.6",
+    version="0.1.7",
     author="Joesifer",
-    description="Thư viện pchjlib là một bộ công cụ đa năng…",
+    description="The pchjlib library is a versatile toolkit...",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Joesifer/pchjlib",
@@ -94,11 +91,7 @@ setuptools.setup(
     package_dir={"": "src"},
     python_requires=">=3.7",
     install_requires=[],
-    extras_require={
-        "numpy": ["numpy"],
-        "roman": ["roman"],
-        "full": ["numpy", "roman"],
-    },
+    extras_require={"numpy": ["numpy"]},
     include_package_data=True,
     zip_safe=True,
     classifiers=[
