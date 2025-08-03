@@ -1,5 +1,7 @@
+#pyproject.toml
+
 [build-system]
-requires = ["setuptools>=61", "wheel"]
+requires = ["setuptools>=78.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,12 +9,9 @@ name = "pchjlib"
 version = "1.0.1"
 description = "The pchjlib library is a versatile toolkit..."
 readme = { file = "README.md", content-type = "text/markdown" }
-license = "MIT"
 license-files = ["LICENSE.txt"]
 keywords = ["pchjlib"]
-authors = [
-  { name = "Joesifer" }
-]
+authors = [{ name = "Joesifer" }]
 urls = { "Homepage" = "https://github.com/Joesifer/pchjlib" }
 classifiers = [
   "Development Status :: 5 - Production/Stable",
@@ -31,7 +30,8 @@ dependencies = []
 numpy = ["numpy"]
 
 [project.scripts]
-pchjlib = "pchjlib:main"
+pchjlib   = "pchjlib:main"
+pchj-icon = "pchjlib.icon:main"
 
 [tool.flake8]
 doctests = true
@@ -43,3 +43,9 @@ sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 known_third_party = ["six", "docutils", "pkg_resources", "pytz"]
 line_length = 80
 lines_after_imports = 2
+
+[tool.setuptools.package-data]
+pchjlib = ["logo.ico", "desktop.ini"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

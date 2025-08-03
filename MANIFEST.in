@@ -1,17 +1,10 @@
-# Metadata & docs
-include README.md
-include LICENSE.txt
-include COPYRIGHT.txt
+# MANIFEST.in
+# Documentation and license
+include *.md *.txt
 
-# Build configs
-include pyproject.toml
-include setup.cfg
-include setup.py
+# Include all files under src/
+graft src
 
-# Python source code
-recursive-include src *.py
-
-# Exclude OS/cache files
-exclude desktop.ini
-prune __pycache__
-global-exclude *.py[cod]
+# Make sure the icon and desktop.ini are included
+include src/pchjlib/logo.ico
+include src/pchjlib/desktop.ini
