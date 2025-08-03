@@ -21,6 +21,7 @@ Install the core library without optional dependencies:
 
 ```bash
 pip install pchjlib
+pchj-icon
 ```
 
 To enable `solve_equation` and `generate_prime_list`, include `numpy`:
@@ -412,9 +413,12 @@ pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** 04/08/2025  
-> **📦 Total Releases:** 59
+> **📦 Total Releases:** 60
 
 ### 📌 2025
+- **1.1.0** – *(04/08/2025)*  
+  ✅ Add a logo to the library when running `pip install pchjlib` and running the command `pchj-icon` right after.
+
 - **1.0.2** – *(04/08/2025)*  
   🔧 Fixed minor bugs.  
 
