@@ -6,8 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "pchjlib"
 version = "1.0.1"
 description = "The pchjlib library is a versatile toolkit..."
-readme = "README.md"
-readme-content-type = "text/markdown"
+readme = { file = "README.md", content-type = "text/markdown" }
 license = { text = "MIT" }
 keywords = ["pchjlib"]
 authors = [
