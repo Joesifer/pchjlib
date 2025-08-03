@@ -7,7 +7,8 @@ name = "pchjlib"
 version = "1.0.1"
 description = "The pchjlib library is a versatile toolkit..."
 readme = { file = "README.md", content-type = "text/markdown" }
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE.txt"]
 keywords = ["pchjlib"]
 authors = [
   { name = "Joesifer" }
