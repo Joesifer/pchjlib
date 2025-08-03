@@ -31,15 +31,15 @@ PCHJLIB😺
 -------------------------------------------------------------------------------
 Author
 -------------------------------------------------------------------------------
-- Joesifer
+- Joesifer.
 
 Version
 -------------------------------------------------------------------------------
-- 0.1.7.
+- 1.0.0.
 
 Release Date
 -------------------------------------------------------------------------------
-- February 14, 2024.
+- August 3, 2025.
 
 License
 -------------------------------------------------------------------------------
@@ -51,18 +51,19 @@ Supported Python Version
 
 Dependencies
 -------------------------------------------------------------------------------
-- Built-in: `math`, `re`, `random`.
-- External: `numpy`, `roman`
+- Built-in: `math`, `re`, `random`, `functools`.
+- External: `numpy` (optional for `solve_equation` and `generate_prime_list`).
+- External (plan): `gmpy2` (optional for big integer support).
 
 License Type
 -------------------------------------------------------------------------------
-- MIT License
+- MIT License.
 
 Additional Information
 -------------------------------------------------------------------------------
 
 For usage instructions, please refer to:
-  >>> [https://github.com/Joesifer/pchjlib/blob/main/README.md](https://github.com/Joesifer/pchjlib/blob/main/README.md)
+  >>> Link: https://github.com/Joesifer/pchjlib/blob/main/README.md
 
 Feedback and support are welcome via:
   >>> Email: `phanchanhung12055@gmail.com`
@@ -79,7 +80,7 @@ long_description = (HERE / "README.md").read_text(encoding="utf-8")
 
 setuptools.setup(
     name="pchjlib",
-    version="0.1.7",
+    version="1.0.0",
     author="Joesifer",
     description="The pchjlib library is a versatile toolkit...",
     long_description=long_description,
