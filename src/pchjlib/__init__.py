@@ -8,7 +8,7 @@ Author
 
 Version
 -------------------------------------------------------------------------------
-- 1.0.1.
+- 1.0.2.
 
 Release Date
 -------------------------------------------------------------------------------
@@ -46,6 +46,7 @@ THANK YOU!!!
 """
 
 from importlib.metadata import version
+
 __version__ = version("pchjlib")
 
 from .pchjlib import main
