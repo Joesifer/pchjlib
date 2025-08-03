@@ -412,9 +412,12 @@ pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** 03/08/2025  
-> **📦 Total Releases:** 57
+> **📦 Total Releases:** 58
 
 ### 📌 2025
+- **1.0.1** – *(04/08/2025)*  
+  ✅ Enhanced `main` allows for expanded function usage.
+
 - **1.0.0** – *(03/08/2025)*  
   🚀 **Major Update**:  
   - **Performance Optimization**:  

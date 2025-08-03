@@ -1,6 +1,37 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pchjlib"
+version = "1.0.1"
+description = "The pchjlib library is a versatile toolkit..."
+readme = "README.md"
+readme-content-type = "text/markdown"
+license = { text = "MIT" }
+keywords = ["pchjlib"]
+authors = [
+  { name = "Joesifer" }
+]
+urls = { "Homepage" = "https://github.com/Joesifer/pchjlib" }
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Natural Language :: Vietnamese",
+  "Operating System :: OS Independent"
+]
+requires-python = ">=3.7"
+dependencies = []
+
+[project.optional-dependencies]
+numpy = ["numpy"]
+
+[project.scripts]
+pchjlib = "pchjlib:main"
 
 [tool.flake8]
 doctests = true
@@ -8,7 +39,7 @@ doctests = true
 [tool.isort]
 force_single_line = true
 combine_as_imports = true
-sections = ["FUTURE","STDLIB","THIRDPARTY","FIRSTPARTY","LOCALFOLDER"]
-known_third_party = ["six","docutils","pkg_resources","pytz"]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_third_party = ["six", "docutils", "pkg_resources", "pytz"]
 line_length = 80
 lines_after_imports = 2
