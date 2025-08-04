@@ -35,7 +35,7 @@ Author
 
 Version
 -------------------------------------------------------------------------------
-- 1.1.3.
+- 1.1.4.
 
 Release Date
 -------------------------------------------------------------------------------
@@ -1258,7 +1258,7 @@ def generate_sequence_rule_1(number):
         - 1 number is divisible by 1,
         - 2 numbers are divisible by 2,
         - 3 numbers are divisible by 3,
-        - and so on, with increasing numbers and no duplicates.
+        - and so on, the numbers increase until the number of numbers is `number`
 
     Parameters:
         - number (int): The number of elements to generate.
@@ -1387,7 +1387,7 @@ For more options, use -h or --help with each category.
         "-v",
         "--version",
         action="version",
-        version="%(prog)s 1.1.3",
+        version="%(prog)s 1.1.4",
         help="Display the library version",
     )
 
@@ -2029,7 +2029,7 @@ For more options, use -h or --help with each category.
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.1.3!")
+        print("Welcome to pchjlib version 1.1.4!")
         print("Use -h or --help for more information.")
 
 

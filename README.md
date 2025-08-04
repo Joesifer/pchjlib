@@ -386,7 +386,7 @@ pip install pchjlib[numpy]
     - One number is divisible by **1**,
     - Two numbers are divisible by **2**,
     - Three numbers are divisible by **3**,
-    - and so on, with increasing numbers and no duplicates.
+    - and so on, the numbers increase until the number of numbers is `number`
   - **Parameter**: `number` (int)  
   - **Returns**: List of sequence numbers.  
   - **Example**: `generate_sequence_rule_1(5)` → `[1, 4, 6, 9, 12, 15, 16, 20, 24, 28]`
@@ -417,12 +417,12 @@ pip install pchjlib[numpy]
 
 ## 🛠️ Update History
 
-> **📅 Latest Update:** August 4, 2025
-> **📦 Total Releases:** 63
+> **📅 Latest Update:** August 5, 2025
+> **📦 Total Releases:** 64
 
 ### 📌 2025
 
-- **1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4, 2025)*  
+- **1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
   🔧 Fixed minor bugs.  
   ✏️ Updated README.  
   ✅ Added logo support via `pchj-icon`.  
