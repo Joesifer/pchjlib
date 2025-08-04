@@ -211,6 +211,8 @@ python -m pip install pchjlib[numpy]
 
 - **is_strong_number(number, variant=1)**  
   Checks if a number is strong based on the variant.  
+  - **`1`**: *sum of digits is prime.*  
+  - **`2`**: *has a square prime factor.*  
   - **Parameters**: `number` (int), `variant` (int)  
   - **Returns**: `True` if strong, `False` otherwise.  
   - **Raises**: `InvalidInputError` if not a non-negative integer or invalid variant.
@@ -440,11 +442,11 @@ python -m pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 5, 2025
-> **📦 Total Releases:** 71
+> **📦 Total Releases:** 72
 
 ### 📌 2025
 
-- **1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
+- **1.1.8, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
   🔧 Fixed minor bugs.  
   ✏️ Updated README.  
   ✅ Added logo support via `pchj-icon`.  
