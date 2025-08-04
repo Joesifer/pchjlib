@@ -79,6 +79,7 @@ python -m pip install pchjlib[numpy]
 - 💥 [Special Calculation Functions](#-special-calculation-functions)
 - 🔁 [Sequence Generation Functions](#-sequence-generation-functions)
 - 🔢 [Inversion Counting Functions](#-inversion-counting-functions)
+- 📋 [Sample Command List for the `pchjlib` Library](#-sample-command-list-for-the-pchjlib-library)
 - 🛠️ [Update History](#%EF%B8%8F-update-history)
 
 ---
@@ -439,17 +440,230 @@ python -m pip install pchjlib[numpy]
 
 ---
 
+## 📋 Sample Command List for the `pchjlib` Library
+
+### 1. Prime Numbers
+
+- **Check if a number is prime:**  
+  `python pchjlib.py prime --is_prime <number>`  
+  _Example:_ `python pchjlib.py prime --is_prime 17`
+
+- **Generate a list of primes:**  
+  `python pchjlib.py prime --generate_list <limit>`  
+  _Example:_ `python pchjlib.py prime --generate_list 50`
+
+- **Check if a number is an emirp:**  
+  `python pchjlib.py prime --is_emirp <number>`  
+  _Example:_ `python pchjlib.py prime --is_emirp 13`
+
+- **Generate a list of emirps:**  
+  `python pchjlib.py prime --generate_emirp_list <limit>`  
+  _Example:_ `python pchjlib.py prime --generate_emirp_list 100`
+
+- **Check if a number is a twin prime:**  
+  `python pchjlib.py prime --is_twin_prime <number>`  
+  _Example:_ `python pchjlib.py prime --is_twin_prime 5`
+
+- **Generate a list of twin primes:**  
+  `python pchjlib.py prime --generate_twin_prime_list <limit>`  
+  _Example:_ `python pchjlib.py prime --generate_twin_prime_list 50`
+
+### 2. Fibonacci Sequence
+
+- **Compute the Fibonacci number at a given index:**  
+  `python pchjlib.py fibonacci --at_index <index>`  
+  _Example:_ `python pchjlib.py fibonacci --at_index 10`
+
+- **Generate a list of Fibonacci numbers:**  
+  `python pchjlib.py fibonacci --generate_list <count>`  
+  _Example:_ `python pchjlib.py fibonacci --generate_list 5`
+
+### 3. Special Numbers
+
+- **Check if a number is perfect:**  
+  `python pchjlib.py special --is_perfect <number>`  
+  _Example:_ `python pchjlib.py special --is_perfect 28`
+
+- **Generate a list of perfect numbers:**  
+  `python pchjlib.py special --generate_perfect_list <limit>`  
+  _Example:_ `python pchjlib.py special --generate_perfect_list 1000`
+
+- **Check if a number is narcissistic:**  
+  `python pchjlib.py special --is_narcissistic <number>`  
+  _Example:_ `python pchjlib.py special --is_narcissistic 153`
+
+- **Generate a list of narcissistic numbers:**  
+  `python pchjlib.py special --generate_narcissistic_list <limit>`  
+  _Example:_ `python pchjlib.py special --generate_narcissistic_list 1000`
+
+- **Check if two numbers are amicable:**  
+  `python pchjlib.py special --are_amicable <number1> <number2>`  
+  _Example:_ `python pchjlib.py special --are_amicable 220 284`
+
+- **Check if a number is happy:**  
+  `python pchjlib.py special --is_happy <number>`  
+  _Example:_ `python pchjlib.py special --is_happy 19`
+
+- **Generate a list of happy numbers:**  
+  `python pchjlib.py special --generate_happy_list <limit>`  
+  _Example:_ `python pchjlib.py special --generate_happy_list 100`
+
+- **Check if a number is a perfect square:**  
+  `python pchjlib.py special --is_square <number>`  
+  _Example:_ `python pchjlib.py special --is_square 16`
+
+- **Generate a list of perfect squares:**  
+  `python pchjlib.py special --generate_square_list <limit>`  
+  _Example:_ `python pchjlib.py special --generate_square_list 100`
+
+- **Check if two numbers are friendly:**  
+  `python pchjlib.py special --are_friendly <number1> <number2>`  
+  _Example:_ `python pchjlib.py special --are_friendly 30 140`
+
+- **Check if a number is strong (variant 1 or 2):**  
+  `python pchjlib.py special --is_strong <number> [--variant <1 or 2>]`  
+  _Example:_ `python pchjlib.py special --is_strong 145 --variant 1`
+
+- **Check if a number is abundant:**  
+  `python pchjlib.py special --is_abundant <number>`  
+  _Example:_ `python pchjlib.py special --is_abundant 12`
+
+- **Generate a list of abundant numbers:**  
+  `python pchjlib.py special --generate_abundant_list <limit>`  
+  _Example:_ `python pchjlib.py special --generate_abundant_list 100`
+
+### 4. Divisors and Multiples
+
+- **Generate a list of divisors:**  
+  `python pchjlib.py divisors --generate_divisor_list <number>`  
+  _Example:_ `python pchjlib.py divisors --generate_divisor_list 28`
+
+- **Generate a list of multiples:**  
+  `python pchjlib.py divisors --generate_multiple_list <number> <limit>`  
+  _Example:_ `python pchjlib.py divisors --generate_multiple_list 3 20`
+
+- **Find common divisors:**  
+  `python pchjlib.py divisors --common_divisors <number1> <number2> [<number3> ...]`  
+  _Example:_ `python pchjlib.py divisors --common_divisors 12 18 24`
+
+- **Compute GCD (Greatest Common Divisor):**  
+  `python pchjlib.py divisors --gcd <number1> <number2> [<number3> ...]`  
+  _Example:_ `python pchjlib.py divisors --gcd 12 18 24`
+
+- **Compute LCM (Least Common Multiple):**  
+  `python pchjlib.py divisors --lcm <number1> <number2> [<number3> ...]`  
+  _Example:_ `python pchjlib.py divisors --lcm 4 5 6`
+
+- **Prime factorization:**  
+  `python pchjlib.py divisors --prime_factors <number>`  
+  _Example:_ `python pchjlib.py divisors --prime_factors 100`
+
+- **Greatest common prime divisor:**  
+  `python pchjlib.py divisors --greatest_common_prime_divisor <number1> <number2>`  
+  _Example:_ `python pchjlib.py divisors --greatest_common_prime_divisor 12 18`
+
+### 5. Equation Solving
+
+- **Solve a polynomial equation:**  
+  `python pchjlib.py equation --solve <degree> <coeff1> <coeff2> ... <coeffN>`  
+  _Example:_ `python pchjlib.py equation --solve 2 1 -5 6`
+
+### 6. String Processing
+
+- **Remove duplicate elements:**  
+  `python pchjlib.py string --remove_duplicates <elem1> <elem2> ...`  
+  _Example:_ `python pchjlib.py string --remove_duplicates 1 2 2 3 4 4`
+
+- **Extract digits:**  
+  `python pchjlib.py string --extract_digits "<string>"`  
+  _Example:_ `python pchjlib.py string --extract_digits "a1b2c3"`
+
+- **Extract numbers:**  
+  `python pchjlib.py string --extract_numbers "<string>"`  
+  _Example:_ `python pchjlib.py string --extract_numbers "a12b34c56"`
+
+- **Extract non-digit characters:**  
+  `python pchjlib.py string --extract_characters "<string>"`  
+  _Example:_ `python pchjlib.py string --extract_characters "a1b2c3"`
+
+- **Compress a string (type 1 or 2):**  
+  `python pchjlib.py string --compress "<string>" <compress_type>`  
+  _Example:_ `python pchjlib.py string --compress "aaabbbcc" 1`
+
+- **Compress a string without counts:**  
+  `python pchjlib.py string --compress_without_numbers "<string>"`  
+  _Example:_ `python pchjlib.py string --compress_without_numbers "aaabbbcc"`
+
+- **Decompress a string:**  
+  `python pchjlib.py string --decompress "<compressed_string>"`  
+  _Example:_ `python pchjlib.py string --decompress "a3b2c1"`
+
+- **Get unique characters in a string:**  
+  `python pchjlib.py string --unique_characters "<string>"`  
+  _Example:_ `python pchjlib.py string --unique_characters "aaabbbcc"`
+
+### 7. Caesar Cipher
+
+- **Convert text to Caesar numbers:**  
+  `python pchjlib.py caesar --to_numbers "<text>" <shift>`  
+  _Example:_ `python pchjlib.py caesar --to_numbers "abc" 3`
+
+- **Convert Caesar numbers back to text:**  
+  `python pchjlib.py caesar --from_numbers <shift> <num1> <num2> ...`  
+  _Example:_ `python pchjlib.py caesar --from_numbers 3 4 5 6`
+
+### 8. Special Calculations
+
+- **Calculate an electricity bill:**  
+  `python pchjlib.py calc --electricity_bill <old_reading> <new_reading>`  
+  _Example:_ `python pchjlib.py calc --electricity_bill 100 200`
+
+- **Find the largest number with given digits sum:**  
+  `python pchjlib.py calc --largest_number <digit_count> <digit_sum>`  
+  _Example:_ `python pchjlib.py calc --largest_number 3 15`
+
+### 9. Sequence Generation
+
+- **Generate sequence by rule 1:**  
+  `python pchjlib.py sequence --rule1 <count>`  
+  _Example:_ `python pchjlib.py sequence --rule1 5`
+
+- **Generate sequence by rule 2:**  
+  `python pchjlib.py sequence --rule2 <base> <count>`  
+  _Example:_ `python pchjlib.py sequence --rule2 2 5`
+
+- **Generate sequence by rule 3:**  
+  `python pchjlib.py sequence --rule3 <count> <base>`  
+  _Example:_ `python pchjlib.py sequence --rule3 5 2`
+
+### 10. Inversion Counting
+
+- **Count inversions in a list:**  
+  `python pchjlib.py inversion --count <elem1> <elem2> ...`  
+  _Example:_ `python pchjlib.py inversion --count 2 3 1 4`
+
+---
+
+### Note
+
+- Replace `<...>` with actual values when running the command.  
+- Make sure to execute commands in the directory containing `pchjlib.py`.  
+- For detailed help on any category, run `python pchjlib.py <category> -h`.
+
+---
+
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 5, 2025
-> **📦 Total Releases:** 72
+> **📦 Total Releases:** 73
 
 ### 📌 2025
 
-- **1.1.8, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
+- **1.2.0, 1.1.8, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
   🔧 Fixed minor bugs.  
   ✏️ Updated README.  
   ✅ Added logo support via `pchj-icon`.  
+  ✅ Added *Sample **Command List** for the `pchjlib` Library.*  
   ✅ Enhanced `main` for expanded functions.
   ❌ Removed `tao_day_chu`, `uoc_chung_cua_danh_sach`, `abundant_number_check`, `xau_ki_tu_khong_trung_lap`  
 

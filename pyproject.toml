@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pchjlib"
-version = "1.1.8"
+version = "1.2.0"
 description = "The pchjlib library is a versatile toolkit..."
 readme = { file = "README.md", content-type = "text/markdown" }
 license-files = ["LICENSE.txt"]
