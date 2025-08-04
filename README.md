@@ -44,20 +44,20 @@ pip install pchjlib[numpy]
 
 ## 📚 Table of Contents
 
-- 🔢 [Prime and Related Number Functions](#prime-and-related-number-functions)
-- 🌀 [Fibonacci Functions](#fibonacci-functions)
-- 🧠 [Perfect, Narcissistic, Amicable, and Happy Number Functions](#perfect-narcissistic-amicable-and-happy-number-functions)
-- 📐 [Square, Strong, and Friendly Number Functions](#square-strong-and-friendly-number-functions)
-- 📊 [Divisor and Multiple Functions](#divisor-and-multiple-functions)
-- 👯 [Twin Prime and Abundant Number Functions](#twin-prime-and-abundant-number-functions)
-- 🔍 [Prime Factorization Functions](#prime-factorization-functions)
-- 🧮 [Equation Solving Functions](#equation-solving-functions)
-- 🧵 [List and String Processing Functions](#list-and-string-processing-functions)
-- 🏛️ [Caesar Cipher Functions](#caesar-cipher-functions)
-- 💥 [Special Calculation Functions](#special-calculation-functions)
-- 🔁 [Sequence Generation Functions](#sequence-generation-functions)
-- 🔢 [Inversion Counting Functions](#inversion-counting-functions)
-- 🛠️ [Update History](#update-history)
+- 🔢 [Prime and Related Number Functions](#-prime-and-related-number-functions)
+- 🌀 [Fibonacci Functions](#-fibonacci-functions)
+- 🧠 [Perfect, Narcissistic, Amicable, and Happy Number Functions](#-perfect-narcissistic-amicable-and-happy-number-functions)
+- 📐 [Square, Strong, and Friendly Number Functions](#-square-strong-and-friendly-number-functions)
+- 📊 [Divisor and Multiple Functions](#-divisor-and-multiple-functions)
+- 👯 [Twin Prime and Abundant Number Functions](#-twin-prime-and-abundant-number-functions)
+- 🔍 [Prime Factorization Functions](#-prime-factorization-functions)
+- 🧮 [Equation Solving Functions](#-equation-solving-functions)
+- 🧵 [List and String Processing Functions](#-list-and-string-processing-functions)
+- 🏛️ [Caesar Cipher Functions](#%EF%B8%8F-caesar-cipher-functions)
+- 💥 [Special Calculation Functions](#-special-calculation-functions)
+- 🔁 [Sequence Generation Functions](#-sequence-generation-functions)
+- 🔢 [Inversion Counting Functions](#-inversion-counting-functions)
+- 🛠️ [Update History](#%EF%B8%8F-update-history)
 
 ---
 
@@ -418,11 +418,11 @@ pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 4, 2025
-> **📦 Total Releases:** 62
+> **📦 Total Releases:** 63
 
 ### 📌 2025
 
-- **1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4, 2025)*  
+- **1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4, 2025)*  
   🔧 Fixed minor bugs.  
   ✏️ Updated README.  
   ✅ Added logo support via `pchj-icon`.  

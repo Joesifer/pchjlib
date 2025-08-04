@@ -8,7 +8,7 @@ Author
 
 Version
 -------------------------------------------------------------------------------
-- 1.1.2.
+- 1.1.3.
 
 Release Date
 -------------------------------------------------------------------------------
@@ -46,6 +46,8 @@ THANK YOU!!!
 
 from importlib.metadata import version
 
+__author__ = "Joesifer (phanchanhung12055@gmail.com)"
+__copyright__ = "Copyright (c) 2024 Joesifer"
 __version__ = version("pchjlib")
 
 from .pchjlib import main

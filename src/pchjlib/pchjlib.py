@@ -35,7 +35,7 @@ Author
 
 Version
 -------------------------------------------------------------------------------
-- 1.1.2.
+- 1.1.3.
 
 Release Date
 -------------------------------------------------------------------------------
@@ -74,9 +74,6 @@ THANK YOU!!!
 
 import math, random, re, argparse
 from functools import lru_cache
-
-__author__ = "Joesifer (phanchanhung12055@gmail.com)"
-__copyright__ = "Copyright (c) 2024 Joesifer"
 
 
 # Custom exception classes
@@ -1390,7 +1387,7 @@ For more options, use -h or --help with each category.
         "-v",
         "--version",
         action="version",
-        version="%(prog)s 1.1.2",
+        version="%(prog)s 1.1.3",
         help="Display the library version",
     )
 
@@ -2032,7 +2029,7 @@ For more options, use -h or --help with each category.
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.1.2!")
+        print("Welcome to pchjlib version 1.1.3!")
         print("Use -h or --help for more information.")
 
 
