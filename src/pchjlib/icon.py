@@ -4,13 +4,13 @@ from pathlib import Path
 
 def main():
     if sys.platform != "win32":
-        print("Tính năng này chỉ chạy trên Windows.")
+        print("This feature only runs on Windows.")
         sys.exit(1)
 
     pkg = importlib.import_module("pchjlib")
     file_path = getattr(pkg, "__file__", None)
     if not file_path:
-        print("Không xác định được đường dẫn gói pchjlib.")
+        print("Package path not determined.")
         sys.exit(1)
 
     pkg_dir = Path(file_path).parent

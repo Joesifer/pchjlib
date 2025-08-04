@@ -35,11 +35,11 @@ Author
 
 Version
 -------------------------------------------------------------------------------
-- 1.1.1.
+- 1.1.2.
 
 Release Date
 -------------------------------------------------------------------------------
-- February 14th, 2024.
+- February 14, 2024.
 
 License
 -------------------------------------------------------------------------------
@@ -127,12 +127,6 @@ try:
     import numpy
 except ImportError:
     numpy = None
-
-try:
-    __plan__ = "Prepared support for big integers using gmpy2 to handle numbers exceeding Python's int limits (to be fully implemented in future releases)."
-    import gmpy2
-except ImportError:
-    gmpy2 = None
 
 
 # Functions to check prime numbers and related numbers
@@ -1263,7 +1257,11 @@ def largest_number_with_digit_sum(digit_count, target_sum):
 # Sequence generation rules
 def generate_sequence_rule_1(number):
     """
-    Generate a sequence based on a specific rule.
+    Generate a sequence of positive integers according to the rule:
+        - 1 number is divisible by 1,
+        - 2 numbers are divisible by 2,
+        - 3 numbers are divisible by 3,
+        - and so on, with increasing numbers and no duplicates.
 
     Parameters:
         - number (int): The number of elements to generate.
@@ -1276,14 +1274,27 @@ def generate_sequence_rule_1(number):
     """
     if not isinstance(number, int):
         raise InvalidInputError("Number must be an integer")
-    if number < 1:
-        raise InvalidInputError("Number must be positive")
-    result = []
-    current = 1
-    for i in range(1, number + 1):
-        result.append(current)
-        current += i
-    return result
+    if number <= 1:
+        raise InvalidInputError("Number must be greater than 1")
+
+    def helper(k):
+        if k == 1:
+            return 1
+        number_to_find = 1
+        position = 0
+        for i in range(1, 1000):
+            number_to_find = (number_to_find // i + 1) * i
+            position += 1
+            if position == k:
+                return number_to_find
+            for _ in range(i - 1):
+                number_to_find += i
+                position += 1
+                if position == k:
+                    return number_to_find
+        raise OutOfRangeError(f"Cannot find the {k}-th number.")
+
+    return [helper(i) for i in range(1, number + 1)]
 
 
 def generate_sequence_rule_2(base, count):
@@ -1379,7 +1390,7 @@ For more options, use -h or --help with each category.
         "-v",
         "--version",
         action="version",
-        version="%(prog)s 1.1.1",
+        version="%(prog)s 1.1.2",
         help="Display the library version",
     )
 
@@ -2021,7 +2032,7 @@ For more options, use -h or --help with each category.
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.1.1!")
+        print("Welcome to pchjlib version 1.1.2!")
         print("Use -h or --help for more information.")
 
 

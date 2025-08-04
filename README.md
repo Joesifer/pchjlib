@@ -375,17 +375,21 @@ pip install pchjlib[numpy]
   Finds the largest number with `digit_count` digits summing to `target_sum`.  
   - **Parameters**: `digit_count` (int), `target_sum` (int)  
   - **Returns**: Largest number as a string.  
-  - **Example**: `largest_number_with_digit_sum(3, 5)` → `"500"`
+  - **Example**: `largest_number_with_digit_sum(20, 100)` → `"99999999999100000000"`
 
 ---
 
 ### 🔁 Sequence Generation Functions
 
 - **generate_sequence_rule_1(number)**  
-  Generates a sequence based on a specific rule.  
+  Generate a sequence of positive integers according to the rule:
+    - One number is divisible by **1**,
+    - Two numbers are divisible by **2**,
+    - Three numbers are divisible by **3**,
+    - and so on, with increasing numbers and no duplicates.
   - **Parameter**: `number` (int)  
   - **Returns**: List of sequence numbers.  
-  - **Example**: `generate_sequence_rule_1(5)` → `[1, 3, 6, 10, 15]`
+  - **Example**: `generate_sequence_rule_1(5)` → `[1, 4, 6, 9, 12, 15, 16, 20, 24, 28]`
 
 - **generate_sequence_rule_2(base, count)**  
   Generates `count` multiples of `base`.  
@@ -407,224 +411,115 @@ pip install pchjlib[numpy]
   Counts the number of inversions in a list.  
   - **Parameter**: `numbers` (list)  
   - **Returns**: Number of inversions.  
-  - **Example**: `count_inversions([3, 1, 2])` → `1`
+  - **Example**: `count_inversions([12, 45, 64, 25, 23])` → `5`
 
 ---
 
 ## 🛠️ Update History
 
-> **📅 Latest Update:** 04/08/2025  
-> **📦 Total Releases:** 61
+> **📅 Latest Update:** August 4, 2025
+> **📦 Total Releases:** 62
 
 ### 📌 2025
-- **1.1.1** – *(04/08/2025)*  
+
+- **1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4, 2025)*  
   🔧 Fixed minor bugs.  
+  ✏️ Updated README.  
+  ✅ Added logo support via `pchj-icon`.  
+  ✅ Enhanced `main` for expanded functions.
 
-- **1.1.0** – *(04/08/2025)*  
-  ✅ Add a logo to the library when running `pip install pchjlib` and running the command `pchj-icon` right after.
+### 🎉 BIG UPDATE
 
-- **1.0.2** – *(04/08/2025)*  
-  🔧 Fixed minor bugs.  
+- **1.0.0, 0.1.7, 0.1.6, 0.1.5.2, 0.1.5.1** – *(August 3, 2025)*  
+  🚀 Major performance, error handling, docs, and testing overhaul  
+  - Caching `fibonacci_at_index`, optimized `is_emirp` & `is_strong_number`  
+  - Specific error messages & boundary checks  
+  - Complex examples for `solve_equation` & string functions  
+  - Unit tests for all core functions  
+  - README enhancements: detailed examples, better install, removed deprecated refs  
+  ❌ Removed unused functions from README not present in code: `teen_code_yahoo`, `mp_tai_xuong`, `mp_tinh_toan`, `mp_loading`, `mp_christmas_tree`, `chuong_trinh_matrix`, `one_two_three`, `pythagore`, `kiem_tra_so_hoan_hao`, `tao_danh_sach_so_hoan_hao`  
+  ✅ Switched README to English  
+  ✅ Enhanced `solve_equation`, `generate_sequence_rule_1`  
+  ✅ Improved `generate_multiple_list`, `greatest_common_divisor`  
 
-- **1.0.1** – *(04/08/2025)*  
-  ✅ Enhanced `main` allows for expanded function usage.
+- **0.1.5, 0.1.4.2, 0.1.4.1, 0.1.4** – *(August 2, 2025)*  
+  ❌ Removed `chuyen_doi_so_la_ma`  
+  🔧 Fixed & updated `chuong_trinh_matrix`  
+  ✅ Added negative divisor/multiple options  
+  🔧 Fixed `common_divisors`  
+  ❌ Removed extra functions  
+  ✅ Merged string compression functions
 
-- **1.0.0** – *(03/08/2025)*  
-  🚀 **Major Update**:  
-  - **Performance Optimization**:  
-    - Added caching to `fibonacci_at_index` to improve speed for large indices.  
-    - Optimized `is_emirp` by using arithmetic operations instead of string conversion.  
-    - Reduced complexity of `is_strong_number` (variant = 2) by checking only necessary prime factors.
-  - **Improved Error Handling**:
-    - More specific error messages (e.g., "Input must be a positive integer" instead of generic "Invalid input").
-    - Enhanced boundary checks across all functions for robustness.
-  - **Documentation Updates**:
-    - Added complex examples for `solve_equation` (e.g., solving quadratic equations with real and complex roots) and string processing functions (e.g., compressing/decompressing strings).
-    - Provided clear guidance on using the library without `numpy` (e.g., skipping `solve_equation` and `generate_prime_list`).
-  - **Unit Testing**:
-    - Implemented unit tests to ensure function correctness and detect bugs early during updates.
-  - **Feature Expansion**:
-    - Prepared support for big integers using `gmpy2` to handle numbers exceeding Python's int limits (to be fully implemented in future releases).
-    - Added groundwork for advanced algorithms like Mersenne prime detection and Carmichael number identification (planned for future updates).
-  - **README Enhancements**:
-    - Updated with detailed examples and improved installation instructions.
-    - Removed references to deprecated functions for clarity.
+- **0.1.3.2, 0.1.3.1, 0.1.3, 0.1.2.1, 0.1.2** – *(August 1, 2025)*  
+  🔧 Minor bug fixes  
+  ✅ Consolidated strong-number logic  
+  ⚡ Fibonacci & primes optimizations  
+  📚 Added type hints, docstrings, validation, error docs
 
-- **0.1.7** – *(03/08/2025)*  
-  ❌ Removed unused functions from README not present in code: `teen_code_yahoo`, `mp_tai_xuong`, `mp_tinh_toan`, `mp_loading`, `mp_christmas_tree`, `chuong_trinh_matrix`, `one_two_three`, `pythagore`, `kiem_tra_so_hoan_hao`, `tao_danh_sach_so_hoan_hao`.
-  ✅ Using English for README.
-  ✅ Enhanced solve_equation to handle equations of arbitrary degree.
+- **0.1.1.3, 0.1.1.2, 0.1.1.1, 0.1.1, 0.1.0.7** – *(July 31, 2025)*  
+  ✏️ README updates  
+  🔧 Bug fixes, updated `numpy` & `roman` deps
 
-- **0.1.6** – *(03/08/2025)*  
-  ✅ Updated `generate_sequence_rule_1`.  
+- **0.1.0.6 – 0.1.0.3** – *(July 28–30, 2025)*  
+  🔧 Bug fixes
 
-- **0.1.5.2** – *(03/08/2025)*  
-  ✅ Enhanced `generate_multiple_list` with multiplication limit and negative multiples support.  
+- **0.1.0.2, 0.1.0.1, 0.1.0** – *(July 28, 2025)*  
+  🔧 Minor content fixes  
+  ❌ Removed several legacy functions  
+  🧹 Complete code overhaul
 
-- **0.1.5.1** – *(03/08/2025)*  
-  ✅ Extended `greatest_common_divisor` to handle zero.  
+#### 🔵 0.0.5.x — Minor Tweaks
 
-- **0.1.5** – *(02/08/2025)*  
-  ❌ Removed `chuyen_doi_so_la_ma`.  
+- **0.0.5.2.1, 0.0.5.2** – *(July 27, 2025)*  
+  ✏️ README fixes
 
-- **0.1.4.2** – *(02/08/2025)*  
-  🔧 Fixed bug in `chuong_trinh_matrix`.  
+- **0.0.5.1** – *(July 27, 2025)*  
+  🆕 Updated `teen_code_yahoo`
 
-- **0.1.4.1** – *(02/08/2025)*  
-  ✅ Updated `chuong_trinh_matrix`.  
-
-- **0.1.4** – *(02/08/2025)*  
-  ✅ Added negative divisor/multiple options to `generate_multiple_list` and `generate_divisor_list`.  
-  🔧 Fixed `common_divisors`.  
-  ❌ Removed `greatest_common_divisor`, `trich_xuat_cac_so_tu_so`.  
-  ✅ Merged two string compression functions into one.  
-
-- **0.1.3.2** – *(01/08/2025)*  
-  🔧 Fixed minor bugs.  
-
-- **0.1.3.1** – *(01/08/2025)*  
-  🔧 Fixed minor bugs.  
-
-- **0.1.3** – *(01/08/2025)*  
-  ✅ Consolidated two strong number functions into one.  
-  ⚡ Optimized Fibonacci with caching.  
-  📚 Added type hints and NumPy-style docstrings.  
-
-- **0.1.2.1** – *(01/08/2025)*  
-  🔧 Fixed minor bugs.  
-
-- **0.1.2** – *(01/08/2025)*  
-  ✅ Improved input validation consistency.  
-  ⚡ Optimized Fibonacci and prime number performance.  
-  📚 Expanded documentation with expected errors.  
-
-- **0.1.1.3** – *(31/07/2025)*  
-  🔧 Updated README.  
-
-- **0.1.1.2** – *(31/07/2025)*  
-  🔧 Updated README.  
-
-- **0.1.1.1** – *(31/07/2025)*  
-  🔧 Fixed display bug.  
-
-- **0.1.1** – *(31/07/2025)*  
-  🔧 Fixed bugs and updated dependencies for `numpy` and `roman`.  
-
-- **0.1.0.7** – *(31/07/2025)*  
-  🔧 Fixed bugs.  
-
-- **0.1.0.6** – *(30/07/2025)*  
-  🔧 Minor Python version support adjustments.  
-
-- **0.1.0.5** – *(29/07/2025)*  
-  🔧 Fixed bugs.  
-
-- **0.1.0.4** – *(28/07/2025)*  
-  🔧 Fixed bugs.  
-
-- **0.1.0.3** – *(28/07/2025)*  
-  ✏️ Revised README.  
-
-- **0.1.0.2** – *(28/07/2025)*  
-  ❌ Removed `thua_so_nguyen_to_day_du`.  
-
-- **0.1.0.1** – *(28/07/2025)*  
-  🔧 Fixed minor content bugs.  
-
-- **0.1.0** – *(28/07/2025)*  
-  🧹 Complete overhaul.  
-  ❌ Removed `giai_pt_bac_1va2_dang_string`, `tinh_toan_vat_ly_8`.  
-
-#### 🔵 0.0.5.x — Minor Tweaks and Updates
-
-- **0.0.5.2.1** – *(27/07/2025)*  
-  ✏️ Fixed README.  
-
-- **0.0.5.2** – *(27/07/2025)*  
-  ✏️ Fixed README.  
-
-- **0.0.5.1** – *(27/07/2025)*  
-  🆕 Updated `teen_code_yahoo`.  
-
-- **0.0.5.0** – *(26/07/2025)*  
-  ❌ Removed `an_ky_tu`.  
+- **0.0.5.0** – *(July 26, 2025)*  
+  ❌ Removed `an_ky_tu`
 
 ---
 
 ### 📌 2024
 
-- **0.0.4.1** – *(17/10/2024)*  
-  🆕 Added `tạo_dãy_chữ`.  
-  🔄 Updated `one_two_three`.  
+- **0.0.4.1** – *(October 17, 2024)*  
+  🆕 Added `tao_day_chu`  
+  🔄 Updated `one_two_three`
 
-- **0.0.4.0** – *(05/05/2024)*  
-  ✏️ Fixed README.  
+- **0.0.4.0, 0.0.3.9** – *(May 5, 2024)*  
+  ✏️ README fixes
 
-- **0.0.3.9** – *(05/05/2024)*  
-  ✏️ Fixed README.  
+- **0.0.3.8, 0.0.3.7** – *(May 4–5, 2024)*  
+  🎄 Updated `mp_christmas_tree` variants
 
-- **0.0.3.8** – *(05/05/2024)*  
-  🎄 Updated `mp_christmas_tree_cho_VSCode` and `mp_christmas_tree_cho_TEXT`.  
+- **0.0.3.6, 0.0.3.5** – *(March 1–3, 2024)*  
+  🧪 Testing phase
 
-- **0.0.3.7** – *(04/05/2024)*  
-  🎄 Updated `mp_christmas_tree`.  
+- **0.0.3.4** – *(February 26, 2024)*  
+  ➕ Added `uoc_chung_cua_danh_sach`
 
-- **0.0.3.6** – *(03/03/2024)*  
-  🧪 Testing phase.  
+- **0.0.3.3 – 0.0.3** – *(February 20–21, 2024)*  
+  🔧 README & metadata enhancements  
+  ➕ Abundant number check  
+  ➕ `xau_ki_tu_khong_trung_lap`  
+  ❌ Removed `ki_tu_trung_lap`
 
-- **0.0.3.5** – *(01/03/2024)*  
-  🧪 Testing phase.  
+- **0.0.2.10 – 0.0.2.7** – *(February 18–19, 2024)*  
+  🔧 README updates  
+  🧪 Testing
 
-- **0.0.3.4** – *(26/02/2024)*  
-  ➕ Added `uoc_chung_cua_danh_sach`.  
+- **0.0.2.6** – *(February 18, 2024)*  
+  ⚖️ Switched to MIT License
 
-- **0.0.3.3** – *(21/02/2024)*  
-  🔧 Enhanced README and library metadata.  
+- **0.0.2.5 – 0.0.2.1** – *(February 14–18, 2024)*  
+  🔧 README & tests
 
-- **0.0.3.2** – *(20/02/2024)*  
-  ➕ Added abundant number check.  
+- **0.0.2 – 0.0.1** – *(February 14, 2024)*  
+  🐞 Fixed dependencies  
+  🧪 Testing
 
-- **0.0.3.1** – *(20/02/2024)*  
-  🔧 Enhanced library information.  
-
-- **0.0.3** – *(20/02/2024)*  
-  ➕ Added `xau_ki_tu_khong_trung_lap`.  
-  ❌ Removed `ki_tu_trung_lap`.  
-
-- **0.0.2.10** – *(19/02/2024)*  
-  🔧 Enhanced README.  
-
-- **0.0.2.9** – *(19/02/2024)*  
-  🧪 Testing phase.  
-
-- **0.0.2.8** – *(19/02/2024)*  
-  🧪 Testing phase.  
-
-- **0.0.2.7** – *(18/02/2024)*  
-  🔧 Enhanced README.  
-
-- **0.0.2.6** – *(18/02/2024)*  
-  ⚖️ Switched to **MIT License**.  
-
-- **0.0.2.4** → **0.0.2.5** – *(18/02/2024)*  
-  🔧 Enhanced README.  
-
-- **0.0.2.3** – *(18/02/2024)*  
-  🧪 Testing phase.  
-
-- **0.0.2.1** → **0.0.2.2** – *(14/02/2024)*  
-  🧪 Testing phase.  
-
-- **0.0.2** – *(14/02/2024)*  
-  🐞 Fixed missing dependency.  
-
-- **0.0.1.1** → **0.0.1.2** – *(14/02/2024)*  
-  🧪 Testing phase.  
-
-- **0.0.1** – *(14/02/2024)*  
-  🎉 Initial release!  
-
-- **0.0.0.1** – *(14/02/2024)*  
-  🧪 Testing phase.  
+- **0.0.0.1** – *(February 14, 2024)*  
+  🎉 Initial release!
 
 ---
