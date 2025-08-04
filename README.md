@@ -418,11 +418,11 @@ pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 5, 2025
-> **📦 Total Releases:** 64
+> **📦 Total Releases:** 69
 
 ### 📌 2025
 
-- **1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
+- **1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
   🔧 Fixed minor bugs.  
   ✏️ Updated README.  
   ✅ Added logo support via `pchj-icon`.  
