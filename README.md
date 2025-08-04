@@ -13,22 +13,44 @@
 
 - **Python**: >= 3.7
 - **numpy**: Optional for `solve_equation` and `generate_prime_list`. Install via `pip install pchjlib[numpy]` or `pip install numpy`.
-- **gmpy2**: Optional for big integer support in future features.
+- **gmpy2 (plan)**: Optional for big integer support in future features.
 
 ## 🛠️ Installation
 
-Install the core library without optional dependencies:
+🚀 Install the core library without optional dependencies.
 
-**Note**: *Run `pchj-icon` to download icon (logo) for the library in `site-pakages`.*
+> 💡 **Note:** To download the icon (logo) to your `site-packages` folder, run `pchj-icon`.
+
+### 🔧 Option 1: Install from GitHub (development version)
+
 ```bash
-pip install pchjlib
+python -m pip install git+https://github.com/Joesifer/pchjlib.git
+```
+
+🔄 Then run:
+
+```bash
 pchj-icon
 ```
 
-To enable `solve_equation` and `generate_prime_list`, include `numpy`:
+### 📦 Option 2: Install from PyPI (stable release)
 
 ```bash
-pip install pchjlib[numpy]
+python -m pip install pchjlib
+```
+
+🔄 Then run:
+
+```bash
+pchj-icon
+```
+
+### 🌟 Optional: Enable additional features
+
+To activate `solve_equation` and `generate_prime_list`, install with the NumPy extra:
+
+```bash
+python -m pip install pchjlib[numpy]
 ```
 
 ---
@@ -418,15 +440,16 @@ pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 5, 2025
-> **📦 Total Releases:** 70
+> **📦 Total Releases:** 71
 
 ### 📌 2025
 
-- **1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
+- **1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
   🔧 Fixed minor bugs.  
   ✏️ Updated README.  
   ✅ Added logo support via `pchj-icon`.  
   ✅ Enhanced `main` for expanded functions.
+  ❌ Removed `tao_day_chu`, `uoc_chung_cua_danh_sach`, `abundant_number_check`, `xau_ki_tu_khong_trung_lap`  
 
 ### 🎉 BIG UPDATE
 
@@ -437,7 +460,7 @@ pip install pchjlib[numpy]
   - Complex examples for `solve_equation` & string functions  
   - Unit tests for all core functions  
   - README enhancements: detailed examples, better install, removed deprecated refs  
-  ❌ Removed unused functions from README not present in code: `teen_code_yahoo`, `mp_tai_xuong`, `mp_tinh_toan`, `mp_loading`, `mp_christmas_tree`, `chuong_trinh_matrix`, `one_two_three`, `pythagore`, `kiem_tra_so_hoan_hao`, `tao_danh_sach_so_hoan_hao`  
+  ❌ Removed unused functions: `teen_code_yahoo`, `mp_tai_xuong`, `mp_tinh_toan`, `mp_loading`, `mp_christmas_tree`, `chuong_trinh_matrix`, `one_two_three`, `pythagore`, `kiem_tra_so_hoan_hao`, `tao_danh_sach_so_hoan_hao`  
   ✅ Switched README to English  
   ✅ Enhanced `solve_equation`, `generate_sequence_rule_1`  
   ✅ Improved `generate_multiple_list`, `greatest_common_divisor`  
