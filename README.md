@@ -19,6 +19,7 @@
 
 Install the core library without optional dependencies:
 
+**Note**: *Run `pchj-icon` to download icon (logo) for the library in `site-pakages`.*
 ```bash
 pip install pchjlib
 pchj-icon
@@ -413,9 +414,12 @@ pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** 04/08/2025  
-> **📦 Total Releases:** 60
+> **📦 Total Releases:** 61
 
 ### 📌 2025
+- **1.1.1** – *(04/08/2025)*  
+  🔧 Fixed minor bugs.  
+
 - **1.1.0** – *(04/08/2025)*  
   ✅ Add a logo to the library when running `pip install pchjlib` and running the command `pchj-icon` right after.
 
@@ -434,15 +438,15 @@ pip install pchjlib[numpy]
   - **Improved Error Handling**:
     - More specific error messages (e.g., "Input must be a positive integer" instead of generic "Invalid input").
     - Enhanced boundary checks across all functions for robustness.
-  **Documentation Updates**:
+  - **Documentation Updates**:
     - Added complex examples for `solve_equation` (e.g., solving quadratic equations with real and complex roots) and string processing functions (e.g., compressing/decompressing strings).
     - Provided clear guidance on using the library without `numpy` (e.g., skipping `solve_equation` and `generate_prime_list`).
-  **Unit Testing**:
+  - **Unit Testing**:
     - Implemented unit tests to ensure function correctness and detect bugs early during updates.
-  **Feature Expansion**:
+  - **Feature Expansion**:
     - Prepared support for big integers using `gmpy2` to handle numbers exceeding Python's int limits (to be fully implemented in future releases).
     - Added groundwork for advanced algorithms like Mersenne prime detection and Carmichael number identification (planned for future updates).
-  **README Enhancements**:
+  - **README Enhancements**:
     - Updated with detailed examples and improved installation instructions.
     - Removed references to deprecated functions for clarity.
 
