@@ -655,12 +655,12 @@ python -m pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 5, 2025
-> **📦 Total Releases:** 75
+> **📦 Total Releases:** 82
 
 
 ## 📌 2025
 
-### 1.2.2 → 1.0.1 (August 4–5, 2025)
+### 1.2.3 → 1.0.1 (August 4–5, 2025)
 
 - ❌ Removed functions  
   - `tao_day_chu`  
