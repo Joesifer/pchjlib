@@ -19,7 +19,7 @@
 
 🚀 Install the core library without optional dependencies.
 
-> 💡 **Note:** To download the icon (logo) to your `site-packages` folder, run `pchj-icon`.
+💡 **Note:** To download the icon (logo) to your `site-packages` folder, run `pchj-icon`.
 
 ### 🔧 Option 1: Install from GitHub (development version)
 
@@ -655,110 +655,236 @@ python -m pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 5, 2025
-> **📦 Total Releases:** 74
+> **📦 Total Releases:** 75
 
-### 📌 2025
 
-- **1.2.1, 1.2.0, 1.1.8, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
-  ❌ Removed `tao_day_chu`, `uoc_chung_cua_danh_sach`, `abundant_number_check`, `xau_ki_tu_khong_trung_lap`  
-  🔧 Fixed minor bugs  
-  ✏️ Updated README
-  ✅ Added logo support via `pchj-icon` 
-  ✅ Added *Sample **Command List** for the `pchjlib` Library*  
-  ✅ Enhanced `main` for expanded functions
+## 📌 2025
 
-### 🎉 BIG UPDATE
+### 1.2.2 → 1.0.1 (August 4–5, 2025)
 
-- **1.0.0, 0.1.7, 0.1.6, 0.1.5.2, 0.1.5.1** – *(August 3, 2025)*  
-  🚀 Major performance, error handling, docs, and testing overhaul  
-  - Caching `fibonacci_at_index`, optimized `is_emirp` & `is_strong_number`  
-  - Specific error messages & boundary checks  
-  - Complex examples for `solve_equation` & string functions  
-  - Unit tests for all core functions  
-  - README enhancements: detailed examples, better install, removed deprecated refs  
-  ❌ Removed unused functions: `teen_code_yahoo`, `mp_tai_xuong`, `mp_tinh_toan`, `mp_loading`, `mp_christmas_tree`, `chuong_trinh_matrix`, `one_two_three`, `pythagore`, `kiem_tra_so_hoan_hao`, `tao_danh_sach_so_hoan_hao`  
-  ✅ Switched README to English  
-  ✅ Enhanced `solve_equation`, `generate_sequence_rule_1`  
-  ✅ Improved `generate_multiple_list`, `greatest_common_divisor`  
+- ❌ Removed functions  
+  - `tao_day_chu`  
+  - `uoc_chung_cua_danh_sach`  
+  - `abundant_number_check`  
+  - `xau_ki_tu_khong_trung_lap`  
 
-- **0.1.5, 0.1.4.2, 0.1.4.1, 0.1.4** – *(August 2, 2025)*  
-  ❌ Removed `chuyen_doi_so_la_ma`  
-  🔧 Fixed & updated `chuong_trinh_matrix`  
-  ✅ Added negative divisor/multiple options  
-  🔧 Fixed `common_divisors`  
-  ❌ Removed extra functions  
-  ✅ Merged string compression functions
+- 🔧 Fixed minor bugs  
 
-- **0.1.3.2, 0.1.3.1, 0.1.3, 0.1.2.1, 0.1.2** – *(August 1, 2025)*  
-  🔧 Minor bug fixes  
-  ✅ Consolidated strong-number logic  
-  ⚡ Fibonacci & primes optimizations  
-  📚 Added type hints, docstrings, validation, error docs
+- ✏️ Updated README  
 
-- **0.1.1.3, 0.1.1.2, 0.1.1.1, 0.1.1, 0.1.0.7** – *(July 31, 2025)*  
-  ✏️ README updates  
-  🔧 Bug fixes, updated `numpy` & `roman` deps
+- ✅ Added logo support via `pchj-icon`  
 
-- **0.1.0.6 – 0.1.0.3** – *(July 28–30, 2025)*  
-  🔧 Bug fixes
+- ✅ Added Sample **Command List** for the `pchjlib` Library  
 
-- **0.1.0.2, 0.1.0.1, 0.1.0** – *(July 28, 2025)*  
-  🔧 Minor content fixes  
-  ❌ Removed several legacy functions  
-  🧹 Complete code overhaul
+- ✅ Enhanced `main` for expanded functions  
 
-#### 🔵 0.0.5.x — Minor Tweaks
-
-- **0.0.5.2.1, 0.0.5.2** – *(July 27, 2025)*  
-  ✏️ README fixes
-
-- **0.0.5.1** – *(July 27, 2025)*  
-  🆕 Updated `teen_code_yahoo`
-
-- **0.0.5.0** – *(July 26, 2025)*  
-  ❌ Removed `an_ky_tu`
 
 ---
 
-### 📌 2024
+### 🎉 BIG UPDATE (August 3, 2025)
 
-- **0.0.4.1** – *(October 17, 2024)*  
-  🆕 Added `tao_day_chu`  
-  🔄 Updated `one_two_three`
+- Versions included  
+  - **1.0.0**  
+  - **0.1.7**  
+  - **0.1.6**  
+  - **0.1.5.2**  
+  - **0.1.5.1**  
 
-- **0.0.4.0, 0.0.3.9** – *(May 5, 2024)*  
-  ✏️ README fixes
+- 🚀 Major performance, error handling, documentation, and testing overhaul  
 
-- **0.0.3.8, 0.0.3.7** – *(May 4–5, 2024)*  
-  🎄 Updated `mp_christmas_tree` variants
+- Performance optimizations  
+  - Caching `fibonacci_at_index`  
+  - Optimized `is_emirp` and `is_strong_number`  
 
-- **0.0.3.6, 0.0.3.5** – *(March 1–3, 2024)*  
-  🧪 Testing phase
+- Error handling improvements  
+  - Specific error messages  
+  - Boundary checks  
 
-- **0.0.3.4** – *(February 26, 2024)*  
-  ➕ Added `uoc_chung_cua_danh_sach`
+- Documentation and examples  
+  - Complex examples for `solve_equation` and string functions  
+  - README enhancements: detailed examples, better install instructions, removed deprecated references  
 
-- **0.0.3.3 – 0.0.3** – *(February 20–21, 2024)*  
-  🔧 README & metadata enhancements  
-  ➕ Abundant number check  
-  ➕ `xau_ki_tu_khong_trung_lap`  
-  ❌ Removed `ki_tu_trung_lap`
+- Testing  
+  - Unit tests for all core functions  
 
-- **0.0.2.10 – 0.0.2.7** – *(February 18–19, 2024)*  
-  🔧 README updates  
-  🧪 Testing
+- ❌ Removed unused functions  
+  - `teen_code_yahoo`  
+  - `mp_tai_xuong`  
+  - `mp_tinh_toan`  
+  - `mp_loading`  
+  - `mp_christmas_tree`  
+  - `chuong_trinh_matrix`  
+  - `one_two_three`  
+  - `pythagore`  
+  - `kiem_tra_so_hoan_hao`  
+  - `tao_danh_sach_so_hoan_hao`  
 
-- **0.0.2.6** – *(February 18, 2024)*  
-  ⚖️ Switched to MIT License
+- ✅ Switched README to English  
 
-- **0.0.2.5 – 0.0.2.1** – *(February 14–18, 2024)*  
-  🔧 README & tests
+- ✅ Enhanced `solve_equation` and `generate_sequence_rule_1`  
 
-- **0.0.2 – 0.0.1** – *(February 14, 2024)*  
-  🐞 Fixed dependencies  
-  🧪 Testing
+- ✅ Improved `generate_multiple_list` and `greatest_common_divisor`  
 
-- **0.0.0.1** – *(February 14, 2024)*  
-  🎉 Initial release!
+
+---
+
+### 0.1.5 → 0.1.4 (August 2, 2025)
+
+- ❌ Removed `chuyen_doi_so_la_ma`  
+
+- 🔧 Fixed and updated `chuong_trinh_matrix`  
+
+- ✅ Added negative divisor/multiple options  
+
+- 🔧 Fixed `common_divisors`  
+
+- ❌ Removed extra helper functions  
+
+- ✅ Merged string compression functions  
+
+
+---
+
+### 0.1.3.2 → 0.1.2 (August 1, 2025)
+
+- 🔧 Minor bug fixes  
+
+- ✅ Consolidated strong-number logic  
+
+- ⚡ Optimized Fibonacci and prime functions  
+
+- 📚 Added type hints, docstrings, input validation, and error documentation  
+
+
+---
+
+### 0.1.1.3 → 0.1.0.7 (July 31, 2025)
+
+- ✏️ README updates  
+
+- 🔧 Bug fixes and updated `numpy` & `roman` dependencies  
+
+
+---
+
+### 0.1.0.6 → 0.1.0.3 (July 28–30, 2025)
+
+- 🔧 Bug fixes  
+
+
+---
+
+### 0.1.0.2 → 0.1.0 (July 28, 2025)
+
+- 🔧 Minor content fixes  
+
+- ❌ Removed several legacy functions  
+
+- 🧹 Complete code overhaul  
+
+
+---
+
+#### 🔵 0.0.5.x — Minor Tweaks
+
+- **0.0.5.2.1 & 0.0.5.2** (July 27, 2025)  
+  - ✏️ README fixes  
+
+- **0.0.5.1** (July 27, 2025)  
+  - 🆕 Updated `teen_code_yahoo`  
+
+- **0.0.5.0** (July 26, 2025)  
+  - ❌ Removed `an_ky_tu`  
+
+
+---
+
+## 📌 2024
+
+### 0.0.4.1 (October 17, 2024)
+
+- 🆕 Added `tao_day_chu`  
+
+- 🔄 Updated `one_two_three`  
+
+
+---
+
+### 0.0.4.0 & 0.0.3.9 (May 5, 2024)
+
+- ✏️ README fixes  
+
+
+---
+
+### 0.0.3.8 & 0.0.3.7 (May 4–5, 2024)
+
+- 🎄 Updated `mp_christmas_tree` variants  
+
+
+---
+
+### 0.0.3.6 & 0.0.3.5 (March 1–3, 2024)
+
+- 🧪 Testing phase  
+
+
+---
+
+### 0.0.3.4 (February 26, 2024)
+
+- ➕ Added `uoc_chung_cua_danh_sach`  
+
+
+---
+
+### 0.0.3.3 → 0.0.3 (February 20–21, 2024)
+
+- 🔧 README & metadata enhancements  
+
+- ➕ Added abundant number check  
+
+- ➕ Added `xau_ki_tu_khong_trung_lap`  
+
+- ❌ Removed `ki_tu_trung_lap`  
+
+
+---
+
+### 0.0.2.10 → 0.0.2.7 (February 18–19, 2024)
+
+- 🔧 README updates  
+
+- 🧪 Testing  
+
+
+---
+
+### 0.0.2.6 (February 18, 2024)
+
+- ⚖️ Switched to MIT License  
+
+
+---
+
+### 0.0.2.5 → 0.0.2.1 (February 14–18, 2024)
+
+- 🔧 README & tests  
+
+
+---
+
+### 0.0.2 → 0.0.1 (February 14, 2024)
+
+- 🐞 Fixed dependencies  
+
+- 🧪 Testing  
+
+
+---
+
+### 0.0.0.1 (February 14, 2024)
+
+- 🎉 Initial release!
 
 ---
