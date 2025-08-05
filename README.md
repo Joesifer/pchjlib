@@ -655,17 +655,17 @@ python -m pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 5, 2025
-> **📦 Total Releases:** 73
+> **📦 Total Releases:** 74
 
 ### 📌 2025
 
-- **1.2.0, 1.1.8, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
-  🔧 Fixed minor bugs.  
-  ✏️ Updated README.  
-  ✅ Added logo support via `pchj-icon`.  
-  ✅ Added *Sample **Command List** for the `pchjlib` Library.*  
-  ✅ Enhanced `main` for expanded functions.
+- **1.2.1, 1.2.0, 1.1.8, 1.1.7, 1.1.6, 1.1.5, 1.1.4, 1.1.3, 1.1.2, 1.1.1, 1.0.2, 1.1.0, 1.0.1** – *(August 4-5, 2025)*  
   ❌ Removed `tao_day_chu`, `uoc_chung_cua_danh_sach`, `abundant_number_check`, `xau_ki_tu_khong_trung_lap`  
+  🔧 Fixed minor bugs  
+  ✏️ Updated README
+  ✅ Added logo support via `pchj-icon` 
+  ✅ Added *Sample **Command List** for the `pchjlib` Library*  
+  ✅ Enhanced `main` for expanded functions
 
 ### 🎉 BIG UPDATE
 

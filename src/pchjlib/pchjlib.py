@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.2.0.
+- 1.2.1.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -1387,7 +1387,7 @@ For more options, use -h or --help with each category.
         "-v",
         "--version",
         action="version",
-        version="%(prog)s 1.2.0",
+        version="%(prog)s 1.2.1",
         help="Display the library version",
     )
 
@@ -2029,7 +2029,7 @@ For more options, use -h or --help with each category.
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.2.0!")
+        print("Welcome to pchjlib version 1.2.1!")
         print("Use -h or --help for more information.")
 
 
