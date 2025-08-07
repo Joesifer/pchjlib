@@ -1,4 +1,4 @@
-# pchjlib.py
+# pchjmain.py
 ################################################################################################
 #
 # Copyright (c) 2024 Joesifer
@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.2.3.
+- 1.3.0.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -1364,69 +1364,66 @@ def count_inversions(numbers):
 
 
 def main():
-    # Initialize ArgumentParser with detailed description and example
     parser = argparse.ArgumentParser(
         description="""The pchjlib library is a versatile toolkit for mathematical and string operations.
 
 Usage examples:
-  - Check if a number is prime:
-    python pchjlib.py prime --is_prime 17
-
-  - Generate a list of the first 5 Fibonacci numbers:
-    python pchjlib.py fibonacci --generate_list 5
-
-  - Solve a quadratic equation (e.g., x^2 - 5x + 6 = 0):
-    python pchjlib.py equation --solve 2 1 -5 6
-
-For more options, use -h or --help with each category.
+  - Check if a number is prime: python pchjlib.py primes_and_emirps --is_prime 17
+  - Generate twin primes: python pchjlib.py twin_primes_and_abundant --generate_twin_prime_list 100
+  - Solve an equation: python pchjlib.py equation_solving --solve 2 1 -5 6
 """
     )
-
-    # Option to display version
-    parser.add_argument(
-        "-v",
-        "--version",
-        action="version",
-        version="%(prog)s 1.2.3",
-        help="Display the library version",
-    )
-
-    # Create subparsers for categories
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.3.0")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
-    # 1. Category: Prime numbers
-    prime_parser = subparsers.add_parser(
-        "prime", help="Functions related to prime numbers"
+    # 1. Primes and Emirps
+    primes_parser = subparsers.add_parser(
+        "primes_and_emirps", help="Functions for prime and emirp numbers"
     )
-    prime_group = prime_parser.add_mutually_exclusive_group(required=True)
-    prime_group.add_argument(
-        "--is_prime", type=int, help="Check if a number is a prime number"
-    )
-    prime_group.add_argument(
-        "--generate_list",
+    primes_group = primes_parser.add_mutually_exclusive_group(required=True)
+    primes_group.add_argument("--is_prime", type=int, help="Check if a number is prime")
+    primes_group.add_argument(
+        "--generate_prime_list",
         type=int,
-        help="Generate a list of prime numbers up to the limit",
+        help="Generate a list of primes up to the limit",
     )
-    prime_group.add_argument(
-        "--is_emirp", type=int, help="Check if a number is an emirp number"
+    primes_group.add_argument(
+        "--is_emirp", type=int, help="Check if a number is an emirp"
     )
-    prime_group.add_argument(
+    primes_group.add_argument(
         "--generate_emirp_list",
         type=int,
-        help="Generate a list of emirp numbers up to the limit",
+        help="Generate a list of emirps up to the limit",
     )
-    prime_group.add_argument(
+
+    # 2. Twin Primes and Abundant Numbers
+    twin_abundant_parser = subparsers.add_parser(
+        "twin_primes_and_abundant",
+        help="Functions for twin primes and abundant numbers",
+    )
+    twin_abundant_group = twin_abundant_parser.add_mutually_exclusive_group(
+        required=True
+    )
+    twin_abundant_group.add_argument(
         "--is_twin_prime", type=int, help="Check if a number is a twin prime"
     )
-    prime_group.add_argument(
+    twin_abundant_group.add_argument(
         "--generate_twin_prime_list",
         type=int,
         help="Generate a list of twin primes up to the limit",
     )
+    twin_abundant_group.add_argument(
+        "--is_abundant", type=int, help="Check if a number is an abundant number"
+    )
+    twin_abundant_group.add_argument(
+        "--generate_abundant_list",
+        type=int,
+        help="Generate a list of abundant numbers up to the limit",
+    )
 
-    # 2. Category: Fibonacci
+    # 3. Fibonacci
     fib_parser = subparsers.add_parser(
-        "fibonacci", help="Functions related to the Fibonacci sequence"
+        "fibonacci", help="Functions for Fibonacci sequence"
     )
     fib_group = fib_parser.add_mutually_exclusive_group(required=True)
     fib_group.add_argument(
@@ -1438,77 +1435,76 @@ For more options, use -h or --help with each category.
         help="Generate a list of the first count Fibonacci numbers",
     )
 
-    # 3. Category: Special numbers
-    special_parser = subparsers.add_parser(
-        "special", help="Functions related to special numbers"
+    # 4. Special Numbers 1 (Perfect, Narcissistic, Amicable, Happy)
+    special1_parser = subparsers.add_parser(
+        "special_numbers_1",
+        help="Functions for perfect, narcissistic, amicable, and happy numbers",
     )
-    special_group = special_parser.add_mutually_exclusive_group(required=True)
-    special_group.add_argument(
+    special1_group = special1_parser.add_mutually_exclusive_group(required=True)
+    special1_group.add_argument(
         "--is_perfect", type=int, help="Check if a number is a perfect number"
     )
-    special_group.add_argument(
+    special1_group.add_argument(
         "--generate_perfect_list",
         type=int,
         help="Generate a list of perfect numbers up to the limit",
     )
-    special_group.add_argument(
+    special1_group.add_argument(
         "--is_narcissistic", type=int, help="Check if a number is a narcissistic number"
     )
-    special_group.add_argument(
+    special1_group.add_argument(
         "--generate_narcissistic_list",
         type=int,
         help="Generate a list of narcissistic numbers up to the limit",
     )
-    special_group.add_argument(
+    special1_group.add_argument(
         "--are_amicable",
         nargs=2,
         type=int,
         help="Check if two numbers are amicable numbers",
     )
-    special_group.add_argument(
+    special1_group.add_argument(
         "--is_happy", type=int, help="Check if a number is a happy number"
     )
-    special_group.add_argument(
+    special1_group.add_argument(
         "--generate_happy_list",
         type=int,
         help="Generate a list of happy numbers up to the limit",
     )
-    special_group.add_argument(
+
+    # 5. Special Numbers 2 (Square, Strong, Friendly)
+    special2_parser = subparsers.add_parser(
+        "special_numbers_2", help="Functions for square, strong, and friendly numbers"
+    )
+    special2_group = special2_parser.add_mutually_exclusive_group(required=True)
+    special2_group.add_argument(
         "--is_square", type=int, help="Check if a number is a square number"
     )
-    special_group.add_argument(
+    special2_group.add_argument(
         "--generate_square_list",
         type=int,
         help="Generate a list of square numbers up to the limit",
     )
-    special_group.add_argument(
-        "--are_friendly",
-        nargs=2,
-        type=int,
-        help="Check if two numbers are friendly numbers",
-    )
-    special_group.add_argument(
+    special2_group.add_argument(
         "--is_strong", type=int, help="Check if a number is a strong number"
     )
-    special_parser.add_argument(
+    special2_parser.add_argument(
         "--variant",
         type=int,
         choices=[1, 2],
         default=1,
         help="Variant for strong number check (1 or 2)",
     )
-    special_group.add_argument(
-        "--is_abundant", type=int, help="Check if a number is an abundant number"
-    )
-    special_group.add_argument(
-        "--generate_abundant_list",
+    special2_group.add_argument(
+        "--are_friendly",
+        nargs=2,
         type=int,
-        help="Generate a list of abundant numbers up to the limit",
+        help="Check if two numbers are friendly numbers",
     )
 
-    # 4. Category: Divisors and multiples
+    # 6. Divisors and Multiples
     divisors_parser = subparsers.add_parser(
-        "divisors", help="Functions related to divisors and multiples"
+        "divisors_and_multiples", help="Functions for divisors and multiples"
     )
     divisors_group = divisors_parser.add_mutually_exclusive_group(required=True)
     divisors_group.add_argument(
@@ -1540,28 +1536,36 @@ For more options, use -h or --help with each category.
         type=int,
         help="Calculate the least common multiple of a list of numbers",
     )
-    divisors_group.add_argument(
+
+    # 7. Prime Factorization
+    factorization_parser = subparsers.add_parser(
+        "prime_factorization", help="Functions for prime factorization"
+    )
+    factorization_group = factorization_parser.add_mutually_exclusive_group(
+        required=True
+    )
+    factorization_group.add_argument(
         "--prime_factors", type=int, help="Factorize a number into prime factors"
     )
-    divisors_group.add_argument(
+    factorization_group.add_argument(
         "--greatest_common_prime_divisor",
         nargs=2,
         type=int,
         help="Find the greatest common prime divisor of two numbers",
     )
 
-    # 5. Category: Equation solving
+    # 8. Equation Solving
     equation_parser = subparsers.add_parser(
-        "equation", help="Function to solve equations"
+        "equation_solving", help="Function to solve equations"
     )
     equation_group = equation_parser.add_mutually_exclusive_group(required=True)
     equation_group.add_argument(
         "--solve", nargs="+", help="Solve the equation: degree followed by coefficients"
     )
 
-    # 6. Category: String processing
+    # 9. String Processing
     string_parser = subparsers.add_parser(
-        "string", help="Functions for string and list processing"
+        "string_processing", help="Functions for list and string processing"
     )
     string_group = string_parser.add_mutually_exclusive_group(required=True)
     string_group.add_argument(
@@ -1593,8 +1597,10 @@ For more options, use -h or --help with each category.
         "--unique_characters", type=str, help="Create a string with unique characters"
     )
 
-    # 7. Category: Caesar cipher
-    caesar_parser = subparsers.add_parser("caesar", help="Functions for Caesar cipher")
+    # 10. Caesar Cipher
+    caesar_parser = subparsers.add_parser(
+        "caesar_cipher", help="Functions for Caesar cipher"
+    )
     caesar_group = caesar_parser.add_mutually_exclusive_group(required=True)
     caesar_group.add_argument(
         "--to_numbers",
@@ -1607,9 +1613,9 @@ For more options, use -h or --help with each category.
         help="Decode Caesar numbers to string: shift followed by numbers",
     )
 
-    # 8. Category: Special calculations
+    # 11. Special Calculations
     calc_parser = subparsers.add_parser(
-        "calc", help="Functions for special calculations"
+        "special_calculations", help="Functions for special calculations"
     )
     calc_group = calc_parser.add_mutually_exclusive_group(required=True)
     calc_group.add_argument(
@@ -1625,9 +1631,9 @@ For more options, use -h or --help with each category.
         help="Find the largest number with given digit count and sum",
     )
 
-    # 9. Category: Sequence generation
+    # 12. Sequence Generation
     sequence_parser = subparsers.add_parser(
-        "sequence", help="Functions to generate sequences"
+        "sequence_generation", help="Functions to generate sequences"
     )
     sequence_group = sequence_parser.add_mutually_exclusive_group(required=True)
     sequence_group.add_argument(
@@ -1646,20 +1652,20 @@ For more options, use -h or --help with each category.
         help="Generate sequence by rule 3: number of elements and base",
     )
 
-    # 10. Category: Inversion counting
+    # 13. Inversion Counting
     inversion_parser = subparsers.add_parser(
-        "inversion", help="Function to count inversions"
+        "inversion_counting", help="Function to count inversions"
     )
     inversion_group = inversion_parser.add_mutually_exclusive_group(required=True)
     inversion_group.add_argument(
         "--count", nargs="+", type=int, help="Count inversions in a list"
     )
 
-    # Parse command-line arguments
+    # Parse arguments
     args = parser.parse_args()
 
-    # Handle logic based on category and option
-    if args.category == "prime":
+    # Handle logic based on category
+    if args.category == "primes_and_emirps":
         if args.is_prime is not None:
             try:
                 result = is_prime(args.is_prime)
@@ -1668,10 +1674,12 @@ For more options, use -h or --help with each category.
                 )
             except Exception as e:
                 print(f"Error: {e}")
-        elif args.generate_list is not None:
+        elif args.generate_prime_list is not None:
             try:
-                result = generate_prime_list(args.generate_list)
-                print(f"List of prime numbers up to {args.generate_list}: {result}")
+                result = generate_prime_list(args.generate_prime_list)
+                print(
+                    f"List of prime numbers up to {args.generate_prime_list}: {result}"
+                )
             except Exception as e:
                 print(f"Error: {e}")
         elif args.is_emirp is not None:
@@ -1690,7 +1698,9 @@ For more options, use -h or --help with each category.
                 )
             except Exception as e:
                 print(f"Error: {e}")
-        elif args.is_twin_prime is not None:
+
+    elif args.category == "twin_primes_and_abundant":
+        if args.is_twin_prime is not None:
             try:
                 result = is_twin_prime(args.is_twin_prime)
                 print(
@@ -1703,6 +1713,22 @@ For more options, use -h or --help with each category.
                 result = generate_twin_prime_list(args.generate_twin_prime_list)
                 print(
                     f"List of twin primes up to {args.generate_twin_prime_list}: {result}"
+                )
+            except Exception as e:
+                print(f"Error: {e}")
+        elif args.is_abundant is not None:
+            try:
+                result = is_abundant_number(args.is_abundant)
+                print(
+                    f"{args.is_abundant} {'is an abundant number' if result else 'is not an abundant number'}"
+                )
+            except Exception as e:
+                print(f"Error: {e}")
+        elif args.generate_abundant_list is not None:
+            try:
+                result = generate_abundant_number_list(args.generate_abundant_list)
+                print(
+                    f"List of abundant numbers up to {args.generate_abundant_list}: {result}"
                 )
             except Exception as e:
                 print(f"Error: {e}")
@@ -1723,7 +1749,7 @@ For more options, use -h or --help with each category.
             except Exception as e:
                 print(f"Error: {e}")
 
-    elif args.category == "special":
+    elif args.category == "special_numbers_1":
         if args.is_perfect is not None:
             try:
                 result = is_perfect_number(args.is_perfect)
@@ -1784,7 +1810,9 @@ For more options, use -h or --help with each category.
                 )
             except Exception as e:
                 print(f"Error: {e}")
-        elif args.is_square is not None:
+
+    elif args.category == "special_numbers_2":
+        if args.is_square is not None:
             try:
                 result = is_square_number(args.is_square)
                 print(
@@ -1800,6 +1828,14 @@ For more options, use -h or --help with each category.
                 )
             except Exception as e:
                 print(f"Error: {e}")
+        elif args.is_strong is not None:
+            try:
+                result = is_strong_number(args.is_strong, variant=args.variant)
+                print(
+                    f"{args.is_strong} {'is a strong number' if result else 'is not a strong number'} (variant {args.variant})"
+                )
+            except Exception as e:
+                print(f"Error: {e}")
         elif args.are_friendly is not None:
             try:
                 result = are_friendly_numbers(
@@ -1810,32 +1846,8 @@ For more options, use -h or --help with each category.
                 )
             except Exception as e:
                 print(f"Error: {e}")
-        elif args.is_strong is not None:
-            try:
-                result = is_strong_number(args.is_strong, variant=args.variant)
-                print(
-                    f"{args.is_strong} {'is a strong number' if result else 'is not a strong number'} (variant {args.variant})"
-                )
-            except Exception as e:
-                print(f"Error: {e}")
-        elif args.is_abundant is not None:
-            try:
-                result = is_abundant_number(args.is_abundant)
-                print(
-                    f"{args.is_abundant} {'is an abundant number' if result else 'is not an abundant number'}"
-                )
-            except Exception as e:
-                print(f"Error: {e}")
-        elif args.generate_abundant_list is not None:
-            try:
-                result = generate_abundant_number_list(args.generate_abundant_list)
-                print(
-                    f"List of abundant numbers up to {args.generate_abundant_list}: {result}"
-                )
-            except Exception as e:
-                print(f"Error: {e}")
 
-    elif args.category == "divisors":
+    elif args.category == "divisors_and_multiples":
         if args.generate_divisor_list is not None:
             try:
                 result = generate_divisor_list(args.generate_divisor_list)
@@ -1870,7 +1882,9 @@ For more options, use -h or --help with each category.
                 print(f"Least common multiple of {args.lcm}: {result}")
             except Exception as e:
                 print(f"Error: {e}")
-        elif args.prime_factors is not None:
+
+    elif args.category == "prime_factorization":
+        if args.prime_factors is not None:
             try:
                 result = prime_factors(args.prime_factors)
                 print(f"Prime factors of {args.prime_factors}: {result}")
@@ -1888,7 +1902,7 @@ For more options, use -h or --help with each category.
             except Exception as e:
                 print(f"Error: {e}")
 
-    elif args.category == "equation":
+    elif args.category == "equation_solving":
         if args.solve:
             try:
                 degree = int(args.solve[0])
@@ -1898,7 +1912,7 @@ For more options, use -h or --help with each category.
             except Exception as e:
                 print(f"Error: {e}")
 
-    elif args.category == "string":
+    elif args.category == "string_processing":
         if args.remove_duplicates is not None:
             try:
                 result = remove_duplicates(args.remove_duplicates)
@@ -1956,7 +1970,7 @@ For more options, use -h or --help with each category.
             except Exception as e:
                 print(f"Error: {e}")
 
-    elif args.category == "caesar":
+    elif args.category == "caesar_cipher":
         if args.to_numbers is not None:
             try:
                 result = caesar_cipher_to_numbers(
@@ -1976,7 +1990,7 @@ For more options, use -h or --help with each category.
             except Exception as e:
                 print(f"Error: {e}")
 
-    elif args.category == "calc":
+    elif args.category == "special_calculations":
         if args.electricity_bill is not None:
             try:
                 result = calculate_electricity_bill_Vietnamese(
@@ -1996,7 +2010,7 @@ For more options, use -h or --help with each category.
             except Exception as e:
                 print(f"Error: {e}")
 
-    elif args.category == "sequence":
+    elif args.category == "sequence_generation":
         if args.rule1 is not None:
             try:
                 result = generate_sequence_rule_1(args.rule1)
@@ -2020,7 +2034,7 @@ For more options, use -h or --help with each category.
             except Exception as e:
                 print(f"Error: {e}")
 
-    elif args.category == "inversion":
+    elif args.category == "inversion_counting":
         if args.count is not None:
             try:
                 result = count_inversions(args.count)
@@ -2029,7 +2043,7 @@ For more options, use -h or --help with each category.
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.2.3!")
+        print("Welcome to pchjlib version 1.3.0!")
         print("Use -h or --help for more information.")
 
 

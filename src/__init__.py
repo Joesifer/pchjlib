@@ -1,3 +1,4 @@
+# __init__.py
 ################################################################################################
 #
 # Copyright (c) 2024 Joesifer
@@ -34,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.2.3.
+- 1.3.0.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -74,8 +75,8 @@ THANK YOU!!!
 
 from importlib.metadata import version
 
-from .pchjlib import main
-from .icon import main as icon_main
+from .pchjmain import main
+from .pchjicon import main as icon_main
 
 __author__ = "Joesifer (phanchanhung12055@gmail.com)"
 __copyright__ = "Copyright (c) 2024 Joesifer"
