@@ -27,19 +27,13 @@
 python -m pip install git+https://github.com/Joesifer/pchjlib.git
 ```
 
-🔄 Then run:
-
-```bash
-pchj-icon
-```
-
 ### 📦 Option 2: Install from PyPI (stable release)
 
 ```bash
 python -m pip install pchjlib
 ```
 
-🔄 Then run:
+### 🔄 Then run:
 
 ```bash
 pchj-icon
@@ -47,7 +41,7 @@ pchj-icon
 
 ### 🌟 Optional: Enable additional features
 
-To activate `solve_equation` and `generate_prime_list`, install with the NumPy extra:
+To activate `solve_equation` and `generate_prime_list`, install with the `NumPy` extra:
 
 ```bash
 python -m pip install pchjlib[numpy]
@@ -63,15 +57,13 @@ python -m pip install pchjlib[numpy]
 
 ```bash
 from pchjlib.pchjmain import {function}
-
 result = {function}(value_1, value_2, ...)
 ```
 
 ### ✅ Option 2: Call via the module
 
-```python
+```bash
 import pchjlib.pchjmain
-
 result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 ```
 
@@ -689,15 +681,14 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 ## 🛠️ Update History
 
-> **📅 Latest Update:** August 7, 2025
-> **📦 Total Releases:** 85
+> **📅 Latest Update:** August 8, 2025
+> **📦 Total Releases:** 86
 
+---
 
 ## 📌 2025
-### 1.4.4 → 1.3.0 (August 7, 2025)
+### 1.4.5 → 1.3.0 (August 7-8, 2025)
 - 🔧 Fixed minor bugs  
-
-- ❌ Discontinue dependency on `roman` library  
 
 
 ---
@@ -724,13 +715,7 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 ---
 
 ### 🎉 BIG UPDATE (August 3, 2025)
-
-- Versions included  
-  - **1.0.0**  
-  - **0.1.7**  
-  - **0.1.6**  
-  - **0.1.5.2**  
-  - **0.1.5.1**  
+### 1.0.0 → 0.1.5.1 (August 4–5, 2025)
 
 - 🚀 Major performance, error handling, documentation, and testing overhaul  
 
@@ -748,6 +733,8 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - Testing  
   - Unit tests for all core functions  
+
+- ❌ Discontinue dependency on `roman` library  
 
 - ❌ Removed unused functions  
   - `teen_code_yahoo`  

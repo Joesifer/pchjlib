@@ -1,4 +1,5 @@
 # __init__.py
+
 ################################################################################################
 #
 # Copyright (c) 2024 Joesifer
@@ -35,7 +36,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.4.4.
+- 1.4.5.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -63,10 +64,10 @@ Additional Information
 ------------------------------------------------------------------------------------------------
 
 For usage instructions, please refer to:
-  >>> Link: `https://github.com/Joesifer/pchjlib/blob/main/README.md`
+  >>> Link: https://github.com/Joesifer/pchjlib/blob/main/README.md
 
 Feedback and support are welcome via:
-  >>> Email: `phanchanhung12055@gmail.com`
+  >>> Email: phanchanhung12055@gmail.com
 
 THANK YOU!!!
 ================================================================================================

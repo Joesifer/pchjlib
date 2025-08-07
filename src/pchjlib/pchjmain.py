@@ -1,29 +1,4 @@
 # pchjmain.py
-################################################################################################
-#
-# Copyright (c) 2024 Joesifer
-#
-# MIT License
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-#
-################################################################################################
 
 """
 PCHJLIB😺
@@ -35,7 +10,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.4.4.
+- 1.4.5.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -66,7 +41,7 @@ For usage instructions, please refer to:
   >>> Link: https://github.com/Joesifer/pchjlib/blob/main/README.md
 
 Feedback and support are welcome via:
-  >>> Email: `phanchanhung12055@gmail.com`
+  >>> Email: phanchanhung12055@gmail.com
 
 THANK YOU!!!
 ================================================================================================
@@ -1365,15 +1340,9 @@ def count_inversions(numbers):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="""The pchjlib library is a versatile toolkit for mathematical and string operations.\n
-
-Usage examples:\n
-  - Check if a number is prime: python pchjmain.py primes_and_emirps --is_prime 17\n
-  - Generate twin primes: python pchjmain.py twin_primes_and_abundant --generate_twin_prime_list 100\n
-  - Solve an equation: python pchjmain.py equation_solving --solve 2 1 -5 6\n
-"""
+        description="The pchjlib library is a versatile toolkit for mathematical and string operations😺"
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.4.4")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.4.5")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps
@@ -2043,7 +2012,7 @@ Usage examples:\n
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.4.4!")
+        print("Welcome to pchjlib version 1.4.5!")
         print("Use -h or --help for more information.")
 
 
