@@ -690,11 +690,11 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 7, 2025
-> **📦 Total Releases:** 89
+> **📦 Total Releases:** 81
 
 
 ## 📌 2025
-### 1.4.0 → 1.3.0 (August 7, 2025)
+### 1.4.1 → 1.3.0 (August 7, 2025)
 - 🔧 Fixed minor bugs  
 
 - ❌ Discontinue dependency on `roman` library  
