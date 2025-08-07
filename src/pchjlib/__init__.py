@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.4.3.
+- 1.4.4.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -78,6 +78,8 @@ from importlib.metadata import version
 from .pchjicon import main as pchj_icon
 from .pchjmain import main as pchj_main
 
+from . import pchjmain
+
 __author__ = "Joesifer (phanchanhung12055@gmail.com)"
 __copyright__ = "Copyright (c) 2024 Joesifer"
 __version__ = version("pchjlib")
@@ -85,6 +87,7 @@ __license__ = "MIT License"
 __release_date__ = "February 14, 2024"
 
 __all__ = [
+    "pchjmain",
     "pchj_main",
     "pchj_icon",
     "__version__",
