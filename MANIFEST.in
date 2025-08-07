@@ -5,6 +5,6 @@ include *.md *.txt
 # Include all files under src/
 graft src
 
-# Make sure the icon and desktop.ini are included
-include src/pchjlib/logo.ico
-include src/pchjlib/desktop.ini
+# The icon and desktop.ini
+include src/logo.ico
+include src/desktop.ini

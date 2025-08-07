@@ -1,4 +1,4 @@
-# setup.py
+# __init__.py
 ################################################################################################
 #
 # Copyright (c) 2024 Joesifer
@@ -72,25 +72,14 @@ THANK YOU!!!
 ================================================================================================
 """
 
-from setuptools import setup
-from setuptools.command.install import install
-import subprocess, os
 
+from importlib.metadata import version
 
-class InstallWithIcon(install):
-    def run(self):
-        super().run()
+from .pchjmain import main
+from .pchjicon import main as icon_main
 
-        assert self.install_lib is not None
-        install_lib = self.install_lib
+__author__ = "Joesifer (phanchanhung12055@gmail.com)"
+__copyright__ = "Copyright (c) 2024 Joesifer"
+__version__ = version("pchjlib")
 
-        target = os.path.join(install_lib, "pchjlib")
-        try:
-            subprocess.run(["pchj-icon"], cwd=target, check=True)
-        except Exception:
-            print("Warning: pchj-icon failed, you can run manually after install")
-
-
-setup(
-    cmdclass={"install": InstallWithIcon},
-)
+__all__ = ["main", "icon_main", "__version__", "__author__", "__copyright__"]

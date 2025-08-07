@@ -1,4 +1,3 @@
-# setup.py
 ################################################################################################
 #
 # Copyright (c) 2024 Joesifer
@@ -72,25 +71,33 @@ THANK YOU!!!
 ================================================================================================
 """
 
-from setuptools import setup
-from setuptools.command.install import install
-import subprocess, os
+import sys, ctypes
+from pathlib import Path
+import pchjmain
 
 
-class InstallWithIcon(install):
-    def run(self):
-        super().run()
+def main():
+    if sys.platform != "win32":
+        print("This feature only runs on Windows.")
+        sys.exit(1)
 
-        assert self.install_lib is not None
-        install_lib = self.install_lib
+    file_path = getattr(pchjmain, "__file__", None)
+    if not file_path:
+        print("Package path not determined.")
+        sys.exit(1)
 
-        target = os.path.join(install_lib, "pchjlib")
-        try:
-            subprocess.run(["pchj-icon"], cwd=target, check=True)
-        except Exception:
-            print("Warning: pchj-icon failed, you can run manually after install")
+    pkg_dir = Path(file_path).parent
+    ini_file = pkg_dir / "desktop.ini"
+
+    FILE_ATTRIBUTE_HIDDEN = 0x02
+    FILE_ATTRIBUTE_SYSTEM = 0x04
+
+    ctypes.windll.kernel32.SetFileAttributesW(str(pkg_dir), FILE_ATTRIBUTE_SYSTEM)
+    attrs = FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM
+    ctypes.windll.kernel32.SetFileAttributesW(str(ini_file), attrs)
+
+    print(f"Icon has been applied to the folder: {pkg_dir}")
 
 
-setup(
-    cmdclass={"install": InstallWithIcon},
-)
+if __name__ == "__main__":
+    main()
