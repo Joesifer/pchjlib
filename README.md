@@ -665,7 +665,7 @@ python -m pip install pchjlib[numpy]
 
 
 ## 📌 2025
-### 1.3.4 → 1.3.0 (August 7, 2025)
+### 1.3.5 → 1.3.0 (August 7, 2025)
 - 🔧 Fixed minor bugs  
 
 ### 1.2.3 → 1.0.1 (August 4–5, 2025)
