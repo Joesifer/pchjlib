@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.1.
+- 1.3.2.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -1373,7 +1373,7 @@ Usage examples:
   - Solve an equation: python pchjlib.py equation_solving --solve 2 1 -5 6
 """
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.3.1")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.3.2")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps
@@ -2043,7 +2043,7 @@ Usage examples:
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.3.1!")
+        print("Welcome to pchjlib version 1.3.2!")
         print("Use -h or --help for more information.")
 
 
