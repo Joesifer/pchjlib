@@ -8,7 +8,7 @@ version = "1.4.2"
 description = "A versatile toolkit for applying custom folder icons."
 readme = { file = "README.md", content-type = "text/markdown" }
 license-files = ["LICENSE.txt"]
-keywords = ["pchjlib"]
+keywords = ["pchjlib", "foldericon", "asset-management"]
 authors = [{ name = "Joesifer" }]
 urls = { Homepage = "https://github.com/Joesifer/pchjlib" }
 classifiers = [
@@ -36,13 +36,7 @@ include-package-data = true
 where = ["src"]
 
 [tool.setuptools.package-data]
-pchjlib = []
-
-[tool.setuptools.data-files]
-"pchjlib" = [
-  "src/desktop.ini",
-  "src/logo.ico"
-]
+pchjlib = ["desktop.ini", "logo.ico"]
 
 [tool.flake8]
 doctests = true
