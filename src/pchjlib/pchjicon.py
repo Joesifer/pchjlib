@@ -34,7 +34,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.5.
+- 1.3.6.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -71,9 +71,10 @@ THANK YOU!!!
 ================================================================================================
 """
 
-import sys, ctypes
+import sys
+import ctypes
 from pathlib import Path
-import pchjmain
+import importlib.resources
 
 
 def main():
@@ -81,13 +82,13 @@ def main():
         print("This feature only runs on Windows.")
         sys.exit(1)
 
-    file_path = getattr(pchjmain, "__file__", None)
-    if not file_path:
-        print("Package path not determined.")
+    try:
+        with importlib.resources.path("pchjlib", "desktop.ini") as ini_path:
+            pkg_dir = ini_path.parent
+            ini_file = ini_path
+    except Exception as e:
+        print(f"Error determining package path: {e}")
         sys.exit(1)
-
-    pkg_dir = Path(file_path).parent
-    ini_file = pkg_dir / "desktop.ini"
 
     FILE_ATTRIBUTE_HIDDEN = 0x02
     FILE_ATTRIBUTE_SYSTEM = 0x04

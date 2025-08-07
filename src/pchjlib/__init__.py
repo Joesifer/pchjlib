@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.5.
+- 1.3.6.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -74,9 +74,8 @@ THANK YOU!!!
 
 
 from importlib.metadata import version
-
-from .pchjmain import main
 from .pchjicon import main as icon_main
+from .pchjmain import main
 
 __author__ = "Joesifer (phanchanhung12055@gmail.com)"
 __copyright__ = "Copyright (c) 2024 Joesifer"

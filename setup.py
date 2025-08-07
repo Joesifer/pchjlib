@@ -72,18 +72,17 @@ THANK YOU!!!
 ================================================================================================
 """
 
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.command.install import install
-import subprocess, os
+import subprocess
+import os
 
 
 class InstallWithIcon(install):
     def run(self):
         super().run()
-
         assert self.install_lib is not None
         install_lib = self.install_lib
-
         target = os.path.join(install_lib, "pchjlib")
         try:
             subprocess.run(["pchj-icon"], cwd=target, check=True)
@@ -92,5 +91,33 @@ class InstallWithIcon(install):
 
 
 setup(
+    name="pchjlib",
+    version="1.3.6",
+    description="The pchjlib library is a versatile toolkit...",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
+    author="Joesifer",
+    author_email="phanchanhung12055@gmail.com",
+    url="https://github.com/Joesifer/pchjlib",
+    license="MIT",
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
+    package_data={"pchjlib": ["logo.ico", "desktop.ini"]},
+    install_requires=[],
+    extras_require={"numpy": ["numpy"]},
+    entry_points={
+        "console_scripts": [
+            "pchj-icon = pchjlib.pchjicon:main",
+            "pchjlib = pchjlib.pchjmain:main",
+        ],
+    },
+    python_requires=">=3.7",
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
     cmdclass={"install": InstallWithIcon},
 )
