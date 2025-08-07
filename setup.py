@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.5.
+- 1.3.6.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -77,6 +77,9 @@ from setuptools.command.install import install
 import subprocess
 import os
 
+with open("README.md", "r", encoding="utf-8") as f:
+    long_description = f.read()
+
 
 class InstallWithIcon(install):
     def run(self):
@@ -94,7 +97,7 @@ setup(
     name="pchjlib",
     version="1.3.6",
     description="The pchjlib library is a versatile toolkit...",
-    long_description=open("README.md").read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     author="Joesifer",
     author_email="phanchanhung12055@gmail.com",
