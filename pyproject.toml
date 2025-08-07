@@ -8,7 +8,7 @@ version = "1.4.2"
 description = "A versatile toolkit for applying custom folder icons."
 readme = { file = "README.md", content-type = "text/markdown" }
 license-files = ["LICENSE.txt"]
-keywords = ["pchjlib", "foldericon", "asset-management"]
+keywords = ["pchjlib"]
 authors = [{ name = "Joesifer" }]
 urls = { Homepage = "https://github.com/Joesifer/pchjlib" }
 classifiers = [
@@ -29,7 +29,7 @@ pchj-icon = "pchjlib.pchjicon:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-zip-safe = false
+zip-safe = true
 include-package-data = true
 
 [tool.setuptools.packages.find]

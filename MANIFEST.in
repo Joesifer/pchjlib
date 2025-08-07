@@ -5,5 +5,5 @@ include *.md *.txt
 graft src
 
 # The icon and desktop.ini
-include src/pchjlib/assets/logo.ico
-include src/pchjlib/assets/desktop.ini
+include src/pchjlib/logo.ico
+include src/pchjlib/desktop.ini
