@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pchjlib"
-version = "1.4.1"
+version = "1.4.2"
 description = "A versatile toolkit for applying custom folder icons."
 readme = { file = "README.md", content-type = "text/markdown" }
 license-files = ["LICENSE.txt"]
@@ -40,8 +40,8 @@ pchjlib = []
 
 [tool.setuptools.data-files]
 "pchjlib" = [
-  "src/assets/desktop.ini",
-  "src/assets/logo.ico"
+  "src/desktop.ini",
+  "src/logo.ico"
 ]
 
 [tool.flake8]

@@ -2,4 +2,4 @@
 include *.md *.txt
 
 # The icon and desktop.ini
-graft src/assets
+graft src
