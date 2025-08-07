@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pchjlib"
-version = "1.3.2"
+version = "1.3.3"
 description = "The pchjlib library is a versatile toolkit..."
 readme = { file = "README.md", content-type = "text/markdown" }
 license-files = ["LICENSE.txt"]
@@ -31,7 +31,7 @@ numpy = ["numpy"]
 
 [project.scripts]
 pchjlib   = "pchjmain:main"
-pchj-icon = "pchjicon.icon:main"
+pchj-icon = "pchjicon:main"
 
 [tool.flake8]
 doctests = true
