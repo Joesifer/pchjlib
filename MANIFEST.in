@@ -1,5 +1,9 @@
 # Documentation and license
 include *.md *.txt
 
-# The icon and desktop.ini
+# Include all files under src/
 graft src
+
+# The icon and desktop.ini
+include src/pchjlib/assets/logo.ico
+include src/pchjlib/assets/desktop.ini
