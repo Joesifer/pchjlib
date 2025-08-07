@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pchjlib"
 version = "1.4.1"
-description = "The pchjlib library is a versatile toolkit for applying custom folder icons."
+description = "A versatile toolkit for applying custom folder icons."
 readme = { file = "README.md", content-type = "text/markdown" }
 license-files = ["LICENSE.txt"]
 keywords = ["pchjlib", "foldericon", "asset-management"]
@@ -19,13 +19,6 @@ classifiers = [
 ]
 requires-python = ">=3.7"
 dependencies = []
-
-include = [
-  "src/assets/desktop.ini",
-  "src/assets/logo.ico",
-  "README.md",
-  "LICENSE.txt"
-]
 
 [project.optional-dependencies]
 numpy = ["numpy"]
