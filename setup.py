@@ -102,12 +102,9 @@ setup(
     author="Joesifer",
     author_email="phanchanhung12055@gmail.com",
     url="https://github.com/Joesifer/pchjlib",
-    license="MIT",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     package_data={"pchjlib": ["logo.ico", "desktop.ini"]},
-    install_requires=[],
-    extras_require={"numpy": ["numpy"]},
     entry_points={
         "console_scripts": [
             "pchj-icon = pchjlib.pchjicon:main",

@@ -30,8 +30,8 @@ dependencies = []
 numpy = ["numpy"]
 
 [project.scripts]
-pchjlib   = "pchjmain:main"
-pchj-icon = "pchjicon:main"
+pchjlib = "pchjlib.pchjmain:main"
+pchj-icon = "pchjlib.pchjicon:main"
 
 [tool.flake8]
 doctests = true
