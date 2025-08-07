@@ -661,12 +661,17 @@ python -m pip install pchjlib[numpy]
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 7, 2025
-> **📦 Total Releases:** 88
+> **📦 Total Releases:** 89
 
 
 ## 📌 2025
-### 1.3.6 → 1.3.0 (August 7, 2025)
+### 1.3.7 → 1.3.0 (August 7, 2025)
 - 🔧 Fixed minor bugs  
+
+- ❌ Discontinue dependency on `roman` library  
+
+
+---
 
 ### 1.2.3 → 1.0.1 (August 4–5, 2025)
 
@@ -724,8 +729,6 @@ python -m pip install pchjlib[numpy]
   - `chuong_trinh_matrix`  
   - `one_two_three`  
   - `pythagore`  
-  - `kiem_tra_so_hoan_hao`  
-  - `tao_danh_sach_so_hoan_hao`  
 
 - ✅ Switched README to English  
 

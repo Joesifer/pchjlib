@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.6.
+- 1.3.7.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -74,8 +74,7 @@ THANK YOU!!!
 
 from setuptools import setup, find_packages
 from setuptools.command.install import install
-import subprocess
-import os
+import subprocess, os
 
 with open("README.md", "r", encoding="utf-8") as f:
     long_description = f.read()
@@ -94,14 +93,6 @@ class InstallWithIcon(install):
 
 
 setup(
-    name="pchjlib",
-    version="1.3.6",
-    description="The pchjlib library is a versatile toolkit...",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    author="Joesifer",
-    author_email="phanchanhung12055@gmail.com",
-    url="https://github.com/Joesifer/pchjlib",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     package_data={"pchjlib": ["logo.ico", "desktop.ini"]},

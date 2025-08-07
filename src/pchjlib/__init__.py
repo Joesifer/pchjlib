@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.6.
+- 1.3.7.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -80,5 +80,6 @@ from .pchjmain import main
 __author__ = "Joesifer (phanchanhung12055@gmail.com)"
 __copyright__ = "Copyright (c) 2024 Joesifer"
 __version__ = version("pchjlib")
+__license__ = "MIT"
 
 __all__ = ["main", "icon_main", "__version__", "__author__", "__copyright__"]

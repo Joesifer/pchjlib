@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.6.
+- 1.3.7.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -1365,15 +1365,15 @@ def count_inversions(numbers):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="""The pchjlib library is a versatile toolkit for mathematical and string operations.
+        description="""The pchjlib library is a versatile toolkit for mathematical and string operations.\n
 
-Usage examples:
-  - Check if a number is prime: python pchjlib.py primes_and_emirps --is_prime 17
-  - Generate twin primes: python pchjlib.py twin_primes_and_abundant --generate_twin_prime_list 100
-  - Solve an equation: python pchjlib.py equation_solving --solve 2 1 -5 6
+Usage examples:\n
+  - Check if a number is prime: python pchjmain.py primes_and_emirps --is_prime 17\n
+  - Generate twin primes: python pchjmain.py twin_primes_and_abundant --generate_twin_prime_list 100\n
+  - Solve an equation: python pchjmain.py equation_solving --solve 2 1 -5 6\n
 """
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.3.6")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.3.7")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps
@@ -2043,7 +2043,7 @@ Usage examples:
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.3.6!")
+        print("Welcome to pchjlib version 1.3.7!")
         print("Use -h or --help for more information.")
 
 
