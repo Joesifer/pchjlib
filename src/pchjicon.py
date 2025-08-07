@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.0.
+- 1.3.1.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ def main():
         print("This feature only runs on Windows.")
         sys.exit(1)
 
-    pkg = importlib.import_module("pchjlib")
+    pkg = importlib.import_module("pchjmain")
     file_path = getattr(pkg, "__file__", None)
     if not file_path:
         print("Package path not determined.")
