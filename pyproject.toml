@@ -1,0 +1,51 @@
+#pyproject.toml
+
+[build-system]
+requires = ["setuptools>=78.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pchjlib"
+version = "1.3.6"
+description = "The pchjlib library is a versatile toolkit..."
+readme = { file = "README.md", content-type = "text/markdown" }
+license-files = ["LICENSE.txt"]
+keywords = ["pchjlib"]
+authors = [{ name = "Joesifer" }]
+urls = { "Homepage" = "https://github.com/Joesifer/pchjlib" }
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Natural Language :: Vietnamese",
+  "Operating System :: OS Independent"
+]
+requires-python = ">=3.7"
+dependencies = []
+
+[project.optional-dependencies]
+numpy = ["numpy"]
+
+[project.scripts]
+pchjlib   = "pchjmain:main"
+pchj-icon = "pchjicon:main"
+
+[tool.flake8]
+doctests = true
+
+[tool.isort]
+force_single_line = true
+combine_as_imports = true
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_third_party = ["six", "docutils", "pkg_resources", "pytz"]
+line_length = 80
+lines_after_imports = 2
+
+[tool.setuptools.package-data]
+pchjlib = ["logo.ico", "desktop.ini"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

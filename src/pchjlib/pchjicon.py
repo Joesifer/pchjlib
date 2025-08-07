@@ -1,0 +1,104 @@
+################################################################################################
+#
+# Copyright (c) 2024 Joesifer
+#
+# MIT License
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+################################################################################################
+
+"""
+PCHJLIB😺
+================================================================================================
+------------------------------------------------------------------------------------------------
+Author
+------------------------------------------------------------------------------------------------
+- Joesifer.
+
+Version
+------------------------------------------------------------------------------------------------
+- 1.3.6.
+
+Release Date
+------------------------------------------------------------------------------------------------
+- February 14, 2024.
+
+License
+------------------------------------------------------------------------------------------------
+- Copyright © 2024 Joesifer
+
+Supported Python Version
+------------------------------------------------------------------------------------------------
+- Python 3.7 or higher.
+
+Dependencies
+------------------------------------------------------------------------------------------------
+- Built-in: `math`, `re`, `random`, `functools`, `argparse`.
+- External: `numpy` (optional for `solve_equation` and `generate_prime_list`).
+- External (plan): `gmpy2` (optional for big integer support).
+
+License Type
+------------------------------------------------------------------------------------------------
+- MIT License.
+
+Additional Information
+------------------------------------------------------------------------------------------------
+
+For usage instructions, please refer to:
+  >>> Link: `https://github.com/Joesifer/pchjlib/blob/main/README.md`
+
+Feedback and support are welcome via:
+  >>> Email: `phanchanhung12055@gmail.com`
+
+THANK YOU!!!
+================================================================================================
+"""
+
+import sys
+import ctypes
+from pathlib import Path
+import importlib.resources
+
+
+def main():
+    if sys.platform != "win32":
+        print("This feature only runs on Windows.")
+        sys.exit(1)
+
+    try:
+        with importlib.resources.path("pchjlib", "desktop.ini") as ini_path:
+            pkg_dir = ini_path.parent
+            ini_file = ini_path
+    except Exception as e:
+        print(f"Error determining package path: {e}")
+        sys.exit(1)
+
+    FILE_ATTRIBUTE_HIDDEN = 0x02
+    FILE_ATTRIBUTE_SYSTEM = 0x04
+
+    ctypes.windll.kernel32.SetFileAttributesW(str(pkg_dir), FILE_ATTRIBUTE_SYSTEM)
+    attrs = FILE_ATTRIBUTE_HIDDEN | FILE_ATTRIBUTE_SYSTEM
+    ctypes.windll.kernel32.SetFileAttributesW(str(ini_file), attrs)
+
+    print(f"Icon has been applied to the folder: {pkg_dir}")
+
+
+if __name__ == "__main__":
+    main()
