@@ -35,7 +35,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.3.7.
+- 1.4.0.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -72,43 +72,21 @@ THANK YOU!!!
 ================================================================================================
 """
 
-from setuptools import setup, find_packages
+from setuptools import setup
 from setuptools.command.install import install
 import subprocess, os
-
-with open("README.md", "r", encoding="utf-8") as f:
-    long_description = f.read()
 
 
 class InstallWithIcon(install):
     def run(self):
         super().run()
-        assert self.install_lib is not None
-        install_lib = self.install_lib
-        target = os.path.join(install_lib, "pchjlib")
+        assert self.install_lib is not None, "install_lib must be set"
+        target = os.path.join(self.install_lib, "pchjlib")
         try:
             subprocess.run(["pchj-icon"], cwd=target, check=True)
-        except Exception:
-            print("Warning: pchj-icon failed, you can run manually after install")
+        except subprocess.CalledProcessError:
+            print("Warning: pchj-icon failed, you can run it manually")
 
 
-setup(
-    packages=find_packages(where="src"),
-    package_dir={"": "src"},
-    package_data={"pchjlib": ["logo.ico", "desktop.ini"]},
-    entry_points={
-        "console_scripts": [
-            "pchj-icon = pchjlib.pchjicon:main",
-            "pchjlib = pchjlib.pchjmain:main",
-        ],
-    },
-    python_requires=">=3.7",
-    classifiers=[
-        "Development Status :: 5 - Production/Stable",
-        "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-    ],
-    cmdclass={"install": InstallWithIcon},
-)
+if __name__ == "__main__":
+    setup(cmdclass={"install": InstallWithIcon})

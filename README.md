@@ -55,6 +55,35 @@ python -m pip install pchjlib[numpy]
 
 ---
 
+## ❓ Basic Usage
+
+💡 **Note:** `{function}` can be `solve_equation`, `generate_prime_list`, etc.
+
+### ✅ Option 1: Import a single function
+
+```bash
+from pchjlib.pchjmain import {function}
+
+result = {function}(value_1, value_2, ...)
+```
+
+### ✅ Option 2: Call via the module
+
+```python
+import pchjlib.pchjmain
+
+result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
+```
+
+---
+
+### 📂 Additional Info
+
+- 📦 **Library:** `pchjlib`  
+- 📁 **Main Module:** `pchjmain`  
+
+---
+
 ## 🌟 Key Features
 
 - 🔍 **Special Number Checking and Generation**: Supports prime, emirp, Fibonacci, perfect, narcissistic, amicable, square, strong, twin prime, abundant, and happy numbers.
@@ -665,7 +694,7 @@ python -m pip install pchjlib[numpy]
 
 
 ## 📌 2025
-### 1.3.7 → 1.3.0 (August 7, 2025)
+### 1.4.0 → 1.3.0 (August 7, 2025)
 - 🔧 Fixed minor bugs  
 
 - ❌ Discontinue dependency on `roman` library  
