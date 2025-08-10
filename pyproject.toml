@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pchjlib"
-version = "1.5.0"
+version = "1.5.1"
 description = "A versatile Python toolkit for mathematical operations and string processing, including prime numbers, Fibonacci sequences, and Caesar ciphers."
 readme = { file = "README.md", content-type = "text/markdown" }
 license-files = ["LICENSE.txt"]

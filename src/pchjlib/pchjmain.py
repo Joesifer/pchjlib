@@ -1,9 +1,11 @@
 # pchjmain.py
 
 """
+PCHJLIB😺
 ================================================================================================
 
-PCHJLIB😺
+>>> The module that contains the library's core functions.
+>>> For detailed instructions, please see the `README.md` file.
 
 ================================================================================================
 """
@@ -169,6 +171,28 @@ def is_emirp(input_number: int) -> bool:
         >>> is_emirp(13)
         True
     """
+
+    def reverse_number(input_number: int) -> int:
+        """
+        Reverse the digits of a number using arithmetic operations.
+
+        Parameters:
+            - input_number (int): The number to reverse.
+
+        Returns:
+            - int: The reversed number.
+
+        Example:
+            >>> reverse_number(123)
+            321
+        """
+        reversed_num = 0
+        while input_number > 0:
+            digit = input_number % 10
+            reversed_num = reversed_num * 10 + digit
+            input_number //= 10
+        return reversed_num
+
     if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
     if input_number < 2:
@@ -177,28 +201,6 @@ def is_emirp(input_number: int) -> bool:
         return False
     reversed_number = reverse_number(input_number)
     return is_prime(reversed_number)
-
-
-def reverse_number(input_number: int) -> int:
-    """
-    Reverse the digits of a number using arithmetic operations.
-
-    Parameters:
-        - input_number (int): The number to reverse.
-
-    Returns:
-        - int: The reversed number.
-
-    Example:
-        >>> reverse_number(123)
-        321
-    """
-    reversed_num = 0
-    while input_number > 0:
-        digit = input_number % 10
-        reversed_num = reversed_num * 10 + digit
-        input_number //= 10
-    return reversed_num
 
 
 def generate_emirp_list(limit: int) -> list:
@@ -1454,7 +1456,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="The pchjlib library is a versatile toolkit for mathematical and string operations😺"
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.5.0")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.5.1")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps
@@ -2105,7 +2107,7 @@ def main():
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.5.0!")
+        print("Welcome to pchjlib version 1.5.1!")
         print("Use -h or --help for more information.")
 
 

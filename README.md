@@ -679,12 +679,12 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 11, 2025
-> **📦 Total Releases:** 87
+> **📦 Total Releases:** 88
 
 ---
 
 ## 📌 2025
-### 1.5.0 (August 11, 2025)
+### 1.5.1 → 1.5.0 (August 11, 2025)
 - ❌ Removed `solve_equation` function and its corresponding "Equation Solving" category in the command-line interface (now 12 categories total).
 - ✅ Eliminated dependency on `numpy` by optimizing `generate_prime_list` with `bytearray` for memory efficiency.
 - ✅ Added optional integration with `gmpy2` for handling large primes in `is_prime`.

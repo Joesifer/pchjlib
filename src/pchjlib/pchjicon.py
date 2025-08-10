@@ -4,8 +4,8 @@
 PCHJLIB😺
 ================================================================================================
 
-- Apply an icon to a folder (currently only supported on Windows).
-- For detailed instructions, please see the README.md file.
+>>> Apply an icon to a folder (currently only supported on Windows).
+>>> For detailed instructions, please see the `README.md` file.
 
 ================================================================================================
 """
