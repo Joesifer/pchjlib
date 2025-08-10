@@ -1,49 +1,10 @@
 # pchjmain.py
 
 """
-PCHJLIB😺
 ================================================================================================
-------------------------------------------------------------------------------------------------
-Author
-------------------------------------------------------------------------------------------------
-- Joesifer.
 
-Version
-------------------------------------------------------------------------------------------------
-- 1.4.5.
+PCHJLIB😺
 
-Release Date
-------------------------------------------------------------------------------------------------
-- February 14, 2024.
-
-License
-------------------------------------------------------------------------------------------------
-- Copyright © 2024 Joesifer
-
-Supported Python Version
-------------------------------------------------------------------------------------------------
-- Python 3.7 or higher.
-
-Dependencies
-------------------------------------------------------------------------------------------------
-- Built-in: `math`, `re`, `random`, `functools`, `argparse`.
-- External: `numpy` (optional for `solve_equation` and `generate_prime_list`).
-- External (plan): `gmpy2` (optional for big integer support).
-
-License Type
-------------------------------------------------------------------------------------------------
-- MIT License.
-
-Additional Information
-------------------------------------------------------------------------------------------------
-
-For usage instructions, please refer to:
-  >>> Link: https://github.com/Joesifer/pchjlib/blob/main/README.md
-
-Feedback and support are welcome via:
-  >>> Email: phanchanhung12055@gmail.com
-
-THANK YOU!!!
 ================================================================================================
 """
 
@@ -94,29 +55,41 @@ class ListError(MathError):
     pass
 
 
-# Check and import dependent libraries
+# Optional import for gmpy2 to handle large numbers
 try:
-    import numpy
+    import gmpy2
 except ImportError:
-    numpy = None
+    gmpy2 = None
 
 
 # Functions to check prime numbers and related numbers
-def is_prime(number):
+def is_prime(input_number: int) -> bool:
     """
     Check if a number is a prime number.
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
 
     Returns:
         - bool: True if the number is prime, False otherwise.
 
     Raises:
-        - InvalidInputError: If the input is not an integer.
-    """
+        - InvalidInputError: If the input is not an integer or negative.
 
-    def miller_rabin(n, k=5):
+    Example:
+        >>> is_prime(7)
+        True
+        >>> is_prime(4)
+        False
+    """
+    if not isinstance(input_number, int):
+        raise InvalidInputError("Input must be an integer")
+    if input_number < 0:
+        raise InvalidInputError("Input must be non-negative")
+    if gmpy2 and hasattr(gmpy2, "is_prime") and input_number > 2**64:
+        return bool(gmpy2.is_prime(input_number))  # type: ignore
+
+    def miller_rabin(n: int, k: int = 5) -> bool:
         if n <= 1:
             return False
         if n <= 3:
@@ -124,7 +97,7 @@ def is_prime(number):
         if n % 2 == 0:
             return False
 
-        def check(a, s, d, n):
+        def check(a: int, s: int, d: int, n: int) -> bool:
             x = pow(a, d, n)
             if x == 1:
                 return True
@@ -146,12 +119,10 @@ def is_prime(number):
                 return False
         return True
 
-    if not isinstance(number, int):
-        raise InvalidInputError("Input must be an integer")
-    return miller_rabin(number)
+    return miller_rabin(input_number)
 
 
-def generate_prime_list(limit):
+def generate_prime_list(limit: int) -> list:
     """
     Generate a list of prime numbers from 0 to limit using the Sieve algorithm.
 
@@ -163,64 +134,74 @@ def generate_prime_list(limit):
 
     Raises:
         - InvalidInputError: If limit is not an integer >= 2.
-        - ImportError: If numpy is not installed.
+
+    Example:
+        >>> generate_prime_list(10)
+        [2, 3, 5, 7]
     """
-    if numpy is None:
-        raise ImportError("This function requires numpy. Please run: pip install numpy")
     if not isinstance(limit, int):
         raise InvalidInputError("Limit must be an integer")
     if limit < 2:
         raise InvalidInputError("Limit must be >= 2")
-    sieve = numpy.ones(limit + 1, dtype=bool)
-    sieve[0:2] = False
-    for i in range(2, int(limit**0.5) + 1):
+    sieve = [True] * (limit + 1)
+    sieve[0] = sieve[1] = False
+    for i in range(2, int(math.sqrt(limit)) + 1):
         if sieve[i]:
-            sieve[i * i : limit + 1 : i] = False
-    return numpy.where(sieve)[0].tolist()
+            for j in range(i * i, limit + 1, i):
+                sieve[j] = False
+    return [i for i in range(limit + 1) if sieve[i]]
 
 
-def is_emirp(number):
+def is_emirp(input_number: int) -> bool:
     """
     Check if a number is an emirp (a prime number whose reverse is also a prime).
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
 
     Returns:
         - bool: True if the number is an emirp, False otherwise.
 
     Raises:
         - InvalidInputError: If the input is not a positive integer >= 2.
+
+    Example:
+        >>> is_emirp(13)
+        True
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number < 2:
+    if input_number < 2:
         raise InvalidInputError("Number must be >= 2")
-    if not is_prime(number):
+    if not is_prime(input_number):
         return False
-    reversed_number = reverse_number(number)
+    reversed_number = reverse_number(input_number)
     return is_prime(reversed_number)
 
 
-def reverse_number(number):
+def reverse_number(input_number: int) -> int:
     """
     Reverse the digits of a number using arithmetic operations.
 
     Parameters:
-        - number (int): The number to reverse.
+        - input_number (int): The number to reverse.
 
     Returns:
         - int: The reversed number.
+
+    Example:
+        >>> reverse_number(123)
+        321
     """
     reversed_num = 0
-    while number > 0:
-        digit = number % 10
+    while input_number > 0:
+        digit = input_number % 10
         reversed_num = reversed_num * 10 + digit
-        number //= 10
+        input_number //= 10
     return reversed_num
 
 
-def generate_emirp_list(limit):
+def generate_emirp_list(limit: int) -> list:
     """
     Generate a list of emirp numbers from 2 to limit.
 
@@ -232,6 +213,10 @@ def generate_emirp_list(limit):
 
     Raises:
         - InvalidInputError: If limit is not an integer >= 2.
+
+    Example:
+        >>> generate_emirp_list(20)
+        [13, 17]
     """
     if not isinstance(limit, int):
         raise InvalidInputError("Limit must be an integer")
@@ -242,7 +227,7 @@ def generate_emirp_list(limit):
 
 # Fibonacci functions with caching
 @lru_cache(maxsize=None)
-def fibonacci_at_index(index):
+def fibonacci_at_index(index: int) -> int:
     """
     Calculate the Fibonacci number at the given index using iteration with caching.
 
@@ -254,6 +239,10 @@ def fibonacci_at_index(index):
 
     Raises:
         - InvalidInputError: If index is not a non-negative integer.
+
+    Example:
+        >>> fibonacci_at_index(5)
+        5
     """
     if not isinstance(index, int):
         raise InvalidInputError("Index must be an integer")
@@ -269,7 +258,7 @@ def fibonacci_at_index(index):
     return b
 
 
-def generate_fibonacci_list(count):
+def generate_fibonacci_list(count: int) -> list:
     """
     Generate a list of the first count Fibonacci numbers.
 
@@ -281,6 +270,10 @@ def generate_fibonacci_list(count):
 
     Raises:
         - InvalidInputError: If count is not a non-negative integer.
+
+    Example:
+        >>> generate_fibonacci_list(5)
+        [0, 1, 1, 2, 3]
     """
     if not isinstance(count, int):
         raise InvalidInputError("Count must be an integer")
@@ -290,65 +283,77 @@ def generate_fibonacci_list(count):
 
 
 # Functions for perfect, narcissistic, amicable, and other special numbers
-def sum_of_divisors(number):
+def sum_of_divisors(input_number: int) -> int:
     """
     Calculate the sum of positive divisors of a number (excluding itself).
 
     Parameters:
-        - number (int): The number to calculate the sum of divisors.
+        - input_number (int): The number to calculate the sum of divisors.
 
     Returns:
         - int: The sum of divisors.
 
     Raises:
         - InvalidInputError: If number is not a positive integer.
+
+    Example:
+        >>> sum_of_divisors(6)
+        6
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Number must be an integer")
-    if number <= 0:
+    if input_number <= 0:
         raise InvalidInputError("Number must be positive")
-    return sum(i for i in range(1, number) if number % i == 0)
+    return sum(i for i in range(1, input_number) if input_number % i == 0)
 
 
-def sum_of_digits(number):
+def sum_of_digits(input_number: int) -> int:
     """
     Calculate the sum of digits of an integer.
 
     Parameters:
-        - number (int): The number to calculate the sum of digits.
+        - input_number (int): The number to calculate the sum of digits.
 
     Returns:
         - int: The sum of digits.
 
     Raises:
         - InvalidInputError: If the input is not an integer.
+
+    Example:
+        >>> sum_of_digits(123)
+        6
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Number must be an integer")
-    return sum(int(digit) for digit in str(abs(number)))
+    return sum(int(digit) for digit in str(abs(input_number)))
 
 
-def is_perfect_number(number):
+def is_perfect_number(input_number: int) -> bool:
     """
     Check if a number is a perfect number.
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
 
     Returns:
         - bool: True if the number is perfect, False otherwise.
 
     Raises:
         - InvalidInputError: If number is not a positive integer.
+
+    Example:
+        >>> is_perfect_number(6)
+        True
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number < 1:
+    if input_number < 1:
         raise InvalidInputError("Number must be positive")
-    return sum_of_divisors(number) == number
+    return sum_of_divisors(input_number) == input_number
 
 
-def generate_perfect_number_list(limit):
+def generate_perfect_number_list(limit: int) -> list:
     """
     Generate a list of perfect numbers from 1 to limit.
 
@@ -360,6 +365,10 @@ def generate_perfect_number_list(limit):
 
     Raises:
         - InvalidInputError: If limit is not a positive integer.
+
+    Example:
+        >>> generate_perfect_number_list(10)
+        [6]
     """
     if not isinstance(limit, int):
         raise InvalidInputError("Limit must be an integer")
@@ -368,28 +377,32 @@ def generate_perfect_number_list(limit):
     return [i for i in range(1, limit + 1) if is_perfect_number(i)]
 
 
-def is_narcissistic_number(number):
+def is_narcissistic_number(input_number: int) -> bool:
     """
     Check if a number is a narcissistic number.
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
 
     Returns:
         - bool: True if the number is narcissistic, False otherwise.
 
     Raises:
         - InvalidInputError: If number is not a non-negative integer.
+
+    Example:
+        >>> is_narcissistic_number(153)
+        True
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number < 0:
+    if input_number < 0:
         raise InvalidInputError("Number must be non-negative")
-    digits = len(str(number))
-    return sum(int(digit) ** digits for digit in str(number)) == number
+    digits = len(str(input_number))
+    return sum(int(digit) ** digits for digit in str(input_number)) == input_number
 
 
-def generate_narcissistic_number_list(limit):
+def generate_narcissistic_number_list(limit: int) -> list:
     """
     Generate a list of narcissistic numbers from 0 to limit.
 
@@ -401,6 +414,10 @@ def generate_narcissistic_number_list(limit):
 
     Raises:
         - InvalidInputError: If limit is not a non-negative integer.
+
+    Example:
+        >>> generate_narcissistic_number_list(10)
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     """
     if not isinstance(limit, int):
         raise InvalidInputError("Limit must be an integer")
@@ -409,7 +426,7 @@ def generate_narcissistic_number_list(limit):
     return [i for i in range(limit + 1) if is_narcissistic_number(i)]
 
 
-def are_amicable_numbers(number1, number2):
+def are_amicable_numbers(number1: int, number2: int) -> bool:
     """
     Check if two numbers are amicable numbers.
 
@@ -422,6 +439,10 @@ def are_amicable_numbers(number1, number2):
 
     Raises:
         - InvalidInputError: If the numbers are not positive integers.
+
+    Example:
+        >>> are_amicable_numbers(220, 284)
+        True
     """
     if not (isinstance(number1, int) and isinstance(number2, int)):
         raise InvalidInputError("Both numbers must be integers")
@@ -430,31 +451,35 @@ def are_amicable_numbers(number1, number2):
     return sum_of_divisors(number1) == number2 and sum_of_divisors(number2) == number1
 
 
-def is_happy_number(number):
+def is_happy_number(input_number: int) -> bool:
     """
     Check if a number is a happy number.
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
 
     Returns:
         - bool: True if the number is happy, False otherwise.
 
     Raises:
         - InvalidInputError: If number is not a positive integer.
+
+    Example:
+        >>> is_happy_number(19)
+        True
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number < 1:
+    if input_number < 1:
         raise InvalidInputError("Number must be positive")
     seen = set()
-    while number != 1 and number not in seen:
-        seen.add(number)
-        number = sum(int(digit) ** 2 for digit in str(number))
-    return number == 1
+    while input_number != 1 and input_number not in seen:
+        seen.add(input_number)
+        input_number = sum(int(digit) ** 2 for digit in str(input_number))
+    return input_number == 1
 
 
-def generate_happy_number_list(limit):
+def generate_happy_number_list(limit: int) -> list:
     """
     Generate a list of happy numbers from 1 to limit.
 
@@ -466,6 +491,10 @@ def generate_happy_number_list(limit):
 
     Raises:
         - InvalidInputError: If limit is not a positive integer.
+
+    Example:
+        >>> generate_happy_number_list(10)
+        [1, 7, 10]
     """
     if not isinstance(limit, int):
         raise InvalidInputError("Limit must be an integer")
@@ -475,28 +504,32 @@ def generate_happy_number_list(limit):
 
 
 # Functions for square numbers, strong numbers, friendly numbers
-def is_square_number(number):
+def is_square_number(input_number: int) -> bool:
     """
     Check if a number is a square number.
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
 
     Returns:
         - bool: True if the number is a square number, False otherwise.
 
     Raises:
         - InvalidInputError: If number is not a non-negative integer.
+
+    Example:
+        >>> is_square_number(16)
+        True
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number < 0:
+    if input_number < 0:
         raise InvalidInputError("Number must be non-negative")
-    sqrt_number = int(math.sqrt(number))
-    return sqrt_number * sqrt_number == number
+    sqrt_number = int(math.sqrt(input_number))
+    return sqrt_number * sqrt_number == input_number
 
 
-def generate_square_number_list(limit):
+def generate_square_number_list(limit: int) -> list:
     """
     Generate a list of square numbers from 0 to limit.
 
@@ -508,6 +541,10 @@ def generate_square_number_list(limit):
 
     Raises:
         - InvalidInputError: If limit is not a non-negative integer.
+
+    Example:
+        >>> generate_square_number_list(10)
+        [0, 1, 4, 9]
     """
     if not isinstance(limit, int):
         raise InvalidInputError("Limit must be an integer")
@@ -516,7 +553,7 @@ def generate_square_number_list(limit):
     return [i * i for i in range(int(math.sqrt(limit)) + 1) if i * i <= limit]
 
 
-def are_friendly_numbers(number1, number2):
+def are_friendly_numbers(number1: int, number2: int) -> bool:
     """
     Check if two numbers are friendly numbers.
 
@@ -529,6 +566,10 @@ def are_friendly_numbers(number1, number2):
 
     Raises:
         - InvalidInputError: If the numbers are not positive integers.
+
+    Example:
+        >>> are_friendly_numbers(30, 140)
+        True
     """
     if not (isinstance(number1, int) and isinstance(number2, int)):
         raise InvalidInputError("Both numbers must be integers")
@@ -537,12 +578,12 @@ def are_friendly_numbers(number1, number2):
     return sum_of_divisors(number1) / number1 == sum_of_divisors(number2) / number2
 
 
-def is_strong_number(number, variant=1):
+def is_strong_number(input_number: int, variant: int = 1) -> bool:
     """
     Check if a number is a strong number.
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
         - variant (int): 1 - Sum of digits is prime; 2 - Has a square prime factor.
 
     Returns:
@@ -550,17 +591,21 @@ def is_strong_number(number, variant=1):
 
     Raises:
         - InvalidInputError: If number is not a non-negative integer or variant is invalid.
+
+    Example:
+        >>> is_strong_number(145, variant=1)
+        True
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number < 0:
+    if input_number < 0:
         raise InvalidInputError("Number must be non-negative")
     if variant not in [1, 2]:
         raise InvalidInputError("Variant must be 1 or 2")
     if variant == 1:
-        return is_prime(sum_of_digits(number))
+        return is_prime(sum_of_digits(input_number))
     else:  # variant == 2
-        factors = prime_factors(number)
+        factors = prime_factors(input_number)
         unique_factors = set(factors)
         for prime in unique_factors:
             if factors.count(prime) >= 2:
@@ -569,12 +614,12 @@ def is_strong_number(number, variant=1):
 
 
 # Functions for divisors and multiples
-def generate_divisor_list(number, positive_only=True):
+def generate_divisor_list(input_number: int, positive_only: bool = True) -> list:
     """
     Generate a list of divisors of a number.
 
     Parameters:
-        - number (int): The number to generate the list of divisors.
+        - input_number (int): The number to generate the list of divisors.
         - positive_only (bool): If True, only positive divisors are returned.
 
     Returns:
@@ -582,24 +627,30 @@ def generate_divisor_list(number, positive_only=True):
 
     Raises:
         - InvalidInputError: If number is not an integer or is zero.
+
+    Example:
+        >>> generate_divisor_list(6)
+        [1, 2, 3, 6]
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number == 0:
+    if input_number == 0:
         raise InvalidInputError("Number cannot be zero")
-    number = abs(number)
-    divisors = [i for i in range(1, number + 1) if number % i == 0]
+    abs_number = abs(input_number)
+    divisors = [i for i in range(1, abs_number + 1) if abs_number % i == 0]
     if not positive_only:
         divisors += [-i for i in divisors]
     return sorted(divisors)
 
 
-def generate_multiple_list(number, limit, positive_only=True):
+def generate_multiple_list(
+    base_number: int, limit: int, positive_only: bool = True
+) -> list:
     """
     Generate a list of multiples of a number up to limit times.
 
     Parameters:
-        - number (int): The number to generate multiples.
+        - base_number (int): The number to generate multiples.
         - limit (int): The limit for the number of multiples.
         - positive_only (bool): If True, only positive multiples are returned.
 
@@ -608,22 +659,26 @@ def generate_multiple_list(number, limit, positive_only=True):
 
     Raises:
         - InvalidInputError: If inputs are not integers or number is zero or limit < 1.
+
+    Example:
+        >>> generate_multiple_list(3, 5)
+        [3, 6, 9, 12, 15]
     """
-    if not (isinstance(number, int) and isinstance(limit, int)):
+    if not (isinstance(base_number, int) and isinstance(limit, int)):
         raise InvalidInputError("Inputs must be integers")
-    if number == 0:
+    if base_number == 0:
         raise InvalidInputError("Number cannot be zero")
     if limit < 1:
         raise InvalidInputError("Limit must be positive")
     if positive_only:
-        return [number * i for i in range(1, limit + 1)]
+        return [base_number * i for i in range(1, limit + 1)]
     return sorted(
-        [-number * i for i in range(1, limit + 1)]
-        + [number * i for i in range(limit + 1)]
+        [-base_number * i for i in range(1, limit + 1)]
+        + [base_number * i for i in range(limit + 1)]
     )
 
 
-def common_divisors(numbers):
+def common_divisors(numbers: list) -> list:
     """
     Generate a list of common divisors of a list of numbers.
 
@@ -636,6 +691,10 @@ def common_divisors(numbers):
     Raises:
         - InvalidInputError: If input is not a list or contains non-integers.
         - MathError: If list has fewer than 2 non-zero elements.
+
+    Example:
+        >>> common_divisors([12, 18])
+        [1, 2, 3, 6]
     """
     if not isinstance(numbers, (list, tuple)):
         raise InvalidInputError("Input must be a list or tuple")
@@ -651,7 +710,7 @@ def common_divisors(numbers):
     return sorted(list(divisors))
 
 
-def greatest_common_divisor(numbers):
+def greatest_common_divisor(numbers: list) -> int:
     """
     Calculate the greatest common divisor of a list of numbers.
 
@@ -664,6 +723,10 @@ def greatest_common_divisor(numbers):
     Raises:
         - InvalidInputError: If input is not a list or contains non-integers.
         - MathError: If list has fewer than 2 non-zero elements.
+
+    Example:
+        >>> greatest_common_divisor([12, 18])
+        6
     """
     if not isinstance(numbers, (list, tuple)):
         raise InvalidInputError("Input must be a list or tuple")
@@ -679,7 +742,7 @@ def greatest_common_divisor(numbers):
     return result
 
 
-def least_common_multiple(numbers):
+def least_common_multiple(numbers: list) -> int:
     """
     Calculate the least common multiple of a list of numbers.
 
@@ -692,6 +755,10 @@ def least_common_multiple(numbers):
     Raises:
         - InvalidInputError: If input is not a list or contains non-integers or zeros.
         - MathError: If list has fewer than 2 elements.
+
+    Example:
+        >>> least_common_multiple([4, 6])
+        12
     """
     if not isinstance(numbers, (list, tuple)):
         raise InvalidInputError("Input must be a list or tuple")
@@ -709,25 +776,31 @@ def least_common_multiple(numbers):
 
 
 # Functions for twin primes and abundant numbers
-def is_twin_prime(number):
+def is_twin_prime(input_number: int) -> bool:
     """
     Check if a number is a twin prime.
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
 
     Returns:
         - bool: True if the number is a twin prime, False otherwise.
 
     Raises:
         - InvalidInputError: If number is not an integer.
+
+    Example:
+        >>> is_twin_prime(5)
+        True
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    return is_prime(number) and (is_prime(number - 2) or is_prime(number + 2))
+    return is_prime(input_number) and (
+        is_prime(input_number - 2) or is_prime(input_number + 2)
+    )
 
 
-def generate_twin_prime_list(limit):
+def generate_twin_prime_list(limit: int) -> list:
     """
     Generate a list of twin primes from 2 to limit.
 
@@ -739,6 +812,10 @@ def generate_twin_prime_list(limit):
 
     Raises:
         - InvalidInputError: If limit is not an integer >= 2.
+
+    Example:
+        >>> generate_twin_prime_list(20)
+        [3, 5, 7, 11, 13, 17, 19]
     """
     if not isinstance(limit, int):
         raise InvalidInputError("Limit must be an integer")
@@ -747,27 +824,31 @@ def generate_twin_prime_list(limit):
     return [i for i in range(2, limit + 1) if is_twin_prime(i)]
 
 
-def is_abundant_number(number):
+def is_abundant_number(input_number: int) -> bool:
     """
     Check if a number is an abundant number.
 
     Parameters:
-        - number (int): The number to check.
+        - input_number (int): The number to check.
 
     Returns:
         - bool: True if the number is abundant, False otherwise.
 
     Raises:
         - InvalidInputError: If number is not a positive integer.
+
+    Example:
+        >>> is_abundant_number(12)
+        True
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number < 1:
+    if input_number < 1:
         raise InvalidInputError("Number must be positive")
-    return sum_of_divisors(number) > number
+    return sum_of_divisors(input_number) > input_number
 
 
-def generate_abundant_number_list(limit):
+def generate_abundant_number_list(limit: int) -> list:
     """
     Generate a list of abundant numbers from 1 to limit.
 
@@ -779,6 +860,10 @@ def generate_abundant_number_list(limit):
 
     Raises:
         - InvalidInputError: If limit is not a positive integer.
+
+    Example:
+        >>> generate_abundant_number_list(20)
+        [12, 18, 20]
     """
     if not isinstance(limit, int):
         raise InvalidInputError("Limit must be an integer")
@@ -787,34 +872,38 @@ def generate_abundant_number_list(limit):
     return [i for i in range(1, limit + 1) if is_abundant_number(i)]
 
 
-def prime_factors(number):
+def prime_factors(input_number: int) -> list:
     """
     Factorize a number into a list of prime factors.
 
     Parameters:
-        - number (int): The number to factorize.
+        - input_number (int): The number to factorize.
 
     Returns:
         - list: A list of prime factors.
 
     Raises:
         - InvalidInputError: If number is not a positive integer > 1.
+
+    Example:
+        >>> prime_factors(12)
+        [2, 2, 3]
     """
-    if not isinstance(number, int):
+    if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
-    if number <= 1:
+    if input_number <= 1:
         raise InvalidInputError("Number must be greater than 1")
     factors = []
     divisor = 2
-    while number > 1:
-        while number % divisor == 0:
+    while input_number > 1:
+        while input_number % divisor == 0:
             factors.append(divisor)
-            number //= divisor
+            input_number //= divisor
         divisor += 1
     return factors
 
 
-def greatest_common_prime_divisor(number1, number2):
+def greatest_common_prime_divisor(number1: int, number2: int) -> int:
     """
     Find the greatest common prime divisor of two numbers.
 
@@ -828,6 +917,10 @@ def greatest_common_prime_divisor(number1, number2):
     Raises:
         - InvalidInputError: If numbers are not positive integers > 1.
         - MathError: If no common prime divisor exists.
+
+    Example:
+        >>> greatest_common_prime_divisor(12, 18)
+        3
     """
     if not (isinstance(number1, int) and isinstance(number2, int)):
         raise InvalidInputError("Both numbers must be integers")
@@ -841,56 +934,8 @@ def greatest_common_prime_divisor(number1, number2):
     return max(common_factors)
 
 
-# Function to solve equations
-def solve_equation(degree, coefficients):
-    """
-    Solve equations from degree 1 to degree `n` based on coefficients.
-
-    Parameters:
-        - degree (int): The degree of the equation.
-        - coefficients (list): The list of coefficients of the equation.
-
-    Returns:
-        - str: The result of the equation's roots.
-
-    Raises:
-        - ImportError: If numpy is not installed.
-        - InvalidInputError: If the degree or coefficients are invalid.
-    """
-    if numpy is None:
-        raise ImportError("This function requires numpy. Please run: pip install numpy")
-    if not isinstance(degree, int):
-        raise InvalidInputError("Degree must be an integer")
-    if not isinstance(coefficients, (list, tuple)):
-        raise InvalidInputError("Coefficients must be a list or tuple")
-    if len(coefficients) != degree + 1:
-        raise InvalidInputError(
-            f"An equation of degree {degree} must have {degree + 1} coefficients"
-        )
-    for coef in coefficients:
-        if not isinstance(coef, (int, float)):
-            raise InvalidInputError("Coefficients must be numbers")
-    roots = numpy.roots(coefficients)
-    real_roots = [r for r in roots if numpy.isreal(r)]
-    complex_roots = [r for r in roots if not numpy.isreal(r)]
-    result = "Roots of the equation:\n"
-    if real_roots:
-        result += "\nReal roots:\n" + "\n".join(
-            f"x{i+1} = {r.real}" for i, r in enumerate(real_roots)
-        )
-    if complex_roots:
-        result += "\nComplex roots:\n" + "\n".join(
-            f"x{i+1} = {r}" for i, r in enumerate(complex_roots)
-        )
-    return (
-        result.strip()
-        if real_roots or complex_roots
-        else "The equation has no real or complex roots"
-    )
-
-
 # Functions for list and string processing
-def remove_duplicates(items):
+def remove_duplicates(items: list) -> list:
     """
     Remove duplicate elements from a list.
 
@@ -902,13 +947,17 @@ def remove_duplicates(items):
 
     Raises:
         - InvalidInputError: If input is not a list or tuple.
+
+    Example:
+        >>> remove_duplicates([1, 2, 2, 3])
+        [3, 2, 1]
     """
     if not isinstance(items, (list, tuple)):
         raise InvalidInputError("Input must be a list or tuple")
     return sorted(list(set(items)), reverse=True)
 
 
-def extract_digits_from_string(text):
+def extract_digits_from_string(text: str) -> list:
     """
     Extract digits from a string. Example: "abc123" = [1,2,3].
 
@@ -920,6 +969,10 @@ def extract_digits_from_string(text):
 
     Raises:
         - InvalidInputError: If the input is not a string or is empty.
+
+    Example:
+        >>> extract_digits_from_string("abc123")
+        [1, 2, 3]
     """
     if not isinstance(text, str):
         raise InvalidInputError("Input must be a string")
@@ -928,7 +981,7 @@ def extract_digits_from_string(text):
     return [int(digit) for digit in re.findall(r"\d", text)]
 
 
-def extract_numbers_from_string(text):
+def extract_numbers_from_string(text: str) -> list:
     """
     Extract numbers from a string. Example: "abc123" = [123].
 
@@ -940,6 +993,10 @@ def extract_numbers_from_string(text):
 
     Raises:
         - InvalidInputError: If the input is not a string or is empty.
+
+    Example:
+        >>> extract_numbers_from_string("abc123def456")
+        [123, 456]
     """
     if not isinstance(text, str):
         raise InvalidInputError("Input must be a string")
@@ -948,7 +1005,7 @@ def extract_numbers_from_string(text):
     return [int(number) for number in re.findall(r"\d+", text)]
 
 
-def extract_characters(text):
+def extract_characters(text: str) -> list:
     """
     Extract non-digit characters from a string.
 
@@ -960,6 +1017,10 @@ def extract_characters(text):
 
     Raises:
         - InvalidInputError: If the input is not a string or is empty.
+
+    Example:
+        >>> extract_characters("a1b2c3")
+        ['a', 'b', 'c']
     """
     if not isinstance(text, str):
         raise InvalidInputError("Input must be a string")
@@ -968,7 +1029,7 @@ def extract_characters(text):
     return re.findall(r"\D", text)
 
 
-def compress_string(text, compress_type):
+def compress_string(text: str, compress_type: int) -> str:
     """
     Compress a string into 2 types.
 
@@ -981,6 +1042,12 @@ def compress_string(text, compress_type):
 
     Raises:
         - InvalidInputError: If input is not a string, is empty, or compress_type is invalid.
+
+    Example:
+        >>> compress_string("google", 1)
+        'e2g1l2o1'
+        >>> compress_string("google", 2)
+        'g2o1g1l1e1'
     """
     if not isinstance(text, str):
         raise InvalidInputError("Input must be a string")
@@ -990,7 +1057,6 @@ def compress_string(text, compress_type):
         raise InvalidInputError("Compression type must be 1 or 2")
 
     if compress_type == 1:
-        result = ""
         sorted_chars = sorted(text)
         compressed = ""
         count = 1
@@ -1015,7 +1081,7 @@ def compress_string(text, compress_type):
         return result
 
 
-def compress_string_without_numbers(input_text):
+def compress_string_without_numbers(input_text: str) -> str:
     """
     Compress a string by removing duplicates (e.g., "hhhoocssssiiinnnhhhhh" → "hocsinh").
 
@@ -1027,6 +1093,10 @@ def compress_string_without_numbers(input_text):
 
     Raises:
         - InvalidInputError: If the input is not a string or is empty.
+
+    Example:
+        >>> compress_string_without_numbers("hhhoocssssiiinnnhhhhh")
+        'hocsinh'
     """
     if not isinstance(input_text, str):
         raise InvalidInputError("Input must be a string")
@@ -1039,7 +1109,7 @@ def compress_string_without_numbers(input_text):
     return result
 
 
-def decompress_string(text):
+def decompress_string(text: str) -> str:
     """
     Decompress a string (e.g., "g2ogle" → "google").
 
@@ -1051,6 +1121,10 @@ def decompress_string(text):
 
     Raises:
         - InvalidInputError: If the input is not a string or is empty.
+
+    Example:
+        >>> decompress_string("g2ogle")
+        'google'
     """
     if not isinstance(text, str):
         raise InvalidInputError("Input must be a string")
@@ -1067,7 +1141,7 @@ def decompress_string(text):
     return result
 
 
-def unique_characters_string(text):
+def unique_characters_string(text: str) -> str:
     """
     Create a string with unique characters (e.g., "google" → "gole").
 
@@ -1079,6 +1153,10 @@ def unique_characters_string(text):
 
     Raises:
         - InvalidInputError: If the input is not a string or is empty.
+
+    Example:
+        >>> unique_characters_string("google")
+        'gole'
     """
     if not isinstance(text, str):
         raise InvalidInputError("Input must be a string")
@@ -1094,7 +1172,7 @@ def unique_characters_string(text):
 
 
 # Caesar cipher
-def caesar_cipher_to_numbers(text, shift):
+def caesar_cipher_to_numbers(text: str, shift: int) -> list:
     """
     Convert a string to a list of Caesar cipher numbers.
 
@@ -1108,6 +1186,10 @@ def caesar_cipher_to_numbers(text, shift):
     Raises:
         - InvalidInputError: If the input is not a string, is empty, or contains non-alphabetic characters.
         - NotIntegerError: If shift is not an integer.
+
+    Example:
+        >>> caesar_cipher_to_numbers("ABC", 3)
+        [3, 4, 5]
     """
     if not isinstance(text, str):
         raise InvalidInputError("Input must be a string")
@@ -1121,7 +1203,7 @@ def caesar_cipher_to_numbers(text, shift):
     return [(ord(char) - 65 + shift) % 26 for char in text]
 
 
-def caesar_cipher_from_numbers(numbers, shift):
+def caesar_cipher_from_numbers(numbers: list, shift: int) -> str:
     """
     Decode a list of Caesar cipher numbers to a string.
 
@@ -1135,6 +1217,10 @@ def caesar_cipher_from_numbers(numbers, shift):
     Raises:
         - InvalidInputError: If the input is not a list, is empty, or contains invalid numbers.
         - NotIntegerError: If shift is not an integer.
+
+    Example:
+        >>> caesar_cipher_from_numbers([3, 4, 5], 3)
+        'ABC'
     """
     if not isinstance(numbers, (list, tuple)):
         raise InvalidInputError("Input must be a list or tuple")
@@ -1149,7 +1235,9 @@ def caesar_cipher_from_numbers(numbers, shift):
 
 
 # Special calculation support functions
-def calculate_electricity_bill_Vietnamese(old_reading, new_reading):
+def calculate_electricity_bill_Vietnamese(
+    old_reading: float, new_reading: float
+) -> str:
     """
     Calculate electricity bill based on Vietnamese pricing tiers.
 
@@ -1162,6 +1250,10 @@ def calculate_electricity_bill_Vietnamese(old_reading, new_reading):
 
     Raises:
         - InvalidInputError: If readings are not numbers or invalid.
+
+    Example:
+        >>> calculate_electricity_bill_Vietnamese(100, 150)
+        '- Electricity consumed this month: 50.0 Kwh\n- Electricity bill this month: 83900.0 VND'
     """
     if not (
         isinstance(old_reading, (int, float)) and isinstance(new_reading, (int, float))
@@ -1194,7 +1286,7 @@ def calculate_electricity_bill_Vietnamese(old_reading, new_reading):
     return f"- Electricity consumed this month: {kwh} Kwh\n- Electricity bill this month: {total} VND"
 
 
-def largest_number_with_digit_sum(digit_count, target_sum):
+def largest_number_with_digit_sum(digit_count: int, target_sum: int) -> str:
     """
     Find the largest number with digit_count digits and sum of digits equal to target_sum.
 
@@ -1208,6 +1300,10 @@ def largest_number_with_digit_sum(digit_count, target_sum):
     Raises:
         - InvalidInputError: If inputs are not non-negative integers.
         - MathError: If no such number exists.
+
+    Example:
+        >>> largest_number_with_digit_sum(3, 15)
+        '960'
     """
     if not (isinstance(digit_count, int) and isinstance(target_sum, int)):
         raise InvalidInputError("Inputs must be integers")
@@ -1219,42 +1315,46 @@ def largest_number_with_digit_sum(digit_count, target_sum):
         return "0" * digit_count if digit_count > 0 else "0"
     result = []
     remaining_sum = target_sum
-    for i in range(digit_count - 1, -1, -1):
+    for _ in range(digit_count):
         digit = min(9, remaining_sum)
         result.append(str(digit))
         remaining_sum -= digit
-    return "".join(result)
+    return "".join(result[::-1])  # Reverse to get the largest number
 
 
 # Sequence generation rules
-def generate_sequence_rule_1(number):
+def generate_sequence_rule_1(count: int) -> list:
     """
     Generate a sequence of positive integers according to the rule:
         - 1 number is divisible by 1,
         - 2 numbers are divisible by 2,
         - 3 numbers are divisible by 3,
-        - and so on, the numbers increase until the number of numbers is `number`
+        - and so on, the numbers increase until the number of numbers is `count`
 
     Parameters:
-        - number (int): The number of elements to generate.
+        - count (int): The number of elements to generate.
 
     Returns:
         - list: A list of integers in the sequence.
 
     Raises:
-        - InvalidInputError: If number is not a positive integer.
-    """
-    if not isinstance(number, int):
-        raise InvalidInputError("Number must be an integer")
-    if number <= 1:
-        raise InvalidInputError("Number must be greater than 1")
+        - InvalidInputError: If count is not a positive integer.
 
-    def helper(k):
+    Example:
+        >>> generate_sequence_rule_1(10)
+        [1, 4, 6, 9, 12, 15, 16, 20, 24, 28]
+    """
+    if not isinstance(count, int):
+        raise InvalidInputError("Count must be an integer")
+    if count <= 1:
+        raise InvalidInputError("Count must be greater than 1")
+
+    def helper(k: int) -> int:
         if k == 1:
             return 1
         number_to_find = 1
         position = 0
-        for i in range(1, 1000):
+        for i in range(1, 10000):  # Increase range for larger counts
             number_to_find = (number_to_find // i + 1) * i
             position += 1
             if position == k:
@@ -1266,10 +1366,10 @@ def generate_sequence_rule_1(number):
                     return number_to_find
         raise OutOfRangeError(f"Cannot find the {k}-th number.")
 
-    return [helper(i) for i in range(1, number + 1)]
+    return [helper(i) for i in range(1, count + 1)]
 
 
-def generate_sequence_rule_2(base, count):
+def generate_sequence_rule_2(base: int, count: int) -> list:
     """
     Generate a list of multiples of base with count elements.
 
@@ -1282,6 +1382,10 @@ def generate_sequence_rule_2(base, count):
 
     Raises:
         - InvalidInputError: If inputs are not integers or count is negative.
+
+    Example:
+        >>> generate_sequence_rule_2(2, 5)
+        [0, 2, 4, 6, 8]
     """
     if not (isinstance(base, int) and isinstance(count, int)):
         raise InvalidInputError("Inputs must be integers")
@@ -1290,7 +1394,7 @@ def generate_sequence_rule_2(base, count):
     return [base * i for i in range(count)]
 
 
-def generate_sequence_rule_3(count, base):
+def generate_sequence_rule_3(count: int, base: int) -> list:
     """
     Generate a list of powers of base from 0 to count-1.
 
@@ -1303,6 +1407,10 @@ def generate_sequence_rule_3(count, base):
 
     Raises:
         - InvalidInputError: If inputs are not integers or count is negative.
+
+    Example:
+        >>> generate_sequence_rule_3(5, 2)
+        [1, 2, 4, 8, 16]
     """
     if not (isinstance(count, int) and isinstance(base, int)):
         raise InvalidInputError("Inputs must be integers")
@@ -1312,7 +1420,7 @@ def generate_sequence_rule_3(count, base):
 
 
 # Count inversions
-def count_inversions(numbers):
+def count_inversions(numbers: list) -> int:
     """
     Count the number of inversions in a list.
 
@@ -1324,6 +1432,10 @@ def count_inversions(numbers):
 
     Raises:
         - InvalidInputError: If input is not a list or contains non-numbers.
+
+    Example:
+        >>> count_inversions([1, 3, 2])
+        1
     """
     if not isinstance(numbers, (list, tuple)):
         raise InvalidInputError("Input must be a list or tuple")
@@ -1342,7 +1454,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="The pchjlib library is a versatile toolkit for mathematical and string operations😺"
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.4.5")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.5.0")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps
@@ -1523,16 +1635,7 @@ def main():
         help="Find the greatest common prime divisor of two numbers",
     )
 
-    # 8. Equation Solving
-    equation_parser = subparsers.add_parser(
-        "equation_solving", help="Function to solve equations"
-    )
-    equation_group = equation_parser.add_mutually_exclusive_group(required=True)
-    equation_group.add_argument(
-        "--solve", nargs="+", help="Solve the equation: degree followed by coefficients"
-    )
-
-    # 9. String Processing
+    # 8. String Processing (Renumbered from 9)
     string_parser = subparsers.add_parser(
         "string_processing", help="Functions for list and string processing"
     )
@@ -1566,7 +1669,7 @@ def main():
         "--unique_characters", type=str, help="Create a string with unique characters"
     )
 
-    # 10. Caesar Cipher
+    # 9. Caesar Cipher (Renumbered from 10)
     caesar_parser = subparsers.add_parser(
         "caesar_cipher", help="Functions for Caesar cipher"
     )
@@ -1582,7 +1685,7 @@ def main():
         help="Decode Caesar numbers to string: shift followed by numbers",
     )
 
-    # 11. Special Calculations
+    # 10. Special Calculations (Renumbered from 11)
     calc_parser = subparsers.add_parser(
         "special_calculations", help="Functions for special calculations"
     )
@@ -1600,7 +1703,7 @@ def main():
         help="Find the largest number with given digit count and sum",
     )
 
-    # 12. Sequence Generation
+    # 11. Sequence Generation (Renumbered from 12)
     sequence_parser = subparsers.add_parser(
         "sequence_generation", help="Functions to generate sequences"
     )
@@ -1621,7 +1724,7 @@ def main():
         help="Generate sequence by rule 3: number of elements and base",
     )
 
-    # 13. Inversion Counting
+    # 12. Inversion Counting (Renumbered from 13)
     inversion_parser = subparsers.add_parser(
         "inversion_counting", help="Function to count inversions"
     )
@@ -1871,16 +1974,6 @@ def main():
             except Exception as e:
                 print(f"Error: {e}")
 
-    elif args.category == "equation_solving":
-        if args.solve:
-            try:
-                degree = int(args.solve[0])
-                coefficients = list(map(float, args.solve[1:]))
-                result = solve_equation(degree, coefficients)
-                print(result)
-            except Exception as e:
-                print(f"Error: {e}")
-
     elif args.category == "string_processing":
         if args.remove_duplicates is not None:
             try:
@@ -2012,7 +2105,7 @@ def main():
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.4.5!")
+        print("Welcome to pchjlib version 1.5.0!")
         print("Use -h or --help for more information.")
 
 

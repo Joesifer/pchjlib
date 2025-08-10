@@ -3,47 +3,10 @@
 """
 PCHJLIB😺
 ================================================================================================
-------------------------------------------------------------------------------------------------
-Author
-------------------------------------------------------------------------------------------------
-- Joesifer.
 
-Version
-------------------------------------------------------------------------------------------------
-- 1.4.5.
+- Apply an icon to a folder (currently only supported on Windows).
+- For detailed instructions, please see the README.md file.
 
-Release Date
-------------------------------------------------------------------------------------------------
-- February 14, 2024.
-
-License
-------------------------------------------------------------------------------------------------
-- Copyright © 2024 Joesifer
-
-Supported Python Version
-------------------------------------------------------------------------------------------------
-- Python 3.7 or higher.
-
-Dependencies
-------------------------------------------------------------------------------------------------
-- Built-in: `math`, `re`, `random`, `functools`, `argparse`.
-- External: `numpy` (optional for `solve_equation` and `generate_prime_list`).
-- External (plan): `gmpy2` (optional for big integer support).
-
-License Type
-------------------------------------------------------------------------------------------------
-- MIT License.
-
-Additional Information
-------------------------------------------------------------------------------------------------
-
-For usage instructions, please refer to:
-  >>> Link: https://github.com/Joesifer/pchjlib/blob/main/README.md
-
-Feedback and support are welcome via:
-  >>> Email: phanchanhung12055@gmail.com
-
-THANK YOU!!!
 ================================================================================================
 """
 

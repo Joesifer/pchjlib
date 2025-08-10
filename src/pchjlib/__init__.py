@@ -29,14 +29,24 @@
 """
 PCHJLIB😺
 ================================================================================================
+
+Usage
 ------------------------------------------------------------------------------------------------
+``` python
+
+from pchjlib.pchjmain import is_prime
+result = is_prime(7)  # Check for prime numbers
+
+```
+- For detailed instructions, please see the README.md file.
+
 Author
 ------------------------------------------------------------------------------------------------
 - Joesifer.
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.4.5.
+- 1.5.0.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -53,8 +63,7 @@ Supported Python Version
 Dependencies
 ------------------------------------------------------------------------------------------------
 - Built-in: `math`, `re`, `random`, `functools`, `argparse`.
-- External: `numpy` (optional for `solve_equation` and `generate_prime_list`).
-- External (plan): `gmpy2` (optional for big integer support).
+- External: `gmpy2` (optional for big integer support).
 
 License Type
 ------------------------------------------------------------------------------------------------
@@ -64,10 +73,10 @@ Additional Information
 ------------------------------------------------------------------------------------------------
 
 For usage instructions, please refer to:
-  >>> Link: https://github.com/Joesifer/pchjlib/blob/main/README.md
+>>> Link: https://github.com/Joesifer/pchjlib/blob/main/README.md
 
 Feedback and support are welcome via:
-  >>> Email: phanchanhung12055@gmail.com
+>>> Email: phanchanhung12055@gmail.com
 
 THANK YOU!!!
 ================================================================================================
