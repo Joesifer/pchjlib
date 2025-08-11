@@ -55,15 +55,15 @@ python -m pip install gmpy2
 ### ✅ Option 1: Import a single function
 
 ```bash
-from pchjlib.pchjmain import {function}
+from pchjlib.primes import {function}
 result = {function}(value_1, value_2, ...)
 ```
 
 ### ✅ Option 2: Call via the module
 
 ```bash
-import pchjlib.pchjmain
-result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
+import pchjlib.primes
+result = pchjlib.primes.{function}(value_1, value_2, ...)
 ```
 
 ---
@@ -93,7 +93,7 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 - 👯 [Twin Prime and Abundant Number Functions](#-twin-prime-and-abundant-number-functions)
 - 🔍 [Prime Factorization Functions](#-prime-factorization-functions)
 - 🧵 [List and String Processing Functions](#-list-and-string-processing-functions)
-- 🏛️ [Caesar Cipher Functions](#%EF%B8%8F-caesar-cipher-functions)
+- 🏛️ [Caesar Cipher Functions](#️-caesar-cipher-functions)
 - 💥 [Special Calculation Functions](#-special-calculation-functions)
 - 🔁 [Sequence Generation Functions](#-sequence-generation-functions)
 - 🔢 [Inversion Counting Functions](#-inversion-counting-functions)
@@ -102,7 +102,7 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 ---
 
-### 🔢 Prime and Related Number Functions
+### 🔢 Prime and Related Number Functions (primes.py)
 
 **is_prime(input_number)**
 Checks if a number is prime. 
@@ -134,7 +134,7 @@ Generates emirp numbers from 2 to `limit`.
 
 ---
 
-### 🌀 Fibonacci Functions
+### 🌀 Fibonacci Functions (fibonacci.py)
 
 **fibonacci_at_index(index)**
 Calculates the Fibonacci number at a given index with caching. 
@@ -152,7 +152,7 @@ Generates the first `count` Fibonacci numbers.
 
 ---
 
-### 🧠 Perfect, Narcissistic, Amicable, and Happy Number Functions
+### 🧠 Perfect, Narcissistic, Amicable, and Happy Number Functions (special_numbers1.py)
 
 **sum_of_divisors(input_number)**
 Computes the sum of positive divisors (excluding itself). 
@@ -219,7 +219,7 @@ Generates happy numbers from 1 to `limit`.
 
 ---
 
-### 📐 Square, Strong, and Friendly Number Functions
+### 📐 Square, Strong, and Friendly Number Functions (special_numbers2.py)
 
 **is_square_number(input_number)**
 Checks if a number is a perfect square. 
@@ -251,7 +251,14 @@ Checks if a number is a strong number (sum of factorial of its digits equals the
 
 ---
 
-### 📊 Divisor and Multiple Functions
+### 📊 Divisor and Multiple Functions (divisors_multiples.py)
+
+**sum_of_divisors(input_number)**
+Computes the sum of positive divisors (excluding itself). 
+ - Parameter: `input_number` (int) 
+ - Returns: Sum of divisors. 
+ - Raises: `InvalidInputError` if not a positive integer. 
+ - Example: `sum_of_divisors(6)` → `6`
 
 **generate_divisor_list(input_number, positive_only=True)**
 Generates divisors of a number. 
@@ -290,7 +297,7 @@ Computes the LCM of a list of numbers.
 
 ---
 
-### 👯 Twin Prime and Abundant Number Functions
+### 👯 Twin Prime and Abundant Number Functions (twin_abundant.py)
 
 **is_twin_prime(input_number)**
 Checks if a number is a twin prime. 
@@ -322,7 +329,7 @@ Generates abundant numbers from 1 to `limit`.
 
 ---
 
-### 🔍 Prime Factorization Functions
+### 🔍 Prime Factorization Functions (prime_factorization.py)
 
 **prime_factors(input_number)**
 Factorizes a number into prime factors. 
@@ -340,7 +347,7 @@ Finds the greatest common prime divisor of two numbers.
 
 ---
 
-### 🧵 List and String Processing Functions
+### 🧵 List and String Processing Functions (string_processing.py)
 
 **remove_duplicates(items)**
 Removes duplicates from a list and sorts in descending order. 
@@ -394,7 +401,7 @@ Creates a string with unique characters in order of appearance.
 
 ---
 
-### 🏛️ Caesar Cipher Functions
+### 🏛️ Caesar Cipher Functions (caesar_cipher.py)
 
 **caesar_cipher_to_numbers(text, shift)**
 Converts a string to a list of Caesar cipher numbers. 
@@ -410,7 +417,7 @@ Decodes a list of Caesar cipher numbers into a string.
 
 ---
 
-### 💥 Special Calculation Functions
+### 💥 Special Calculation Functions (special_calculations.py)
 
 **calculate_electricity_bill_Vietnamese(old_reading, new_reading)**
 Calculates an electricity bill based on Vietnamese pricing tiers. 
@@ -426,7 +433,7 @@ Finds the largest number with `digit_count` digits summing to `target_sum`.
 
 ---
 
-### 🔁 Sequence Generation Functions
+### 🔁 Sequence Generation Functions (sequence_generation.py)
 
 **generate_sequence_rule_1(count)**
 Generate a sequence of positive integers according to the rule: 
@@ -452,7 +459,7 @@ Generates powers of `base` from 0 to `count-1`.
 
 ---
 
-### 🔢 Inversion Counting Functions
+### 🔢 Inversion Counting Functions (inversion_counting.py)
 
 **count_inversions(numbers)**
 Counts the number of inversions in a list. 
@@ -677,12 +684,12 @@ Counts the number of inversions in a list.
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 11, 2025
-> **📦 Total Releases:** 91
+> **📦 Total Releases:** 92
 
 ---
 
 ## 📌 2025
-### 1.5.4 → 1.5.0 (August 11, 2025)
+### 1.6.0 → 1.5.0 (August 11, 2025)
 - 🔧 Fixed minor bugs 
 - ✅ Updated `is_strong_number` to the standard factorion definition (sum of factorial of digits equals the number) Removed variant parameter for simplicity; future versions may add separate functions for related concepts like powerful numbers 
 - ✅ Adjusted CLI for `special_numbers_2`: Removed `--variant` option from `--is_strong` 
@@ -694,7 +701,7 @@ Counts the number of inversions in a list.
 - ✅ Added detailed examples to docstrings for all functions 
 - ✅ Optimized performance: Switched `fibonacci_at_index` to iterative loop; improved `largest_number_with_digit_sum` to correctly return the largest number by reversing the result; increased range in `generate_sequence_rule_1` for larger counts 
 - ✅ Updated variable names for clarity (e.g., `number` to `input_number`) 
-- ✅ Fixed minor bugs in string compression examples and sequence generation 
+- 🔧 Fixed minor bugs in string compression examples and sequence generation 
 - ✏️ Updated README: Removed Equation Solving section, updated Requirements and Installation (removed numpy references, added gmpy2), updated function descriptions with new examples, renumbered Sample Command List to 12 categories 
 
 ### 1.4.5 → 1.3.0 (August 7-8, 2025)
@@ -922,5 +929,3 @@ Counts the number of inversions in a list.
 ### 0.0.0.1 (February 14, 2024)
 
 - 🎉 Initial release!
-
---- 

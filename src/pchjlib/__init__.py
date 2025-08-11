@@ -46,7 +46,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.5.4.
+- 1.6.0.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -84,25 +84,45 @@ THANK YOU!!!
 
 
 from importlib.metadata import version
-
 from .pchjicon import main as pchj_icon
 from .pchjmain import main as pchj_main
+from .primes import *
+from .twin_abundant import *
+from .fibonacci import *
+from .special_numbers1 import *
+from .special_numbers2 import *
+from .divisors_multiples import *
+from .prime_factorization import *
+from .string_processing import *
+from .caesar_cipher import *
+from .special_calculations import *
+from .sequence_generation import *
+from .inversion_counting import *
 
-from . import pchjmain
+author = "Joesifer (phanchanhung12055@gmail.com)"
+copyright = "Copyright (c) 2024 Joesifer"
+version = version("pchjlib")
+license = "MIT License"
+release_date = "February 14, 2024"
 
-__author__ = "Joesifer (phanchanhung12055@gmail.com)"
-__copyright__ = "Copyright (c) 2024 Joesifer"
-__version__ = version("pchjlib")
-__license__ = "MIT License"
-__release_date__ = "February 14, 2024"
-
-__all__ = [
-    "pchjmain",
+all = [
+    "primes",
+    "twin_abundant",
+    "fibonacci",
+    "special_numbers1",
+    "special_numbers2",
+    "divisors_multiples",
+    "prime_factorization",
+    "string_processing",
+    "caesar_cipher",
+    "special_calculations",
+    "sequence_generation",
+    "inversion_counting",
     "pchj_main",
     "pchj_icon",
-    "__version__",
-    "__author__",
-    "__copyright__",
-    "__license__",
-    "__release_date__",
+    "version",
+    "author",
+    "copyright",
+    "license",
+    "release_date",
 ]
