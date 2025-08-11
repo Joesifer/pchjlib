@@ -188,7 +188,7 @@ Generates narcissistic numbers from 0 to `limit`.
  - Parameter: `limit` (int) 
  - Returns: List of narcissistic numbers. 
  - Raises: `InvalidInputError` if not a non-negative integer. 
- - Example: `generate_narcissistic_number_list(10)` → `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`
+ - Example: `generate_narcissistic_number_list(10000)` → `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 153, 370, 371, 407, 1634, 8208, 9474]`
 
 **are_amicable_numbers(number1, number2)**
 Checks if two numbers are amicable. 
@@ -690,12 +690,12 @@ This will discover and run all tests in the `tests/` directory. Ensure the libra
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 11, 2025
-> **📦 Total Releases:** 95
+> **📦 Total Releases:** 96
 
 ---
 
 ## 📌 2025
-### 1.6.3 → 1.5.0 (August 11, 2025)
+### 1.6.4 → 1.5.0 (August 11, 2025)
 - 🔧 Fixed minor bugs 
 - 🔧 Fixed `generate_sequence_rule_3` and `generate_sequence_rule_2` 
 - ✅ Updated `is_strong_number` to the standard factorion definition (sum of factorial of digits equals the number) Removed variant parameter for simplicity; future versions may add separate functions for related concepts like powerful numbers 
