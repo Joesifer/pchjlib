@@ -690,12 +690,12 @@ This will discover and run all tests in the `tests/` directory. Ensure the libra
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 11, 2025
-> **📦 Total Releases:** 93
+> **📦 Total Releases:** 94
 
 ---
 
 ## 📌 2025
-### 1.6.1 → 1.5.0 (August 11, 2025)
+### 1.6.2 → 1.5.0 (August 11, 2025)
 - 🔧 Fixed minor bugs 
 - ✅ Updated `is_strong_number` to the standard factorion definition (sum of factorial of digits equals the number) Removed variant parameter for simplicity; future versions may add separate functions for related concepts like powerful numbers 
 - ✅ Adjusted CLI for `special_numbers_2`: Removed `--variant` option from `--is_strong` 
@@ -935,4 +935,3 @@ This will discover and run all tests in the `tests/` directory. Ensure the libra
 ### 0.0.0.1 (February 14, 2024)
 
 - 🎉 Initial release!
-```
