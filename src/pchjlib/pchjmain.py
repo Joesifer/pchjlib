@@ -39,24 +39,6 @@ class InvalidInputError(MathError):
     pass
 
 
-class DivisionByZeroError(MathError):
-    """Exception raised when division by zero occurs."""
-
-    pass
-
-
-class TypeErrorCustom(MathError):
-    """Exception raised when the data type is incorrect."""
-
-    pass
-
-
-class ListError(MathError):
-    """Exception raised when the list input is invalid."""
-
-    pass
-
-
 # Optional import for gmpy2 to handle large numbers
 try:
     import gmpy2
@@ -580,39 +562,34 @@ def are_friendly_numbers(number1: int, number2: int) -> bool:
     return sum_of_divisors(number1) / number1 == sum_of_divisors(number2) / number2
 
 
-def is_strong_number(input_number: int, variant: int = 1) -> bool:
+def is_strong_number(input_number: int) -> bool:
     """
-    Check if a number is a strong number.
+    Check if a number is a strong number (sum of factorial of its digits equals the number itself).
 
     Parameters:
         - input_number (int): The number to check.
-        - variant (int): 1 - Sum of digits is prime; 2 - Has a square prime factor.
 
     Returns:
         - bool: True if the number is strong, False otherwise.
 
     Raises:
-        - InvalidInputError: If number is not a non-negative integer or variant is invalid.
+        - InvalidInputError: If number is not a non-negative integer.
 
     Example:
-        >>> is_strong_number(145, variant=1)
+        >>> is_strong_number(145)
         True
+        >>> is_strong_number(146)
+        False
     """
     if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
     if input_number < 0:
         raise InvalidInputError("Number must be non-negative")
-    if variant not in [1, 2]:
-        raise InvalidInputError("Variant must be 1 or 2")
-    if variant == 1:
-        return is_prime(sum_of_digits(input_number))
-    else:  # variant == 2
-        factors = prime_factors(input_number)
-        unique_factors = set(factors)
-        for prime in unique_factors:
-            if factors.count(prime) >= 2:
-                return True
-        return False
+    if input_number == 0:
+        return False  # 0! = 1 != 0
+    digits = [int(digit) for digit in str(input_number)]
+    total = sum(math.factorial(digit) for digit in digits)
+    return total == input_number
 
 
 # Functions for divisors and multiples
@@ -1047,9 +1024,9 @@ def compress_string(text: str, compress_type: int) -> str:
 
     Example:
         >>> compress_string("google", 1)
-        'e2g1l2o1'
+        'e2gl2o'
         >>> compress_string("google", 2)
-        'g2o1g1l1e1'
+        'g2ogle'
     """
     if not isinstance(text, str):
         raise InvalidInputError("Input must be a string")
@@ -1456,7 +1433,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="The pchjlib library is a versatile toolkit for mathematical and string operations😺"
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.5.1")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.5.2")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps
@@ -1570,13 +1547,6 @@ def main():
     )
     special2_group.add_argument(
         "--is_strong", type=int, help="Check if a number is a strong number"
-    )
-    special2_parser.add_argument(
-        "--variant",
-        type=int,
-        choices=[1, 2],
-        default=1,
-        help="Variant for strong number check (1 or 2)",
     )
     special2_group.add_argument(
         "--are_friendly",
@@ -1904,9 +1874,9 @@ def main():
                 print(f"Error: {e}")
         elif args.is_strong is not None:
             try:
-                result = is_strong_number(args.is_strong, variant=args.variant)
+                result = is_strong_number(args.is_strong)
                 print(
-                    f"{args.is_strong} {'is a strong number' if result else 'is not a strong number'} (variant {args.variant})"
+                    f"{args.is_strong} {'is a strong number' if result else 'is not a strong number'}"
                 )
             except Exception as e:
                 print(f"Error: {e}")
@@ -2107,7 +2077,7 @@ def main():
                 print(f"Error: {e}")
 
     else:
-        print("Welcome to pchjlib version 1.5.1!")
+        print("Welcome to pchjlib!")
         print("Use -h or --help for more information.")
 
 
