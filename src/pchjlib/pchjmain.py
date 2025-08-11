@@ -11,15 +11,15 @@ PCHJLIB😺
 """
 
 import argparse
-from .primes import is_prime, generate_prime_list, is_emirp, generate_emirp_list
-from .twin_abundant import (
+from pchjlib.primes import is_prime, generate_prime_list, is_emirp, generate_emirp_list
+from pchjlib.twin_abundant import (
     is_twin_prime,
     generate_twin_prime_list,
     is_abundant_number,
     generate_abundant_number_list,
 )
-from .fibonacci import fibonacci_at_index, generate_fibonacci_list
-from .special_numbers1 import (
+from pchjlib.fibonacci import fibonacci_at_index, generate_fibonacci_list
+from pchjlib.special_numbers1 import (
     is_perfect_number,
     generate_perfect_number_list,
     is_narcissistic_number,
@@ -28,21 +28,21 @@ from .special_numbers1 import (
     is_happy_number,
     generate_happy_number_list,
 )
-from .special_numbers2 import (
+from pchjlib.special_numbers2 import (
     is_square_number,
     generate_square_number_list,
     is_strong_number,
     are_friendly_numbers,
 )
-from .divisors_multiples import (
+from pchjlib.divisors_multiples import (
     generate_divisor_list,
     generate_multiple_list,
     common_divisors,
     greatest_common_divisor,
     least_common_multiple,
 )
-from .prime_factorization import prime_factors, greatest_common_prime_divisor
-from .string_processing import (
+from pchjlib.prime_factorization import prime_factors, greatest_common_prime_divisor
+from pchjlib.string_processing import (
     remove_duplicates,
     extract_digits_from_string,
     extract_numbers_from_string,
@@ -52,24 +52,24 @@ from .string_processing import (
     decompress_string,
     unique_characters_string,
 )
-from .caesar_cipher import caesar_cipher_to_numbers, caesar_cipher_from_numbers
-from .special_calculations import (
+from pchjlib.caesar_cipher import caesar_cipher_to_numbers, caesar_cipher_from_numbers
+from pchjlib.special_calculations import (
     calculate_electricity_bill_Vietnamese,
     largest_number_with_digit_sum,
 )
-from .sequence_generation import (
+from pchjlib.sequence_generation import (
     generate_sequence_rule_1,
     generate_sequence_rule_2,
     generate_sequence_rule_3,
 )
-from .inversion_counting import count_inversions
+from pchjlib.inversion_counting import count_inversions
 
 
 def main():
     parser = argparse.ArgumentParser(
         description="The pchjlib library is a versatile toolkit for mathematical and string operations😺"
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.6.2")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.6.3")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps

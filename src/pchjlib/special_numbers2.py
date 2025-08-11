@@ -6,8 +6,8 @@ Functions for square, strong, and friendly numbers.
 
 import math
 
-from .divisors_multiples import sum_of_divisors
-from .utils import InvalidInputError
+from pchjlib.divisors_multiples import sum_of_divisors
+from pchjlib.utils import InvalidInputError
 
 
 def is_square_number(input_number: int) -> bool:

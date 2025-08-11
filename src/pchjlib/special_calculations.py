@@ -4,7 +4,7 @@
 Functions for special calculations.
 """
 
-from .utils import InvalidInputError, MathError
+from pchjlib.utils import InvalidInputError, MathError
 
 
 def calculate_electricity_bill_Vietnamese(

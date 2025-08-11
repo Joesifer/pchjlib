@@ -4,7 +4,7 @@
 Function to count inversions.
 """
 
-from .utils import InvalidInputError
+from pchjlib.utils import InvalidInputError
 
 
 def count_inversions(numbers: list) -> int:

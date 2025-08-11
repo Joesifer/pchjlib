@@ -6,7 +6,7 @@ Functions for list and string processing.
 
 import re
 
-from .utils import InvalidInputError
+from pchjlib.utils import InvalidInputError
 
 
 def remove_duplicates(items: list) -> list:

@@ -423,7 +423,7 @@ Calculates an electricity bill based on Vietnamese pricing tiers.
 Finds the largest number with `digit_count` digits summing to `target_sum`. 
  - Parameters: `digit_count` (int), `target_sum` (int) 
  - Returns: Largest number as a string. 
- - Example: `largest_number_with_digit_sum(3, 15)` → `'960'`
+ - Example: `largest_number_with_digit_sum(20, 99)` → `'99999999999000000000'`
 
 ---
 
@@ -443,13 +443,13 @@ Generate a sequence of positive integers according to the rule:
 Generates `count` multiples of `base`. 
  - Parameters: `base` (int), `count` (int) 
  - Returns: List of multiples. 
- - Example: `generate_sequence_rule_2(2, 5)` → `[0, 2, 4, 6, 8]`
+ - Example: `generate_sequence_rule_2(2, 5)` → `[2, 4, 6, 8, 10]`
 
 **generate_sequence_rule_3(count, base)**
-Generates powers of `base` from 0 to `count-1`. 
- - Parameters: `count` (int), `base` (int) 
- - Returns: List of powers. 
- - Example: `generate_sequence_rule_3(5, 2)` → `[1, 2, 4, 8, 16]`
+Generates a list of powers of an integer `base`, starting from `base^1` up to `base^count`. 
+ - Parameters: `count` (int) - *The number of elements to generate*, `base` (int) - *The base number to be raised to powers*. 
+ - Returns: A list containing powers of the base from 1 to count.. 
+ - Example: `generate_sequence_rule_3(5, 2)` → `[2, 4, 8, 16, 32]`
 
 ---
 
@@ -690,13 +690,14 @@ This will discover and run all tests in the `tests/` directory. Ensure the libra
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 11, 2025
-> **📦 Total Releases:** 94
+> **📦 Total Releases:** 95
 
 ---
 
 ## 📌 2025
-### 1.6.2 → 1.5.0 (August 11, 2025)
+### 1.6.3 → 1.5.0 (August 11, 2025)
 - 🔧 Fixed minor bugs 
+- 🔧 Fixed `generate_sequence_rule_3` and `generate_sequence_rule_2` 
 - ✅ Updated `is_strong_number` to the standard factorion definition (sum of factorial of digits equals the number) Removed variant parameter for simplicity; future versions may add separate functions for related concepts like powerful numbers 
 - ✅ Adjusted CLI for `special_numbers_2`: Removed `--variant` option from `--is_strong` 
 - ✏️ Updated README: Revised description and example for `is_strong_number` in the functions section and Sample Command List; incremented version and release count 

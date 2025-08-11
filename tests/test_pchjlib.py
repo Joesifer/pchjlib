@@ -210,10 +210,10 @@ class TestPchjlib(unittest.TestCase):
         )
 
     def test_generate_sequence_rule_2(self):
-        self.assertEqual(generate_sequence_rule_2(2, 5), [0, 2, 4, 6, 8])
+        self.assertEqual(generate_sequence_rule_2(2, 5), [2, 4, 6, 8, 10])
 
     def test_generate_sequence_rule_3(self):
-        self.assertEqual(generate_sequence_rule_3(5, 2), [1, 2, 4, 8, 16])
+        self.assertEqual(generate_sequence_rule_3(5, 2), [2, 4, 8, 16, 32])
 
     def test_count_inversions(self):
         self.assertEqual(count_inversions([1, 3, 2]), 1)

@@ -6,7 +6,7 @@ Functions for divisors and multiples.
 
 import math
 
-from .utils import InvalidInputError, MathError
+from pchjlib.utils import InvalidInputError, MathError
 
 
 def sum_of_divisors(input_number: int) -> int:

@@ -46,7 +46,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.6.2.
+- 1.6.3.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -84,20 +84,20 @@ THANK YOU!!!
 
 
 from importlib.metadata import version
-from .pchjicon import main as pchj_icon
-from .pchjmain import main as pchj_main
-from .primes import *
-from .twin_abundant import *
-from .fibonacci import *
-from .special_numbers1 import *
-from .special_numbers2 import *
-from .divisors_multiples import *
-from .prime_factorization import *
-from .string_processing import *
-from .caesar_cipher import *
-from .special_calculations import *
-from .sequence_generation import *
-from .inversion_counting import *
+from pchjlib.pchjicon import main as pchj_icon
+from pchjlib.pchjmain import main as pchj_main
+from pchjlib.primes import *
+from pchjlib.twin_abundant import *
+from pchjlib.fibonacci import *
+from pchjlib.special_numbers1 import *
+from pchjlib.special_numbers2 import *
+from pchjlib.divisors_multiples import *
+from pchjlib.prime_factorization import *
+from pchjlib.string_processing import *
+from pchjlib.caesar_cipher import *
+from pchjlib.special_calculations import *
+from pchjlib.sequence_generation import *
+from pchjlib.inversion_counting import *
 
 author = "Joesifer (phanchanhung12055@gmail.com)"
 copyright = "Copyright (c) 2024 Joesifer"

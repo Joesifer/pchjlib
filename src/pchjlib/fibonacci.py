@@ -6,7 +6,7 @@ Functions for Fibonacci sequence.
 
 from functools import lru_cache
 
-from .utils import InvalidInputError
+from pchjlib.utils import InvalidInputError
 
 
 @lru_cache(maxsize=None)

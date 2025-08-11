@@ -4,7 +4,7 @@
 Functions for prime factorization.
 """
 
-from .utils import InvalidInputError, MathError
+from pchjlib.utils import InvalidInputError, MathError
 
 
 def prime_factors(input_number: int) -> list:

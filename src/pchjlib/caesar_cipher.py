@@ -4,7 +4,7 @@
 Functions for Caesar cipher.
 """
 
-from .utils import InvalidInputError, NotIntegerError
+from pchjlib.utils import InvalidInputError
 
 
 def caesar_cipher_to_numbers(text: str, shift: int) -> list:
@@ -19,8 +19,7 @@ def caesar_cipher_to_numbers(text: str, shift: int) -> list:
         - list: A list of Caesar cipher numbers.
 
     Raises:
-        - InvalidInputError: If the input is not a string, is empty, or contains non-alphabetic characters.
-        - NotIntegerError: If shift is not an integer.
+        - InvalidInputError: If the input is not a string, is empty, or contains non-alphabetic characters. If shift is not an integer.
 
     Example:
         >>> caesar_cipher_to_numbers("ABC", 3)
@@ -31,7 +30,7 @@ def caesar_cipher_to_numbers(text: str, shift: int) -> list:
     if not text:
         raise InvalidInputError("String cannot be empty")
     if not isinstance(shift, int):
-        raise NotIntegerError("Shift must be an integer")
+        raise InvalidInputError("Shift must be an integer")
     text = text.upper()
     if not text.isalpha():
         raise InvalidInputError("String must contain only alphabetic characters")
@@ -50,8 +49,7 @@ def caesar_cipher_from_numbers(numbers: list, shift: int) -> str:
         - str: The decoded string.
 
     Raises:
-        - InvalidInputError: If the input is not a list, is empty, or contains invalid numbers.
-        - NotIntegerError: If shift is not an integer.
+        - InvalidInputError: If the input is not a list, is empty, or contains invalid numbers. If shift is not an integer.
 
     Example:
         >>> caesar_cipher_from_numbers([3, 4, 5], 3)
@@ -62,7 +60,7 @@ def caesar_cipher_from_numbers(numbers: list, shift: int) -> str:
     if not numbers:
         raise InvalidInputError("List cannot be empty")
     if not isinstance(shift, int):
-        raise NotIntegerError("Shift must be an integer")
+        raise InvalidInputError("Shift must be an integer")
     for num in numbers:
         if not isinstance(num, int) or num < 0 or num > 25:
             raise InvalidInputError("Numbers must be integers between 0 and 25")

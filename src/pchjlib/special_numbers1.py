@@ -4,9 +4,9 @@ Functions for perfect, narcissistic, amicable, and happy numbers.
 """
 
 
-from .utils import InvalidInputError
+from pchjlib.utils import InvalidInputError
 
-from .divisors_multiples import (
+from pchjlib.divisors_multiples import (
     sum_of_divisors,
 )  # Assuming sum_of_divisors is in divisors_multiples.py; adjust if needed
 

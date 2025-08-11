@@ -4,9 +4,9 @@
 Functions for twin primes and abundant numbers.
 """
 
-from .primes import is_prime
-from .divisors_multiples import sum_of_divisors
-from .utils import InvalidInputError
+from pchjlib.primes import is_prime
+from pchjlib.divisors_multiples import sum_of_divisors
+from pchjlib.utils import InvalidInputError
 
 
 def is_twin_prime(input_number: int) -> bool:

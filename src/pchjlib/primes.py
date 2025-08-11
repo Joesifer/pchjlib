@@ -5,7 +5,7 @@ Functions for prime and emirp numbers.
 """
 
 import math, random
-from .utils import InvalidInputError
+from pchjlib.utils import InvalidInputError
 
 # Optional import for gmpy2 to handle large numbers
 try:

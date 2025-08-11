@@ -17,12 +17,6 @@ class OutOfRangeError(MathError):
     pass
 
 
-class NotIntegerError(MathError):
-    """Exception raised when a value is not an integer."""
-
-    pass
-
-
 class InvalidInputError(MathError):
     """Exception raised when the input is invalid."""
 

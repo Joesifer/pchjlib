@@ -4,7 +4,7 @@
 Functions to generate sequences.
 """
 
-from .utils import InvalidInputError, OutOfRangeError
+from pchjlib.utils import InvalidInputError, OutOfRangeError
 
 
 def generate_sequence_rule_1(count: int) -> list:
@@ -38,7 +38,7 @@ def generate_sequence_rule_1(count: int) -> list:
             return 1
         number_to_find = 1
         position = 0
-        for i in range(1, 100000):  # Increased range for larger counts
+        for i in range(1, 1000000):  # Increased range for larger counts
             number_to_find = (number_to_find // i + 1) * i
             position += 1
             if position == k:
@@ -58,8 +58,8 @@ def generate_sequence_rule_2(base: int, count: int) -> list:
     Generate a list of multiples of base with count elements.
 
     Parameters:
-        - base (int): The number to generate multiples.
-        - count (int): The number of elements.
+        - base (int): The base number to be raised to powers.
+        - count (int): The number of elements to generate.
 
     Returns:
         - list: A list of multiples of base.
@@ -69,18 +69,18 @@ def generate_sequence_rule_2(base: int, count: int) -> list:
 
     Example:
         >>> generate_sequence_rule_2(2, 5)
-        [0, 2, 4, 6, 8]
+        [2, 4, 6, 8, 10]
     """
     if not (isinstance(base, int) and isinstance(count, int)):
         raise InvalidInputError("Inputs must be integers")
     if count < 0:
         raise InvalidInputError("Count must be non-negative")
-    return [base * i for i in range(count)]
+    return [base * i for i in range(1, count + 1)]
 
 
 def generate_sequence_rule_3(count: int, base: int) -> list:
     """
-    Generate a list of powers of base from 0 to count-1.
+    Generates a list of powers of an integer `base`, starting from `base^1` up to `base^count`.
 
     Parameters:
         - count (int): The number of elements.
@@ -94,10 +94,10 @@ def generate_sequence_rule_3(count: int, base: int) -> list:
 
     Example:
         >>> generate_sequence_rule_3(5, 2)
-        [1, 2, 4, 8, 16]
+        [2, 4, 8, 16, 32]
     """
     if not (isinstance(count, int) and isinstance(base, int)):
         raise InvalidInputError("Inputs must be integers")
     if count < 0:
         raise InvalidInputError("Count must be non-negative")
-    return [base**i for i in range(count)]
+    return [base**i for i in range(1, count + 1)]
