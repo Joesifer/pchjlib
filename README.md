@@ -1,4 +1,3 @@
-```md
 # PCHJLIB - Joesifer
 
 <h1 align="center">
@@ -51,20 +50,20 @@ python -m pip install gmpy2
 
 ## ❓ Basic Usage
 
-💡 **Note:** `{function}` can be `is_prime`, `generate_prime_list`, etc.
+💡 **Note:** `{function}` can be `is_prime`, `generate_prime_list`, etc. `{___}` can be `primes`, `fibonacci`, `sequence_generation`, etc.
 
 ### ✅ Option 1: Import a single function
 
 ```bash
-from pchjlib.{primes} import {function}
+from pchjlib.{___} import {function}
 result = {function}(value_1, value_2, ...)
 ```
 
 ### ✅ Option 2: Call via the module
 
 ```bash
-import pchjlib.{primes}
-result = pchjlib.{primes}.{function}(value_1, value_2, ...)
+import pchjlib.{___}
+result = pchjlib.{___}.{function}(value_1, value_2, ...)
 ```
 
 ---
@@ -691,12 +690,12 @@ This will discover and run all tests in the `tests/` directory. Ensure the libra
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 11, 2025
-> **📦 Total Releases:** 92
+> **📦 Total Releases:** 93
 
 ---
 
 ## 📌 2025
-### 1.6.0 → 1.5.0 (August 11, 2025)
+### 1.6.1 → 1.5.0 (August 11, 2025)
 - 🔧 Fixed minor bugs 
 - ✅ Updated `is_strong_number` to the standard factorion definition (sum of factorial of digits equals the number) Removed variant parameter for simplicity; future versions may add separate functions for related concepts like powerful numbers 
 - ✅ Adjusted CLI for `special_numbers_2`: Removed `--variant` option from `--is_strong` 
