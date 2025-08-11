@@ -1433,7 +1433,7 @@ def main():
     parser = argparse.ArgumentParser(
         description="The pchjlib library is a versatile toolkit for mathematical and string operations😺"
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.5.2")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.5.3")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps

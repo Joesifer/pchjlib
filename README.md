@@ -106,31 +106,31 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **is_prime(input_number)** 
  Checks if a number is prime. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if prime, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not an integer or negative. 
- - **Example**: `is_prime(7)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if prime, `False` otherwise. 
+ - Raises: `InvalidInputError` if not an integer or negative. 
+ - Example: `is_prime(7)` → `True`
 
 - **generate_prime_list(limit)** 
  Generates primes from 0 to `limit` using the Sieve algorithm. 
- - **Parameter**: `limit` (int) 
- - **Returns**: List of primes. 
- - **Raises**: `InvalidInputError` if `limit` < 2 or not an integer. 
- - **Example**: `generate_prime_list(10)` → `[2, 3, 5, 7]`
+ - Parameter: `limit` (int) 
+ - Returns: List of primes. 
+ - Raises: `InvalidInputError` if `limit` < 2 or not an integer. 
+ - Example: `generate_prime_list(10)` → `[2, 3, 5, 7]`
 
 - **is_emirp(input_number)** 
  Checks if a number is an emirp (prime with prime reverse). 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if emirp, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not a positive integer >= 2. 
- - **Example**: `is_emirp(13)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if emirp, `False` otherwise. 
+ - Raises: `InvalidInputError` if not a positive integer >= 2. 
+ - Example: `is_emirp(13)` → `True`
 
 - **generate_emirp_list(limit)** 
  Generates emirp numbers from 2 to `limit`. 
- - **Parameter**: `limit` (int) 
- - **Returns**: List of emirp numbers. 
- - **Raises**: `InvalidInputError` if `limit` < 2 or not an integer. 
- - **Example**: `generate_emirp_list(20)` → `[13, 17]`
+ - Parameter: `limit` (int) 
+ - Returns: List of emirp numbers. 
+ - Raises: `InvalidInputError` if `limit` < 2 or not an integer. 
+ - Example: `generate_emirp_list(20)` → `[13, 17]`
 
 ---
 
@@ -138,17 +138,17 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **fibonacci_at_index(index)** 
  Calculates the Fibonacci number at a given index with caching. 
- - **Parameter**: `index` (int) 
- - **Returns**: Fibonacci number. 
- - **Raises**: `InvalidInputError` if not a non-negative integer. 
- - **Example**: `fibonacci_at_index(5)` → `5`
+ - Parameter: `index` (int) 
+ - Returns: Fibonacci number. 
+ - Raises: `InvalidInputError` if not a non-negative integer. 
+ - Example: `fibonacci_at_index(5)` → `5`
 
 - **generate_fibonacci_list(count)** 
  Generates the first `count` Fibonacci numbers. 
- - **Parameter**: `count` (int) 
- - **Returns**: List of Fibonacci numbers. 
- - **Raises**: `InvalidInputError` if not a non-negative integer. 
- - **Example**: `generate_fibonacci_list(5)` → `[0, 1, 1, 2, 3]`
+ - Parameter: `count` (int) 
+ - Returns: List of Fibonacci numbers. 
+ - Raises: `InvalidInputError` if not a non-negative integer. 
+ - Example: `generate_fibonacci_list(5)` → `[0, 1, 1, 2, 3]`
 
 ---
 
@@ -156,66 +156,66 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **sum_of_divisors(input_number)** 
  Computes the sum of positive divisors (excluding itself). 
- - **Parameter**: `input_number` (int) 
- - **Returns**: Sum of divisors. 
- - **Raises**: `InvalidInputError` if not a positive integer. 
- - **Example**: `sum_of_divisors(6)` → `6`
+ - Parameter: `input_number` (int) 
+ - Returns: Sum of divisors. 
+ - Raises: `InvalidInputError` if not a positive integer. 
+ - Example: `sum_of_divisors(6)` → `6`
 
 - **sum_of_digits(input_number)** 
  Calculates the sum of a number's digits. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: Sum of digits. 
- - **Raises**: `InvalidInputError` if not an integer. 
- - **Example**: `sum_of_digits(123)` → `6`
+ - Parameter: `input_number` (int) 
+ - Returns: Sum of digits. 
+ - Raises: `InvalidInputError` if not an integer. 
+ - Example: `sum_of_digits(123)` → `6`
 
 - **is_perfect_number(input_number)** 
  Checks if a number is perfect. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if perfect, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not a positive integer. 
- - **Example**: `is_perfect_number(6)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if perfect, `False` otherwise. 
+ - Raises: `InvalidInputError` if not a positive integer. 
+ - Example: `is_perfect_number(6)` → `True`
 
 - **generate_perfect_number_list(limit)** 
  Generates perfect numbers from 1 to `limit`. 
- - **Parameter**: `limit` (int) 
- - **Returns**: List of perfect numbers. 
- - **Raises**: `InvalidInputError` if not a positive integer. 
- - **Example**: `generate_perfect_number_list(10)` → `[6]`
+ - Parameter: `limit` (int) 
+ - Returns: List of perfect numbers. 
+ - Raises: `InvalidInputError` if not a positive integer. 
+ - Example: `generate_perfect_number_list(10)` → `[6]`
 
 - **is_narcissistic_number(input_number)** 
  Checks if a number is narcissistic. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if narcissistic, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not a non-negative integer. 
- - **Example**: `is_narcissistic_number(153)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if narcissistic, `False` otherwise. 
+ - Raises: `InvalidInputError` if not a non-negative integer. 
+ - Example: `is_narcissistic_number(153)` → `True`
 
 - **generate_narcissistic_number_list(limit)** 
  Generates narcissistic numbers from 0 to `limit`. 
- - **Parameter**: `limit` (int) 
- - **Returns**: List of narcissistic numbers. 
- - **Raises**: `InvalidInputError` if not a non-negative integer. 
- - **Example**: `generate_narcissistic_number_list(10)` → `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`
+ - Parameter: `limit` (int) 
+ - Returns: List of narcissistic numbers. 
+ - Raises: `InvalidInputError` if not a non-negative integer. 
+ - Example: `generate_narcissistic_number_list(10)` → `[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]`
 
 - **are_amicable_numbers(number1, number2)** 
  Checks if two numbers are amicable. 
- - **Parameters**: `number1`, `number2` (int) 
- - **Returns**: `True` if amicable, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not positive integers. 
- - **Example**: `are_amicable_numbers(220, 284)` → `True`
+ - Parameters: `number1`, `number2` (int) 
+ - Returns: `True` if amicable, `False` otherwise. 
+ - Raises: `InvalidInputError` if not positive integers. 
+ - Example: `are_amicable_numbers(220, 284)` → `True`
 
 - **is_happy_number(input_number)** 
  Checks if a number is happy. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if happy, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not a positive integer. 
- - **Example**: `is_happy_number(19)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if happy, `False` otherwise. 
+ - Raises: `InvalidInputError` if not a positive integer. 
+ - Example: `is_happy_number(19)` → `True`
 
 - **generate_happy_number_list(limit)** 
  Generates happy numbers from 1 to `limit`. 
- - **Parameter**: `limit` (int) 
- - **Returns**: List of happy numbers. 
- - **Raises**: `InvalidInputError` if not a positive integer. 
- - **Example**: `generate_happy_number_list(10)` → `[1, 7, 10]`
+ - Parameter: `limit` (int) 
+ - Returns: List of happy numbers. 
+ - Raises: `InvalidInputError` if not a positive integer. 
+ - Example: `generate_happy_number_list(10)` → `[1, 7, 10]`
 
 ---
 
@@ -223,31 +223,31 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **is_square_number(input_number)** 
  Checks if a number is a perfect square. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if square, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not a non-negative integer. 
- - **Example**: `is_square_number(16)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if square, `False` otherwise. 
+ - Raises: `InvalidInputError` if not a non-negative integer. 
+ - Example: `is_square_number(16)` → `True`
 
 - **generate_square_number_list(limit)** 
  Generates square numbers from 0 to `limit`. 
- - **Parameter**: `limit` (int) 
- - **Returns**: List of square numbers. 
- - **Raises**: `InvalidInputError` if not a non-negative integer. 
- - **Example**: `generate_square_number_list(10)` → `[0, 1, 4, 9]`
+ - Parameter: `limit` (int) 
+ - Returns: List of square numbers. 
+ - Raises: `InvalidInputError` if not a non-negative integer. 
+ - Example: `generate_square_number_list(10)` → `[0, 1, 4, 9]`
 
 - **are_friendly_numbers(number1, number2)** 
  Checks if two numbers are friendly. 
- - **Parameters**: `number1`, `number2` (int) 
- - **Returns**: `True` if friendly, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not positive integers. 
- - **Example**: `are_friendly_numbers(30, 140)` → `True`
+ - Parameters: `number1`, `number2` (int) 
+ - Returns: `True` if friendly, `False` otherwise. 
+ - Raises: `InvalidInputError` if not positive integers. 
+ - Example: `are_friendly_numbers(30, 140)` → `True`
 
 - **is_strong_number(input_number)** 
  Checks if a number is a strong number (sum of factorial of its digits equals the number itself). 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if strong, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not a non-negative integer. 
- - **Example**: `is_strong_number(145)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if strong, `False` otherwise. 
+ - Raises: `InvalidInputError` if not a non-negative integer. 
+ - Example: `is_strong_number(145)` → `True`
 
 ---
 
@@ -255,38 +255,38 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **generate_divisor_list(input_number, positive_only=True)** 
  Generates divisors of a number. 
- - **Parameters**: `input_number` (int), `positive_only` (bool) 
- - **Returns**: List of divisors. 
- - **Raises**: `InvalidInputError` if not an integer or zero. 
- - **Example**: `generate_divisor_list(6)` → `[1, 2, 3, 6]`
+ - Parameters: `input_number` (int), `positive_only` (bool) 
+ - Returns: List of divisors. 
+ - Raises: `InvalidInputError` if not an integer or zero. 
+ - Example: `generate_divisor_list(6)` → `[1, 2, 3, 6]`
 
 - **generate_multiple_list(base_number, limit, positive_only=True)** 
  Generates multiples of a number up to `limit` times. 
- - **Parameters**: `base_number` (int), `limit` (int), `positive_only` (bool) 
- - **Returns**: List of multiples. 
- - **Raises**: `InvalidInputError` if not integers, number is zero, or limit < 1. 
- - **Example**: `generate_multiple_list(3, 5)` → `[3, 6, 9, 12, 15]`
+ - Parameters: `base_number` (int), `limit` (int), `positive_only` (bool) 
+ - Returns: List of multiples. 
+ - Raises: `InvalidInputError` if not integers, number is zero, or limit < 1. 
+ - Example: `generate_multiple_list(3, 5)` → `[3, 6, 9, 12, 15]`
 
 - **common_divisors(numbers)** 
  Generates common divisors for a list of numbers. 
- - **Parameter**: `numbers` (list) 
- - **Returns**: List of common divisors. 
- - **Raises**: `InvalidInputError` if not a list or contains non-integers; `MathError` if fewer than 2 non-zero elements. 
- - **Example**: `common_divisors([12, 18])` → `[1, 2, 3, 6]`
+ - Parameter: `numbers` (list) 
+ - Returns: List of common divisors. 
+ - Raises: `InvalidInputError` if not a list or contains non-integers; `MathError` if fewer than 2 non-zero elements. 
+ - Example: `common_divisors([12, 18])` → `[1, 2, 3, 6]`
 
 - **greatest_common_divisor(numbers)** 
  Computes the GCD of a list of numbers. 
- - **Parameter**: `numbers` (list) 
- - **Returns**: GCD value. 
- - **Raises**: `InvalidInputError` if not a list or contains non-integers; `MathError` if fewer than 2 non-zero elements. 
- - **Example**: `greatest_common_divisor([12, 18])` → `6`
+ - Parameter: `numbers` (list) 
+ - Returns: GCD value. 
+ - Raises: `InvalidInputError` if not a list or contains non-integers; `MathError` if fewer than 2 non-zero elements. 
+ - Example: `greatest_common_divisor([12, 18])` → `6`
 
 - **least_common_multiple(numbers)** 
  Computes the LCM of a list of numbers. 
- - **Parameter**: `numbers` (list) 
- - **Returns**: LCM value. 
- - **Raises**: `InvalidInputError` if not a list, contains non-integers, or zeros; `MathError` if fewer than 2 elements. 
- - **Example**: `least_common_multiple([4, 6])` → `12`
+ - Parameter: `numbers` (list) 
+ - Returns: LCM value. 
+ - Raises: `InvalidInputError` if not a list, contains non-integers, or zeros; `MathError` if fewer than 2 elements. 
+ - Example: `least_common_multiple([4, 6])` → `12`
 
 ---
 
@@ -294,31 +294,31 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **is_twin_prime(input_number)** 
  Checks if a number is a twin prime. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if twin prime, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not an integer. 
- - **Example**: `is_twin_prime(5)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if twin prime, `False` otherwise. 
+ - Raises: `InvalidInputError` if not an integer. 
+ - Example: `is_twin_prime(5)` → `True`
 
 - **generate_twin_prime_list(limit)** 
  Generates twin primes from 2 to `limit`. 
- - **Parameter**: `limit` (int) 
- - **Returns**: List of twin primes. 
- - **Raises**: `InvalidInputError` if not an integer >= 2. 
- - **Example**: `generate_twin_prime_list(20)` → `[3, 5, 7, 11, 13, 17, 19]`
+ - Parameter: `limit` (int) 
+ - Returns: List of twin primes. 
+ - Raises: `InvalidInputError` if not an integer >= 2. 
+ - Example: `generate_twin_prime_list(20)` → `[3, 5, 7, 11, 13, 17, 19]`
 
 - **is_abundant_number(input_number)** 
  Checks if a number is abundant. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: `True` if abundant, `False` otherwise. 
- - **Raises**: `InvalidInputError` if not a positive integer. 
- - **Example**: `is_abundant_number(12)` → `True`
+ - Parameter: `input_number` (int) 
+ - Returns: `True` if abundant, `False` otherwise. 
+ - Raises: `InvalidInputError` if not a positive integer. 
+ - Example: `is_abundant_number(12)` → `True`
 
 - **generate_abundant_number_list(limit)** 
  Generates abundant numbers from 1 to `limit`. 
- - **Parameter**: `limit` (int) 
- - **Returns**: List of abundant numbers. 
- - **Raises**: `InvalidInputError` if not a positive integer. 
- - **Example**: `generate_abundant_number_list(20)` → `[12, 18, 20]`
+ - Parameter: `limit` (int) 
+ - Returns: List of abundant numbers. 
+ - Raises: `InvalidInputError` if not a positive integer. 
+ - Example: `generate_abundant_number_list(20)` → `[12, 18, 20]`
 
 ---
 
@@ -326,17 +326,17 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **prime_factors(input_number)** 
  Factorizes a number into prime factors. 
- - **Parameter**: `input_number` (int) 
- - **Returns**: List of prime factors. 
- - **Raises**: `InvalidInputError` if not a positive integer > 1. 
- - **Example**: `prime_factors(12)` → `[2, 2, 3]`
+ - Parameter: `input_number` (int) 
+ - Returns: List of prime factors. 
+ - Raises: `InvalidInputError` if not a positive integer > 1. 
+ - Example: `prime_factors(12)` → `[2, 2, 3]`
 
 - **greatest_common_prime_divisor(number1, number2)** 
  Finds the greatest common prime divisor of two numbers. 
- - **Parameters**: `number1`, `number2` (int) 
- - **Returns**: Greatest common prime divisor. 
- - **Raises**: `InvalidInputError` if not positive integers > 1; `MathError` if no common prime divisor. 
- - **Example**: `greatest_common_prime_divisor(12, 18)` → `3`
+ - Parameters: `number1`, `number2` (int) 
+ - Returns: Greatest common prime divisor. 
+ - Raises: `InvalidInputError` if not positive integers > 1; `MathError` if no common prime divisor. 
+ - Example: `greatest_common_prime_divisor(12, 18)` → `3`
 
 ---
 
@@ -344,53 +344,53 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **remove_duplicates(items)** 
  Removes duplicates from a list and sorts in descending order. 
- - **Parameter**: `items` (list) 
- - **Returns**: Sorted list without duplicates. 
- - **Raises**: `InvalidInputError` if not a list/tuple. 
- - **Example**: `remove_duplicates([1, 2, 2, 3])` → `[3, 2, 1]`
+ - Parameter: `items` (list) 
+ - Returns: Sorted list without duplicates. 
+ - Raises: `InvalidInputError` if not a list/tuple. 
+ - Example: `remove_duplicates([1, 2, 2, 3])` → `[3, 2, 1]`
 
 - **extract_digits_from_string(text)** 
  Extracts individual digits from a string. 
- - **Parameter**: `text` (str) 
- - **Returns**: List of digits. 
- - **Example**: `extract_digits_from_string("abc123")` → `[1, 2, 3]`
+ - Parameter: `text` (str) 
+ - Returns: List of digits. 
+ - Example: `extract_digits_from_string("abc123")` → `[1, 2, 3]`
 
 - **extract_numbers_from_string(text)** 
  Extracts full numbers from a string. 
- - **Parameter**: `text` (str) 
- - **Returns**: List of numbers. 
- - **Example**: `extract_numbers_from_string("abc123def456")` → `[123, 456]`
+ - Parameter: `text` (str) 
+ - Returns: List of numbers. 
+ - Example: `extract_numbers_from_string("abc123def456")` → `[123, 456]`
 
 - **extract_characters(text)** 
  Extracts non-digit characters from a string. 
- - **Parameter**: `text` (str) 
- - **Returns**: List of characters. 
- - **Example**: `extract_characters("a1b2c3")` → `['a', 'b', 'c']`
+ - Parameter: `text` (str) 
+ - Returns: List of characters. 
+ - Example: `extract_characters("a1b2c3")` → `['a', 'b', 'c']`
 
 - **compress_string(text, compress_type)** 
  Compresses a string using two methods. 
- - **Parameters**: `text` (str), `compress_type` (int) 
- - **Returns**: Compressed string. 
- - **Example (type 1)**: `compress_string("google", 1)` → `'e2gl2o'` 
- - **Example (type 2)**: `compress_string("google", 2)` → `'g2ogle'`
+ - Parameters: `text` (str), `compress_type` (int) 
+ - Returns: Compressed string. 
+ - Example (type 1): `compress_string("google", 1)` → `'e2gl2o'` 
+ - Example (type 2): `compress_string("google", 2)` → `'g2ogle'`
 
 - **compress_string_without_numbers(input_text)** 
  Compresses a string by removing consecutive duplicates. 
- - **Parameter**: `input_text` (str) 
- - **Returns**: Compressed string. 
- - **Example**: `compress_string_without_numbers("hhhoocssssiiinnnhhhhh")` → `'hocsinh'`
+ - Parameter: `input_text` (str) 
+ - Returns: Compressed string. 
+ - Example: `compress_string_without_numbers("hhhoocssssiiinnnhhhhh")` → `'hocsinh'`
 
 - **decompress_string(text)** 
  Decompresses a string with numeric counts. 
- - **Parameter**: `text` (str) 
- - **Returns**: Decompressed string. 
- - **Example**: `decompress_string("g2ogle")` → `"google"`
+ - Parameter: `text` (str) 
+ - Returns: Decompressed string. 
+ - Example: `decompress_string("g2ogle")` → `"google"`
 
 - **unique_characters_string(text)** 
  Creates a string with unique characters in order of appearance. 
- - **Parameter**: `text` (str) 
- - **Returns**: String with no duplicates. 
- - **Example**: `unique_characters_string("google")` → `"gole"`
+ - Parameter: `text` (str) 
+ - Returns: String with no duplicates. 
+ - Example: `unique_characters_string("google")` → `"gole"`
 
 ---
 
@@ -398,15 +398,15 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **caesar_cipher_to_numbers(text, shift)** 
  Converts a string to a list of Caesar cipher numbers. 
- - **Parameters**: `text` (str), `shift` (int) 
- - **Returns**: List of shifted numbers. 
- - **Example**: `caesar_cipher_to_numbers("ABC", 3)` → `[3, 4, 5]`
+ - Parameters: `text` (str), `shift` (int) 
+ - Returns: List of shifted numbers. 
+ - Example: `caesar_cipher_to_numbers("ABC", 3)` → `[3, 4, 5]`
 
 - **caesar_cipher_from_numbers(numbers, shift)** 
  Decodes a list of Caesar cipher numbers into a string. 
- - **Parameters**: `numbers` (list), `shift` (int) 
- - **Returns**: Decoded string. 
- - **Example**: `caesar_cipher_from_numbers([3, 4, 5], 3)` → `"ABC"`
+ - Parameters: `numbers` (list), `shift` (int) 
+ - Returns: Decoded string. 
+ - Example: `caesar_cipher_from_numbers([3, 4, 5], 3)` → `"ABC"`
 
 ---
 
@@ -414,15 +414,15 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **calculate_electricity_bill_Vietnamese(old_reading, new_reading)** 
  Calculates an electricity bill based on Vietnamese pricing tiers. 
- - **Parameters**: `old_reading`, `new_reading` (float) 
- - **Returns**: String with consumption and cost. 
- - **Example**: `calculate_electricity_bill_Vietnamese(100, 150)` → `"- Electricity consumed this month: 50.0 Kwh\n- Electricity bill this month: 83900.0 VND"`
+ - Parameters: `old_reading`, `new_reading` (float) 
+ - Returns: String with consumption and cost. 
+ - Example: `calculate_electricity_bill_Vietnamese(100, 150)` → `"- Electricity consumed this month: 50.0 Kwh\n- Electricity bill this month: 83900.0 VND"`
 
 - **largest_number_with_digit_sum(digit_count, target_sum)** 
  Finds the largest number with `digit_count` digits summing to `target_sum`. 
- - **Parameters**: `digit_count` (int), `target_sum` (int) 
- - **Returns**: Largest number as a string. 
- - **Example**: `largest_number_with_digit_sum(3, 15)` → `'960'`
+ - Parameters: `digit_count` (int), `target_sum` (int) 
+ - Returns: Largest number as a string. 
+ - Example: `largest_number_with_digit_sum(3, 15)` → `'960'`
 
 ---
 
@@ -434,21 +434,21 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
  - Two numbers are divisible by **2**, 
  - Three numbers are divisible by **3**, 
  - and so on, the numbers increase until the number of numbers is `count`. 
- - **Parameter**: `count` (int) 
- - **Returns**: List of sequence numbers. 
- - **Example**: `generate_sequence_rule_1(10)` → `[1, 4, 6, 9, 12, 15, 16, 20, 24, 28]`
+ - Parameter: `count` (int) 
+ - Returns: List of sequence numbers. 
+ - Example: `generate_sequence_rule_1(10)` → `[1, 4, 6, 9, 12, 15, 16, 20, 24, 28]`
 
 - **generate_sequence_rule_2(base, count)** 
  Generates `count` multiples of `base`. 
- - **Parameters**: `base` (int), `count` (int) 
- - **Returns**: List of multiples. 
- - **Example**: `generate_sequence_rule_2(2, 5)` → `[0, 2, 4, 6, 8]`
+ - Parameters: `base` (int), `count` (int) 
+ - Returns: List of multiples. 
+ - Example: `generate_sequence_rule_2(2, 5)` → `[0, 2, 4, 6, 8]`
 
 - **generate_sequence_rule_3(count, base)** 
  Generates powers of `base` from 0 to `count-1`. 
- - **Parameters**: `count` (int), `base` (int) 
- - **Returns**: List of powers. 
- - **Example**: `generate_sequence_rule_3(5, 2)` → `[1, 2, 4, 8, 16]`
+ - Parameters: `count` (int), `base` (int) 
+ - Returns: List of powers. 
+ - Example: `generate_sequence_rule_3(5, 2)` → `[1, 2, 4, 8, 16]`
 
 ---
 
@@ -456,9 +456,9 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 
 - **count_inversions(numbers)** 
  Counts the number of inversions in a list. 
- - **Parameter**: `numbers` (list) 
- - **Returns**: Number of inversions. 
- - **Example**: `count_inversions([1, 3, 2])` → `1`
+ - Parameter: `numbers` (list) 
+ - Returns: Number of inversions. 
+ - Example: `count_inversions([1, 3, 2])` → `1`
 
 ---
 
@@ -677,26 +677,25 @@ result = pchjlib.pchjmain.{function}(value_1, value_2, ...)
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 11, 2025
-> **📦 Total Releases:** 89
+> **📦 Total Releases:** 90
 
 ---
 
 ## 📌 2025
-### 1.5.2 → 1.5.1 (August 11, 2025)
-- ✅ Updated `is_strong_number` to the standard factorion definition (sum of factorial of digits equals the number). Removed variant parameter for simplicity; future versions may add separate functions for related concepts like powerful numbers.
-- ✅ Adjusted CLI for `special_numbers_2`: Removed `--variant` option from `--is_strong`.
-- ✏️ Updated README: Revised description and example for `is_strong_number` in the functions section and Sample Command List; incremented version and release count.
-
-### 1.5.1 → 1.5.0 (August 11, 2025)
-- ❌ Removed `solve_equation` function and its corresponding "Equation Solving" category in the command-line interface (now 12 categories total).
-- ✅ Eliminated dependency on `numpy` by optimizing `generate_prime_list` with `bytearray` for memory efficiency.
-- ✅ Added optional integration with `gmpy2` for handling large primes in `is_prime`.
-- ✅ Added type hints to all functions for better code readability and IDE support.
-- ✅ Added detailed examples to docstrings for all functions.
-- ✅ Optimized performance: Switched `fibonacci_at_index` to iterative loop; improved `largest_number_with_digit_sum` to correctly return the largest number by reversing the result; increased range in `generate_sequence_rule_1` for larger counts.
-- ✅ Updated variable names for clarity (e.g., `number` to `input_number`).
-- ✅ Fixed minor bugs in string compression examples and sequence generation.
-- ✏️ Updated README: Removed Equation Solving section, updated Requirements and Installation (removed numpy references, added gmpy2), updated function descriptions with new examples, renumbered Sample Command List to 12 categories.
+### 1.5.3 → 1.5.0 (August 11, 2025)
+- 🔧 Fixed minor bugs 
+- ✅ Updated `is_strong_number` to the standard factorion definition (sum of factorial of digits equals the number) Removed variant parameter for simplicity; future versions may add separate functions for related concepts like powerful numbers 
+- ✅ Adjusted CLI for `special_numbers_2`: Removed `--variant` option from `--is_strong` 
+- ✏️ Updated README: Revised description and example for `is_strong_number` in the functions section and Sample Command List; incremented version and release count 
+- ❌ Removed `solve_equation` function and its corresponding "Equation Solving" category in the command-line interface (now 12 categories total) 
+- ✅ Eliminated dependency on `numpy` by optimizing `generate_prime_list` with `bytearray` for memory efficiency 
+- ✅ Added optional integration with `gmpy2` for handling large primes in `is_prime` 
+- ✅ Added type hints to all functions for better code readability and IDE support 
+- ✅ Added detailed examples to docstrings for all functions 
+- ✅ Optimized performance: Switched `fibonacci_at_index` to iterative loop; improved `largest_number_with_digit_sum` to correctly return the largest number by reversing the result; increased range in `generate_sequence_rule_1` for larger counts 
+- ✅ Updated variable names for clarity (e.g., `number` to `input_number`) 
+- ✅ Fixed minor bugs in string compression examples and sequence generation 
+- ✏️ Updated README: Removed Equation Solving section, updated Requirements and Installation (removed numpy references, added gmpy2), updated function descriptions with new examples, renumbered Sample Command List to 12 categories 
 
 ### 1.4.5 → 1.3.0 (August 7-8, 2025)
 - 🔧 Fixed minor bugs 
