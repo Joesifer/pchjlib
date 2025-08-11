@@ -34,7 +34,7 @@ Usage
 ------------------------------------------------------------------------------------------------
 ``` python
 
-from pchjlib.pchjmain import is_prime
+from pchjlib.primes import is_prime
 result = is_prime(7)  # Check for prime numbers
 
 ```

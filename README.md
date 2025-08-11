@@ -1,3 +1,4 @@
+```md
 # PCHJLIB - Joesifer
 
 <h1 align="center">
@@ -55,23 +56,16 @@ python -m pip install gmpy2
 ### ✅ Option 1: Import a single function
 
 ```bash
-from pchjlib.primes import {function}
+from pchjlib.{primes} import {function}
 result = {function}(value_1, value_2, ...)
 ```
 
 ### ✅ Option 2: Call via the module
 
 ```bash
-import pchjlib.primes
-result = pchjlib.primes.{function}(value_1, value_2, ...)
+import pchjlib.{primes}
+result = pchjlib.{primes}.{function}(value_1, value_2, ...)
 ```
-
----
-
-### 📂 Additional Info
-
-- 📦 **Library:** `pchjlib` 
-- 📁 **Main Module:** `pchjmain` 
 
 ---
 
@@ -85,19 +79,20 @@ result = pchjlib.primes.{function}(value_1, value_2, ...)
 
 ## 📚 Table of Contents
 
-- 🔢 [Prime and Related Number Functions](#-prime-and-related-number-functions)
-- 🌀 [Fibonacci Functions](#-fibonacci-functions)
-- 🧠 [Perfect, Narcissistic, Amicable, and Happy Number Functions](#-perfect-narcissistic-amicable-and-happy-number-functions)
-- 📐 [Square, Strong, and Friendly Number Functions](#-square-strong-and-friendly-number-functions)
-- 📊 [Divisor and Multiple Functions](#-divisor-and-multiple-functions)
-- 👯 [Twin Prime and Abundant Number Functions](#-twin-prime-and-abundant-number-functions)
-- 🔍 [Prime Factorization Functions](#-prime-factorization-functions)
-- 🧵 [List and String Processing Functions](#-list-and-string-processing-functions)
-- 🏛️ [Caesar Cipher Functions](#️-caesar-cipher-functions)
-- 💥 [Special Calculation Functions](#-special-calculation-functions)
-- 🔁 [Sequence Generation Functions](#-sequence-generation-functions)
-- 🔢 [Inversion Counting Functions](#-inversion-counting-functions)
+- 🔢 [Prime and Related Number Functions](#-prime-and-related-number-functions-primespy)
+- 🌀 [Fibonacci Functions](#-fibonacci-functions-fibonaccipy)
+- 🧠 [Perfect, Narcissistic, Amicable, and Happy Number Functions](#-perfect-narcissistic-amicable-and-happy-number-functions-special_numbers1py)
+- 📐 [Square, Strong, and Friendly Number Functions](#-square-strong-and-friendly-number-functions-special_numbers2py)
+- 📊 [Divisor and Multiple Functions](#-divisor-and-multiple-functions-divisors_multiplespy)
+- 👯 [Twin Prime and Abundant Number Functions](#-twin-prime-and-abundant-number-functions-twin_abundantpy)
+- 🔍 [Prime Factorization Functions](#-prime-factorization-functions-prime_factorizationpy)
+- 🧵 [List and String Processing Functions](#-list-and-string-processing-functions-string_processingpy)
+- 🏛️ [Caesar Cipher Functions](#%EF%B8%8F-caesar-cipher-functions-caesar_cipherpy)
+- 💥 [Special Calculation Functions](#-special-calculation-functions-special_calculationspy)
+- 🔁 [Sequence Generation Functions](#-sequence-generation-functions-sequence_generationpy)
+- 🔢 [Inversion Counting Functions](#-inversion-counting-functions-inversion_countingpy)
 - 📋 [Sample Command List for the `pchjlib` Library](#-sample-command-list-for-the-pchjlib-library)
+- 🧪 [Running Tests](#-running-tests)
 - 🛠️ [Update History](#%EF%B8%8F-update-history)
 
 ---
@@ -681,6 +676,18 @@ Counts the number of inversions in a list.
 
 ---
 
+## 🧪 Running Tests
+
+To run the unit tests for the library, navigate to the project root and execute:
+
+```bash
+python -m unittest discover tests
+```
+
+This will discover and run all tests in the `tests/` directory. Ensure the library is installed in editable mode (`pip install -e .`) for proper import resolution.
+
+---
+
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 11, 2025
@@ -701,7 +708,7 @@ Counts the number of inversions in a list.
 - ✅ Added detailed examples to docstrings for all functions 
 - ✅ Optimized performance: Switched `fibonacci_at_index` to iterative loop; improved `largest_number_with_digit_sum` to correctly return the largest number by reversing the result; increased range in `generate_sequence_rule_1` for larger counts 
 - ✅ Updated variable names for clarity (e.g., `number` to `input_number`) 
-- 🔧 Fixed minor bugs in string compression examples and sequence generation 
+- ✅ Fixed minor bugs in string compression examples and sequence generation 
 - ✏️ Updated README: Removed Equation Solving section, updated Requirements and Installation (removed numpy references, added gmpy2), updated function descriptions with new examples, renumbered Sample Command List to 12 categories 
 
 ### 1.4.5 → 1.3.0 (August 7-8, 2025)
@@ -929,3 +936,4 @@ Counts the number of inversions in a list.
 ### 0.0.0.1 (February 14, 2024)
 
 - 🎉 Initial release!
+```

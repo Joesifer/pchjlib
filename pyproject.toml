@@ -26,21 +26,24 @@ dependencies = []
 
 [project.optional-dependencies]
 gmpy2 = ["gmpy2>=2.1.5"]
+tests = ["unittest"]  # For running tests
 
 [project.scripts]
-pchjlib   = "pchjlib.pchjmain:main"
+pchjlib = "pchjlib.pchjmain:main"
 pchj-icon = "pchjlib.pchjicon:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-zip-safe = true
-include-package-data = true
+include-package-data = false  # Disable auto-inclusion of non-declared data
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-pchjlib = ["logo.ico"]
+pchjlib = ["logo.ico", "desktop.ini"]  # Explicitly include only needed data files
+
+[tool.setuptools.exclude-package-data]
+"*" = ["__pycache__", "*.pyc", "*.pyo"]  # Exclude cache and compiled files
 
 [tool.flake8]
 doctests = true
