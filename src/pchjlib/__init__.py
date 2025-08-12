@@ -46,7 +46,7 @@ Author
 
 Version
 ------------------------------------------------------------------------------------------------
-- 1.6.4.
+- 1.6.5.
 
 Release Date
 ------------------------------------------------------------------------------------------------
@@ -86,18 +86,18 @@ THANK YOU!!!
 from importlib.metadata import version
 from pchjlib.pchjicon import main as pchj_icon
 from pchjlib.pchjmain import main as pchj_main
-from pchjlib.primes import *
-from pchjlib.twin_abundant import *
-from pchjlib.fibonacci import *
-from pchjlib.special_numbers1 import *
-from pchjlib.special_numbers2 import *
-from pchjlib.divisors_multiples import *
-from pchjlib.prime_factorization import *
-from pchjlib.string_processing import *
-from pchjlib.caesar_cipher import *
-from pchjlib.special_calculations import *
-from pchjlib.sequence_generation import *
-from pchjlib.inversion_counting import *
+from pchjlib.primes import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.twin_abundant import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.fibonacci import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.special_numbers1 import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.special_numbers2 import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.divisors_multiples import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.prime_factorization import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.string_processing import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.caesar_cipher import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.special_calculations import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.sequence_generation import *  # pyright: ignore[reportWildcardImportFromLibrary]
+from pchjlib.inversion_counting import *  # pyright: ignore[reportWildcardImportFromLibrary]
 
 author = "Joesifer (phanchanhung12055@gmail.com)"
 copyright = "Copyright (c) 2024 Joesifer"
