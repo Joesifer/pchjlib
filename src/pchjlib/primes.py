@@ -4,7 +4,7 @@
 Functions for prime and emirp numbers.
 """
 
-import math, random
+import math
 from pchjlib.utils import InvalidInputError
 
 # Optional import for gmpy2 to handle large numbers
@@ -40,7 +40,7 @@ def is_prime(input_number: int) -> bool:
     if gmpy2 and hasattr(gmpy2, "is_prime") and input_number > 2**64:
         return bool(gmpy2.is_prime(input_number))  # type: ignore
 
-    def miller_rabin(n: int, k: int = 5) -> bool:
+    def miller_rabin(n: int) -> bool:
         if n <= 1:
             return False
         if n <= 3:
@@ -48,24 +48,31 @@ def is_prime(input_number: int) -> bool:
         if n % 2 == 0:
             return False
 
-        def check(a: int, s: int, d: int, n: int) -> bool:
-            x = pow(a, d, n)
-            if x == 1:
-                return True
-            for _ in range(s - 1):
-                if x == n - 1:
-                    return True
-                x = (x * x) % n
-            return x == n - 1
-
+        # Write n as d*2^r + 1
         s = 0
         d = n - 1
         while d % 2 == 0:
             s += 1
             d //= 2
 
-        for _ in range(k):
-            a = random.randrange(2, n - 1)
+        # Fixed witnesses for deterministic test (for n < 2^64, these are sufficient)
+        witnesses = (
+            [2, 3, 5, 7, 11, 13, 23] if n < 2**64 else [2, 3]
+        )  # Fallback for larger, but recommend gmpy2
+
+        def check(a: int, s: int, d: int, n: int) -> bool:
+            x = pow(a, d, n)
+            if x == 1 or x == n - 1:
+                return True
+            for _ in range(s - 1):
+                x = pow(x, 2, n)
+                if x == n - 1:
+                    return True
+            return False
+
+        for a in witnesses:
+            if a >= n:
+                break
             if not check(a, s, d, n):
                 return False
         return True

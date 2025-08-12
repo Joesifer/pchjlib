@@ -18,6 +18,14 @@ def main():
         print("This feature only runs on Windows.")
         sys.exit(1)
 
+    print(
+        "Warning: This will modify folder attributes (set system/hidden) and apply icon. Continue? [y/n]"
+    )
+    response = input().strip().lower()
+    if response != "y":
+        print("Operation cancelled.")
+        sys.exit(0)
+
     try:
         with importlib.resources.path("pchjlib", "desktop.ini") as ini_path:
             pkg_dir = ini_path.parent

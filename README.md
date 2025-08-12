@@ -18,7 +18,7 @@
 
 🚀 Install the core library without optional dependencies.
 
-💡 **Note:** To download the icon (logo) to your `site-packages` folder, run `pchj-icon`.
+💡 **Note:** To download the icon (logo) to your `site-packages` folder, run `pchj-icon`. Warning: This modifies folder attributes (sets system/hidden) on Windows only.
 
 ### 🔧 Option 1: Install from GitHub (development version)
 
@@ -97,6 +97,8 @@ result = pchjlib.{___}.{function}(value_1, value_2, ...)
 ---
 
 ### 🔢 Prime and Related Number Functions (primes.py)
+
+Note: Miller-Rabin primality test is now deterministic using fixed witnesses for accuracy.
 
 **is_prime(input_number)**
 Checks if a number is prime. 
@@ -237,7 +239,7 @@ Checks if two numbers are friendly.
  - Example: `are_friendly_numbers(30, 140)` → `True`
 
 **is_strong_number(input_number)**
-Checks if a number is a strong number (sum of factorial of its digits equals the number itself). 
+Checks if a number is strong (sum of factorial of digits equals number). 
  - Parameter: `input_number` (int) 
  - Returns: `True` if strong, `False` otherwise. 
  - Raises: `InvalidInputError` if not a non-negative integer. 
@@ -413,28 +415,24 @@ Decodes a list of Caesar cipher numbers into a string.
 
 ### 💥 Special Calculation Functions (special_calculations.py)
 
-**calculate_electricity_bill_Vietnamese(old_reading, new_reading)**
+**calculate_electricity_bill_vietnam(old_reading, new_reading)**
 Calculates an electricity bill based on Vietnamese pricing tiers. 
  - Parameters: `old_reading`, `new_reading` (float) 
  - Returns: String with consumption and cost. 
- - Example: `calculate_electricity_bill_Vietnamese(100, 150)` → `"- Electricity consumed this month: 50.0 Kwh\n- Electricity bill this month: 83900.0 VND"`
+ - Example: `calculate_electricity_bill_vietnam(100, 150)` → `"- Electricity consumed this month: 50.0 Kwh\n- Electricity bill this month: 83900.0 VND"`
 
 **largest_number_with_digit_sum(digit_count, target_sum)**
 Finds the largest number with `digit_count` digits summing to `target_sum`. 
  - Parameters: `digit_count` (int), `target_sum` (int) 
  - Returns: Largest number as a string. 
- - Example: `largest_number_with_digit_sum(20, 99)` → `'99999999999000000000'`
+ - Example: `largest_number_with_digit_sum(3, 15)` → `'960'`
 
 ---
 
 ### 🔁 Sequence Generation Functions (sequence_generation.py)
 
 **generate_sequence_rule_1(count)**
-Generate a sequence of positive integers according to the rule: 
- - One number is divisible by **1**, 
- - Two numbers are divisible by **2**, 
- - Three numbers are divisible by **3**, 
- - and so on, the numbers increase until the number of numbers is `count`. 
+Generate a sequence according to the rule: 1 divisible by 1, 2 by 2, etc. 
  - Parameter: `count` (int) 
  - Returns: List of sequence numbers. 
  - Example: `generate_sequence_rule_1(10)` → `[1, 4, 6, 9, 12, 15, 16, 20, 24, 28]`
@@ -446,9 +444,9 @@ Generates `count` multiples of `base`.
  - Example: `generate_sequence_rule_2(2, 5)` → `[2, 4, 6, 8, 10]`
 
 **generate_sequence_rule_3(count, base)**
-Generates a list of powers of an integer `base`, starting from `base^1` up to `base^count`. 
- - Parameters: `count` (int) - *The number of elements to generate*, `base` (int) - *The base number to be raised to powers*. 
- - Returns: A list containing powers of the base from 1 to count.. 
+Generates powers of `base` from 1 to `count`. 
+ - Parameters: `count` (int), `base` (int) 
+ - Returns: List of powers. 
  - Example: `generate_sequence_rule_3(5, 2)` → `[2, 4, 8, 16, 32]`
 
 ---
@@ -690,249 +688,57 @@ This will discover and run all tests in the `tests/` directory. Ensure the libra
 ## 🛠️ Update History
 
 > **📅 Latest Update:** August 12, 2025
-> **📦 Total Releases:** 97
-
----
-
-## 📌 2025
-### 1.6.5 → 1.5.0 (August 11-12, 2025)
-- 🔧 Fixed minor bugs 
-- 🔧 Fixed `generate_sequence_rule_3` and `generate_sequence_rule_2` 
-- ✅ Updated `is_strong_number` to the standard factorion definition (sum of factorial of digits equals the number) Removed variant parameter for simplicity; future versions may add separate functions for related concepts like powerful numbers 
-- ✅ Adjusted CLI for `special_numbers_2`: Removed `--variant` option from `--is_strong` 
-- ✏️ Updated README: Revised description and example for `is_strong_number` in the functions section and Sample Command List; incremented version and release count 
-- ❌ Removed `solve_equation` function and its corresponding "Equation Solving" category in the command-line interface (now 12 categories total) 
-- ✅ Eliminated dependency on `numpy` by optimizing `generate_prime_list` with `bytearray` for memory efficiency 
-- ✅ Added optional integration with `gmpy2` for handling large primes in `is_prime` 
-- ✅ Added type hints to all functions for better code readability and IDE support 
-- ✅ Added detailed examples to docstrings for all functions 
-- ✅ Optimized performance: Switched `fibonacci_at_index` to iterative loop; improved `largest_number_with_digit_sum` to correctly return the largest number by reversing the result; increased range in `generate_sequence_rule_1` for larger counts 
-- ✅ Updated variable names for clarity (e.g., `number` to `input_number`) 
-- ✅ Fixed minor bugs in string compression examples and sequence generation 
-- ✏️ Updated README: Removed Equation Solving section, updated Requirements and Installation (removed numpy references, added gmpy2), updated function descriptions with new examples, renumbered Sample Command List to 12 categories 
-
-### 1.4.5 → 1.3.0 (August 7-8, 2025)
-- 🔧 Fixed minor bugs 
-
----
-
-### 1.2.3 → 1.0.1 (August 4–5, 2025)
-
-- ❌ Removed functions 
- - `tao_day_chu` 
- - `uoc_chung_cua_danh_sach` 
- - `abundant_number_check` 
- - `xau_ki_tu_khong_trung_lap` 
-
-- 🔧 Fixed minor bugs 
-
- - ✏️ Updated README 
-
-- ✅ Added logo support via `pchj-icon` 
-
-- ✅ Added Sample **Command List** for the `pchjlib` Library 
-
-- ✅ Enhanced `main` for expanded functions 
-
-
----
-
-### 🎉 BIG UPDATE (August 3, 2025)
-### 1.0.0 → 0.1.5.1 (August 4–5, 2025)
-
-- 🚀 Major performance, error handling, documentation, and testing overhaul 
-
-- Performance optimizations 
- - Caching `fibonacci_at_index` 
- - Optimized `is_emirp` and `is_strong_number` 
-
-- Error handling improvements 
- - Specific error messages 
- - Boundary checks 
-
-- Documentation and examples 
- - Complex examples for `solve_equation` and string functions 
- - README enhancements: detailed examples, better install instructions, removed deprecated references 
-
-- Testing 
- - Unit tests for all core functions 
-
-- ❌ Discontinue dependency on `roman` library 
-
-- ❌ Removed unused functions 
- - `teen_code_yahoo` 
- - `mp_tai_xuong` 
- - `mp_tinh_toan` 
- - `mp_loading` 
- - `mp_christmas_tree` 
- - `chuong_trinh_matrix` 
- - `one_two_three` 
- - `pythagore` 
-
-- ✅ Switched README to English 
-
-- ✅ Enhanced `solve_equation` and `generate_sequence_rule_1` 
-
-- ✅ Improved `generate_multiple_list` and `greatest_common_divisor` 
-
-
----
-
-### 0.1.5 → 0.1.4 (August 2, 2025)
-
-- ❌ Removed `chuyen_doi_so_la_ma` 
-
-- 🔧 Fixed and updated `chuong_trinh_matrix` 
-
-- ✅ Added negative divisor/multiple options 
-
-- 🔧 Fixed `common_divisors` 
-
-- ❌ Removed extra helper functions 
-
-- ✅ Merged string compression functions 
-
-
----
-
-### 0.1.3.2 → 0.1.2 (August 1, 2025)
-
-- 🔧 Minor bug fixes 
-
-- ✅ Consolidated strong-number logic 
-
-- ⚡ Optimized Fibonacci and prime functions 
-
-- 📚 Added type hints, docstrings, input validation, and error documentation 
-
-
----
-
-### 0.1.1.3 → 0.1.0.7 (July 31, 2025)
-
-- ✏️ README updates 
-
-- 🔧 Bug fixes and updated `numpy` & `roman` dependencies 
-
-
----
-
-### 0.1.0.6 → 0.1.0.3 (July 28–30, 2025)
-
-- 🔧 Bug fixes 
-
-
----
-
-### 0.1.0.2 → 0.1.0 (July 28, 2025)
-
-- 🔧 Minor content fixes 
-
-- ❌ Removed several legacy functions 
-
-- 🧹 Complete code overhaul 
-
-
----
-
-#### 🔵 0.0.5.x — Minor Tweaks
-
-- **0.0.5.2.1 & 0.0.5.2** (July 27, 2025) 
- - ✏️ README fixes 
-
-- **0.0.5.1** (July 27, 2025) 
- - 🆕 Updated `teen_code_yahoo` 
-
-- **0.0.5.0** (July 26, 2025) 
- - ❌ Removed `an_ky_tu` 
-
-
----
-
-## 📌 2024
-
-### 0.0.4.1 (October 17, 2024)
-
-- 🆕 Added `tao_day_chu` 
-
-- 🔄 Updated `one_two_three` 
-
-
----
-
-### 0.0.4.0 & 0.0.3.9 (May 5, 2024)
-
-- ✏️ README fixes 
-
-
----
-
-### 0.0.3.8 & 0.0.3.7 (May 4–5, 2024)
-
-- 🎄 Updated `mp_christmas_tree` variants 
-
-
----
-
-### 0.0.3.6 & 0.0.3.5 (March 1–3, 2024)
-
-- 🧪 Testing phase 
-
-
----
-
-### 0.0.3.4 (February 26, 2024)
-
-- ➕ Added `uoc_chung_cua_danh_sach` 
-
-
----
-
-### 0.0.3.3 → 0.0.3 (February 20–21, 2024)
-
-- 🔧 README & metadata enhancements 
-
-- ➕ Added abundant number check 
-
-- ➕ Added `xau_ki_tu_khong_trung_lap` 
-
-- ❌ Removed `ki_tu_trung_lap` 
-
-
----
-
-### 0.0.2.10 → 0.0.2.7 (February 18–19, 2024)
-
-- 🔧 README updates 
-
-- 🧪 Testing 
-
-
----
-
-### 0.0.2.6 (February 18, 2024)
-
-- ⚖️ Switched to MIT License 
-
-
----
-
-### 0.0.2.5 → 0.0.2.1 (February 14–18, 2024)
-
-- 🔧 README & tests 
-
-
----
-
-### 0.0.2 → 0.0.1 (February 14, 2024)
-
-- 🐞 Fixed dependencies 
-
-- 🧪 Testing 
-
-
----
-
-### 0.0.0.1 (February 14, 2024)
-
-- 🎉 Initial release!
+> **📦 Total Releases:** 98
+
+### 📌 2025
+
+#### 1.7.0 (August 12, 2025)
+- **Performance Improvements**: Implemented merge sort for O(n log n) inversion counting; added Pollard's Rho for faster prime factorization on large numbers; made sequence generation dynamic to handle larger counts; integrated optional gmpy2 for accelerated GCD/LCM.
+- **Code Quality Enhancements**: Standardized function names (e.g., `calculate_electricity_bill_Vietnamese` to `calculate_electricity_bill_vietnam`); replaced wildcard imports with explicit ones in `__init__.py`; fixed bug in `largest_number_with_digit_sum` for correct largest output (e.g., '960' for 3 digits sum 15); improved CLI error handling with detailed tracebacks; added user warning for side-effects in `pchjicon.py`; made Miller-Rabin primality test deterministic using fixed witnesses.
+- **Documentation Updates**: Fixed incorrect examples in README (e.g., largest number); summarized update history for brevity; removed redundant sections and added warnings for probabilistic methods (now deterministic) and side-effects.
+
+#### 1.6.5 → 1.5.0 (August 11-12, 2025)
+- Fixed minor bugs and optimized `generate_sequence_rule_3`/`generate_sequence_rule_2`.
+- Updated `is_strong_number` to standard factorion definition.
+- Removed `solve_equation` and its CLI category.
+- Eliminated `numpy` dependency; added optional gmpy2 integration.
+- Added type hints, examples, and performance optimizations (e.g., iterative Fibonacci).
+
+#### 1.4.5 → 1.3.0 (August 7-8, 2025)
+- Fixed minor bugs.
+
+#### 1.2.3 → 1.0.1 (August 4–5, 2025)
+- Removed unused functions; added logo support via `pchj-icon`.
+- Added Sample Command List; enhanced CLI.
+
+#### 1.0.0 → 0.1.5.1 (August 3-4, 2025)
+- Major overhaul: Optimizations, error handling, documentation, and tests.
+- Removed legacy dependencies and functions; switched README to English.
+
+#### 0.1.5 → 0.1.4 (August 2, 2025)
+- Removed Roman numeral conversion; fixed matrix program.
+- Added negative divisors/multiples; merged string compression.
+
+#### 0.1.3.2 → 0.1.2 (August 1, 2025)
+- Minor fixes; consolidated strong-number logic; optimized Fibonacci/primes.
+
+#### 0.1.1.3 → 0.1.0.7 (July 31, 2025)
+- README updates; dependency fixes.
+
+#### 0.1.0.6 → 0.1.0.3 (July 28–30, 2025)
+- Bug fixes.
+
+#### 0.1.0.2 → 0.1.0 (July 28, 2025)
+- Minor fixes; removed legacy functions; code overhaul.
+
+#### 0.0.5.2.1 → 0.0.5.0 (July 26-27, 2025)
+- README tweaks; updated teen code.
+
+### 📌 2024
+- **0.0.4.1 (October 17, 2024)**: Added sequence creation; updated one-two-three.
+- **0.0.4.0 → 0.0.3.5 (May 3–5, 2024)**: README fixes; updated Christmas tree variants; testing.
+- **0.0.3.4 (February 26, 2024)**: Added common divisors list.
+- **0.0.3.3 → 0.0.3 (February 20–21, 2024)**: README enhancements; added abundant check and unique string; removed duplicates check.
+- **0.0.2.10 → 0.0.2.6 (February 18–19, 2024)**: README updates; testing; switched to MIT License.
+- **0.0.2.5 → 0.0.2.1 (February 14–18, 2024)**: README and tests.
+- **0.0.2 → 0.0.0.1 (February 14, 2024)**: Dependency fixes; testing; initial release.

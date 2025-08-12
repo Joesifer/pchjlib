@@ -1,4 +1,5 @@
-# src/pchjlib/pchjmain.py
+#  src/pchjlib/pchjmain.py
+
 
 """
 PCHJLIB😺
@@ -11,6 +12,8 @@ PCHJLIB😺
 """
 
 import argparse
+import traceback  # Added for detailed error handling
+
 from pchjlib.primes import is_prime, generate_prime_list, is_emirp, generate_emirp_list
 from pchjlib.twin_abundant import (
     is_twin_prime,
@@ -54,7 +57,7 @@ from pchjlib.string_processing import (
 )
 from pchjlib.caesar_cipher import caesar_cipher_to_numbers, caesar_cipher_from_numbers
 from pchjlib.special_calculations import (
-    calculate_electricity_bill_Vietnamese,
+    calculate_electricity_bill_vietnam,
     largest_number_with_digit_sum,
 )
 from pchjlib.sequence_generation import (
@@ -67,9 +70,9 @@ from pchjlib.inversion_counting import count_inversions
 
 def main():
     parser = argparse.ArgumentParser(
-        description="The pchjlib library is a versatile toolkit for mathematical and string operations😺"
+        description="The pchjlib library is a toolkit for mathematical and string operations😺"
     )
-    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.6.5")
+    parser.add_argument("-v", "--version", action="version", version="%(prog)s 1.7.0")
     subparsers = parser.add_subparsers(dest="category", help="Function categories")
 
     # 1. Primes and Emirps
@@ -351,7 +354,9 @@ def main():
                     f"{args.is_prime} {'is a prime number' if result else 'is not a prime number'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in primes_and_emirps --is_prime: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_prime_list is not None:
             try:
                 result = generate_prime_list(args.generate_prime_list)
@@ -359,7 +364,9 @@ def main():
                     f"List of prime numbers up to {args.generate_prime_list}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in primes_and_emirps --generate_prime_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.is_emirp is not None:
             try:
                 result = is_emirp(args.is_emirp)
@@ -367,7 +374,9 @@ def main():
                     f"{args.is_emirp} {'is an emirp number' if result else 'is not an emirp number'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in primes_and_emirps --is_emirp: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_emirp_list is not None:
             try:
                 result = generate_emirp_list(args.generate_emirp_list)
@@ -375,7 +384,9 @@ def main():
                     f"List of emirp numbers up to {args.generate_emirp_list}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in primes_and_emirps --generate_emirp_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "twin_primes_and_abundant":
         if args.is_twin_prime is not None:
@@ -385,7 +396,9 @@ def main():
                     f"{args.is_twin_prime} {'is a twin prime' if result else 'is not a twin prime'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in twin_primes_and_abundant --is_twin_prime: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_twin_prime_list is not None:
             try:
                 result = generate_twin_prime_list(args.generate_twin_prime_list)
@@ -393,7 +406,9 @@ def main():
                     f"List of twin primes up to {args.generate_twin_prime_list}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in twin_primes_and_abundant --generate_twin_prime_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.is_abundant is not None:
             try:
                 result = is_abundant_number(args.is_abundant)
@@ -401,7 +416,9 @@ def main():
                     f"{args.is_abundant} {'is an abundant number' if result else 'is not an abundant number'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in twin_primes_and_abundant --is_abundant: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_abundant_list is not None:
             try:
                 result = generate_abundant_number_list(args.generate_abundant_list)
@@ -409,7 +426,9 @@ def main():
                     f"List of abundant numbers up to {args.generate_abundant_list}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in twin_primes_and_abundant --generate_abundant_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "fibonacci":
         if args.at_index is not None:
@@ -417,7 +436,9 @@ def main():
                 result = fibonacci_at_index(args.at_index)
                 print(f"Fibonacci number at index {args.at_index}: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in fibonacci --at_index: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_list is not None:
             try:
                 result = generate_fibonacci_list(args.generate_list)
@@ -425,7 +446,9 @@ def main():
                     f"List of the first {args.generate_list} Fibonacci numbers: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in fibonacci --generate_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "special_numbers_1":
         if args.is_perfect is not None:
@@ -435,7 +458,9 @@ def main():
                     f"{args.is_perfect} {'is a perfect number' if result else 'is not a perfect number'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_1 --is_perfect: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_perfect_list is not None:
             try:
                 result = generate_perfect_number_list(args.generate_perfect_list)
@@ -443,7 +468,9 @@ def main():
                     f"List of perfect numbers up to {args.generate_perfect_list}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_1 --generate_perfect_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.is_narcissistic is not None:
             try:
                 result = is_narcissistic_number(args.is_narcissistic)
@@ -451,7 +478,9 @@ def main():
                     f"{args.is_narcissistic} {'is a narcissistic number' if result else 'is not a narcissistic number'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_1 --is_narcissistic: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_narcissistic_list is not None:
             try:
                 result = generate_narcissistic_number_list(
@@ -461,7 +490,9 @@ def main():
                     f"List of narcissistic numbers up to {args.generate_narcissistic_list}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_1 --generate_narcissistic_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.are_amicable is not None:
             try:
                 result = are_amicable_numbers(
@@ -471,7 +502,9 @@ def main():
                     f"{args.are_amicable[0]} and {args.are_amicable[1]} {'are amicable numbers' if result else 'are not amicable numbers'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_1 --are_amicable: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.is_happy is not None:
             try:
                 result = is_happy_number(args.is_happy)
@@ -479,7 +512,9 @@ def main():
                     f"{args.is_happy} {'is a happy number' if result else 'is not a happy number'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_1 --is_happy: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_happy_list is not None:
             try:
                 result = generate_happy_number_list(args.generate_happy_list)
@@ -487,7 +522,9 @@ def main():
                     f"List of happy numbers up to {args.generate_happy_list}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_1 --generate_happy_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "special_numbers_2":
         if args.is_square is not None:
@@ -497,7 +534,9 @@ def main():
                     f"{args.is_square} {'is a square number' if result else 'is not a square number'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_2 --is_square: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_square_list is not None:
             try:
                 result = generate_square_number_list(args.generate_square_list)
@@ -505,7 +544,9 @@ def main():
                     f"List of square numbers up to {args.generate_square_list}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_2 --generate_square_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.is_strong is not None:
             try:
                 result = is_strong_number(args.is_strong)
@@ -513,7 +554,9 @@ def main():
                     f"{args.is_strong} {'is a strong number' if result else 'is not a strong number'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_2 --is_strong: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.are_friendly is not None:
             try:
                 result = are_friendly_numbers(
@@ -523,7 +566,9 @@ def main():
                     f"{args.are_friendly[0]} and {args.are_friendly[1]} {'are friendly numbers' if result else 'are not friendly numbers'}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_numbers_2 --are_friendly: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "divisors_and_multiples":
         if args.generate_divisor_list is not None:
@@ -531,7 +576,9 @@ def main():
                 result = generate_divisor_list(args.generate_divisor_list)
                 print(f"List of divisors of {args.generate_divisor_list}: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in divisors_and_multiples --generate_divisor_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.generate_multiple_list is not None:
             try:
                 result = generate_multiple_list(
@@ -541,25 +588,33 @@ def main():
                     f"List of multiples of {args.generate_multiple_list[0]} up to {args.generate_multiple_list[1]} times: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in divisors_and_multiples --generate_multiple_list: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.common_divisors is not None:
             try:
                 result = common_divisors(args.common_divisors)
                 print(f"Common divisors of {args.common_divisors}: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in divisors_and_multiples --common_divisors: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.gcd is not None:
             try:
                 result = greatest_common_divisor(args.gcd)
                 print(f"Greatest common divisor of {args.gcd}: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in divisors_and_multiples --gcd: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.lcm is not None:
             try:
                 result = least_common_multiple(args.lcm)
                 print(f"Least common multiple of {args.lcm}: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in divisors_and_multiples --lcm: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "prime_factorization":
         if args.prime_factors is not None:
@@ -567,7 +622,9 @@ def main():
                 result = prime_factors(args.prime_factors)
                 print(f"Prime factors of {args.prime_factors}: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in prime_factorization --prime_factors: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.greatest_common_prime_divisor is not None:
             try:
                 result = greatest_common_prime_divisor(
@@ -578,7 +635,9 @@ def main():
                     f"Greatest common prime divisor of {args.greatest_common_prime_divisor[0]} and {args.greatest_common_prime_divisor[1]}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in prime_factorization --greatest_common_prime_divisor: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "string_processing":
         if args.remove_duplicates is not None:
@@ -586,19 +645,25 @@ def main():
                 result = remove_duplicates(args.remove_duplicates)
                 print(f"List after removing duplicates: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in string_processing --remove_duplicates: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.extract_digits is not None:
             try:
                 result = extract_digits_from_string(args.extract_digits)
                 print(f"Digits extracted from '{args.extract_digits}': {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in string_processing --extract_digits: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.extract_numbers is not None:
             try:
                 result = extract_numbers_from_string(args.extract_numbers)
                 print(f"Numbers extracted from '{args.extract_numbers}': {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in string_processing --extract_numbers: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.extract_characters is not None:
             try:
                 result = extract_characters(args.extract_characters)
@@ -606,7 +671,9 @@ def main():
                     f"Non-digit characters from '{args.extract_characters}': {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in string_processing --extract_characters: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.compress is not None:
             try:
                 result = compress_string(args.compress[0], int(args.compress[1]))
@@ -614,7 +681,9 @@ def main():
                     f"Compressed string from '{args.compress[0]}' (type {args.compress[1]}): {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in string_processing --compress: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.compress_without_numbers is not None:
             try:
                 result = compress_string_without_numbers(args.compress_without_numbers)
@@ -622,13 +691,17 @@ def main():
                     f"Compressed string from '{args.compress_without_numbers}': {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in string_processing --compress_without_numbers: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.decompress is not None:
             try:
                 result = decompress_string(args.decompress)
                 print(f"Decompressed string from '{args.decompress}': {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in string_processing --decompress: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.unique_characters is not None:
             try:
                 result = unique_characters_string(args.unique_characters)
@@ -636,7 +709,9 @@ def main():
                     f"String with unique characters from '{args.unique_characters}': {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in string_processing --unique_characters: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "caesar_cipher":
         if args.to_numbers is not None:
@@ -648,7 +723,9 @@ def main():
                     f"Caesar numbers from '{args.to_numbers[0]}' with shift {args.to_numbers[1]}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in caesar_cipher --to_numbers: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.from_numbers is not None:
             try:
                 shift = int(args.from_numbers[0])
@@ -656,17 +733,21 @@ def main():
                 result = caesar_cipher_from_numbers(numbers, shift)
                 print(f"String from {numbers} with shift {shift}: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in caesar_cipher --from_numbers: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "special_calculations":
         if args.electricity_bill is not None:
             try:
-                result = calculate_electricity_bill_Vietnamese(
+                result = calculate_electricity_bill_vietnam(
                     args.electricity_bill[0], args.electricity_bill[1]
                 )
                 print(result)
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_calculations --electricity_bill: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.largest_number is not None:
             try:
                 result = largest_number_with_digit_sum(
@@ -676,7 +757,9 @@ def main():
                     f"Largest number with {args.largest_number[0]} digits and sum {args.largest_number[1]}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in special_calculations --largest_number: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "sequence_generation":
         if args.rule1 is not None:
@@ -684,7 +767,9 @@ def main():
                 result = generate_sequence_rule_1(args.rule1)
                 print(f"Sequence by rule 1 with {args.rule1} elements: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in sequence_generation --rule1: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.rule2 is not None:
             try:
                 result = generate_sequence_rule_2(args.rule2[0], args.rule2[1])
@@ -692,7 +777,9 @@ def main():
                     f"Sequence by rule 2 with base {args.rule2[0]} and {args.rule2[1]} elements: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in sequence_generation --rule2: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
         elif args.rule3 is not None:
             try:
                 result = generate_sequence_rule_3(args.rule3[0], args.rule3[1])
@@ -700,7 +787,9 @@ def main():
                     f"Sequence by rule 3 with {args.rule3[0]} elements and base {args.rule3[1]}: {result}"
                 )
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in sequence_generation --rule3: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     elif args.category == "inversion_counting":
         if args.count is not None:
@@ -708,7 +797,9 @@ def main():
                 result = count_inversions(args.count)
                 print(f"Number of inversions in {args.count}: {result}")
             except Exception as e:
-                print(f"Error: {e}")
+                print(
+                    f"Error in inversion_counting --count: {str(e)}\nDetails: {traceback.format_exc()}"
+                )
 
     else:
         print("Welcome to pchjlib!")

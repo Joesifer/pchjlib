@@ -51,7 +51,7 @@ from pchjlib.string_processing import (
 )
 from pchjlib.caesar_cipher import caesar_cipher_to_numbers, caesar_cipher_from_numbers
 from pchjlib.special_calculations import (
-    calculate_electricity_bill_Vietnamese,
+    calculate_electricity_bill_vietnam,  # Updated name
     largest_number_with_digit_sum,
 )
 from pchjlib.sequence_generation import (
@@ -196,9 +196,9 @@ class TestPchjlib(unittest.TestCase):
     def test_caesar_cipher_from_numbers(self):
         self.assertEqual(caesar_cipher_from_numbers([3, 4, 5], 3), "ABC")
 
-    def test_calculate_electricity_bill_Vietnamese(self):
+    def test_calculate_electricity_bill_vietnam(self):
         self.assertEqual(
-            calculate_electricity_bill_Vietnamese(100, 150),
+            calculate_electricity_bill_vietnam(100, 150),
             "- Electricity consumed this month: 50.0 Kwh\n- Electricity bill this month: 83900.0 VND",
         )
 

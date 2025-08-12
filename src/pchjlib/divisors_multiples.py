@@ -6,6 +6,11 @@ Functions for divisors and multiples.
 
 import math
 
+try:
+    import gmpy2
+except ImportError:
+    gmpy2 = None
+
 from pchjlib.utils import InvalidInputError, MathError
 
 
@@ -157,7 +162,12 @@ def greatest_common_divisor(numbers: list) -> int:
     result = abs(numbers[0])
     for num in numbers[1:]:
         if num != 0:
-            result = math.gcd(result, abs(num))
+            if gmpy2 and hasattr(gmpy2, "gcd"):
+                result = gmpy2.gcd(  # pyright: ignore[reportAttributeAccessIssue]
+                    result, abs(num)
+                )
+            else:
+                result = math.gcd(result, abs(num))
     return result
 
 
@@ -190,5 +200,11 @@ def least_common_multiple(numbers: list) -> int:
             raise InvalidInputError("All elements must be integers")
     result = abs(numbers[0])
     for num in numbers[1:]:
-        result = abs(result * num) // math.gcd(result, abs(num))
+        gcd_val = greatest_common_divisor([result, abs(num)])
+        if gmpy2 and hasattr(gmpy2, "lcm"):
+            result = gmpy2.lcm(  # pyright: ignore[reportAttributeAccessIssue]
+                result, abs(num)
+            )
+        else:
+            result = abs(result * num) // gcd_val
     return result

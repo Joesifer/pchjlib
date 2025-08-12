@@ -1,5 +1,4 @@
 # src/pchjlib/special_calculations.py
-
 """
 Functions for special calculations.
 """
@@ -7,9 +6,7 @@ Functions for special calculations.
 from pchjlib.utils import InvalidInputError, MathError
 
 
-def calculate_electricity_bill_Vietnamese(
-    old_reading: float, new_reading: float
-) -> str:
+def calculate_electricity_bill_vietnam(old_reading: float, new_reading: float) -> str:
     """
     Calculate electricity bill based on Vietnamese pricing tiers.
 
@@ -24,7 +21,7 @@ def calculate_electricity_bill_Vietnamese(
         - InvalidInputError: If readings are not numbers or invalid.
 
     Example:
-        >>> calculate_electricity_bill_Vietnamese(100, 150)
+        >>> calculate_electricity_bill_vietnam(100, 150)
         '- Electricity consumed this month: 50.0 Kwh\n- Electricity bill this month: 83900.0 VND'
     """
     if not (
@@ -83,12 +80,29 @@ def largest_number_with_digit_sum(digit_count: int, target_sum: int) -> str:
         raise InvalidInputError("Inputs must be non-negative")
     if target_sum > 9 * digit_count:
         raise MathError("Sum cannot exceed 9 times the number of digits")
-    if digit_count == 0 or target_sum == 0:
+    if target_sum == 0 or digit_count == 0:
         return "0" * digit_count if digit_count > 0 else "0"
+    if (
+        target_sum < digit_count - 1
+    ):  # Cannot have leading zero in largest, but allow zeros
+        raise MathError("No valid number without leading zeros")
     result = []
     remaining_sum = target_sum
     for _ in range(digit_count):
         digit = min(9, remaining_sum)
-        result.append(str(digit))
+        result.append(digit)
         remaining_sum -= digit
-    return "".join(result)  # Removed [::-1] to build largest directly
+    # Adjust for exact sum: if remaining >0, impossible (but min ensures not)
+    # To make largest, start with as many 9s as possible
+    # Actually, the code above builds [9,9,..., (target - 9*(d-1)), 0...]
+    # But to fix: we need to place smallest at end
+    # Correct way: initialize with 0s, then add from left
+    result = ["0"] * digit_count
+    remaining = target_sum
+    for i in range(digit_count):
+        add = min(9, remaining)
+        result[i] = str(add)
+        remaining -= add
+        if remaining == 0:
+            break
+    return "".join(result)

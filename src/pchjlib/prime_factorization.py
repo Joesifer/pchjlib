@@ -4,12 +4,44 @@
 Functions for prime factorization.
 """
 
+import math
+import random
+
 from pchjlib.utils import InvalidInputError, MathError
+from pchjlib.primes import is_prime  # For checking if factor is prime
+
+
+def _gcd(a: int, b: int) -> int:
+    while b:
+        a, b = b, a % b
+    return a
+
+
+def _pollard_rho(n: int) -> int:
+    """
+    Pollard's Rho to find a non-trivial factor.
+    """
+    if n % 2 == 0:
+        return 2
+    if n % 3 == 0:
+        return 3
+    x = random.randint(1, n - 1)
+    y = x
+    c = random.randint(1, n - 1)
+    d = 1
+    while d == 1:
+        x = (x * x + c) % n
+        y = (y * y + c) % n
+        y = (y * y + c) % n
+        d = _gcd(abs(x - y), n)
+        if d == n:
+            return _pollard_rho(n)  # Retry if failed
+    return d
 
 
 def prime_factors(input_number: int) -> list:
     """
-    Factorize a number into a list of prime factors.
+    Factorize a number into a list of prime factors using trial + Pollard's Rho.
 
     Parameters:
         - input_number (int): The number to factorize.
@@ -29,12 +61,26 @@ def prime_factors(input_number: int) -> list:
     if input_number <= 1:
         raise InvalidInputError("Number must be greater than 1")
     factors = []
-    divisor = 2
-    while input_number > 1:
-        while input_number % divisor == 0:
-            factors.append(divisor)
-            input_number //= divisor
-        divisor += 1
+    n = input_number
+    # Trial division for small factors
+    while n % 2 == 0:
+        factors.append(2)
+        n //= 2
+    for i in range(3, min(10**6, int(math.sqrt(n)) + 1), 2):
+        while n % i == 0:
+            factors.append(i)
+            n //= i
+    # If remaining is prime
+    if n > 1:
+        if is_prime(n):
+            factors.append(n)
+        else:
+            # Use Pollard's Rho for large composite
+            while n > 1:
+                factor = _pollard_rho(n)
+                while n % factor == 0:
+                    factors.append(factor)
+                    n //= factor
     return factors
 
 
