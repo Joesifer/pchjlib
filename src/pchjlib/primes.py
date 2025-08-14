@@ -33,51 +33,60 @@ def is_prime(input_number: int) -> bool:
         >>> is_prime(4)
         False
     """
+    # Validate input
     if not isinstance(input_number, int):
         raise InvalidInputError("Input must be an integer")
     if input_number < 0:
         raise InvalidInputError("Input must be non-negative")
-    if gmpy2 and hasattr(gmpy2, "is_prime") and input_number > 2**64:
-        return bool(gmpy2.is_prime(input_number))  # type: ignore
+    if input_number < 2:
+        return False
 
-    def miller_rabin(n: int) -> bool:
-        if n <= 1:
-            return False
-        if n <= 3:
+    # Quick trial division by small primes (as in main_repair)
+    for p in (2, 3, 5, 7, 11, 13, 17, 19):
+        if input_number == p:
             return True
-        if n % 2 == 0:
+        if input_number % p == 0:
             return False
 
-        # Write n as d*2^r + 1
-        s = 0
+    # Miller-Rabin core (same structure as main_repair)
+    def _miller_rabin(n: int, bases: tuple[int, ...]) -> bool:
         d = n - 1
-        while d % 2 == 0:
-            s += 1
-            d //= 2
-
-        # Fixed witnesses for deterministic test (for n < 2^64, these are sufficient)
-        witnesses = (
-            [2, 3, 5, 7, 11, 13, 23] if n < 2**64 else [2, 3]
-        )  # Fallback for larger, but recommend gmpy2
-
-        def check(a: int, s: int, d: int, n: int) -> bool:
+        s = (d & -d).bit_length() - 1
+        d >>= s
+        for a in bases:
+            if a % n == 0:
+                continue
             x = pow(a, d, n)
             if x == 1 or x == n - 1:
-                return True
+                continue
             for _ in range(s - 1):
-                x = pow(x, 2, n)
+                x = (x * x) % n
                 if x == n - 1:
-                    return True
-            return False
-
-        for a in witnesses:
-            if a >= n:
-                break
-            if not check(a, s, d, n):
+                    break
+            else:
                 return False
         return True
 
-    return miller_rabin(input_number)
+    # Choose bases deterministically by size (mirrors main_repair)
+    if input_number < (1 << 32):
+        bases = (2, 7, 61)
+        return _miller_rabin(input_number, bases)
+
+    if input_number < (1 << 64):
+        bases = (2, 3, 5, 7, 11, 13, 17)
+        return _miller_rabin(input_number, bases)
+
+    # For very large n: try gmpy2 if available, else use a larger deterministic set
+    try:
+        import gmpy2  # type: ignore
+
+        if hasattr(gmpy2, "is_prime"):
+            return bool(gmpy2.is_prime(input_number))  # type: ignore
+    except Exception:
+        pass
+
+    bases = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41)
+    return _miller_rabin(input_number, bases)
 
 
 def generate_prime_list(limit: int) -> list:

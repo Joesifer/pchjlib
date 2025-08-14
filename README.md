@@ -687,10 +687,12 @@ This will discover and run all tests in the `tests/` directory. Ensure the libra
 
 ## 🛠️ Update History
 
-> **📅 Latest Update:** August 12, 2025
-> **📦 Total Releases:** 98
+> **📅 Latest Update:** August 15, 2025
+> **📦 Total Releases:** 99
 
 ### 📌 2025
+#### 1.7.1 (August 15, 2025)
+- Optimize the `is_prime` function.
 
 #### 1.7.0 (August 12, 2025)
 - **Performance Improvements**: Implemented merge sort for O(n log n) inversion counting; added Pollard's Rho for faster prime factorization on large numbers; made sequence generation dynamic to handle larger counts; integrated optional gmpy2 for accelerated GCD/LCM.
