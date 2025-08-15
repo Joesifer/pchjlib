@@ -98,14 +98,29 @@ result = pchjlib.{___}.{function}(value_1, value_2, ...)
 
 ### 🔢 Prime and Related Number Functions (primes.py)
 
-Note: Miller-Rabin primality test is now deterministic using fixed witnesses for accuracy.
+> **Note**: `Miller-Rabin` primality test is now deterministic using fixed witnesses for accuracy.
 
 **is_prime(input_number)**
 Checks if a number is prime. 
- - Parameter: `input_number` (int) 
- - Returns: `True` if prime, `False` otherwise. 
- - Raises: `InvalidInputError` if not an integer or negative. 
- - Example: `is_prime(7)` → `True`
+ - Parameter: `input_number` (int)
+ - Returns: `True` if prime, `False` otherwise.
+ - Raises: InvalidInputError if not an integer.
+
+*Notes:*
+ - Negative numbers, 0, and 1 always return False.
+ - Uses quick trial division by small primes and perfect square elimination.
+ - Falls back on a deterministic `Miller–Rabin` test with bases chosen according to the number’s bit length.
+ - If gmpy2 is installed, powmod and isqrt are accelerated.
+
+*Example:*
+```python
+>>> is_prime(7)
+True
+>>> is_prime(4)
+False
+>>> is_prime(-5)
+False
+```
 
 **generate_prime_list(limit)**
 Generates primes from 0 to `limit` using the Sieve algorithm. 
@@ -687,16 +702,16 @@ This will discover and run all tests in the `tests/` directory. Ensure the libra
 
 ## 🛠️ Update History
 
-> **📅 Latest Update:** August 15, 2025
-> **📦 Total Releases:** 99
+**📅 Latest Update:** August 15, 2025
+**📦 Total Releases:** 99
 
 ### 📌 2025
-#### 1.7.1 (August 15, 2025)
+#### 1.7.2 → 1.7.1 (August 15, 2025)
 - Optimize the `is_prime` function.
 
 #### 1.7.0 (August 12, 2025)
 - **Performance Improvements**: Implemented merge sort for O(n log n) inversion counting; added Pollard's Rho for faster prime factorization on large numbers; made sequence generation dynamic to handle larger counts; integrated optional gmpy2 for accelerated GCD/LCM.
-- **Code Quality Enhancements**: Standardized function names (e.g., `calculate_electricity_bill_Vietnamese` to `calculate_electricity_bill_vietnam`); replaced wildcard imports with explicit ones in `__init__.py`; fixed bug in `largest_number_with_digit_sum` for correct largest output (e.g., '960' for 3 digits sum 15); improved CLI error handling with detailed tracebacks; added user warning for side-effects in `pchjicon.py`; made Miller-Rabin primality test deterministic using fixed witnesses.
+- **Code Quality Enhancements**: Standardized function names (e.g., `calculate_electricity_bill_Vietnamese` to `calculate_electricity_bill_vietnam`); replaced wildcard imports with explicit ones in `__init__.py`; fixed bug in `largest_number_with_digit_sum` for correct largest output (e.g., '960' for 3 digits sum 15); improved CLI error handling with detailed tracebacks; added user warning for side-effects in `pchjicon.py`; made `Miller-Rabin` primality test deterministic using fixed witnesses.
 - **Documentation Updates**: Fixed incorrect examples in README (e.g., largest number); summarized update history for brevity; removed redundant sections and added warnings for probabilistic methods (now deterministic) and side-effects.
 
 #### 1.6.5 → 1.5.0 (August 11-12, 2025)

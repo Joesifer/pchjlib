@@ -8,85 +8,115 @@ import math
 from pchjlib.utils import InvalidInputError
 
 # Optional import for gmpy2 to handle large numbers
+
 try:
     import gmpy2
+    from gmpy2 import isqrt as g_isqrt, powmod as g_powmod  # type: ignore[attr-defined]
+
+    GMPY2_AVAILABLE = True
 except ImportError:
-    gmpy2 = None
+    from math import isqrt as g_isqrt
+
+    GMPY2_AVAILABLE = False
 
 
-def is_prime(input_number: int) -> bool:
+def _quick_checks(n: int) -> int:
     """
-    Check if a number is a prime number.
-
-    Parameters:
-        - input_number (int): The number to check.
+    Perform quick checks before running Miller - Rabin.
 
     Returns:
-        - bool: True if the number is prime, False otherwise.
+        0  -> definitely composite
+        1  -> definitely prime
+       -1  -> inconclusive, continue with Miller - Rabin
+    """
+    if n < 2:
+        return 0
+    if n % 2 == 0:
+        return 1 if n == 2 else 0
+    if n % 3 == 0:
+        return 1 if n == 3 else 0
+    r = g_isqrt(n)
+    if r * r == n:
+        return 0
+    return -1
+
+
+def _miller_rabin(n: int, bases: tuple[int, ...]) -> bool:
+    """
+    Miller - Rabin primality test.
+
+    Args:
+        n (int): Number to test.
+        bases (tuple[int, ...]): Test bases to use.
+
+    Returns:
+        bool: True if n passes all bases (probably prime), False if composite.
+    """
+    d = n - 1
+    s = (d & -d).bit_length() - 1
+    d >>= s
+    for a in bases:
+        if a % n == 0:
+            continue
+        x = g_powmod(a, d, n) if GMPY2_AVAILABLE else pow(a, d, n)
+        if x == 1 or x == n - 1:
+            continue
+        for _ in range(s - 1):
+            x = (x * x) % n
+            if x == n - 1:
+                break
+        else:
+            return False
+    return True
+
+
+def is_prime(n: int) -> bool:
+    """
+    Determine whether a number is prime.
+
+    Parameters:
+        n (int): The integer to test.
+
+    Returns:
+        bool: True if n is prime, False otherwise.
 
     Raises:
-        - InvalidInputError: If the input is not an integer or negative.
+        - InvalidInputError: If number is not an integer.
 
-    Example:
+    Notes:
+        - Negative numbers, 0, and 1 always return False.
+        - Uses quick trial division by small primes and perfect square elimination.
+        - Falls back on a deterministic Miller - Rabin test with bases chosen
+          according to n's bit length.
+        - If gmpy2 is installed, powmod and isqrt are accelerated.
+
+    Examples:
         >>> is_prime(7)
         True
         >>> is_prime(4)
         False
+        >>> is_prime(-5)
+        False
     """
-    # Validate input
-    if not isinstance(input_number, int):
-        raise InvalidInputError("Input must be an integer")
-    if input_number < 0:
-        raise InvalidInputError("Input must be non-negative")
-    if input_number < 2:
-        return False
 
-    # Quick trial division by small primes (as in main_repair)
-    for p in (2, 3, 5, 7, 11, 13, 17, 19):
-        if input_number == p:
-            return True
-        if input_number % p == 0:
-            return False
+    if not isinstance(n, int):
+        raise InvalidInputError("Number must be an integer")
 
-    # Miller-Rabin core (same structure as main_repair)
-    def _miller_rabin(n: int, bases: tuple[int, ...]) -> bool:
-        d = n - 1
-        s = (d & -d).bit_length() - 1
-        d >>= s
-        for a in bases:
-            if a % n == 0:
-                continue
-            x = pow(a, d, n)
-            if x == 1 or x == n - 1:
-                continue
-            for _ in range(s - 1):
-                x = (x * x) % n
-                if x == n - 1:
-                    break
-            else:
-                return False
-        return True
+    t = _quick_checks(n)
+    if t != -1:
+        return t == 1
 
-    # Choose bases deterministically by size (mirrors main_repair)
-    if input_number < (1 << 32):
+    bl = n.bit_length()
+    if bl <= 32:
         bases = (2, 7, 61)
-        return _miller_rabin(input_number, bases)
-
-    if input_number < (1 << 64):
+    elif bl <= 64:
         bases = (2, 3, 5, 7, 11, 13, 17)
-        return _miller_rabin(input_number, bases)
+    elif bl <= 128:
+        bases = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37)
+    else:
+        bases = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47)
 
-    # For very large n: try gmpy2 if available, else use a larger deterministic set
-    try:
-        import gmpy2  # type: ignore
-
-        if hasattr(gmpy2, "is_prime"):
-            return bool(gmpy2.is_prime(input_number))  # type: ignore
-    except Exception:
-        pass
-
-    bases = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41)
-    return _miller_rabin(input_number, bases)
+    return _miller_rabin(n, bases)
 
 
 def generate_prime_list(limit: int) -> list:
